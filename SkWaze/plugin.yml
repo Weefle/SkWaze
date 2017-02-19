@@ -1,0 +1,6 @@
+name: SkWaze
+author: Weefle
+version: 0.1
+description: The coolest addon of skript
+depend: [Skript]
+main: fr.weefle.waze.Waze
