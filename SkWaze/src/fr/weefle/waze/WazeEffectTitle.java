@@ -9,6 +9,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 import net.minecraft.server.v1_11_R1.IChatBaseComponent;
+import net.minecraft.server.v1_11_R1.IChatBaseComponent.ChatSerializer;
 import net.minecraft.server.v1_11_R1.PacketPlayOutTitle;
 
 public class WazeEffectTitle extends Effect {
@@ -38,10 +39,10 @@ public class WazeEffectTitle extends Effect {
 	@Override
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
-	    IChatBaseComponent basetitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + title.getSingle(arg0) + "\"}");
+	    IChatBaseComponent basetitle = ChatSerializer.a("{\"text\": \"" + title.getSingle(arg0) + "\"}");
 	    PacketPlayOutTitle endtitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, basetitle);
 	    
-	    IChatBaseComponent basesubtitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + subtitle.getSingle(arg0) + "\"}");
+	    IChatBaseComponent basesubtitle = ChatSerializer.a("{\"text\": \"" + subtitle.getSingle(arg0) + "\"}");
 	    PacketPlayOutTitle endsubtitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.SUBTITLE, basesubtitle);
 	    
 	    PacketPlayOutTitle endtime = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TIMES, null, 20, time.getSingle(arg0), 20);

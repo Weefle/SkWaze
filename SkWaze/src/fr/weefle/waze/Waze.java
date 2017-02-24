@@ -12,6 +12,7 @@ public class Waze extends JavaPlugin {
 		// TODO Auto-generated method stub
 		Skript.registerAddon(this);
 		Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [subtitle] %string% to %player% for %integer% tick[s]");
+		Skript.registerEffect(WazeEffectActionBar.class, "[waze] (send|create) action[bar] %string% to %player%");
 		Skript.registerExpression(WazeExpressionPing.class, Integer.class, ExpressionType.PROPERTY, "[waze] %player%['s] ping", "[waze] ping of %player%");
 		super.onEnable();
 	}
