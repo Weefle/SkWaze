@@ -1,7 +1,6 @@
 package fr.weefle.waze;
 
 import org.bukkit.plugin.java.JavaPlugin;
-
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
 
@@ -16,6 +15,7 @@ public class Waze extends JavaPlugin {
 		Skript.registerExpression(WazeExpressionPing.class, Integer.class, ExpressionType.PROPERTY, "[waze] %player%['s] ping", "[waze] ping of %player%");
 		Skript.registerEffect(WazeEffectRecipe.class, "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%");
 		Skript.registerEffect(WazeEffectClearRecipe.class, "[waze] (remove|clear) [craft[ing]] recipe[s] (for|to) %itemtypes%");
+		Skript.registerEffect(WazeEffectBossBar.class, "[waze] (create|send) [boss]bar %string% (to|for) %player%");
 		super.onEnable();
 	}
 

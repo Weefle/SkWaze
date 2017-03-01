@@ -35,7 +35,7 @@ public class WazeEffectClearRecipe
   
   public String toString(Event event, boolean b)
   {
-    return "MFG recipes";
+    return "remove recipe";
   }
   
   @SuppressWarnings("unchecked")
