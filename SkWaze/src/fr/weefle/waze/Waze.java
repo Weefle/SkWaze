@@ -14,7 +14,7 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectActionBar.class, "[waze] (send|create) action[bar] %string% (to|for) %player%");
 		Skript.registerExpression(WazeExpressionPing.class, Integer.class, ExpressionType.PROPERTY, "[waze] %player%['s] ping", "[waze] ping of %player%");
 		Skript.registerEffect(WazeEffectRecipe.class, "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%");
-		Skript.registerEffect(WazeEffectClearRecipe.class, "[waze] (remove|clear) [craft[ing]] recipe[s] (for|to) %itemtypes%");
+		Skript.registerEffect(WazeEffectClearRecipes.class, "[waze] (remove|clear) [all] [craft[ing]] recipe[s]");
 		Skript.registerEffect(WazeEffectBossBar.class, "[waze] (create|send) [boss]bar %string% (to|for) %player%");
 		super.onEnable();
 	}
