@@ -16,6 +16,7 @@ import us.myles.ViaVersion.api.boss.BossStyle;
 public class WazeEffectBossBar extends Effect {
 	
 	private Expression<String> message;
+	private Expression<Float> percent;
 	private Expression<Player> player;
 
 	@SuppressWarnings("unchecked")
@@ -23,7 +24,8 @@ public class WazeEffectBossBar extends Effect {
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
 		// TODO Auto-generated method stub
 		message = (Expression<String>) arg0[0];
-		player = (Expression<Player>) arg0[1];
+		percent = (Expression<Float>) arg0[2];
+		player = (Expression<Player>) arg0[3];
 		return true;
 	}
 
@@ -37,7 +39,7 @@ public class WazeEffectBossBar extends Effect {
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
        ViaAPI<?> api = Via.getAPI();
-       BossBar<?> bar = api.createBossBar(message.getSingle(arg0), BossColor.RED, BossStyle.SOLID);
+       BossBar<?> bar = api.createBossBar(message.getSingle(arg0), percent.getSingle(arg0), BossColor.RED, BossStyle.SOLID);
        bar.addPlayer(player.getSingle(arg0).getUniqueId());
 	}
 
