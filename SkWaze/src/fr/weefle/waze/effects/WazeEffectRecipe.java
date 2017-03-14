@@ -1,4 +1,4 @@
-package fr.weefle.waze;
+package fr.weefle.waze.effects;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.aliases.ItemType;

@@ -1,4 +1,4 @@
-package fr.weefle.waze;
+package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;

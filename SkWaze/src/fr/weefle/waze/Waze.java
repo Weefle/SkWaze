@@ -3,6 +3,12 @@ package fr.weefle.waze;
 import org.bukkit.plugin.java.JavaPlugin;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
+import fr.weefle.waze.effects.WazeEffectActionBar;
+import fr.weefle.waze.effects.WazeEffectBossBar;
+import fr.weefle.waze.effects.WazeEffectClearRecipes;
+import fr.weefle.waze.effects.WazeEffectRecipe;
+import fr.weefle.waze.effects.WazeEffectTitle;
+import fr.weefle.waze.expressions.WazeExpressionPing;
 
 public class Waze extends JavaPlugin {
 	
