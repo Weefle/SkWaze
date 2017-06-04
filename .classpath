@@ -4,6 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Desktop/Spigot/spigot-1.11.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/Skript.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/ViaVersion-1.0.5-1_12pre2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/ViaVersion-1.1.0-1_12pre7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
