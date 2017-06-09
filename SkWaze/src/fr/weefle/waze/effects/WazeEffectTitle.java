@@ -1,16 +1,16 @@
 package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import net.minecraft.server.v1_11_R1.IChatBaseComponent;
-import net.minecraft.server.v1_11_R1.IChatBaseComponent.ChatSerializer;
-import net.minecraft.server.v1_11_R1.PacketPlayOutTitle;
+import net.minecraft.server.v1_12_R1.IChatBaseComponent;
+import net.minecraft.server.v1_12_R1.IChatBaseComponent.ChatSerializer;
+import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
 
 public class WazeEffectTitle extends Effect {
 	

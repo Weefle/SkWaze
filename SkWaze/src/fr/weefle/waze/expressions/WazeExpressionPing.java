@@ -2,14 +2,14 @@ package fr.weefle.waze.expressions;
 
 import javax.annotation.Nullable;
 
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import net.minecraft.server.v1_11_R1.EntityPlayer;
+import net.minecraft.server.v1_12_R1.EntityPlayer;
 
 public class WazeExpressionPing extends SimpleExpression<Integer> {
 	
