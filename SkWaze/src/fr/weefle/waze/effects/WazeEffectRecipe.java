@@ -43,7 +43,8 @@ public class WazeEffectRecipe
     }
     if (this.isShapeless)
     {
-      ShapelessRecipe r = new ShapelessRecipe(io.getRandom());
+      @SuppressWarnings("deprecation")
+	ShapelessRecipe r = new ShapelessRecipe(io.getRandom());
       if (i1.getRandom().getType() != Material.AIR) {
         r.addIngredient(i1.getRandom().getData());
       }
@@ -75,7 +76,8 @@ public class WazeEffectRecipe
     }
     else
     {
-      ShapedRecipe r = new ShapedRecipe(io.getRandom());
+      @SuppressWarnings("deprecation")
+	ShapedRecipe r = new ShapedRecipe(io.getRandom());
       r.shape(new String[] { "abc", 
         "def", 
         "ghi" });
