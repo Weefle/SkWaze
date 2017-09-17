@@ -1,6 +1,6 @@
 name: SkWaze
 author: Weefle
-version: 1.0
+version: 1.1
 description: The coolest addon of Skript
 depends: [Skript, ViaVersion]
 main: fr.weefle.waze.Waze
