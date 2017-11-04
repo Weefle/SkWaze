@@ -25,12 +25,12 @@ public class Waze extends JavaPlugin {
 	public void onEnable() {
 		if (setupActionBar()) {
 
-			getLogger().info("Actionbar setup was successful!");
+			getLogger().info("NMS setup was successful!");
 			getLogger().info("The plugin setup process is complete!");
 
 		} else {
 
-			getLogger().severe("Failed to setup Actionbar!");
+			getLogger().severe("Failed to setup NMS!");
 			getLogger().severe("Your server version is not compatible with this plugin!");
 
 			Bukkit.getPluginManager().disablePlugin(this);
@@ -44,7 +44,7 @@ public class Waze extends JavaPlugin {
 		Skript.registerExpression(WazeExpressionPing.class, Integer.class, ExpressionType.PROPERTY, "[waze] %player%['s] ping", "[waze] ping of %player%");
 		Skript.registerEffect(WazeEffectRecipe.class, "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%");
 		Skript.registerEffect(WazeEffectClearRecipes.class, "[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]");
-		Skript.registerEffect(WazeEffectBossBarCreate.class, "[waze] (create|send) [boss]bar %string% (with|at) %float% percent[s] (and|with) color %string% (to|for) %player%");
+		Skript.registerEffect(WazeEffectBossBarCreate.class, "[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% (to|for) %player%");
         Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) boss[bar] (of|for) %player%");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
         /*EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
