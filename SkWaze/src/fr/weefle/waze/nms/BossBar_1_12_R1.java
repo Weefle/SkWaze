@@ -11,7 +11,7 @@ public class BossBar_1_12_R1 implements BossBar {
     @Override
     public void sendBossBar(Player p, String message, double percent, String color) {
         BarColor c = BarColor.valueOf(color);
-        org.bukkit.boss.BossBar bar = Bukkit.createBossBar(message, c, BarStyle.SOLID);
+        bar = Bukkit.createBossBar(message, c, BarStyle.SOLID);
         bar.setProgress(percent);
         bar.addPlayer(p);
     }
