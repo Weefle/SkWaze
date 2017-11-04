@@ -1,17 +1,15 @@
 package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+
+import fr.weefle.waze.Waze;
+import fr.weefle.waze.nms.ActionBar;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import net.minecraft.server.v1_12_R1.ChatMessageType;
-import net.minecraft.server.v1_12_R1.IChatBaseComponent;
-import net.minecraft.server.v1_12_R1.IChatBaseComponent.ChatSerializer;
-import net.minecraft.server.v1_12_R1.PacketPlayOutChat;
 
 public class WazeEffectActionBar extends Effect {
 	
@@ -36,9 +34,7 @@ public class WazeEffectActionBar extends Effect {
 	@Override
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
-		IChatBaseComponent actionbar = ChatSerializer.a("{\"text\": \"" + message.getSingle(arg0) + "\"}");
-		PacketPlayOutChat actionb = new PacketPlayOutChat(actionbar, ChatMessageType.a((byte) 2));
-		((CraftPlayer)player.getSingle(arg0)).getHandle().playerConnection.sendPacket(actionb);
-	}
+        Waze.getInstance().getActionbar().sendActionBar(player.getSingle(arg0), message.getSingle(arg0));
+    }
 
 }

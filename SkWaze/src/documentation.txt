@@ -1,0 +1,12 @@
+Effects:
+"[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %player% (for|to) %integer% tick[s]"
+"[waze] (send|create) action[bar] %string% (to|for) %player%"
+"[waze] (send|teleport) %player% to [bungee[cord]] server %string%"
+"[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%"
+"[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]"
+"[waze] (create|send) [boss]bar %string% (with|at) %float% percent[s] (and|with) color %string% (to|for) %player%"
+"[waze] (remove|delete|clear) boss[bar] (of|for) %player%"
+Expressions:
+"[waze] %player%['s] ping", "[waze] ping of %player%"
+Events:
+"[waze] jump[ing]"

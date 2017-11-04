@@ -1,16 +1,15 @@
 package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+
+import fr.weefle.waze.Waze;
+import fr.weefle.waze.nms.Title;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import net.minecraft.server.v1_12_R1.IChatBaseComponent;
-import net.minecraft.server.v1_12_R1.IChatBaseComponent.ChatSerializer;
-import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
 
 public class WazeEffectTitle extends Effect {
 	
@@ -39,17 +38,7 @@ public class WazeEffectTitle extends Effect {
 	@Override
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
-	    IChatBaseComponent basetitle = ChatSerializer.a("{\"text\": \"" + title.getSingle(arg0) + "\"}");
-	    PacketPlayOutTitle endtitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, basetitle);
-	    
-	    IChatBaseComponent basesubtitle = ChatSerializer.a("{\"text\": \"" + subtitle.getSingle(arg0) + "\"}");
-	    PacketPlayOutTitle endsubtitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.SUBTITLE, basesubtitle);
-	    
-	    PacketPlayOutTitle endtime = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TIMES, null, 20, time.getSingle(arg0), 20);
-	    
-	    ((CraftPlayer)player.getSingle(arg0)).getHandle().playerConnection.sendPacket(endtitle);
-	    ((CraftPlayer)player.getSingle(arg0)).getHandle().playerConnection.sendPacket(endsubtitle);
-	    ((CraftPlayer)player.getSingle(arg0)).getHandle().playerConnection.sendPacket(endtime);
+        Waze.getInstance().getTitle().sendTitle(player.getSingle(arg0), title.getSingle(arg0), subtitle.getSingle(arg0), time.getSingle(arg0));
 	}
 
 }
