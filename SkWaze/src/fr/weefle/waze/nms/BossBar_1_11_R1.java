@@ -20,4 +20,9 @@ public class BossBar_1_11_R1 implements BossBar {
     public void removeBossBar(Player p) {
         bar.removePlayer(p);
     }
+
+    @Override
+    public void removeBossBarAll() {
+        bar.removeAll();
+    }
 }
