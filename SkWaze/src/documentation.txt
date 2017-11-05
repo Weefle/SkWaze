@@ -4,8 +4,10 @@ Effects:
 "[waze] (send|teleport) %player% to [bungee[cord]] server %string%"
 "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%"
 "[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]"
-"[waze] (create|send) [boss]bar %string% (with|at) %float% percent[s] (and|with) color %string% (to|for) %player%"
-"[waze] (remove|delete|clear) boss[bar] (of|for) %player%"
+"[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% (to|for) %player%"
+"[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% (for|and) %integer% tick[s] (to|for) %player%"
+"[waze] (remove|delete|clear) [boss]bar (of|for) %player%"
+"[waze] (remove|delete|clear) all [boss]bar"
 Expressions:
 "[waze] %player%['s] ping", "[waze] ping of %player%"
 Events:
