@@ -45,7 +45,8 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectRecipe.class, "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%");
 		Skript.registerEffect(WazeEffectClearRecipes.class, "[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]");
 		Skript.registerEffect(WazeEffectBossBarCreate.class, "[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% (to|for) %player%");
-        Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar (of|for) %player%");
+		Skript.registerEffect(WazeEffectBossBarTime.class, "[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% (for|and) %integer% tick[s] (to|for) %player%");
+		Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar (of|for) %player%");
 		Skript.registerEffect(WazeEffectBossBarRemoveAll.class, "[waze] (remove|delete|clear) all [boss]bar");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
         /*EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
@@ -73,12 +74,12 @@ public class Waze extends JavaPlugin {
 		if (version.equals("v1_12_R1")) {
 			actionbar = new ActionBar_1_12_R1();
             title = new Title_1_12_R1();
-            bossbar = new BossBar_1_12_R1();
+            bossbar = new BossBar_1_12_R1(this);
             ping = new Ping_1_12_R1();
 		} else if (version.equals("v1_11_R1")) {
 			actionbar = new Actionbar_1_11_R1();
 			title = new Title_1_11_R1();
-            bossbar = new BossBar_1_11_R1();
+            bossbar = new BossBar_1_11_R1(this);
             ping = new Ping_1_11_R1();
 		}
 		return actionbar != null;
