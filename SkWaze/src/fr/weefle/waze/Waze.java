@@ -1,11 +1,8 @@
 package fr.weefle.waze;
 
-//import ch.njol.skript.registrations.EventValues;
-//import ch.njol.skript.util.Getter;
 import fr.weefle.waze.effects.*;
 import fr.weefle.waze.nms.*;
 import org.bukkit.Bukkit;
-//import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
@@ -15,7 +12,7 @@ import fr.weefle.waze.expressions.WazeExpressionPing;
 
 public class Waze extends JavaPlugin {
 	
-	public static Waze instance;
+	private static Waze instance;
 	private ActionBar actionbar;
 	private Title title;
 	private BossBar bossbar;
@@ -74,12 +71,12 @@ public class Waze extends JavaPlugin {
 		if (version.equals("v1_12_R1")) {
 			actionbar = new ActionBar_1_12_R1();
             title = new Title_1_12_R1();
-            bossbar = new BossBar_1_12_R1(this);
+            bossbar = new BossBar_1_9_R1(this);
             ping = new Ping_1_12_R1();
 		} else if (version.equals("v1_11_R1")) {
 			actionbar = new Actionbar_1_11_R1();
 			title = new Title_1_11_R1();
-            bossbar = new BossBar_1_11_R1(this);
+            bossbar = new BossBar_1_9_R1(this);
             ping = new Ping_1_11_R1();
 		}
 		return actionbar != null;

@@ -1,7 +1,6 @@
 package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
-
 import fr.weefle.waze.Waze;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;

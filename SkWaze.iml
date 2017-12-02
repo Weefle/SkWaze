@@ -43,8 +43,8 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="spigot-1.12.2-R0.1-SNAPSHOT-b1408" level="project" />
     <orderEntry type="library" name="Skript" level="project" />
     <orderEntry type="library" name="spigot-1.11.2-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="spigot-1.12.2-R0.1-SNAPSHOT-b1408" level="project" />
   </component>
 </module>
