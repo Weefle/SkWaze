@@ -1,0 +1,10 @@
+- holograms
+- scoreboards
+- tablist
+- more bungee features
+- nametag
+- particles
+- sql
+- worldedit (schematics, copy/paste)
+- worldguard regions
+- work on jump event

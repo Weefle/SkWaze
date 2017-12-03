@@ -17,6 +17,7 @@ public class Waze extends JavaPlugin {
 	private Title title;
 	private BossBar bossbar;
 	private Ping ping;
+	private ScoreBoard scoreboard;
 	
 	@Override
 	public void onEnable() {
@@ -44,7 +45,9 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectBossBarCreate.class, "[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% (to|for) %player%");
 		Skript.registerEffect(WazeEffectBossBarTime.class, "[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% (for|and) %integer% tick[s] (to|for) %player%");
 		Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar (of|for) %player%");
-		Skript.registerEffect(WazeEffectBossBarRemoveAll.class, "[waze] (remove|delete|clear) all [boss]bar");
+        Skript.registerEffect(WazeEffectScoreBoard.class, "[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %player%");
+		Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) scoreboard %string% (of|for) %player%");
+        Skript.registerEffect(WazeEffectBossBarRemoveAll.class, "[waze] (remove|delete|clear) all [boss]bar");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
         /*EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
             @Override
@@ -73,11 +76,13 @@ public class Waze extends JavaPlugin {
             title = new Title_1_12_R1();
             bossbar = new BossBar_1_9_R1(this);
             ping = new Ping_1_12_R1();
+			scoreboard = new ScoreBoard_1_9_R1();
 		} else if (version.equals("v1_11_R1")) {
 			actionbar = new Actionbar_1_11_R1();
 			title = new Title_1_11_R1();
             bossbar = new BossBar_1_9_R1(this);
             ping = new Ping_1_11_R1();
+            scoreboard = new ScoreBoard_1_9_R1();
 		}
 		return actionbar != null;
 	}
@@ -95,6 +100,9 @@ public class Waze extends JavaPlugin {
     }
     public Ping getPing(){
         return ping;
+    }
+    public ScoreBoard getScoreBoard(){
+	    return scoreboard;
     }
 
 }
