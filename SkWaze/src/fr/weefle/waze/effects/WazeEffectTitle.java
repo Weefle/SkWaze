@@ -1,9 +1,7 @@
 package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
-
 import fr.weefle.waze.Waze;
-import fr.weefle.waze.nms.Title;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;

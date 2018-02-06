@@ -10,7 +10,6 @@ import ch.njol.util.Kleenean;
 
 public class WazeEffectBossBarRemoveAll extends Effect {
 
-    @SuppressWarnings("unchecked")
     @Override
     public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
         // TODO Auto-generated method stub
