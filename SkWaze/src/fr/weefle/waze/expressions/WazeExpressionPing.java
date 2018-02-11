@@ -1,5 +1,7 @@
 package fr.weefle.waze.expressions;
 
+import java.lang.reflect.InvocationTargetException;
+
 import javax.annotation.Nullable;
 import fr.weefle.waze.Waze;
 import org.bukkit.entity.Player;
@@ -43,7 +45,14 @@ public class WazeExpressionPing extends SimpleExpression<Integer> {
 	@Nullable
 	protected Integer[] get(Event arg0) {
 		// TODO Auto-generated method stub
-		return new Integer[]{ Waze.getInstance().getPing().getPing(player.getSingle(arg0)) };
+		try {
+			return new Integer[]{ Waze.getInstance().getPing().getPing(player.getSingle(arg0)) };
+		} catch (SecurityException | NoSuchMethodException | NoSuchFieldException | IllegalArgumentException
+				| IllegalAccessException | InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

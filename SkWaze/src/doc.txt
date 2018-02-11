@@ -10,6 +10,7 @@ Effects:
 "[waze] (remove|delete|clear) all [boss]bar"
 "[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %player%"
 "[waze] (clear|remove) scoreboard %string% (of|for) %player%"
+"[waze] (spawn|create|summon) [a number of] %int% [of] %string%['s] particle[s] (to|for) %player% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with) data %float%"
 Expressions:
 "[waze] %player%['s] ping", "[waze] ping of %player%"
 Events:

@@ -5,6 +5,11 @@
 - nametag
 - particles
 - sql
+- gui
 - worldedit (schematics, copy/paste)
 - worldguard regions
 - work on jump event
+- 1.8 bossbar support
+- effects support all players
+- more reflection
+- your ideas! :D

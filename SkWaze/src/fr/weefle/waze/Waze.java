@@ -17,6 +17,7 @@ public class Waze extends JavaPlugin {
 	private Title title;
 	private BossBar bossbar;
 	private Ping ping;
+	private Particles particles;
 	private ScoreBoard scoreboard;
 	
 	@Override
@@ -47,6 +48,7 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar (of|for) %player%");
         Skript.registerEffect(WazeEffectScoreBoard.class, "[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %player%");
 		Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) scoreboard %string% (of|for) %player%");
+		Skript.registerEffect(WazeEffectParticles.class, "[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %player% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with) data %float%");
         Skript.registerEffect(WazeEffectBossBarRemoveAll.class, "[waze] (remove|delete|clear) all [boss]bar");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
         /*EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
@@ -71,20 +73,12 @@ public class Waze extends JavaPlugin {
 
 		getLogger().info("Your server is running version " + version);
 
-		/*if (version.equals("v1_12_R1")) {
-			actionbar = new ActionBar_1_12_R1();
-            title = new Title_1_12_R1();
-            bossbar = new BossBar_1_9_R1(this);
-            ping = new Ping_1_12_R1();
-			scoreboard = new ScoreBoard_1_9_R1();
-		} else if (version.equals("v1_11_R1")) {
-			actionbar = new ActionBar_1_11_R1();
-			title = new Title_1_11_R1();
-            bossbar = new BossBar_1_9_R1(this);
-            ping = new Ping_1_11_R1();
-            scoreboard = new ScoreBoard_1_9_R1();
-		}*/
-		title = new Title_1_11_R1();
+		title = new Title();
+		scoreboard = new ScoreBoard();
+		bossbar = new BossBar(this);
+		actionbar = new ActionBar();
+		ping = new Ping();
+		particles = new Particles();
 		return true;
 	}
     public ActionBar getActionbar() {
@@ -104,6 +98,10 @@ public class Waze extends JavaPlugin {
     }
     public ScoreBoard getScoreBoard(){
 	    return scoreboard;
+    }
+    
+    public Particles getParticles(){
+	    return particles;
     }
 
 }
