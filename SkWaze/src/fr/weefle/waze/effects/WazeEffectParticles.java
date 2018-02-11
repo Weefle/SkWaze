@@ -48,7 +48,7 @@ public class WazeEffectParticles extends Effect {
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
         try {
-			Waze.getInstance().getParticles().sendParticles(player.getSingle(arg0), particles.getSingle(arg0), location.getSingle(arg0).getBlockX(), location.getSingle(arg0).getBlockY(), location.getSingle(arg0).getBlockZ(), x.getSingle(arg0), y.getSingle(arg0), z.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0));
+			Waze.getInstance().getParticles().sendParticles(player.getSingle(arg0), particles.getSingle(arg0), true, location.getSingle(arg0).getBlockX(), location.getSingle(arg0).getBlockY(), location.getSingle(arg0).getBlockZ(), x.getSingle(arg0), y.getSingle(arg0), z.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0), null);
 		} catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchMethodException | SecurityException | InstantiationException | NoSuchFieldException e) {
 			// TODO Auto-generated catch block
