@@ -71,20 +71,21 @@ public class Waze extends JavaPlugin {
 
 		getLogger().info("Your server is running version " + version);
 
-		if (version.equals("v1_12_R1")) {
+		/*if (version.equals("v1_12_R1")) {
 			actionbar = new ActionBar_1_12_R1();
             title = new Title_1_12_R1();
             bossbar = new BossBar_1_9_R1(this);
             ping = new Ping_1_12_R1();
 			scoreboard = new ScoreBoard_1_9_R1();
 		} else if (version.equals("v1_11_R1")) {
-			actionbar = new Actionbar_1_11_R1();
+			actionbar = new ActionBar_1_11_R1();
 			title = new Title_1_11_R1();
             bossbar = new BossBar_1_9_R1(this);
             ping = new Ping_1_11_R1();
             scoreboard = new ScoreBoard_1_9_R1();
-		}
-		return actionbar != null;
+		}*/
+		title = new Title_1_11_R1();
+		return true;
 	}
     public ActionBar getActionbar() {
         return actionbar;
