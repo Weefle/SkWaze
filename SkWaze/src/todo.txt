@@ -1,9 +1,9 @@
 - holograms
-- scoreboards
+#- scoreboards
 - tablist
 - more bungee features
 - nametag
-- particles
+#- particles
 - sql
 - gui
 - worldedit (schematics, copy/paste)
@@ -11,5 +11,5 @@
 - work on jump event
 - 1.8 bossbar support
 - effects support all players
-- more reflection
+#- more reflection
 - your ideas! :D

@@ -14,9 +14,9 @@ import ch.njol.util.Kleenean;
 
 public class WazeEffectParticles extends Effect {
 	
-	private Expression<Float> x;
-	private Expression<Float> y;
-	private Expression<Float> z;
+	private Expression<Float> xoff;
+	private Expression<Float> yoff;
+	private Expression<Float> zoff;
 	private Expression<Float> data;
 	private Expression<String> particles;
 	private Expression<Player> player;
@@ -31,9 +31,9 @@ public class WazeEffectParticles extends Effect {
 		particles = (Expression<String>) arg0[1];
 		player = (Expression<Player>) arg0[2];
 		location = (Expression<Location>) arg0[3];
-		x = (Expression<Float>) arg0[4];
-		y = (Expression<Float>) arg0[5];
-		z = (Expression<Float>) arg0[6];
+		xoff = (Expression<Float>) arg0[4];
+		yoff = (Expression<Float>) arg0[5];
+		zoff = (Expression<Float>) arg0[6];
 		data = (Expression<Float>) arg0[7];
 		return true;
 	}
@@ -48,7 +48,7 @@ public class WazeEffectParticles extends Effect {
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
         try {
-			Waze.getInstance().getParticles().sendParticles(player.getSingle(arg0), particles.getSingle(arg0), true, location.getSingle(arg0).getBlockX(), location.getSingle(arg0).getBlockY(), location.getSingle(arg0).getBlockZ(), x.getSingle(arg0), y.getSingle(arg0), z.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0), null);
+			Waze.getInstance().getParticles().sendParticles(player.getSingle(arg0), particles.getSingle(arg0), true, (float) (location.getSingle(arg0).getBlockX() + 0.5), location.getSingle(arg0).getBlockY(), (float) (location.getSingle(arg0).getBlockZ() + 0.5), xoff.getSingle(arg0), yoff.getSingle(arg0), zoff.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0), null);
 		} catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchMethodException | SecurityException | InstantiationException | NoSuchFieldException e) {
 			// TODO Auto-generated catch block

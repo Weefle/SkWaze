@@ -10,12 +10,11 @@ public class Particles {
 	
 	Reflection reflection = new Reflection();
 	
-    public void sendParticles(Player player, String particles, boolean visible, float x, float y, float z, float xoff, float yoff, float zoff, float data, int number, int[] is) throws ClassNotFoundException, SecurityException, NoSuchMethodException, IllegalArgumentException, InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
+    public void sendParticles(Player player, String particles, boolean visible, float x, float y, float z, float xoff, float yoff, float zoff, float data, int number, int...is) throws ClassNotFoundException, SecurityException, NoSuchMethodException, IllegalArgumentException, InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchFieldException {
     	Class<?> PacketPlayOutWorldParticles = reflection.getNMSClass("PacketPlayOutWorldParticles");
     	Class<?> EnumParticle = reflection.getNMSClass("EnumParticle");
         Constructor<?> packetConstructor = PacketPlayOutWorldParticles.getConstructor(EnumParticle, boolean.class, float.class, float.class, float.class, float.class, float.class, float.class, float.class, int.class, int[].class);
-        //Changer le particles pour qu'il soit en enum à partir du string!
-        Object packet = packetConstructor.newInstance(particles, visible, x, y, z, xoff, yoff, zoff, data, number, is);
+        Object packet = packetConstructor.newInstance(EnumParticle.getField(particles).get(null), visible, x, y, z, xoff, yoff, zoff, data, number, is);
         Method sendPacket = reflection.getNMSClass("PlayerConnection").getMethod("sendPacket", reflection.getNMSClass("Packet"));
         sendPacket.invoke(reflection.getConnection(player), packet);
     }
