@@ -8,18 +8,28 @@ import org.bukkit.entity.Player;
 
 public class Reflection {
 	
-	public Class<?> getNMSClass(String nmsClassString) throws ClassNotFoundException {
-        String version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3] + ".";
-        String name = "net.minecraft.server." + version + nmsClassString;
-        Class<?> nmsClass = Class.forName(name);
-        return nmsClass;
-    }
-    public Object getConnection(Player player) throws SecurityException, NoSuchMethodException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-        Method getHandle = player.getClass().getMethod("getHandle");
-        Object nmsPlayer = getHandle.invoke(player);
-        Field conField = nmsPlayer.getClass().getField("playerConnection");
-        Object con = conField.get(nmsPlayer);
-        return con;
-    }
+public Class< ? > getNMSClass ( String classname )
+	{
+	    String version = Bukkit.getServer ( ).getClass ( ).getPackage ( ).getName ( ).replace ( ".", "," ).split ( "," )[ 3 ] + ".";
+	    String name = "net.minecraft.server." + version + classname;
+	    Class< ? > nmsClass = null;
+	    try
+	    {
+	        nmsClass = Class.forName ( name );
+	    } catch ( ClassNotFoundException e )
+	    {
+	        e.printStackTrace ( );
+	    }
+	    return nmsClass;
+	}
+
+	public Object getConnection ( Player player ) throws SecurityException, NoSuchMethodException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, InvocationTargetException
+	{
+	    Method getHandle = player.getClass ( ).getMethod ( "getHandle" );
+	    Object nmsPlayer = getHandle.invoke ( player );
+	    Field conField = nmsPlayer.getClass ( ).getField ( "playerConnection" );
+	    Object con = conField.get ( nmsPlayer );
+	    return con;
+	}
 
 }

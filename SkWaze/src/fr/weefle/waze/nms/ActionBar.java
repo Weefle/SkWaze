@@ -1,5 +1,6 @@
 package fr.weefle.waze.nms;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.bukkit.entity.Player;
@@ -10,12 +11,14 @@ public class ActionBar {
 	Reflection reflection = new Reflection();
 	
     public void sendActionBar(Player p, String message) throws ClassNotFoundException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException, NoSuchFieldException {
-    	Class<?> IChatBaseComponent = reflection.getNMSClass("IChatBaseComponent");
-    	Class<?> ChatMessageType = reflection.getNMSClass("ChatMessageType");
-    	Object chat = reflection.getNMSClass("IChatBaseComponent$ChatSerializer").getMethod("a", String.class).invoke(null, "{\"text\": \"" + message + "\"}");
-    	Object chattype = ChatMessageType.getMethod("valueOf", String.class).invoke(null, "GAME_INFO");
-    	Object PacketPlayOutChat = reflection.getNMSClass("PacketPlayOutChat").getConstructor(IChatBaseComponent, ChatMessageType).newInstance(chat, chattype);
-    	Method sendPacket = reflection.getNMSClass("PlayerConnection").getMethod("sendPacket", reflection.getNMSClass("Packet"));
-        sendPacket.invoke(reflection.getConnection(p), PacketPlayOutChat);
+    	Class< ? > packetPlayOutChat = reflection.getNMSClass ( "PacketPlayOutChat" );
+        Constructor< ? > packetConstructor = packetPlayOutChat.getConstructor ( reflection.getNMSClass ( "IChatBaseComponent" ), byte.class );
+        Class< ? > ichat = reflection.getNMSClass ( "IChatBaseComponent" );
+        Class< ? > chatSerializer = ichat.getClasses ( )[ 0 ];
+        Method csA = chatSerializer.getMethod ( "a", String.class );
+        Object component = csA.invoke ( chatSerializer, "{\"text\": \"" + message + "\"}" );
+        Object packet = packetConstructor.newInstance ( component, ( byte ) 2 );
+        Method sendPacket = reflection.getConnection ( p ).getClass().getMethod ( "sendPacket", reflection.getNMSClass ( "Packet" ));
+        sendPacket.invoke ( packet );
     }
 }

@@ -26,7 +26,8 @@ public class WazeEffectRecipe
   private Expression<ItemType> m8;
   private Expression<ItemType> m9;
   
-  protected void execute(Event event)
+  @SuppressWarnings("deprecation")
+protected void execute(Event event)
   {
     ItemType io = (ItemType)out.getSingle(event);
     ItemType i1 = (ItemType)m1.getSingle(event);
@@ -43,8 +44,7 @@ public class WazeEffectRecipe
     }
     if (this.isShapeless)
     {
-      @SuppressWarnings("deprecation")
-	ShapelessRecipe r = new ShapelessRecipe(io.getRandom());
+      ShapelessRecipe r = new ShapelessRecipe(io.getRandom());
       if (i1.getRandom().getType() != Material.AIR) {
         r.addIngredient(i1.getRandom().getData());
       }
@@ -76,8 +76,7 @@ public class WazeEffectRecipe
     }
     else
     {
-      @SuppressWarnings("deprecation")
-	ShapedRecipe r = new ShapedRecipe(io.getRandom());
+      ShapedRecipe r = new ShapedRecipe(io.getRandom());
       r.shape(new String[] { "abc", 
         "def", 
         "ghi" });
