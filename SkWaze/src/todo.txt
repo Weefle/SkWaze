@@ -9,7 +9,9 @@
 - worldedit (schematics, copy/paste)
 - worldguard regions
 - work on jump event
-- 1.8 bossbar support
-- effects support all players
+#- effects support all players
 #- more reflection
+- disguise
+- bossbar rework and < 1.9 compatibility
+- actionbar < 1.12 compatibiliy
 - your ideas! :D
