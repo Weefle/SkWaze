@@ -40,7 +40,9 @@ public class WazeEffectScoreBoard extends Effect {
     @Override
     protected void execute(Event arg0) {
         // TODO Auto-generated method stub
-        Waze.getInstance().getScoreBoard().createScoreBoard(name.getSingle(arg0), player.getSingle(arg0), score.getSingle(arg0), type.getSingle(arg0), line.getSingle(arg0), slot.getSingle(arg0));
+    	for(Player p : player.getAll(arg0)){
+    		Waze.getInstance().getScoreBoard().createScoreBoard(name.getSingle(arg0), p, score.getSingle(arg0), type.getSingle(arg0), line.getSingle(arg0), slot.getSingle(arg0));
+    	}
     }
 
 }

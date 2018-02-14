@@ -41,14 +41,18 @@ public class WazeEffectParticles extends Effect {
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
 		// TODO Auto-generated method stub
-		return "send actionbar to player";
+		return "send particles to player";
 	}
 
 	@Override
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
         try {
-			Waze.getInstance().getParticles().sendParticles(player.getSingle(arg0), particles.getSingle(arg0), true, (float) (location.getSingle(arg0).getBlockX() + 0.5), location.getSingle(arg0).getBlockY(), (float) (location.getSingle(arg0).getBlockZ() + 0.5), xoff.getSingle(arg0), yoff.getSingle(arg0), zoff.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0), null);
+        	for(Player p : player.getAll(arg0)){
+        		for(Location loc : location.getAll(arg0)){
+            		Waze.getInstance().getParticles().sendParticles(p, particles.getSingle(arg0), true, (float) (loc.getBlockX() + 0.5), loc.getBlockY(), (float) (loc.getBlockZ() + 0.5), xoff.getSingle(arg0), yoff.getSingle(arg0), zoff.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0), null);
+            	}
+        	}
 		} catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchMethodException | SecurityException | InstantiationException | NoSuchFieldException e) {
 			// TODO Auto-generated catch block

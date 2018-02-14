@@ -36,7 +36,9 @@ public class WazeEffectActionBar extends Effect {
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
         try {
-			Waze.getInstance().getActionbar().sendActionBar(player.getSingle(arg0), message.getSingle(arg0));
+        	for(Player p : player.getAll(arg0)){
+        		Waze.getInstance().getActionbar().sendActionBar(p, message.getSingle(arg0));
+        	}
 		} catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchMethodException | SecurityException | InstantiationException | NoSuchFieldException e) {
 			// TODO Auto-generated catch block

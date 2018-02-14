@@ -15,8 +15,7 @@ public class Particles {
     	Class<?> EnumParticle = reflection.getNMSClass("EnumParticle");
         Constructor<?> packetConstructor = PacketPlayOutWorldParticles.getConstructor(EnumParticle, boolean.class, float.class, float.class, float.class, float.class, float.class, float.class, float.class, int.class, int[].class);
         Object packet = packetConstructor.newInstance(EnumParticle.getField(particles).get(null), visible, x, y, z, xoff, yoff, zoff, data, number, is);
-        Method sendPacket = reflection.getNMSClass("PlayerConnection").getMethod("sendPacket", reflection.getNMSClass("Packet"));
-        sendPacket.invoke(reflection.getConnection(player), packet);
+        Method sendPacket = reflection.getConnection ( player ).getClass().getMethod ( "sendPacket", reflection.getNMSClass ( "Packet" ));
+        sendPacket.invoke (reflection.getConnection ( player ), packet );
     }
-    
-}
+    }

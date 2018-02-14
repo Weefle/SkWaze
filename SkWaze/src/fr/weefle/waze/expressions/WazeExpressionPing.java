@@ -46,7 +46,9 @@ public class WazeExpressionPing extends SimpleExpression<Integer> {
 	protected Integer[] get(Event arg0) {
 		// TODO Auto-generated method stub
 		try {
-			return new Integer[]{ Waze.getInstance().getPing().getPing(player.getSingle(arg0)) };
+			for(Player p : player.getAll(arg0)){
+				return new Integer[]{ Waze.getInstance().getPing().getPing(p) };
+        	}
 		} catch (SecurityException | NoSuchMethodException | NoSuchFieldException | IllegalArgumentException
 				| IllegalAccessException | InvocationTargetException e) {
 			// TODO Auto-generated catch block

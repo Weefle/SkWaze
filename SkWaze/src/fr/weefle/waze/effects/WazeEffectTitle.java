@@ -39,7 +39,9 @@ public class WazeEffectTitle extends Effect {
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
         try {
-			Waze.getInstance().getTitle().sendTitle(player.getSingle(arg0), title.getSingle(arg0), subtitle.getSingle(arg0), time.getSingle(arg0));
+        	for(Player p : player.getAll(arg0)){
+        		Waze.getInstance().getTitle().sendTitle(p, title.getSingle(arg0), subtitle.getSingle(arg0), time.getSingle(arg0));
+        	}
 		} catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException
 				| IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchFieldException e) {

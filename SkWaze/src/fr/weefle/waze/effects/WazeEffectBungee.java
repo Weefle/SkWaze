@@ -13,17 +13,17 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 public class WazeEffectBungee extends Effect {
 	
-	private Expression<Player> p;
+	private Expression<Player> player;
 	private Expression<String> srv;
 
 protected void execute(Event event)
 {
-  Player p = (Player)this.p.getSingle(event);
-  String srv = (String)this.srv.getSingle(event);
-  if ((p == null) || (srv == null)) {
-    return;
-  }
-  connect(p, srv);
+	for(Player p : player.getAll(event)){
+		  if ((p == null) || (srv.getSingle(event) == null)) {
+		    return;
+		  }
+		  connect(p, srv.getSingle(event));
+	}
 }
 
 public static void connect(Player p, String srv)
@@ -47,8 +47,8 @@ public String toString(Event event, boolean bool)
 @SuppressWarnings("unchecked")
 public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, ParseResult parseResult)
 {
-  this.p = (Expression<Player>) expressions[0];
-  this.srv = (Expression<String>) expressions[1];
+  player = (Expression<Player>) expressions[0];
+  srv = (Expression<String>) expressions[1];
   return true;
 }
 }

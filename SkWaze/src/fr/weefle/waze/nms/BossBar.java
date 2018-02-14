@@ -35,13 +35,6 @@ public class BossBar {
         }
     }
 
-    public void removeBossBarAll() {
-        if(bar != null){
-            bar.removeAll();
-            bar = null;
-        }
-    }
-
     public void sendBossBarTime(Player p, String message, double percent, String color, int time) {
         BarColor c = BarColor.valueOf(color);
         if(bar != null){

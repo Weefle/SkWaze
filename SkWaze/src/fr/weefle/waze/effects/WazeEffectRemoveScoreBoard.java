@@ -32,7 +32,9 @@ public class WazeEffectRemoveScoreBoard extends Effect {
     @Override
     protected void execute(Event arg0) {
         // TODO Auto-generated method stub
-        Waze.getInstance().getScoreBoard().removeScoreBoard(player.getSingle(arg0), name.getSingle(arg0));
+    	for(Player p : player.getAll(arg0)){
+    		Waze.getInstance().getScoreBoard().removeScoreBoard(p, name.getSingle(arg0));
+    	}
     }
 
 }
