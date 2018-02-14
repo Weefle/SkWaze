@@ -18,7 +18,7 @@ public class ActionBar {
         Object component = csA.invoke ( chatSerializer, "{\"text\": \"" + message + "\"}" );
         Object packet = packetConstructor.newInstance ( component, ( byte ) 2 );
         Method sendPacket = reflection.getConnection ( player ).getClass().getMethod ( "sendPacket", reflection.getNMSClass ( "Packet" ));
-        sendPacket.invoke ( packet );*/
+        sendPacket.invoke (reflection.getConnection(player), packet );*/
     	Class<?> clsIChatBaseComponent = reflection.getNMSClass("IChatBaseComponent");
         Class<?> clsChatMessageType = reflection.getNMSClass("ChatMessageType");
         Object chatBaseComponent = clsIChatBaseComponent.getClasses()[0].getMethod("a", String.class).invoke(null, "{\"text\": \"" + message + "\"}");
