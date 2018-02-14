@@ -66,18 +66,37 @@ public class Waze extends JavaPlugin {
 
 			version = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3];
 
-		} catch (ArrayIndexOutOfBoundsException whatVersionAreYouUsingException) {
+		} catch (ArrayIndexOutOfBoundsException exception) {
 			return false;
 		}
 
 		getLogger().info("Your server is running version " + version);
+		if (version.equals("v1_12_R1")) {
+			title = new Title();
+			scoreboard = new ScoreBoard();
+			bossbar = new BossBar(this);
+			actionbar = new ActionBarNew();
+			ping = new Ping();
+			particles = new Particles();
 
-		title = new Title();
+        } else if (version.equals("v1_8_R3")) {
+        	title = new Title();
+    		scoreboard = new ScoreBoard();
+    		actionbar = new ActionBarOld();
+    		ping = new Ping();
+    		particles = new Particles();
+        }else if (version.equals("v1_7_R4")){
+    		scoreboard = new ScoreBoard();
+    		ping = new Ping();
+    		particles = new Particles();
+    }else {
+    	title = new Title();
 		scoreboard = new ScoreBoard();
 		bossbar = new BossBar(this);
-		actionbar = new ActionBar();
+		actionbar = new ActionBarOld();
 		ping = new Ping();
 		particles = new Particles();
+    }
 		return true;
 	}
     public ActionBar getActionbar() {
