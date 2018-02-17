@@ -11,14 +11,16 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 
 public class WazeEffectBossBarRemove extends Effect {
-
+	
+	private Expression<String> id;
     private Expression<Player> player;
 
     @SuppressWarnings("unchecked")
     @Override
     public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
         // TODO Auto-generated method stub
-        player = (Expression<Player>) arg0[0];
+    	id = (Expression<String>) arg0[0];
+        player = (Expression<Player>) arg0[1];
         return true;
     }
 
@@ -31,9 +33,7 @@ public class WazeEffectBossBarRemove extends Effect {
     @Override
     protected void execute(Event arg0) {
         // TODO Auto-generated method stub
-    	for(Player p : player.getAll(arg0)){
-    		Waze.getInstance().getBossBar().removeBossBar(p);
-    	}
+    		Waze.getInstance().getBossBar().removeBossBar(player.getSingle(arg0), id.getSingle(arg0));
     }
 
 }

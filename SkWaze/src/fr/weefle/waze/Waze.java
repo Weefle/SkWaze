@@ -15,7 +15,7 @@ public class Waze extends JavaPlugin {
 	private static Waze instance;
 	private ActionBar actionbar;
 	private Title title;
-	private BossBar bossbar;
+	private BossBarAPI bossbar;
 	private Ping ping;
 	private Particles particles;
 	private ScoreBoard scoreboard;
@@ -43,9 +43,9 @@ public class Waze extends JavaPlugin {
 		Skript.registerExpression(WazeExpressionPing.class, Integer.class, ExpressionType.PROPERTY, "[waze] %players%['s] ping", "[waze] ping of %players%");
 		Skript.registerEffect(WazeEffectRecipe.class, "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%");
 		Skript.registerEffect(WazeEffectClearRecipes.class, "[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]");
-		Skript.registerEffect(WazeEffectBossBarCreate.class, "[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% (to|for) %players%");
-		Skript.registerEffect(WazeEffectBossBarTime.class, "[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% (for|and) %integer% tick[s] (to|for) %players%");
-		Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar (of|for) %players%");
+		Skript.registerEffect(WazeEffectBossBarCreate.class, "[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% with id %string% (to|for) %player%");
+		Skript.registerEffect(WazeEffectBossBarTimer.class, "[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% with id %string% (for|and) %integer% tick[s] (to|for) %player%");
+		Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %player%");
         Skript.registerEffect(WazeEffectScoreBoard.class, "[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
 		Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) scoreboard %string% (of|for) %players%");
 		Skript.registerEffect(WazeEffectParticles.class, "[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %locations% (and|with) offset %float%, %float%, %float% (and|with) data %float%");
@@ -74,7 +74,7 @@ public class Waze extends JavaPlugin {
 		if (version.equals("v1_12_R1")) {
 			title = new Title();
 			scoreboard = new ScoreBoard();
-			bossbar = new BossBar(this);
+			bossbar = new BossBarNew(this);
 			actionbar = new ActionBarNew();
 			ping = new Ping();
 			particles = new Particles();
@@ -82,17 +82,19 @@ public class Waze extends JavaPlugin {
         } else if (version.equals("v1_8_R3")) {
         	title = new Title();
     		scoreboard = new ScoreBoard();
+    		//bossbar = new BossBarOld(this);
     		actionbar = new ActionBarOld();
     		ping = new Ping();
     		particles = new Particles();
         }else if (version.equals("v1_7_R4")){
     		scoreboard = new ScoreBoard();
     		ping = new Ping();
+    		//bossbar = new BossBarOld(this);
     		particles = new Particles();
     }else {
     	title = new Title();
 		scoreboard = new ScoreBoard();
-		bossbar = new BossBar(this);
+		bossbar = new BossBarNew(this);
 		actionbar = new ActionBarOld();
 		ping = new Ping();
 		particles = new Particles();
@@ -108,7 +110,7 @@ public class Waze extends JavaPlugin {
     public static Waze getInstance(){
 	    return instance;
     }
-    public BossBar getBossBar(){
+    public BossBarAPI getBossBar(){
         return bossbar;
     }
     public Ping getPing(){

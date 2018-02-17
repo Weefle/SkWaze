@@ -14,6 +14,7 @@ public class WazeEffectBossBarCreate extends Effect {
 	private Expression<String> message;
 	private Expression<Double> percent;
 	private Expression<String> color;
+	private Expression<String> id;
 	private Expression<Player> player;
 
 	@SuppressWarnings("unchecked")
@@ -23,7 +24,8 @@ public class WazeEffectBossBarCreate extends Effect {
 		message = (Expression<String>) arg0[0];
 		percent = (Expression<Double>) arg0[1];
 		color = (Expression<String>) arg0[2];
-		player = (Expression<Player>) arg0[3];
+		id = (Expression<String>) arg0[3];
+		player = (Expression<Player>) arg0[4];
 		return true;
 	}
 
@@ -36,9 +38,7 @@ public class WazeEffectBossBarCreate extends Effect {
 	@Override
 	protected void execute(Event arg0) {
 		// TODO Auto-generated method stub
-		for(Player p : player.getAll(arg0)){
-			Waze.getInstance().getBossBar().sendBossBar(p, message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0));
-    	}
+			Waze.getInstance().getBossBar().sendBossBar(player.getSingle(arg0), message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), id.getSingle(arg0));
     }
 
 }
