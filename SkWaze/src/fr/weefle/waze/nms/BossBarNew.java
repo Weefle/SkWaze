@@ -6,7 +6,6 @@ import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
-
 import fr.weefle.waze.Waze;
 
 public class BossBarNew implements BossBarAPI {
@@ -25,9 +24,15 @@ public class BossBarNew implements BossBarAPI {
 			bar.get(id).setColor(BarColor.valueOf(color));
 			bar.get(id).setProgress(percent);
 		}else {
-			bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
+			//envoie àtous les joueurs?
+			  for(Player i : Bukkit.getOnlinePlayers()){
+				  bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
+					bar.get(id).setProgress(percent);
+					bar.get(id).addPlayer(i);
+			  }
+			/*bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
 			bar.get(id).setProgress(percent);
-			bar.get(id).addPlayer(p);
+			bar.get(id).addPlayer(p);*/
 			//p.sendMessage("" + bar.values());
 		}
 	}
