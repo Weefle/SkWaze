@@ -25,14 +25,14 @@ public class BossBarNew implements BossBarAPI {
 			bar.get(id).setProgress(percent);
 		}else {
 			//envoie àtous les joueurs?
-			  for(Player i : Bukkit.getOnlinePlayers()){
+			 /* for(Player i : Bukkit.getOnlinePlayers()){
 				  bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
 					bar.get(id).setProgress(percent);
 					bar.get(id).addPlayer(i);
-			  }
-			/*bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
+			  }*/
+			bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
 			bar.get(id).setProgress(percent);
-			bar.get(id).addPlayer(p);*/
+			bar.get(id).addPlayer(p);
 			//p.sendMessage("" + bar.values());
 		}
 	}
