@@ -1,4 +1,4 @@
-package fr.weefle.waze;
+package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
 import org.bukkit.entity.Player;
@@ -7,6 +7,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
+import fr.weefle.waze.Waze;
 
 public class WazeEffectAutoRespawn extends Effect {
 	
