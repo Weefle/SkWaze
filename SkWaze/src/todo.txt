@@ -1,6 +1,7 @@
 - holograms
 #- scoreboards
 - tablist
+#- autorespawn
 - more bungee features
 - nametag
 #- particles

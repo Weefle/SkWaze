@@ -1,16 +1,17 @@
 Effects:
-"[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% tick[s]"
-"[waze] (send|create) action[bar] %string% (to|for) %players%"
-"[waze] (send|teleport) %players% to [bungee[cord]] server %string%"
-"[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%"
-"[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]"
-"[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% with id %string% (to|for) %player%"
-"[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% with id %string% (for|and) %integer% tick[s] (to|for) %player%"
-"[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %player%"
-"[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%"
-"[waze] (clear|remove) scoreboard %string% (of|for) %players%"
-"[waze] (spawn|create|summon) [a number of] %int% [of] %string%['s] particle[s] (to|for) %players% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with) data %float%"
+[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% tick[s]
+[waze] (send|create) action[bar] %string% (to|for) %players%
+[waze] (send|teleport) %players% to [bungee[cord]] server %string%
+[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%
+[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]
+[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% with id %string% (to|for) %player%
+[waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% with id %string% (for|and) %integer% tick[s] (to|for) %player%
+[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %player%
+[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%
+[waze] (clear|remove) scoreboard %string% (of|for) %players%
+[waze] (spawn|create|summon) [a number of] %int% [of] %string%['s] particle[s] (to|for) %players% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with) data %float%
+[waze] [auto]respawn %players%
 Expressions:
-"[waze] %players%['s] ping", "[waze] ping of %players%"
+[waze] %players%['s] ping, [waze] ping of %players%
 Events:
-"[waze] jump[ing]"
+[waze] jump[ing]
