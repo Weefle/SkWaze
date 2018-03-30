@@ -1,31 +1,32 @@
 package fr.weefle.waze.nms;
 
 import org.bukkit.entity.Player;
-//import fr.weefle.waze.Waze;
+import me.confuser.barapi.BarAPI;
 
 public class BossBarOld implements BossBarAPI {
-	
-	/*private Waze m;
-    public BossBarOld(Waze m) {
-        this.m = m;
-    }*/
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void sendBossBar(Player p, String message, double percent, String color, String id) {
-		// TODO Auto-generated method stub
 		
+			BarAPI.setMessage(p, message, (float) percent * 100);
+			
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void removeBossBar(Player p, String id) {
-		// TODO Auto-generated method stub
+		
+			BarAPI.removeBar(p);
 		
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void sendBossBarTimer(Player p, String message, double percent, String color, int time, String id) {
-		// TODO Auto-generated method stub
 		
-	}
+            BarAPI.setMessage(p, message, time / 20);
+          
+        }
 	
 }

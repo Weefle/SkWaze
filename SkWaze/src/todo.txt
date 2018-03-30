@@ -13,6 +13,7 @@
 #- effects support all players
 #- more reflection
 - disguise
-#- bossbar rework and < 1.9 compatibility
+#- bossbar rework
+#- bossbar 1.8
 #- actionbar < 1.12 compatibility
 - your ideas! :D
