@@ -2,18 +2,26 @@
 #- scoreboards
 - tablist
 #- autorespawn
-- more bungee features
+- more bungee features (sockets/messages)
 - nametag
 #- particles
 - sql
 - gui
 - worldedit (schematics, copy/paste)
 - worldguard regions
+- discord support
+- web requests
 - work on jump event
 #- effects support all players
 #- more reflection
 - disguise
+- npc
+- yml
+- minigame support
+- villager trade
 #- bossbar rework
 #- bossbar 1.8
+- supply crate
+- more expressions and more events
 #- actionbar < 1.12 compatibility
 - your ideas! :D
