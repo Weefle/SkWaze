@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="C:/Users/Weefle/Documents/mc/spigot-1.12.2-R0.1-SNAPSHOT-b1595.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Documents/mc/spigot-1.8.8-R0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/BarAPI.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Desktop/serv skript 1.12/plugins/BossBarAPI_v2.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/BossBarAPI_v2.4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

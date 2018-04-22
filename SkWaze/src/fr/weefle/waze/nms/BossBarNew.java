@@ -24,7 +24,7 @@ public class BossBarNew implements BossBarAPI {
 			bar.get(id).setColor(BarColor.valueOf(color));
 			bar.get(id).setProgress(percent);
 		}else {
-			//envoie àtous les joueurs?
+			//envoie à tous les joueurs?
 			 /* for(Player i : Bukkit.getOnlinePlayers()){
 				  bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
 					bar.get(id).setProgress(percent);
