@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Skript (2)">
+  <library name="BarAPI">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/Skript (2).jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/BarAPI.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
