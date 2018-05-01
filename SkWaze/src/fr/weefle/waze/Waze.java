@@ -36,6 +36,7 @@ public class Waze extends JavaPlugin {
 			Bukkit.getPluginManager().disablePlugin(this);
 		}
 		instance = this;
+		getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		PlayerJumpEvent.register(this);
 		Skript.registerAddon(this);
         Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% tick[s]");

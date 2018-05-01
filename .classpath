@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/Skript (4).jar"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/spigot-latest.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/BarAPI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Weefle/Documents/mc/BungeeCord-1299.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
