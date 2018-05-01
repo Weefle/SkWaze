@@ -1,6 +1,6 @@
 name: SkWaze
 author: Weefle
-version: 2.0.5
+version: 2.0.6
 description: The coolest addon of Skript
 depend: [Skript]
 softdepend: [BarAPI]

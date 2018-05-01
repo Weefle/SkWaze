@@ -2,10 +2,8 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="SkWaze/src"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Documents/mc/Skript.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Documents/mc/spigot-1.12.2-R0.1-SNAPSHOT-b1595.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Documents/mc/spigot-1.8.8-R0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/Skript (4).jar"/>
+	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/spigot-latest.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/BarAPI.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/BossBarAPI_v2.4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
