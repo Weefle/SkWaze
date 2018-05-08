@@ -4,7 +4,8 @@ import java.lang.reflect.InvocationTargetException;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
-import fr.weefle.waze.Reflection;
+
+import fr.weefle.waze.utils.Reflection;
 
 public class Particles {
 	

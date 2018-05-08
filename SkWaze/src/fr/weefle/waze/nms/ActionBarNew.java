@@ -3,7 +3,8 @@ package fr.weefle.waze.nms;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.bukkit.entity.Player;
-import fr.weefle.waze.Reflection;
+
+import fr.weefle.waze.utils.Reflection;
 
 public class ActionBarNew implements ActionBar{
 	

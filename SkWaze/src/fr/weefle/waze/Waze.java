@@ -2,6 +2,12 @@ package fr.weefle.waze;
 
 import fr.weefle.waze.effects.*;
 import fr.weefle.waze.nms.*;
+import fr.weefle.waze.utils.Metrics;
+import fr.weefle.waze.utils.Updater;
+import fr.weefle.waze.utils.UpdaterListener;
+
+import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import ch.njol.skript.Skript;
@@ -23,6 +29,17 @@ public class Waze extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
+		getServer().getPluginManager().registerEvents(new UpdaterListener(), this);
+			new Metrics(this);
+			getLogger().info("Metrics setup was successful!");
+		try {
+			new Updater(this, 49195);
+			getLogger().info("Updater setup was successful!");
+		} catch (IOException e) {
+			getLogger().severe("Failed to setup Updater!");
+			getLogger().severe("Verify the resource's link!");
+			e.printStackTrace();
+		}
 		if (setupNMS()) {
 
 			getLogger().info("NMS setup was successful!");

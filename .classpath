@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="SkWaze/src"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/Skript (4).jar"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/spigot-latest.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/BarAPI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/Skript.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/spigot-latest.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/BarAPI.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
