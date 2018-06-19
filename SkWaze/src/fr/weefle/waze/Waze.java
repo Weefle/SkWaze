@@ -1,10 +1,15 @@
 package fr.weefle.waze;
 
+import fr.weefle.waze.discord.AnnotationListener;
+import fr.weefle.waze.discord.Register;
+import fr.weefle.waze.discord.InterfaceListener;
 import fr.weefle.waze.effects.*;
 import fr.weefle.waze.nms.*;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.Updater;
 import fr.weefle.waze.utils.UpdaterListener;
+import sx.blah.discord.api.IDiscordClient;
+import sx.blah.discord.api.events.EventDispatcher;
 
 import java.io.IOException;
 
@@ -29,6 +34,10 @@ public class Waze extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
+		IDiscordClient client = Register.createClient("NDU4NzQxMDk1MjU0MzI3MzA3.DgsFJw.Ldme_DoKgVEhOQisEAycyO-EQ5k", true);
+		EventDispatcher dispatcher = client.getDispatcher(); 
+        dispatcher.registerListener(new InterfaceListener()); 
+        dispatcher.registerListener(new AnnotationListener()); 
 		getServer().getPluginManager().registerEvents(new UpdaterListener(), this);
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
