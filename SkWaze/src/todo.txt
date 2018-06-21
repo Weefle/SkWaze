@@ -24,4 +24,5 @@
 - supply crate
 - more expressions and more events
 #- actionbar < 1.12 compatibility
+- servers manager wrapper for bungee
 - your ideas! :D
