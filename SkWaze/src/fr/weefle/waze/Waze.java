@@ -1,19 +1,17 @@
 package fr.weefle.waze;
 
-import fr.weefle.waze.discord.AnnotationListener;
-import fr.weefle.waze.discord.Register;
-import fr.weefle.waze.discord.InterfaceListener;
+import fr.rhaz.sockets.socket4mc.Socket4Bukkit;
+import fr.rhaz.sockets.socket4mc.Socket4Bukkit.Client.ClientSocketHandshakeEvent;
+import fr.rhaz.sockets.utils.JSONMap;
 import fr.weefle.waze.effects.*;
 import fr.weefle.waze.nms.*;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.Updater;
 import fr.weefle.waze.utils.UpdaterListener;
-import sx.blah.discord.api.IDiscordClient;
-import sx.blah.discord.api.events.EventDispatcher;
-
 import java.io.IOException;
-
 import org.bukkit.Bukkit;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
@@ -21,7 +19,7 @@ import ch.njol.skript.lang.util.SimpleEvent;
 import fr.weefle.waze.events.PlayerJumpEvent;
 import fr.weefle.waze.expressions.WazeExpressionPing;
 
-public class Waze extends JavaPlugin {
+public class Waze extends JavaPlugin implements Listener {
 	
 	private static Waze instance;
 	private ActionBar actionbar;
@@ -34,10 +32,11 @@ public class Waze extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		IDiscordClient client = Register.createClient("NDU4NzQxMDk1MjU0MzI3MzA3.DgsFJw.Ldme_DoKgVEhOQisEAycyO-EQ5k", true);
+		getServer().getPluginManager().registerEvents(this, this);
+		/*IDiscordClient client = Register.createClient("NDU4NzQxMDk1MjU0MzI3MzA3.DgsFJw.Ldme_DoKgVEhOQisEAycyO-EQ5k", true);
 		EventDispatcher dispatcher = client.getDispatcher(); 
         dispatcher.registerListener(new InterfaceListener()); 
-        dispatcher.registerListener(new AnnotationListener()); 
+        dispatcher.registerListener(new AnnotationListener()); */
 		getServer().getPluginManager().registerEvents(new UpdaterListener(), this);
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
@@ -86,6 +85,32 @@ public class Waze extends JavaPlugin {
             }
         }, 0);*/
         }
+	public void sendPing() {
+    JSONMap map = new JSONMap(
+        "message", "Ping!"
+    );
+
+    Socket4Bukkit.getClient().write("MyChannel", map);
+}
+	@EventHandler
+	public void onHandshake(ClientSocketHandshakeEvent e){
+	    sendPing();
+	}
+	
+	/*@EventHandler
+	public void onSocketMessage(ServerSocketJSONEvent e){
+
+	    String channel = e.getChannel(); // The channel name
+	 
+	    if(!channel.equals("MyChannel")) return;
+
+	    String name = e.getName(); // The name of the server
+
+	    String message = e.getExtraString("message");
+	 
+	    getLogger().info("Received message from " + name + ": " + message);
+
+	    }*/
 
 	private boolean setupNMS() {
 
