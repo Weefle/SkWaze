@@ -2,6 +2,6 @@ name: SkWaze
 author: Weefle
 version: 2.0.9
 description: The coolest addon of Skript
-depend: [Skript]
-softdepend: [BarAPI]
+depends: [Skript]
+softdepends: [BarAPI, Socket4MC]
 main: fr.weefle.waze.Waze

@@ -1,16 +1,14 @@
 package fr.weefle.waze;
 
-import fr.rhaz.sockets.socket4mc.Socket4Bukkit;
-import fr.rhaz.sockets.socket4mc.Socket4Bukkit.Client.ClientSocketHandshakeEvent;
-import fr.rhaz.sockets.utils.JSONMap;
 import fr.weefle.waze.effects.*;
 import fr.weefle.waze.nms.*;
+import fr.weefle.waze.skwrapper.SkWrapperListener;
+import fr.weefle.waze.skwrapper.WazeEffectCreateServer;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.Updater;
 import fr.weefle.waze.utils.UpdaterListener;
 import java.io.IOException;
 import org.bukkit.Bukkit;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import ch.njol.skript.Skript;
@@ -32,7 +30,7 @@ public class Waze extends JavaPlugin implements Listener {
 	
 	@Override
 	public void onEnable() {
-		getServer().getPluginManager().registerEvents(this, this);
+		getServer().getPluginManager().registerEvents(new SkWrapperListener(), this);
 		/*IDiscordClient client = Register.createClient("NDU4NzQxMDk1MjU0MzI3MzA3.DgsFJw.Ldme_DoKgVEhOQisEAycyO-EQ5k", true);
 		EventDispatcher dispatcher = client.getDispatcher(); 
         dispatcher.registerListener(new InterfaceListener()); 
@@ -77,6 +75,7 @@ public class Waze extends JavaPlugin implements Listener {
 		Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) scoreboard %string% (of|for) %players%");
 		Skript.registerEffect(WazeEffectAutoRespawn.class, "[waze] [auto]respawn %players%");
 		Skript.registerEffect(WazeEffectParticles.class, "[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %locations% (and|with) offset %float%, %float%, %float% (and|with) data %float%");
+		Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] server named %string% (from|with) template %string%");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
         /*EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
             @Override
@@ -85,32 +84,6 @@ public class Waze extends JavaPlugin implements Listener {
             }
         }, 0);*/
         }
-	public void sendPing() {
-    JSONMap map = new JSONMap(
-        "message", "Ping!"
-    );
-
-    Socket4Bukkit.getClient().write("MyChannel", map);
-}
-	@EventHandler
-	public void onHandshake(ClientSocketHandshakeEvent e){
-	    sendPing();
-	}
-	
-	/*@EventHandler
-	public void onSocketMessage(ServerSocketJSONEvent e){
-
-	    String channel = e.getChannel(); // The channel name
-	 
-	    if(!channel.equals("MyChannel")) return;
-
-	    String name = e.getName(); // The name of the server
-
-	    String message = e.getExtraString("message");
-	 
-	    getLogger().info("Received message from " + name + ": " + message);
-
-	    }*/
 
 	private boolean setupNMS() {
 

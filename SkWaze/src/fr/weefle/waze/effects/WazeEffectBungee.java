@@ -41,7 +41,7 @@ public static void connect(Player p, String srv)
 
 public String toString(Event event, boolean bool)
 {
-  return getClass().getName();
+  return "send player to a bungeecord server";
 }
 
 @SuppressWarnings("unchecked")

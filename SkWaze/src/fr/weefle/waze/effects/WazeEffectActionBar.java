@@ -20,7 +20,6 @@ public class WazeEffectActionBar extends Effect {
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
-		// TODO Auto-generated method stub
 		message = (Expression<String>) arg0[0];
 		player = (Expression<Player>) arg0[1];
 		return true;
@@ -28,20 +27,17 @@ public class WazeEffectActionBar extends Effect {
 
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
-		// TODO Auto-generated method stub
 		return "send actionbar to player";
 	}
 
 	@Override
 	protected void execute(Event arg0) {
-		// TODO Auto-generated method stub
         try {
         	for(Player p : player.getAll(arg0)){
         		Waze.getInstance().getActionbar().sendActionBar(p, message.getSingle(arg0));
         	}
 		} catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchMethodException | SecurityException | InstantiationException | NoSuchFieldException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
