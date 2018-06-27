@@ -17,7 +17,7 @@ public class UpdaterListener implements Listener {
 		if(Updater.enabledingame) {
 			if(e.getPlayer().isOp()) {
 			if(Updater.update) {
-			e.getPlayer().sendMessage("§6[§2Updater§6] §3There is an update for SkWaze, look at the link in the console!");
+			e.getPlayer().sendMessage("§6[§2Updater§6] §3There is an update for §5SkWaze§3, look at the link in the console!");
 			}else{
 				//e.getPlayer().sendMessage("§6[§2Updater�6] §3There isn't update for SkWaze!");
 				return;

@@ -1,5 +1,6 @@
 package fr.weefle.waze;
 
+import fr.weefle.waze.discord.DiscordRegister;
 import fr.weefle.waze.effects.*;
 import fr.weefle.waze.nms.*;
 import fr.weefle.waze.skwrapper.SkWrapperListener;
@@ -9,7 +10,6 @@ import fr.weefle.waze.utils.Updater;
 import fr.weefle.waze.utils.UpdaterListener;
 import java.io.IOException;
 import org.bukkit.Bukkit;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
@@ -17,7 +17,7 @@ import ch.njol.skript.lang.util.SimpleEvent;
 import fr.weefle.waze.events.PlayerJumpEvent;
 import fr.weefle.waze.expressions.WazeExpressionPing;
 
-public class Waze extends JavaPlugin implements Listener {
+public class Waze extends JavaPlugin {
 	
 	private static Waze instance;
 	private ActionBar actionbar;
@@ -30,6 +30,7 @@ public class Waze extends JavaPlugin implements Listener {
 	
 	@Override
 	public void onEnable() {
+		new DiscordRegister(this);
 		getServer().getPluginManager().registerEvents(new SkWrapperListener(), this);
 		/*IDiscordClient client = Register.createClient("NDU4NzQxMDk1MjU0MzI3MzA3.DgsFJw.Ldme_DoKgVEhOQisEAycyO-EQ5k", true);
 		EventDispatcher dispatcher = client.getDispatcher(); 

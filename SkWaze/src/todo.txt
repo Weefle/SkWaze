@@ -9,7 +9,7 @@
 - gui
 - worldedit (schematics, copy/paste)
 - worldguard regions
-- discord support
+*working on*- discord support
 - web requests
 - work on jump event
 #- effects support all players
@@ -24,5 +24,5 @@
 - supply crate
 - more expressions and more events
 #- actionbar < 1.12 compatibility
-#- servers manager wrapper for bungee
+*working on*- servers manager wrapper for bungee
 - your ideas! :D
