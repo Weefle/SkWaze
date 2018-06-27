@@ -11,6 +11,7 @@ import fr.weefle.waze.utils.UpdaterListener;
 import java.io.IOException;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import com.tjplaysnow.discord.object.Bot;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.util.SimpleEvent;
@@ -27,15 +28,19 @@ public class Waze extends JavaPlugin {
 	private Particles particles;
 	private ScoreBoard scoreboard;
 	private AutoRespawn autorespawn;
-	
+	private DiscordRegister discord;
+	private Bot bot;
+
 	@Override
 	public void onEnable() {
-		new DiscordRegister(this);
+		discord = new DiscordRegister(this);
+		scoreboard = new ScoreBoard();
+		ping = new Ping();
+		particles = new Particles();
+		bot = new Bot("NDYxNTk3MzYyODcyMTIzMzkz.DhVocQ.px7FnBq7Z8XJw9vW97H0hriGenI", "[Wazea]");
+		discord.initialiseBot(bot);
+		//bot.addCommand(new PingCommand());
 		getServer().getPluginManager().registerEvents(new SkWrapperListener(), this);
-		/*IDiscordClient client = Register.createClient("NDU4NzQxMDk1MjU0MzI3MzA3.DgsFJw.Ldme_DoKgVEhOQisEAycyO-EQ5k", true);
-		EventDispatcher dispatcher = client.getDispatcher(); 
-        dispatcher.registerListener(new InterfaceListener()); 
-        dispatcher.registerListener(new AnnotationListener()); */
 		getServer().getPluginManager().registerEvents(new UpdaterListener(), this);
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
@@ -102,34 +107,22 @@ public class Waze extends JavaPlugin {
 		if (version.equals("v1_12_R1")) {
 			title = new Title();
 			autorespawn = new AutoRespawnNew();
-			scoreboard = new ScoreBoard();
 			bossbar = new BossBarNew(this);
 			actionbar = new ActionBarNew();
-			ping = new Ping();
-			particles = new Particles();
 
         } else if (version.equals("v1_8_R3")) {
         	title = new Title();
-    		scoreboard = new ScoreBoard();
     		autorespawn = new AutoRespawnOld(this);
     		bossbar = new BossBarOld();
     		actionbar = new ActionBarOld();
-    		ping = new Ping();
-    		particles = new Particles();
         }else if (version.equals("v1_7_R4")){
-    		scoreboard = new ScoreBoard();
     		autorespawn = new AutoRespawnOld(this);
-    		ping = new Ping();
     		bossbar = new BossBarOld();
-    		particles = new Particles();
     }else {
     	title = new Title();
     	autorespawn = new AutoRespawnNew();
-		scoreboard = new ScoreBoard();
 		bossbar = new BossBarNew(this);
 		actionbar = new ActionBarOld();
-		ping = new Ping();
-		particles = new Particles();
     }
 		return true;
 	}
@@ -159,5 +152,9 @@ public class Waze extends JavaPlugin {
     public Particles getParticles(){
 	    return particles;
     }
+    
+    public DiscordRegister getDiscord() {
+		return discord;
+	}
 
 }

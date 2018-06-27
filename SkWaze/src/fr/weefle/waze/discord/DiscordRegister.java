@@ -7,19 +7,16 @@ import fr.weefle.waze.Waze;
 
 public class DiscordRegister {
 	
-	private Bot bot;
 	private Waze main;
 	public DiscordRegister(Waze main) {
 		this.main = main;
 	}
 	
-	public void setup(){
+	public void initialiseBot(Bot bot){
 		
-		bot = new Bot("token", "[WazeBot]");
 		bot.setBotThread(new ThreadSpigot(main));
 		bot.setConsoleCommandManager(new CommandSpigotManager());
 		
 	}
-
 
 }
