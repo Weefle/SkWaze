@@ -12,8 +12,17 @@ public class SkWrapper {
 		sb.append(" ");
 		sb.append(template);
 		JSONMap map = new JSONMap("message", sb);
-	    Socket4Bukkit.getClient().write("SkWrapper-create", map);
-		
+	    Socket4Bukkit.getClient().write("SkWrapper-create", map);	
 		
 	}
+	
+	public static void startServer(String name) {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(name);
+		JSONMap map = new JSONMap("message", sb);
+	    Socket4Bukkit.getClient().write("SkWrapper-start", map);
+		
+	}
+	
 }
