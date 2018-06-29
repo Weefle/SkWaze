@@ -12,6 +12,8 @@ Effects:
 [waze] (spawn|create|summon) [a number of] %int% [of] %string%['s] particle[s] (to|for) %players% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with) data %float%
 [waze] [auto]respawn %players%
 [waze] (add|create) [[a] new] server named %string% (from|with) template %string%
+[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%
+[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%
 Expressions:
 [waze] %players%['s] ping, [waze] ping of %players%
 Events:

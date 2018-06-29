@@ -6,6 +6,7 @@ import fr.weefle.waze.nms.*;
 import fr.weefle.waze.skwrapper.SkWrapperListener;
 import fr.weefle.waze.skwrapper.WazeEffectCreateServer;
 import fr.weefle.waze.skwrapper.WazeEffectStartServer;
+import fr.weefle.waze.skwrapper.WazeEffectStopServer;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.Updater;
 import fr.weefle.waze.utils.UpdaterListener;
@@ -84,6 +85,7 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectParticles.class, "[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %locations% (and|with) offset %float%, %float%, %float% (and|with) data %float%");
 		Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
+		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
         /*EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
             @Override
