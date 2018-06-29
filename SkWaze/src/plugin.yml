@@ -3,5 +3,5 @@ author: Weefle
 version: 2.0.9
 description: The coolest addon of Skript
 depends: [Skript]
-softdepends: [BarAPI, Discord-ProgramBot-API]
+softdepends: [BarAPI, Socket4MC, Discord-ProgramBot-API]
 main: fr.weefle.waze.Waze

@@ -1,6 +1,5 @@
 package fr.weefle.waze;
 
-import fr.rhaz.sockets.Socket4Bukkit;
 import fr.weefle.waze.discord.DiscordRegister;
 import fr.weefle.waze.effects.*;
 import fr.weefle.waze.nms.*;
@@ -35,7 +34,6 @@ public class Waze extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		new Socket4Bukkit();
 		discord = new DiscordRegister(this);
 		scoreboard = new ScoreBoard();
 		ping = new Ping();
