@@ -16,10 +16,12 @@ public class SkWrapper {
 		
 	}
 	
-	public static void startServer(String name) {
+	public static void startServer(String name, String template) {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(name);
+		sb.append(" ");
+		sb.append(template);
 		JSONMap map = new JSONMap("message", sb);
 	    Socket4Bukkit.getClient().write("SkWrapper-start", map);
 		

@@ -10,11 +10,13 @@ import ch.njol.util.Kleenean;
 public class WazeEffectStartServer extends Effect{
 	
 	private Expression<String> server;
+	private Expression<String> template;
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
 		server = (Expression<String>) arg0[0];
+		template = (Expression<String>) arg0[1];
 		return true;
 	}
 
@@ -26,7 +28,7 @@ public class WazeEffectStartServer extends Effect{
 	@Override
 	protected void execute(Event arg0) {
 		
-		SkWrapper.startServer(server.getSingle(arg0));
+		SkWrapper.startServer(server.getSingle(arg0), template.getSingle(arg0));
 		
 	}
 
