@@ -1,6 +1,6 @@
 package fr.weefle.waze.skwrapper;
 
-import fr.rhaz.sockets.socket4mc.Socket4Bukkit;
+import fr.rhaz.sockets.Socket4Bukkit;
 import fr.rhaz.sockets.utils.JSONMap;
 
 public class SkWrapper {
