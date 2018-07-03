@@ -3,7 +3,8 @@ package fr.weefle.waze;
 import fr.weefle.waze.discord.DiscordRegister;
 import fr.weefle.waze.effects.*;
 import fr.weefle.waze.nms.*;
-import fr.weefle.waze.skwrapper.SkWrapperListener;
+import fr.weefle.waze.skwrapper.SkWrapperReceiver;
+import fr.weefle.waze.skwrapper.SkWrapperSender;
 import fr.weefle.waze.skwrapper.WazeEffectCreateServer;
 import fr.weefle.waze.skwrapper.WazeEffectStartServer;
 import fr.weefle.waze.skwrapper.WazeEffectStopServer;
@@ -35,15 +36,22 @@ public class Waze extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		discord = new DiscordRegister(this);
+		if(getServer().getPluginManager().isPluginEnabled("Discord-ProgramBot-API")) {
+			discord = new DiscordRegister(this);
+			bot = new Bot("NDYxNTk3MzYyODcyMTIzMzkz.DhVocQ.px7FnBq7Z8XJw9vW97H0hriGenI", "[Wazea]");
+			discord.initialiseBot(bot);
+			//bot.addCommand(new PingCommand());
+			getLogger().info("Discord setup was successful!");
+		}else {
+			getLogger().severe("Failed to setup Discord!");
+		}
 		scoreboard = new ScoreBoard();
 		ping = new Ping();
 		particles = new Particles();
-		bot = new Bot("NDYxNTk3MzYyODcyMTIzMzkz.DhVocQ.px7FnBq7Z8XJw9vW97H0hriGenI", "[Wazea]");
-		discord.initialiseBot(bot);
-		//bot.addCommand(new PingCommand());
-		getServer().getPluginManager().registerEvents(new SkWrapperListener(), this);
+		getServer().getPluginManager().registerEvents(new SkWrapperSender(), this);
+		getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), this);
 		getServer().getPluginManager().registerEvents(new UpdaterListener(), this);
+		getLogger().info("SkWrapper setup was successful!");
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
 		try {
