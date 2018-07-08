@@ -6,15 +6,22 @@ import fr.rhaz.sockets.socket4mc.Socket4Bukkit.Server.ServerSocketJSONEvent;
 
 public class SkWrapperReceiver implements Listener {
 	
+	private String message;
+	
 	@EventHandler
-    public String onSocketMessage(ServerSocketJSONEvent e) {
+    public void onSocketMessage(ServerSocketJSONEvent e) {
 		String channel = e.getChannel(); // The channel name
 	    
         if(channel.equals("SkWrapper-list")) {
             String message = e.getExtraString("message");
-        	return message;
+        	this.message = message;
         }
-		return null;
+	}
+	
+	public String getServers() {
+		
+		return this.message;
+		
 	}
 
 }
