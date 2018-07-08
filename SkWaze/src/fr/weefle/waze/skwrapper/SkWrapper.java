@@ -1,4 +1,6 @@
 package fr.weefle.waze.skwrapper;
+
+import java.util.concurrent.TimeUnit;
 import fr.rhaz.sockets.socket4mc.Socket4Bukkit;
 import fr.rhaz.sockets.utils.JSONMap;
 
@@ -25,7 +27,7 @@ public class SkWrapper {
 	    Socket4Bukkit.getClient().write("SkWrapper-start", map);
 		
 	}
-	
+
 public static void stopServer(String name, String template) {
 		
 		StringBuilder sb = new StringBuilder();
@@ -41,8 +43,14 @@ public static String getServers(String template) {
 	
 	JSONMap map = new JSONMap("message", template);
     Socket4Bukkit.getClient().write("SkWrapper-list", map);
+    try {
+		TimeUnit.SECONDS.sleep(2);
 		SkWrapperReceiver skr = new SkWrapperReceiver();
-	return skr.getServers();
+		return skr.getServers();
+	} catch (InterruptedException e) {
+		e.printStackTrace();
+	}
+	return null;
 }
 	
 }
