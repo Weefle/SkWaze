@@ -2,25 +2,26 @@ package fr.weefle.waze.skwrapper;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import fr.rhaz.sockets.socket4mc.Socket4Bukkit.Server.ServerSocketJSONEvent;
+
+import fr.rhaz.sockets.socket4mc.Socket4Bukkit.Client.ClientSocketJSONEvent;
 
 public class SkWrapperReceiver implements Listener {
 	
-	private String message;
+	private static String message;
 	
 	@EventHandler
-    public void onSocketMessage(ServerSocketJSONEvent e) {
+    public void onSocketMessage(ClientSocketJSONEvent e) {
 		String channel = e.getChannel(); // The channel name
 	    
         if(channel.equals("SkWrapper-list")) {
             String message = e.getExtraString("message");
-        	this.message = message;
+            SkWrapperReceiver.message = message;
         }
 	}
 	
-	public String getServers() {
+	public static String getServers() {
 		
-		return this.message;
+		return message;
 		
 	}
 

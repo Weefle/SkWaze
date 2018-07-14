@@ -45,8 +45,7 @@ public static String getServers(String template) {
     Socket4Bukkit.getClient().write("SkWrapper-list", map);
     try {
 		TimeUnit.SECONDS.sleep(2);
-		SkWrapperReceiver skr = new SkWrapperReceiver();
-		return skr.getServers();
+		return SkWrapperReceiver.getServers();
 	} catch (InterruptedException e) {
 		e.printStackTrace();
 	}
