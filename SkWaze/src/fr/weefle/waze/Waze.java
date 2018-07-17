@@ -8,6 +8,7 @@ import fr.weefle.waze.skwrapper.SkWrapperSender;
 import fr.weefle.waze.skwrapper.WazeEffectCreateServer;
 import fr.weefle.waze.skwrapper.WazeEffectStartServer;
 import fr.weefle.waze.skwrapper.WazeEffectStopServer;
+import fr.weefle.waze.skwrapper.WazeExpressionServersList;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.Updater;
 import fr.weefle.waze.utils.UpdaterListener;
@@ -20,7 +21,6 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.util.SimpleEvent;
 import fr.weefle.waze.events.PlayerJumpEvent;
 import fr.weefle.waze.expressions.WazeExpressionPing;
-import fr.weefle.waze.expressions.WazeExpressionServersList;
 
 public class Waze extends JavaPlugin {
 	

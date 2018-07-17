@@ -19,20 +19,5 @@ public class SkWrapperSender implements Listener {
 		public void onHandshake(ClientSocketHandshakeEvent e){
 		    sendPing();
 		}
-		
-		/*@EventHandler
-		public void onSocketMessage(ServerSocketJSONEvent e){
-
-		    String channel = e.getChannel(); // The channel name
-		 
-		    if(!channel.equals("MyChannel")) return;
-
-		    String name = e.getName(); // The name of the server
-
-		    String message = e.getExtraString("message");
-		 
-		    getLogger().info("Received message from " + name + ": " + message);
-
-		    }*/
 
 }

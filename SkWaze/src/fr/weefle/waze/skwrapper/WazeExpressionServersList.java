@@ -1,7 +1,7 @@
-package fr.weefle.waze.expressions;
+package fr.weefle.waze.skwrapper;
 
 import javax.annotation.Nullable;
-import fr.weefle.waze.skwrapper.SkWrapper;
+
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;

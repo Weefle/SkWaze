@@ -42,7 +42,13 @@ public static String getServers(String template) {
 	
 	JSONMap map = new JSONMap("message", template);
     Socket4Bukkit.getClient().write("SkWrapper-list", map);
-    return SkWrapperReceiver.getServers();
+    //if(SkWrapperReceiver.getServers() != null) {
+    	return SkWrapperReceiver.getServers();
+    /*}else {
+    	JSONMap map2 = new JSONMap("message", template);
+        Socket4Bukkit.getClient().write("SkWrapper-list", map2);
+        return SkWrapperReceiver.getServers();
+    }*/
 	
 }
 }
