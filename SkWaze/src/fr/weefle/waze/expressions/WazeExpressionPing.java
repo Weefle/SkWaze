@@ -24,7 +24,7 @@ public class WazeExpressionPing extends SimpleExpression<Integer> {
 	@Override
 	public boolean isSingle() {
 		// TODO Auto-generated method stub
-		return true;
+		return false;
 	}
 
 	@SuppressWarnings("unchecked")
