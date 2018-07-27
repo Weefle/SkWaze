@@ -40,7 +40,8 @@ public class BossBarNew implements BossBarAPI {
 					bar.get(id).setProgress(percent);
 					bar.get(id).addPlayer(i);
 			  }*/
-			bar.put(p, bar.get(p)).put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
+			boss.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
+			bar.put(p, boss);
 			bar.get(p).get(id).setProgress(percent);
 			bar.get(p).get(id).addPlayer(p);
 			/*bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
