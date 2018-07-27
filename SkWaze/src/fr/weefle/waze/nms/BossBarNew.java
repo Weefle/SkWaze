@@ -33,6 +33,10 @@ public class BossBarNew implements BossBarAPI {
 			/*bar.get(id).setColor(BarColor.valueOf(color));
 			bar.get(id).setTitle(message);
 			bar.get(id).setProgress(percent);*/
+		}else{boss.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
+		bar.put(p, boss);
+		bar.get(p).get(id).setProgress(percent);
+		bar.get(p).get(id).addPlayer(p);
 		}}else {
 			//envoie à tous les joueurs?
 			 /* for(Player i : Bukkit.getOnlinePlayers()){
@@ -74,12 +78,33 @@ public class BossBarNew implements BossBarAPI {
     				bar.get(p).get(id).removePlayer(p);
     				bar.get(p).remove(id);
     				players.remove(idd);
-    				bar.remove(p);
+    				//bar.remove(p);
     				//p.sendMessage("apres: " + bar.values());
     	            Bukkit.getScheduler().cancelTask(task);}, time);
     			
     		}
-		}}else{
+		}else{boss.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
+		bar.put(p, boss);
+		//p.sendMessage("" + bar.values());
+		//bar.get(p).put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
+		bar.get(p).get(id).setProgress(percent);
+		bar.get(p).get(id).addPlayer(p);
+		players.add(p);
+		//String[] array = new String[ids.size()];
+		Object[] arr = players.toArray();
+		for (Object idd : arr) {
+			
+			//p.sendMessage("avant: " + bar.values());
+			
+			task = Bukkit.getScheduler().scheduleSyncDelayedTask(m, () -> {
+				bar.get(p).get(id).removePlayer(p);
+				bar.get(p).remove(id);
+				players.remove(idd);
+				//bar.remove(p);
+				//p.sendMessage("apres: " + bar.values());
+	            Bukkit.getScheduler().cancelTask(task);}, time);
+			
+		}}}else{
         	/*bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
             bar.get(id).setProgress(percent);
             bar.get(id).addPlayer(p);
@@ -105,7 +130,7 @@ public class BossBarNew implements BossBarAPI {
 				bar.get(p).get(id).removePlayer(p);
 				bar.get(p).remove(id);
 				players.remove(idd);
-				bar.remove(p);
+				//bar.remove(p);
 				//p.sendMessage("apres: " + bar.values());
 	            Bukkit.getScheduler().cancelTask(task);}, time);
 			
@@ -139,9 +164,6 @@ public class BossBarNew implements BossBarAPI {
 		if(bar.get(p).containsKey(id)) {
 			bar.get(p).get(id).removePlayer(p);
 			bar.get(p).remove(id);
-			bar.remove(p);
 			//p.sendMessage("" + bar.values());
-		}}
-	}
 
-}
+}}}}
