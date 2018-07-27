@@ -1,13 +1,13 @@
 package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
-import fr.weefle.waze.Waze;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
+import fr.weefle.waze.Waze;
 
 public class WazeEffectBossBarCreate extends Effect {
 	
@@ -37,8 +37,10 @@ public class WazeEffectBossBarCreate extends Effect {
 
 	@Override
 	protected void execute(Event arg0) {
-		// TODO Auto-generated method stub
-			Waze.getInstance().getBossBar().sendBossBar(player.getSingle(arg0), message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), id.getSingle(arg0));
+        	for(Player p : player.getAll(arg0)){
+        		Waze.getInstance().getBossBar().sendBossBar(p, message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), id.getSingle(arg0));
+        	}
+			//Waze.getInstance().getBossBar().sendBossBar(player.getSingle(arg0), message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), id.getSingle(arg0));
     }
 
 }

@@ -40,8 +40,10 @@ public class WazeEffectBossBarTimer extends Effect {
 
     @Override
     protected void execute(Event arg0) {
-        // TODO Auto-generated method stub
-    		Waze.getInstance().getBossBar().sendBossBarTimer(player.getSingle(arg0), message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), time.getSingle(arg0), id.getSingle(arg0));
+    	for(Player p : player.getAll(arg0)){
+    		Waze.getInstance().getBossBar().sendBossBarTimer(p, message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), time.getSingle(arg0), id.getSingle(arg0));
+    	}
+    		//Waze.getInstance().getBossBar().sendBossBarTimer(player.getSingle(arg0), message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), time.getSingle(arg0), id.getSingle(arg0));
     }
 
 }

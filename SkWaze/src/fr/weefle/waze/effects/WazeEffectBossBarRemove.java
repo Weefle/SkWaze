@@ -32,8 +32,10 @@ public class WazeEffectBossBarRemove extends Effect {
 
     @Override
     protected void execute(Event arg0) {
-        // TODO Auto-generated method stub
-    		Waze.getInstance().getBossBar().removeBossBar(player.getSingle(arg0), id.getSingle(arg0));
+    	for(Player p : player.getAll(arg0)){
+    		Waze.getInstance().getBossBar().removeBossBar(p, id.getSingle(arg0));
+    	}
+    		//Waze.getInstance().getBossBar().removeBossBar(player.getSingle(arg0), id.getSingle(arg0));
     }
 
 }
