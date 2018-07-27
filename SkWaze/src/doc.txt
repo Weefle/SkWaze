@@ -6,7 +6,7 @@ Effects:
 [waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]
 [waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% with id %string% (to|for) %players%
 [waze] (create|send) [boss]bar %string% (with|at) %double% percent[s] (and|with) color %string% with id %string% (for|and) %integer% tick[s] (to|for) %players%
-[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %player%
+[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %players%
 [waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%
 [waze] (clear|remove) scoreboard %string% (of|for) %players%
 [waze] (spawn|create|summon) [a number of] %int% [of] %string%['s] particle[s] (to|for) %players% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with) data %float%
