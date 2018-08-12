@@ -18,7 +18,7 @@ public class Title {
         Object endtitle = PacketPlayOutTitle.getConstructor(EnumTitleAction, IChatBaseComponent).newInstance(EnumTitleAction.getField("TITLE").get(null), basetitle);
         Object basesubtitle = ChatSerializer.getMethod("a", String.class).invoke(null, "{\"text\": \"" + subtitle + "\"}");
         Object endsubtitle = PacketPlayOutTitle.getConstructor(EnumTitleAction, IChatBaseComponent).newInstance(EnumTitleAction.getField("SUBTITLE").get(null), basesubtitle);
-        Object endtime = PacketPlayOutTitle.getConstructor(int.class, int.class, int.class).newInstance(20, time, 20);
+        Object endtime = PacketPlayOutTitle.getConstructor(int.class, int.class, int.class).newInstance(20, time / 20, 20);
         Method sendPacket = reflection.getConnection ( player ).getClass().getMethod ( "sendPacket", reflection.getNMSClass ( "Packet" ));
         sendPacket.invoke (reflection.getConnection(player), endtitle );
         sendPacket.invoke(reflection.getConnection(player), endsubtitle);
