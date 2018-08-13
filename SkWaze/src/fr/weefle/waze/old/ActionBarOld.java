@@ -20,7 +20,8 @@ public class ActionBarOld implements ActionBar {
         Method csA = chatSerializer.getMethod ( "a", String.class );
         Object component = csA.invoke ( chatSerializer, "{\"text\": \"" + message + "\"}" );
         Object packet = packetConstructor.newInstance ( component, ( byte ) 2 );
-        Method sendPacket = reflection.getConnection ( player ).getClass().getMethod ( "sendPacket", reflection.getNMSClass ( "Packet" ));
-        sendPacket.invoke (reflection.getConnection(player), packet );
+        /*Method sendPacket = reflection.getConnection ( player ).getClass().getMethod ( "sendPacket", reflection.getNMSClass ( "Packet" ));
+        sendPacket.invoke (reflection.getConnection(player), packet );*/
+        reflection.sendPacket(player, packet);
     }
 }

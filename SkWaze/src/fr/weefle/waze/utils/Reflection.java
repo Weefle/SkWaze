@@ -1,35 +1,26 @@
 package fr.weefle.waze.utils;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class Reflection {
 	
-public Class< ? > getNMSClass ( String classname )
-	{
-	    String version = Bukkit.getServer ( ).getClass ( ).getPackage ( ).getName ( ).replace ( ".", "," ).split ( "," )[ 3 ] + ".";
-	    String name = "net.minecraft.server." + version + classname;
-	    Class< ? > nmsClass = null;
-	    try
-	    {
-	        nmsClass = Class.forName ( name );
-	    } catch ( ClassNotFoundException e )
-	    {
-	        e.printStackTrace ( );
-	    }
-	    return nmsClass;
-	}
+	public void sendPacket(Player player, Object packet) {
+        try {
+            Object handle = player.getClass().getMethod("getHandle").invoke(player);
+            Object playerConnection = handle.getClass().getField("playerConnection").get(handle);
+            playerConnection.getClass().getMethod("sendPacket", getNMSClass("Packet")).invoke(playerConnection, packet);
+        } catch (Exception ex) {
+        }
+    }
 
-	public Object getConnection ( Player player ) throws SecurityException, NoSuchMethodException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, InvocationTargetException
-	{
-	    Method getHandle = player.getClass ( ).getMethod ( "getHandle" );
-	    Object nmsPlayer = getHandle.invoke ( player );
-	    Field conField = nmsPlayer.getClass ( ).getField ( "playerConnection" );
-	    Object con = conField.get ( nmsPlayer );
-	    return con;
-	}
+    public  Class<?> getNMSClass(String name) {
+        try {
+            return Class.forName("net.minecraft.server"
+                    + Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3] + "." + name);
+        } catch (ClassNotFoundException ex) {
+        }
+        return null;
+    }
 
 }

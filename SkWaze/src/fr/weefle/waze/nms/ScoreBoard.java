@@ -19,6 +19,14 @@ public class ScoreBoard {
         ob.getScore(score).setScore(line);
         p.setScoreboard(sb);
     }
+    
+    public void changeTablist(String name, Player p) {
+    	if(ob != null) {
+    		ob.setDisplayName(name);
+    		p.setScoreboard(sb);
+    	}
+ 
+    }
 
     public void removeScoreBoard(Player p, String name) {
         p.getScoreboard().getObjective(name).unregister();

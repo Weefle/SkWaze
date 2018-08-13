@@ -102,7 +102,7 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectBossBarRemoveOld.class, "[waze] 1.8 (remove|delete|clear) [boss]bar (of|for) %players%");
         Skript.registerEffect(WazeEffectScoreBoard.class, "[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
 		Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) scoreboard %string% (of|for) %players%");
-		Skript.registerEffect(WazeEffectTablist.class, "[waze] (create|make) tablist %string% (to|for) %players%");
+		Skript.registerEffect(WazeEffectTablist.class, "[waze] (create|make) tablist (with|from) [head[er]] %string% (and|with) [foot[er]] %string% (to|for) %players%");
 		Skript.registerEffect(WazeEffectAutoRespawn.class, "[waze] [auto]respawn %players%");
 		Skript.registerEffect(WazeEffectParticles.class, "[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %locations% (and|with) offset %float%, %float%, %float% (and|with) data %float%");
 		Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
