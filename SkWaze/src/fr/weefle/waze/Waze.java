@@ -57,6 +57,7 @@ public class Waze extends JavaPlugin {
 		scoreboard = new ScoreBoard();
 		ping = new Ping();
 		particles = new Particles();
+		nametag = new Nametag();
 		tablist = new Tablist();
 		getServer().getPluginManager().registerEvents(new SkWrapperSender(), this);
 		getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), this);
