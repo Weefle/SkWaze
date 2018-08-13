@@ -40,7 +40,6 @@ public class WazeEffectTablist extends Effect {
 					Waze.getInstance().getTablist().setTablist(header.getSingle(arg0), footer.getSingle(arg0), p);
 				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException
 						| NoSuchMethodException | SecurityException | InstantiationException | NoSuchFieldException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				};
         	}

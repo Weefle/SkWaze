@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/BarAPI.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/Discord Bot API.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/socket4mc-3.2.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/ProtocolLib.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

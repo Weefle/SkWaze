@@ -31,8 +31,7 @@ public class AutoRespawnOld implements AutoRespawn {
 			        		packet = packet.getClass().getConstructor(enumclass).newInstance(obj);
 			        	}
 			        }
-			        //reflection.getConnection(p).getClass().getMethod("a", packet.getClass()).invoke(reflection.getConnection(p), packet);
-			        reflection.sendPacket(p, packet);
+			        reflection.getConnection(p).getClass().getMethod("a", packet.getClass()).invoke(reflection.getConnection(p), packet);
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
