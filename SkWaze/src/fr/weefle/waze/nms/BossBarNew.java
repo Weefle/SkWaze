@@ -23,7 +23,7 @@ public class BossBarNew implements BossBarAPI {
     }
 
 	@Override
-	public void sendBossBar(Player p, String message, double percent, String color, String id) {
+	public void sendBossBar(Player p, String message, int percent, String color, String id) {
 		if(bar.containsKey(p)) {
 		if(bar.get(p).containsKey(id)) {
 			bar.get(p).get(id).setTitle(message);
@@ -56,7 +56,7 @@ public class BossBarNew implements BossBarAPI {
 	}
 
 	@Override
-	public void sendBossBarTimer(Player p, String message, double percent, String color, int time, String id) {
+	public void sendBossBarTimer(Player p, String message, int percent, String color, int time, String id) {
 		if(bar.containsKey(p)) {
 		if(bar.get(p).containsKey(id)){
             Bukkit.getScheduler().cancelTask(task);

@@ -12,7 +12,7 @@ import fr.weefle.waze.Waze;
 public class WazeEffectBossBarTimerOld extends Effect {
 
     private Expression<String> message;
-    private Expression<Double> percent;
+    private Expression<Integer> percent;
     private Expression<Integer> time;
     private Expression<Player> player;
 
@@ -21,7 +21,7 @@ public class WazeEffectBossBarTimerOld extends Effect {
     public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
         // TODO Auto-generated method stub
         message = (Expression<String>) arg0[0];
-        percent = (Expression<Double>) arg0[1];
+        percent = (Expression<Integer>) arg0[1];
         time = (Expression<Integer>) arg0[2];
         player = (Expression<Player>) arg0[3];
         return true;

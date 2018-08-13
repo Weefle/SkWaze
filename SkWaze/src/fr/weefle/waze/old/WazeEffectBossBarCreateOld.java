@@ -12,7 +12,7 @@ import fr.weefle.waze.Waze;
 public class WazeEffectBossBarCreateOld extends Effect{
 	
 	private Expression<String> message;
-	private Expression<Double> percent;
+	private Expression<Integer> percent;
 	private Expression<Player> player;
 
 	@SuppressWarnings("unchecked")
@@ -20,7 +20,7 @@ public class WazeEffectBossBarCreateOld extends Effect{
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
 		// TODO Auto-generated method stub
 		message = (Expression<String>) arg0[0];
-		percent = (Expression<Double>) arg0[1];
+		percent = (Expression<Integer>) arg0[1];
 		player = (Expression<Player>) arg0[2];
 		return true;
 	}
