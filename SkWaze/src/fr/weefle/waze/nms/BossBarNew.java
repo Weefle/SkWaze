@@ -28,14 +28,14 @@ public class BossBarNew implements BossBarAPI {
 		if(bar.get(p).containsKey(id)) {
 			bar.get(p).get(id).setTitle(message);
 			bar.get(p).get(id).setColor(BarColor.valueOf(color));
-			bar.get(p).get(id).setProgress(percent * 100);
+			bar.get(p).get(id).setProgress((float) percent / 100);
 			//bar.put(p, bar.get(p)).get(id).setTitle(message);
 			/*bar.get(id).setColor(BarColor.valueOf(color));
 			bar.get(id).setTitle(message);
 			bar.get(id).setProgress(percent);*/
 		}else{boss.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
 		bar.put(p, boss);
-		bar.get(p).get(id).setProgress(percent * 100);
+		bar.get(p).get(id).setProgress((float) percent / 100);
 		bar.get(p).get(id).addPlayer(p);
 		}}else {
 			//envoie à tous les joueurs?
@@ -46,7 +46,7 @@ public class BossBarNew implements BossBarAPI {
 			  }*/
 			boss.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
 			bar.put(p, boss);
-			bar.get(p).get(id).setProgress(percent * 100);
+			bar.get(p).get(id).setProgress((float) percent / 100);
 			bar.get(p).get(id).addPlayer(p);
 			/*bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
 			bar.get(id).setProgress(percent);
@@ -67,7 +67,7 @@ public class BossBarNew implements BossBarAPI {
             bar.get(id).addPlayer(p);*/
             bar.get(p).get(id).setTitle(message);
 			bar.get(p).get(id).setColor(BarColor.valueOf(color));
-			bar.get(p).get(id).setProgress(percent * 100);
+			bar.get(p).get(id).setProgress((float) percent / 100);
             //players.add(p);
     		Object[] arr = players.toArray();
     		for (Object idd : arr) {
@@ -80,14 +80,14 @@ public class BossBarNew implements BossBarAPI {
     				players.remove(idd);
     				//bar.remove(p);
     				//p.sendMessage("apres: " + bar.values());
-    	            Bukkit.getScheduler().cancelTask(task);}, time / 20);
+    	            Bukkit.getScheduler().cancelTask(task);}, time * 20);
     			
     		}
 		}else{boss.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
 		bar.put(p, boss);
 		//p.sendMessage("" + bar.values());
 		//bar.get(p).put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
-		bar.get(p).get(id).setProgress(percent * 100);
+		bar.get(p).get(id).setProgress((float) percent / 100);
 		bar.get(p).get(id).addPlayer(p);
 		players.add(p);
 		//String[] array = new String[ids.size()];
@@ -102,7 +102,7 @@ public class BossBarNew implements BossBarAPI {
 				players.remove(idd);
 				//bar.remove(p);
 				//p.sendMessage("apres: " + bar.values());
-	            Bukkit.getScheduler().cancelTask(task);}, time / 20);
+	            Bukkit.getScheduler().cancelTask(task);}, time * 20);
 			
 		}}}else{
         	/*bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
@@ -117,7 +117,7 @@ public class BossBarNew implements BossBarAPI {
 		bar.put(p, boss);
 		//p.sendMessage("" + bar.values());
 		//bar.get(p).put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
-		bar.get(p).get(id).setProgress(percent * 100);
+		bar.get(p).get(id).setProgress((float) percent / 100);
 		bar.get(p).get(id).addPlayer(p);
 		players.add(p);
 		//String[] array = new String[ids.size()];
@@ -132,7 +132,7 @@ public class BossBarNew implements BossBarAPI {
 				players.remove(idd);
 				//bar.remove(p);
 				//p.sendMessage("apres: " + bar.values());
-	            Bukkit.getScheduler().cancelTask(task);}, time / 20);
+	            Bukkit.getScheduler().cancelTask(task);}, time * 20);
 			
 		}}
 		/*ids.add(id);
