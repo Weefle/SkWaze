@@ -13,6 +13,8 @@ import net.minecraft.server.v1_12_R1.PacketPlayOutPlayerInfo.EnumPlayerInfoActio
 
 public class Nametag {
 	
+	//make this part reflective
+	
 	public void changeName(Player p, String newName){
         for(Player pl : Bukkit.getServer().getOnlinePlayers()){
             if(pl == p) continue;

@@ -1,9 +1,9 @@
 - holograms
 #- scoreboards
-- tablist
+#- tablist
 #- autorespawn
 - more bungee features (sockets/messages)
-- nametag
+#- nametag
 #- particles
 - sql
 - gui
