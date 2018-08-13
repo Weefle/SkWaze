@@ -1,8 +1,9 @@
-package fr.weefle.waze.nms;
+package fr.weefle.waze.old;
 
 import org.bukkit.entity.Player;
 
 import fr.weefle.waze.Waze;
+import fr.weefle.waze.nms.AutoRespawn;
 import fr.weefle.waze.utils.Reflection;
 
 public class AutoRespawnOld implements AutoRespawn {

@@ -1,6 +1,8 @@
-package fr.weefle.waze.nms;
+package fr.weefle.waze.old;
 
 import org.bukkit.entity.Player;
+
+import fr.weefle.waze.nms.BossBarAPI;
 import me.confuser.barapi.BarAPI;
 
 public class BossBarOld implements BossBarAPI {
