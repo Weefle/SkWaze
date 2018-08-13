@@ -35,6 +35,7 @@ public class Waze extends JavaPlugin {
 	private Title title;
 	private BossBarAPI bossbar;
 	private Ping ping;
+	private Tablist tablist;
 	private Particles particles;
 	private ScoreBoard scoreboard;
 	private AutoRespawn autorespawn;
@@ -55,6 +56,7 @@ public class Waze extends JavaPlugin {
 		scoreboard = new ScoreBoard();
 		ping = new Ping();
 		particles = new Particles();
+		tablist = new Tablist();
 		getServer().getPluginManager().registerEvents(new SkWrapperSender(), this);
 		getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), this);
 		getServer().getPluginManager().registerEvents(new UpdaterListener(), this);
@@ -100,6 +102,7 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectBossBarRemoveOld.class, "[waze] 1.8 (remove|delete|clear) [boss]bar (of|for) %players%");
         Skript.registerEffect(WazeEffectScoreBoard.class, "[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
 		Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) scoreboard %string% (of|for) %players%");
+		Skript.registerEffect(WazeEffectTablist.class, "[waze] (create|make) tablist %string% (to|for) %players%");
 		Skript.registerEffect(WazeEffectAutoRespawn.class, "[waze] [auto]respawn %players%");
 		Skript.registerEffect(WazeEffectParticles.class, "[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %locations% (and|with) offset %float%, %float%, %float% (and|with) data %float%");
 		Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
@@ -170,6 +173,10 @@ public class Waze extends JavaPlugin {
     
     public AutoRespawn getAutoRespawn(){
 	    return autorespawn;
+    }
+    
+    public Tablist getTablist(){
+	    return tablist;
     }
     
     public Particles getParticles(){
