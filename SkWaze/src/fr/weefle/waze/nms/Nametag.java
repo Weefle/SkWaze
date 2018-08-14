@@ -1,21 +1,16 @@
 package fr.weefle.waze.nms;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
-import com.mojang.authlib.GameProfile;
-import net.minecraft.server.v1_12_R1.PacketPlayOutEntityDestroy;
-import net.minecraft.server.v1_12_R1.PacketPlayOutNamedEntitySpawn;
-import net.minecraft.server.v1_12_R1.PacketPlayOutPlayerInfo;
-import net.minecraft.server.v1_12_R1.PacketPlayOutPlayerInfo.EnumPlayerInfoAction;
 
 public class Nametag {
 	
 	//make this part reflective
 	
-	public void changeName(Player p, String newName){
+	/*public void changeName(Player p, String newName){
         for(Player pl : Bukkit.getServer().getOnlinePlayers()){
             if(pl == p) continue;
             //REMOVES THE PLAYER
@@ -39,6 +34,53 @@ public class Nametag {
             ((CraftPlayer)pl).getHandle().playerConnection.sendPacket(new PacketPlayOutEntityDestroy(p.getEntityId()));
             ((CraftPlayer)pl).getHandle().playerConnection.sendPacket(new PacketPlayOutNamedEntitySpawn(((CraftPlayer)p).getHandle()));
         }
-    }
+    }*/
+	@SuppressWarnings("deprecation")
+	public void changeName(String name, Player player) {
+	     try {
+	       Method getHandle = player.getClass().getMethod("getHandle",
+	           (Class<?>[]) null);
+	       // Object entityPlayer = getHandle.invoke(player);
+	       // Class<?> entityHuman = entityPlayer.getClass().getSuperclass();
+	       /**
+	        * These methods are no longer needed, as we can just access the
+	        * profile using handle.getProfile. Also, because we can just use
+	        * the method, which will not change, we don't have to do any
+	        * field-name look-ups.
+	        */
+	       try {
+	         Class.forName("com.mojang.authlib.GameProfile");
+	         // By having the line above, only 1.8+ servers will run this.
+	       } catch (ClassNotFoundException e) {
+	         /**
+	          * Currently, there is no field that can be easily modified for
+	          * lower versions. The "name" field is final, and cannot be
+	          * modified in runtime. The only workaround for this that I can
+	          * think of would be if the server creates a "dummy" entity that
+	          * takes in the player's input and plays the player's animations
+	          * (which will be a lot more lines)
+	          */
+	         Bukkit.broadcastMessage("CHANGE NAME METHOD DOES NOT WORK IN 1.7 OR LOWER!");
+	         return;
+	       }
+	         Object profile = getHandle.invoke(player).getClass()
+	             .getMethod("getProfile")
+	             .invoke(getHandle.invoke(player));
+	         Field ff = profile.getClass().getDeclaredField("name");
+	         ff.setAccessible(true);
+	         ff.set(profile, name);
+	       for (Player players : Bukkit.getOnlinePlayers()) {
+	         players.hidePlayer(player);
+	         players.showPlayer(player);
+	       }
+	     } catch (NoSuchMethodException | SecurityException
+	         | IllegalAccessException | IllegalArgumentException
+	         | InvocationTargetException | NoSuchFieldException e) {
+	       /**
+	        * Merged all the exceptions. Less lines
+	        */
+	       e.printStackTrace();
+	     }
+	   }
 
 }

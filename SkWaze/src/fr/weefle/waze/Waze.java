@@ -26,6 +26,7 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.util.SimpleEvent;
 import fr.weefle.waze.events.PlayerJumpEvent;
+import fr.weefle.waze.events.PlayerSwimEvent;
 import fr.weefle.waze.expressions.WazeExpressionBossBar;
 import fr.weefle.waze.expressions.WazeExpressionPing;
 
@@ -114,6 +115,7 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
+		Skript.registerEvent("Swim Event", SimpleEvent.class, PlayerSwimEvent.class, "[waze] swim[ing]");
         /*EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
             @Override
             public Player get(PlayerJumpEvent playerJumpEvent) {

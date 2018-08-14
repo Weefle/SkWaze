@@ -32,7 +32,8 @@ public class WazeEffectNametag extends Effect {
 	@Override
 	protected void execute(Event arg0) {
         	for(Player p : player.getAll(arg0)){
-					Waze.getInstance().getNametag().changeName(p, name.getSingle(arg0));
+						Waze.getInstance().getNametag().changeName(name.getSingle(arg0), p);
+
 
         	}
 	}

@@ -38,10 +38,6 @@ public class PlayerJumpEvent extends Event implements Cancellable {
         return handlers;
     }
 
-    public static HandlerList getHandlerList() {
-        return handlers;
-    }
-
     private static class PlayerJumpEventListener implements Listener {
 
         private Map<UUID, Integer> jumps = new HashMap<>();
