@@ -21,5 +21,6 @@ Effects:
 [waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%
 Expressions:
 [waze] %players%['s] ping, [waze] ping of %players%
+[waze] [boss]bar [list] with id %string% (of|from) %players%
 Events:
 [waze] jump[ing]

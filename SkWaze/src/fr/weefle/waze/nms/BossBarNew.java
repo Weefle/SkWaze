@@ -166,4 +166,13 @@ public class BossBarNew implements BossBarAPI {
 			bar.get(p).remove(id);
 			//p.sendMessage("" + bar.values());
 
-}}}}
+}}}
+
+	@Override
+	public BossBar getBossBar(Player p, String id) {
+		if(bar.containsKey(p)) {
+				return bar.get(p).get(id);
+		}
+		return null;
+		
+	}}

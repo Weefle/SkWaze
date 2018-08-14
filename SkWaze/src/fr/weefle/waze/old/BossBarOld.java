@@ -1,5 +1,6 @@
 package fr.weefle.waze.old;
 
+import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 
 import fr.weefle.waze.nms.BossBarAPI;
@@ -27,5 +28,10 @@ public class BossBarOld implements BossBarAPI {
             BarAPI.setMessage(p, message, time / 20);
           
         }
+
+	@Override
+	public BossBar getBossBar(Player p, String id) {
+		return null;
+	}
 	
 }
