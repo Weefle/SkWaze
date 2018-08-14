@@ -106,8 +106,9 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectBossBarCreateOld.class, "[waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (to|for) %players%");
 		Skript.registerEffect(WazeEffectBossBarTimerOld.class, "[waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (for|and) %integer% second[s] (to|for) %players%");
 		Skript.registerEffect(WazeEffectBossBarRemoveOld.class, "[waze] 1.8 (remove|delete|clear) [boss]bar (of|for) %players%");
-        Skript.registerEffect(WazeEffectScoreBoard.class, "[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
-		Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) scoreboard %string% (of|for) %players%");
+        Skript.registerEffect(WazeEffectScoreBoard.class, "[waze] (create|make) score[board] %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
+		Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) score[board] %string% (of|for) %players%");
+		Skript.registerEffect(WazeEffectChangeScoreBoard.class, "[waze] (change|modify) score[board] (at|for) [display]slot %string% to [score] %string% (at|for) line %integer% (for|to) %players%");
 		Skript.registerEffect(WazeEffectTablist.class, "[waze] (set|show) tab[list] (with|from) [head[er]] %string% (and|with) [foot[er]] %string% (to|for) %players%");
 		Skript.registerEffect(WazeEffectNametag.class, "[waze] (set|show) name[tag] %string% (to|for) %players%");
 		Skript.registerEffect(WazeEffectAutoRespawn.class, "[waze] [auto]respawn %players%");
