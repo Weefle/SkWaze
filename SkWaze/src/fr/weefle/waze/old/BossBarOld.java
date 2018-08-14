@@ -30,8 +30,8 @@ public class BossBarOld implements BossBarAPI {
         }
 
 	@Override
-	public BossBar getBossBar(Player p, String id) {
-		return null;
+	public String getBossBar(Player p) {
+		return BarAPI.getMessage(p);
 	}
 	
 }
