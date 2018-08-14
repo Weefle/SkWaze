@@ -1,6 +1,7 @@
 package fr.weefle.waze.events;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
@@ -22,7 +23,9 @@ public class PlayerSwimEvent extends Event implements Cancellable{
 
     	@EventHandler
     	public void onSwim(PlayerMoveEvent e) {
-    		if(e.getTo().getBlock().isLiquid() && e.getTo().getBlock().getType() == Material.STATIONARY_WATER || e.getTo().getBlock().getType() == Material.WATER) {
+    		Location location = e.getPlayer().getLocation();
+    		location.setY(location.getBlockY() + 1);
+    		if(e.getTo().getBlock().isLiquid() && location.getBlock().getType() != Material.AIR && e.getTo().getBlock().getType() == Material.STATIONARY_WATER || e.getTo().getBlock().getType() == Material.WATER) {
     			
     			Bukkit.getPluginManager().callEvent(new PlayerSwimEvent(e.getPlayer()));
     			

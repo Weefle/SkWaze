@@ -1,5 +1,5 @@
 - holograms
-#- scoreboards
+*working on*- more scoreboard features
 #- tablist
 #- autorespawn
 - more bungee features (sockets/messages)
@@ -9,9 +9,10 @@
 - gui
 - worldedit (schematics, copy/paste)
 - worldguard regions
-*working on*- discord support
+*paused*- discord support
 - web requests
-- work on jump event
+*need help*- work on jump event
+#- swim event
 #- effects support all players
 #- more reflection
 - disguise
@@ -22,7 +23,7 @@
 #- bossbar rework
 #- bossbar 1.8
 - supply crate
-- more expressions and more events
+*working on*- more expressions and more events
 #- actionbar < 1.12 compatibility
 #- servers manager wrapper for bungee
-- your ideas! :D
+*waiting for*- your ideas! :D
