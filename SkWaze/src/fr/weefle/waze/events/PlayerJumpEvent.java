@@ -82,10 +82,16 @@ public class PlayerJumpEvent extends Event implements Cancellable {
 		this.cancel = c;
 	}
 
-	@Override
-	public HandlerList getHandlers() {
-		// TODO Auto-generated method stub
-		return handlers;
-	}
+	public HandlerList getHandlers(){
+
+        return handlers;
+
+    }
+
+    public static HandlerList getHandlerList(){
+
+        return handlers;
+
+    }
 	
 }

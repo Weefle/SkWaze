@@ -50,15 +50,21 @@ public class PlayerSwimEvent extends Event implements Cancellable{
 		this.cancel = arg0;
 		
 	}
-
-	@Override
-	public HandlerList getHandlers() {
-		// TODO Auto-generated method stub
-		return handlers;
-	}
 	
 	public static void register(JavaPlugin plugin) {
         Bukkit.getPluginManager().registerEvents(listener, plugin);
+    }
+
+	public HandlerList getHandlers(){
+
+        return handlers;
+
+    }
+
+    public static HandlerList getHandlerList(){
+
+        return handlers;
+
     }
 
 }

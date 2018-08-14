@@ -122,6 +122,12 @@ public class Waze extends JavaPlugin {
             public Player get(PlayerJumpEvent playerJumpEvent) {
                 return playerJumpEvent.getPlayer();
             }
+        }, 0);
+        EventValues.registerEventValue(PlayerSwimEvent.class, Player.class, new Getter<Player, PlayerSwimEvent>() {
+            @Override
+            public Player get(PlayerSwimEvent playerSwimEvent) {
+                return playerSwimEvent.getPlayer();
+            }
         }, 0);*/
         }
 
