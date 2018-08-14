@@ -33,11 +33,6 @@ public class PlayerJumpEvent extends Event implements Cancellable {
         return this.player;
     }
 
-    @Override
-    public HandlerList getHandlers() {
-        return handlers;
-    }
-
     private static class PlayerJumpEventListener implements Listener {
 
         private Map<UUID, Integer> jumps = new HashMap<>();
@@ -85,6 +80,12 @@ public class PlayerJumpEvent extends Event implements Cancellable {
 	@Override
 	public void setCancelled(boolean c) {
 		this.cancel = c;
+	}
+
+	@Override
+	public HandlerList getHandlers() {
+		// TODO Auto-generated method stub
+		return handlers;
 	}
 	
 }

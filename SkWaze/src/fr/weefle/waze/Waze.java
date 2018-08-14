@@ -90,6 +90,7 @@ public class Waze extends JavaPlugin {
 		instance = this;
 		getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		PlayerJumpEvent.register(this);
+		PlayerSwimEvent.register(this);
 		Skript.registerAddon(this);
         Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]");
 		Skript.registerEffect(WazeEffectActionBar.class, "[waze] (send|create) action[bar] %string% (to|for) %players%");
