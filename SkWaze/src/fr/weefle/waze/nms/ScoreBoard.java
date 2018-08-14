@@ -47,11 +47,13 @@ public class ScoreBoard {
     public void removeScore(String name, Player p) {
     	//here remove the score from a line
     	if(scobo.containsKey(p) && !obj.isEmpty()) {
-    		scobo.get(p).getScores(name).clear();
+    		obj.remove(name);
     	}
     }
 
     public void removeScoreBoard(Player p, String name) {
+    	scobo.remove(p);
+    	obj.remove(name);
         p.getScoreboard().getObjective(name).unregister();
     }
 }
