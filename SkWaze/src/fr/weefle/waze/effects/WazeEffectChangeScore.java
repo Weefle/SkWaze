@@ -11,7 +11,7 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 import fr.weefle.waze.Waze;
 
-public class WazeEffectChangeScoreBoard extends Effect {
+public class WazeEffectChangeScore extends Effect {
 
 	private Expression<String> slot;
     private Expression<String> score;

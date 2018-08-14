@@ -13,6 +13,7 @@ Effects:
 [waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%
 [waze] (clear|remove) scoreboard %string% (of|for) %players%
 [waze] (change|modify) score[board] (at|for) [display]slot %string% to [score] %string% (at|for) line %integer% (for|to) %players%
+[waze] (remove|clear) score[board] score named %string% (for|to) %players%
 [waze] (set|show) tab[list] (with|from) [head[er]] %string% (and|with) [foot[er]] %string% (to|for) %players%
 [waze] (set|show) name[tag] %string% (to|for) %players%
 [waze] (spawn|create|summon) [a number of] %int% [of] %string%['s] particle[s] (to|for) %players% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with) data %float%

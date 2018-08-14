@@ -17,7 +17,6 @@ public class ScoreBoard {
 
     public void createScoreBoard(String name, Player p, String score, String type, int line, String slot) {
     	scobo.put(p, Bukkit.getScoreboardManager().getNewScoreboard());
-    	scobo.get(p).registerNewObjective(name, type);
     	obj.add(scobo.get(p).registerNewObjective(name, type));
     	obj.get(line).setDisplayName(name);
     	DisplaySlot dis = DisplaySlot.valueOf(slot);
@@ -45,8 +44,11 @@ public class ScoreBoard {
  
     }
     
-    public void removeScore() {
+    public void removeScore(String name, Player p) {
     	//here remove the score from a line
+    	if(scobo.containsKey(p) && !obj.isEmpty()) {
+    		scobo.get(p).getScores(name).clear();
+    	}
     }
 
     public void removeScoreBoard(Player p, String name) {
