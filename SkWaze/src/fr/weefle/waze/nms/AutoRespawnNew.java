@@ -2,7 +2,7 @@ package fr.weefle.waze.nms;
 
 import org.bukkit.entity.Player;
 
-public class AutoRespawnNew implements AutoRespawn {
+public class AutoRespawnNew implements AutoRespawnAPI {
 
 	@Override
 	public void respawn(Player p) {

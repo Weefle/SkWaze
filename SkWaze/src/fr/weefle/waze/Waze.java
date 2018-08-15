@@ -6,6 +6,7 @@ import fr.weefle.waze.nms.*;
 import fr.weefle.waze.old.ActionBarOld;
 import fr.weefle.waze.old.AutoRespawnOld;
 import fr.weefle.waze.old.BossBarOld;
+import fr.weefle.waze.old.ParticleOld;
 import fr.weefle.waze.old.WazeEffectBossBarCreateOld;
 import fr.weefle.waze.old.WazeEffectBossBarRemoveOld;
 import fr.weefle.waze.old.WazeEffectBossBarTimerOld;
@@ -33,15 +34,15 @@ import fr.weefle.waze.expressions.WazeExpressionPing;
 public class Waze extends JavaPlugin {
 	
 	private static Waze instance;
-	private ActionBar actionbar;
+	private ActionBarAPI actionbar;
 	private Title title;
 	private BossBarAPI bossbar;
 	private Ping ping;
 	private Tablist tablist;
-	private Particles particles;
+	private ParticleAPI particle;
 	private Nametag nametag;
 	private ScoreBoard scoreboard;
-	private AutoRespawn autorespawn;
+	private AutoRespawnAPI autorespawn;
 	private DiscordRegister discord;
 	private Bot bot;
 
@@ -58,7 +59,6 @@ public class Waze extends JavaPlugin {
 		}
 		scoreboard = new ScoreBoard();
 		ping = new Ping();
-		particles = new Particles();
 		nametag = new Nametag();
 		tablist = new Tablist();
 		getServer().getPluginManager().registerEvents(new SkWrapperSender(), this);
@@ -147,28 +147,32 @@ public class Waze extends JavaPlugin {
 
 		getLogger().info("Your server is running version " + version);
 		if (version.equals("v1_12_R1")) {
+			particle = new ParticleNew();
 			title = new Title();
 			autorespawn = new AutoRespawnNew();
 			bossbar = new BossBarNew(this);
 			actionbar = new ActionBarNew();
 
         } else if (version.equals("v1_8_R3")) {
+        	particle = new ParticleOld();
         	title = new Title();
     		autorespawn = new AutoRespawnOld(this);
     		bossbar = new BossBarOld();
     		actionbar = new ActionBarOld();
         }else if (version.equals("v1_7_R4")){
+        	particle = new ParticleOld();
     		autorespawn = new AutoRespawnOld(this);
     		bossbar = new BossBarOld();
     }else {
     	title = new Title();
+    	particle = new ParticleNew();
     	autorespawn = new AutoRespawnNew();
 		bossbar = new BossBarNew(this);
 		actionbar = new ActionBarOld();
     }
 		return true;
 	}
-    public ActionBar getActionbar() {
+    public ActionBarAPI getActionbar() {
         return actionbar;
     }
     public Title getTitle() {
@@ -187,7 +191,7 @@ public class Waze extends JavaPlugin {
 	    return scoreboard;
     }
     
-    public AutoRespawn getAutoRespawn(){
+    public AutoRespawnAPI getAutoRespawn(){
 	    return autorespawn;
     }
     
@@ -199,8 +203,8 @@ public class Waze extends JavaPlugin {
 	    return tablist;
     }
     
-    public Particles getParticles(){
-	    return particles;
+    public ParticleAPI getParticles(){
+	    return particle;
     }
     
     public DiscordRegister getDiscord() {

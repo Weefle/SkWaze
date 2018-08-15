@@ -1,6 +1,6 @@
 name: SkWaze
 author: Weefle
-version: 2.1.1
+version: 2.1.2
 description: The coolest addon of Skript
 depends: [Skript]
 softdepends: [BossBarAPI, Socket4MC, Discord-ProgramBot-API]

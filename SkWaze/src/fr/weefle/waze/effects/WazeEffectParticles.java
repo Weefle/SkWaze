@@ -50,7 +50,7 @@ public class WazeEffectParticles extends Effect {
         	for(Player p : player.getAll(arg0)){
         		for(Location loc : location.getAll(arg0)){
             		//Waze.getInstance().getParticles().sendParticles(p, particles.getSingle(arg0), true, (float) (loc.getBlockX() + 0.5), loc.getBlockY(), (float) (loc.getBlockZ() + 0.5), xoff.getSingle(arg0), yoff.getSingle(arg0), zoff.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0), null);
-        			Waze.getInstance().getParticles().sendParticles(p, particles.getSingle(arg0), loc, true, xoff.getSingle(arg0), yoff.getSingle(arg0), zoff.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0), null);
+        			Waze.getInstance().getParticles().sendParticles(p, particles.getSingle(arg0), loc, xoff.getSingle(arg0), yoff.getSingle(arg0), zoff.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0));
             	}
         	}
 		} catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException

@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import org.bukkit.entity.Player;
 import fr.weefle.waze.utils.Reflection;
 
-public class ActionBarNew implements ActionBar{
+public class ActionBarNew implements ActionBarAPI{
 	
 	Reflection reflection = new Reflection();
 	

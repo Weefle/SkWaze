@@ -3,10 +3,10 @@ package fr.weefle.waze.old;
 import org.bukkit.entity.Player;
 
 import fr.weefle.waze.Waze;
-import fr.weefle.waze.nms.AutoRespawn;
+import fr.weefle.waze.nms.AutoRespawnAPI;
 import fr.weefle.waze.utils.Reflection;
 
-public class AutoRespawnOld implements AutoRespawn {
+public class AutoRespawnOld implements AutoRespawnAPI {
 	
 	Reflection reflection = new Reflection();
 	

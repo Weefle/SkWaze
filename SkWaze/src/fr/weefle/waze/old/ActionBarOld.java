@@ -5,10 +5,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.bukkit.entity.Player;
 
-import fr.weefle.waze.nms.ActionBar;
+import fr.weefle.waze.nms.ActionBarAPI;
 import fr.weefle.waze.utils.Reflection;
 
-public class ActionBarOld implements ActionBar {
+public class ActionBarOld implements ActionBarAPI {
 	
 	Reflection reflection = new Reflection();
 	
