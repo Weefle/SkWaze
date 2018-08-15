@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="SkWaze/src"/>
 	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/Skript.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/spigot-latest (1).jar"/>
-	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/BarAPI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/BossBarAPI_v2.4.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/Discord Bot API.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/socket4mc-3.2.8.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Benoit/Downloads/ProtocolLib.jar"/>
