@@ -48,6 +48,30 @@ public class Waze extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		/*Classes.registerClass(new ClassInfo<BossBarNew>(BossBarNew.class, "bossbar").user("bossbar").name("bossbar").parser(new Parser<BossBarNew>() {
+
+			@Override
+			public String getVariableNamePattern() {
+				return ".+";
+			}
+
+			@Override
+			@Nullable
+			public BossBarNew parse(String arg0, ParseContext arg1) {
+				return null;
+			}
+
+			@Override
+			public String toString(BossBarNew arg0, int arg1) {
+				return null;
+			}
+
+			@Override
+			public String toVariableNameString(BossBarNew arg0) {
+				return null;
+			}
+		   
+		}));*/
 		if(getServer().getPluginManager().isPluginEnabled("Discord-ProgramBot-API")) {
 			discord = new DiscordRegister(this);
 			bot = new Bot("NDYxNTk3MzYyODcyMTIzMzkz.DhVocQ.px7FnBq7Z8XJw9vW97H0hriGenI", "[Wazea]");
