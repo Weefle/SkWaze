@@ -27,7 +27,7 @@ public class WazeEffectAutoRespawn extends Effect {
 		
 		
 		
-		return "autorespawn player";
+		return "respawn automatically a player";
 	}
 
 	@Override

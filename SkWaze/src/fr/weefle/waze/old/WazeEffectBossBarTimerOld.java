@@ -30,7 +30,7 @@ public class WazeEffectBossBarTimerOld extends Effect {
     @Override
     public String toString(@Nullable Event arg0, boolean arg1) {
         // TODO Auto-generated method stub
-        return "send bossbar to player";
+        return "send bossbar with time to player";
     }
 
     @Override

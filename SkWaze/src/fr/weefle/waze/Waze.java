@@ -146,29 +146,29 @@ public class Waze extends JavaPlugin {
 		}
 
 		getLogger().info("Your server is running version " + version);
-		if (version.equals("v1_12_R1")) {
-			particle = new ParticleNew();
-			title = new Title();
-			autorespawn = new AutoRespawnNew();
-			bossbar = new BossBarNew(this);
-			actionbar = new ActionBarNew();
-
-        } else if (version.equals("v1_8_R3")) {
+		
+		if (version.equals("v1_8_R3") || version.equals("v1_8_R2") || version.equals("v1_8_R1")) {
         	particle = new ParticleOld();
         	title = new Title();
     		autorespawn = new AutoRespawnOld(this);
     		bossbar = new BossBarOld();
     		actionbar = new ActionBarOld();
-        }else if (version.equals("v1_7_R4")){
+        }else if (version.equals("v1_7_R4") || version.equals("v1_7_R3") || version.equals("v1_7_R2") || version.equals("v1_7_R1")){
         	particle = new ParticleOld();
     		autorespawn = new AutoRespawnOld(this);
     		bossbar = new BossBarOld();
+        }else if(version.equals("v1_9_R1") || version.equals("v1_9_R2")) {
+        	title = new Title();
+        	particle = new ParticleNew();
+        	autorespawn = new AutoRespawnNew();
+    		bossbar = new BossBarNew(this);
+    		actionbar = new ActionBarOld();
     }else {
     	title = new Title();
     	particle = new ParticleNew();
     	autorespawn = new AutoRespawnNew();
 		bossbar = new BossBarNew(this);
-		actionbar = new ActionBarOld();
+		actionbar = new ActionBarNew();
     }
 		return true;
 	}
