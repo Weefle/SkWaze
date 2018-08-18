@@ -16,6 +16,7 @@ public class WazeEffectBossBarTimer extends Effect {
     private Expression<Integer> percent;
     private Expression<String> color;
     private Expression<Integer> time;
+    private Expression<String> style;
     private Expression<String> id;
     private Expression<Player> player;
 
@@ -26,9 +27,10 @@ public class WazeEffectBossBarTimer extends Effect {
         message = (Expression<String>) arg0[0];
         percent = (Expression<Integer>) arg0[1];
         color = (Expression<String>) arg0[2];
-        id = (Expression<String>) arg0[3];
-        time = (Expression<Integer>) arg0[4];
-        player = (Expression<Player>) arg0[5];
+        style = (Expression<String>) arg0[3];
+        id = (Expression<String>) arg0[4];
+        time = (Expression<Integer>) arg0[5];
+        player = (Expression<Player>) arg0[6];
         return true;
     }
 
@@ -41,7 +43,7 @@ public class WazeEffectBossBarTimer extends Effect {
     @Override
     protected void execute(Event arg0) {
     	for(Player p : player.getAll(arg0)){
-    		Waze.getInstance().getBossBar().sendBossBarTimer(p, message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), time.getSingle(arg0), id.getSingle(arg0));
+    		Waze.getInstance().getBossBar().sendBossBarTimer(p, message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), time.getSingle(arg0), id.getSingle(arg0), style.getSingle(arg0));
     	}
     		//Waze.getInstance().getBossBar().sendBossBarTimer(player.getSingle(arg0), message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), time.getSingle(arg0), id.getSingle(arg0));
     }

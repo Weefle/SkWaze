@@ -34,7 +34,7 @@ public class WazeEffectBossBarCreateOld extends Effect{
 	@Override
 	protected void execute(Event arg0) {
         	for(Player p : player.getAll(arg0)){
-        		Waze.getInstance().getBossBar().sendBossBar(p, message.getSingle(arg0), percent.getSingle(arg0), null, null);
+        		Waze.getInstance().getBossBar().sendBossBar(p, message.getSingle(arg0), percent.getSingle(arg0), null, null, null);
         	}
 			//Waze.getInstance().getBossBar().sendBossBar(player.getSingle(arg0), message.getSingle(arg0), percent.getSingle(arg0), color.getSingle(arg0), id.getSingle(arg0));
     }

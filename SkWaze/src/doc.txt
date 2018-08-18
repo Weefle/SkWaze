@@ -4,8 +4,8 @@ Effects:
 [waze] (send|teleport) %players% to [bungee[cord]] server %string%
 [waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%
 [waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]
-[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% with id %string% (to|for) %players%
-[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% with id %string% (for|and) %integer% second[s] (to|for) %players%
+[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (to|for) %players%
+[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (for|and) %integer% second[s] (to|for) %players%
 [waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %players%
 [waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (to|for) %players%
 [waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (for|and) %integer% second[s] (to|for) %players%

@@ -6,7 +6,7 @@ import fr.weefle.waze.nms.BossBarAPI;
 public class BossBarOld implements BossBarAPI {
 
 	@Override
-	public void sendBossBar(Player p, String message, int percent, String color, String id) {
+	public void sendBossBar(Player p, String message, int percent, String color, String id, String type) {
 		
 			//BarAPI.setMessage(p, message, percent);
 			org.inventivetalent.bossbar.BossBarAPI.setMessage(p, message, percent);
@@ -22,7 +22,7 @@ public class BossBarOld implements BossBarAPI {
 	}
 
 	@Override
-	public void sendBossBarTimer(Player p, String message, int percent, String color, int time, String id) {
+	public void sendBossBarTimer(Player p, String message, int percent, String color, int time, String id, String type) {
 		
             //BarAPI.setMessage(p, message, time);
 		org.inventivetalent.bossbar.BossBarAPI.setMessage(p, message, percent, time);
