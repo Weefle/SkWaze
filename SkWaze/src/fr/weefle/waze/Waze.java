@@ -21,14 +21,11 @@ import fr.weefle.waze.utils.Updater;
 import fr.weefle.waze.utils.UpdaterListener;
 import java.io.IOException;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.tjplaysnow.discord.object.Bot;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.util.SimpleEvent;
-import ch.njol.skript.registrations.EventValues;
-import ch.njol.skript.util.Getter;
 import fr.weefle.waze.events.PlayerJumpEvent;
 import fr.weefle.waze.events.PlayerSwimEvent;
 import fr.weefle.waze.expressions.WazeExpressionBossBar;
@@ -146,7 +143,7 @@ public class Waze extends JavaPlugin {
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
 		Skript.registerEvent("Swim Event", SimpleEvent.class, PlayerSwimEvent.class, "[waze] swim[ing]");
-        EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
+        /*EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
             @Override
             public Player get(PlayerJumpEvent playerJumpEvent) {
                 return playerJumpEvent.getPlayer();
@@ -157,7 +154,7 @@ public class Waze extends JavaPlugin {
             public Player get(PlayerSwimEvent playerSwimEvent) {
                 return playerSwimEvent.getPlayer();
             }
-        }, 0);
+        }, 0);*/
         }
 
 	private boolean setupNMS() {
