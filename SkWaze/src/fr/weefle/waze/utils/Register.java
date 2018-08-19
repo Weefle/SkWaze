@@ -1,9 +1,12 @@
 package fr.weefle.waze.utils;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.util.SimpleEvent;
+import ch.njol.skript.registrations.EventValues;
+import ch.njol.skript.util.Getter;
 import fr.weefle.waze.Waze;
 import fr.weefle.waze.effects.WazeEffectActionBar;
 import fr.weefle.waze.effects.WazeEffectAutoRespawn;
@@ -71,7 +74,7 @@ public class Register {
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
 		Skript.registerEvent("Swim Event", SimpleEvent.class, PlayerSwimEvent.class, "[waze] swim[ing]");
-        /*EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
+        EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
             @Override
             public Player get(PlayerJumpEvent playerJumpEvent) {
                 return playerJumpEvent.getPlayer();
@@ -82,7 +85,7 @@ public class Register {
             public Player get(PlayerSwimEvent playerSwimEvent) {
                 return playerSwimEvent.getPlayer();
             }
-        }, 0);*/
+        }, 0);
 	}
 	public Waze getMain() {
 		return main;

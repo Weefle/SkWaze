@@ -12,7 +12,6 @@ import fr.weefle.waze.utils.Updater;
 import java.io.IOException;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import com.tjplaysnow.discord.object.Bot;
 
 public class Waze extends JavaPlugin {
 	
@@ -27,7 +26,7 @@ public class Waze extends JavaPlugin {
 	private ScoreBoard scoreboard;
 	private AutoRespawnAPI autorespawn;
 	private DiscordRegister discord;
-	private Bot bot;
+	//private Bot bot;
 
 	@Override
 	public void onEnable() {
@@ -55,7 +54,7 @@ public class Waze extends JavaPlugin {
 			}
 		   
 		}));*/
-		if(getServer().getPluginManager().isPluginEnabled("Discord-ProgramBot-API")) {
+		/*if(getServer().getPluginManager().isPluginEnabled("Discord-ProgramBot-API")) {
 			discord = new DiscordRegister(this);
 			bot = new Bot("NDYxNTk3MzYyODcyMTIzMzkz.DhVocQ.px7FnBq7Z8XJw9vW97H0hriGenI", "[Wazea]");
 			discord.initialiseBot(bot);
@@ -63,7 +62,7 @@ public class Waze extends JavaPlugin {
 			getLogger().info("Discord setup was successful!");
 		}else {
 			getLogger().severe("Failed to setup Discord!");
-		}
+		}*/
 		getLogger().info("SkWrapper setup was successful!");
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");

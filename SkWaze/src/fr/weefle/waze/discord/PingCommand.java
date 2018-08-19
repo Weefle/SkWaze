@@ -1,14 +1,8 @@
 package fr.weefle.waze.discord;
 
-import java.util.List;
-import com.tjplaysnow.discord.object.ProgramCommand;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.MessageChannel;
-import net.dv8tion.jda.core.entities.User;
+public class PingCommand /*extends ProgramCommand*/ {
 
-public class PingCommand extends ProgramCommand {
-
-	@Override
+	/*@Override
 	public String getLabel() {
 		return "ping";
 	}
@@ -24,6 +18,6 @@ public class PingCommand extends ProgramCommand {
 		channel.sendMessage("Pong").queue(delete());
 		
 		return true;
-	}
+	}*/
 
 }
