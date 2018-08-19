@@ -1,29 +1,34 @@
-- holograms
-*working on*- more scoreboard features
-#- tablist
-#- autorespawn
-- more bungee features (sockets/messages)
-#- nametag
-#- particles
-- sql
-- gui
-- worldedit (schematics, copy/paste)
-- worldguard regions
-*paused*- discord support
-- web requests
-*need help*- work on jump event
-#- swim event
-#- effects support all players
-#- more reflection
-- disguise
-- npc
-- yml
-- minigame support
-- villager trade
-#- bossbar rework
-#- bossbar 1.8
-- supply crate
-*working on*- more expressions and more events
-#- actionbar < 1.12 compatibility
-#- servers manager wrapper for bungee
-*waiting for*- your ideas! :D
+✘: Not featured
+✔: Already featured
+⌛: Working on
+
+- holograms ✘
+- more scoreboard features ⌛
+- tablist ✔
+- autorespawn ✔
+- more bungee features (sockets/messages) ✘
+- nametag ✔
+- particles ✔
+- sql ✘
+- gui ✘
+- worldedit (schematics, copy/paste) ✘
+- worldguard regions ✘
+- discord support ⌛
+- web requests ✘
+- work on jump event ⌛
+- work on swim event ⌛
+- swim event ✔
+- effects support all players ✔
+- more reflection ✔
+- disguise ✘
+- npc ✘
+- yml ✘
+- minigame support ✘
+- villager trade ✘
+- bossbar rework ✔
+- bossbar 1.8 ✔
+- supply crate ✘
+- more expressions and more events ⌛
+- actionbar < 1.12 compatibility ✔
+- servers manager wrapper for bungee ✔
+- your ideas ⌛
