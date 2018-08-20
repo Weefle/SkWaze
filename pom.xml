@@ -41,6 +41,11 @@
 		<version>2.4.1</version>
 	</dependency>
 	<dependency>
+  <groupId>net.dv8tion</groupId>
+  <artifactId>jda</artifactId>
+  <version>1.0</version>
+</dependency>
+	<dependency>
     <groupId>org.mcstats.bukkit</groupId>
     <artifactId>metrics-lite</artifactId>
     <version>R8-SNAPSHOT</version>

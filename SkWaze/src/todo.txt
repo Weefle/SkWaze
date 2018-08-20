@@ -15,8 +15,7 @@
 - worldguard regions ✘
 - discord support ⌛
 - web requests ✘
-- work on jump event ⌛
-- work on swim event ⌛
+- work on jump and swim event ✔
 - swim event ✔
 - effects support all players ✔
 - more reflection ✔
