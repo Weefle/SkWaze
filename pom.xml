@@ -41,6 +41,16 @@
 		<version>2.4.1</version>
 	</dependency>
 	<dependency>
+		<groupId>net.citizensnpcs</groupId>
+		<artifactId>citizens-main</artifactId>
+		<version>2.0.22-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+  <groupId>net.jrbudda</groupId>
+  <artifactId>builder</artifactId>
+  <version>0.7.3</version>
+</dependency>
+	<dependency>
   <groupId>net.dv8tion</groupId>
   <artifactId>jda</artifactId>
   <version>1.0</version>
