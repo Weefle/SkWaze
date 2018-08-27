@@ -93,7 +93,7 @@ public class Register {
 		                return playerAdvancementDoneEvent.getAdvancement();
 		            }
 		        }, 0);
-		        Classes.registerClass(new ClassInfo<Advancement>(Advancement.class, "advancement").user("bossbar").name("Advancement").parser(new Parser<Advancement>() {
+		        Classes.registerClass(new ClassInfo<Advancement>(Advancement.class, "advancement").user("advancement(s)?").name("Advancement").parser(new Parser<Advancement>() {
 
 		    		@Override
 		    		public String getVariableNamePattern() {
