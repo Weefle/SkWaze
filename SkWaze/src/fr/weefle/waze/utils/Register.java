@@ -53,7 +53,6 @@ public class Register {
 	private Waze main;
 	public Register(Waze main) {
 		this.setMain(main);
-		String version = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3];
 		PlayerJumpEvent.register(main);
 		PlayerSwimEvent.register(main);
 		Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), main);
@@ -79,7 +78,6 @@ public class Register {
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
 		Skript.registerEvent("Swim Event", SimpleEvent.class, PlayerSwimEvent.class, "[waze] swim[ing]");
 		Skript.registerEvent("Horse Jump Event", SimpleEvent.class, HorseJumpEvent.class, "[waze] horse jump[ing]");
-		if(version.equals("v1_13_R1")) {
 			Skript.registerEvent("Advancement Done Event", SimpleEvent.class, PlayerAdvancementDoneEvent.class, "[waze] advancement [(done|obtained|won)]");
 			 EventValues.registerEventValue(PlayerAdvancementDoneEvent.class, Player.class, new Getter<Player, PlayerAdvancementDoneEvent>() {
 		            @Override
@@ -117,7 +115,6 @@ public class Register {
 		    		}
 		    	   
 		    	}));
-		}
         EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
             @Override
             public Player get(PlayerJumpEvent playerJumpEvent) {
