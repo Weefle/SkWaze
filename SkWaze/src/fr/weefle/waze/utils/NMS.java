@@ -39,6 +39,7 @@ public class NMS {
 	private AutoRespawnAPI autorespawn;
 	
 	public boolean isSet() {
+		instance = this;
 		String version;
 
 	try {
@@ -117,8 +118,5 @@ public ParticleAPI getParticles(){
 public static NMS getInstance() {
 	return instance;
 }
-
-public static void setInstance(NMS instance) {
-	NMS.instance = instance;
-}}
+}
 

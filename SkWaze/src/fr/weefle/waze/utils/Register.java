@@ -1,11 +1,19 @@
 package fr.weefle.waze.utils;
 
+import javax.annotation.Nullable;
 import org.bukkit.Bukkit;
+import org.bukkit.advancement.Advancement;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.HorseJumpEvent;
+import org.bukkit.event.player.PlayerAdvancementDoneEvent;
 import com.tjplaysnow.discord.object.Bot;
 import ch.njol.skript.Skript;
+import ch.njol.skript.classes.ClassInfo;
+import ch.njol.skript.classes.Parser;
 import ch.njol.skript.lang.ExpressionType;
+import ch.njol.skript.lang.ParseContext;
 import ch.njol.skript.lang.util.SimpleEvent;
+import ch.njol.skript.registrations.Classes;
 import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
 import fr.weefle.waze.Waze;
@@ -45,6 +53,7 @@ public class Register {
 	private Waze main;
 	public Register(Waze main) {
 		this.setMain(main);
+		String version = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3];
 		PlayerJumpEvent.register(main);
 		PlayerSwimEvent.register(main);
 		Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), main);
@@ -59,9 +68,6 @@ public class Register {
 		//Skript.registerExpression(WazeExpressionServersList.class, String.class, ExpressionType.PROPERTY, "[waze] [skwrapper] servers list from [template] %string%", "[waze] list of [skwrapper] servers from [template] %string%", "[waze] [skwrapper] servers list from %string%['s] [template]", "[waze] list of [skwrapper] servers from %string%['s] [template]");
 		Skript.registerEffect(WazeEffectRecipe.class, "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%");
 		Skript.registerEffect(WazeEffectClearRecipes.class, "[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]");
-		Skript.registerEffect(WazeEffectBossBarCreate.class, "[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (to|for) %players%");
-		Skript.registerEffect(WazeEffectBossBarTimer.class, "[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (for|and) %integer% second[s] (to|for) %players%");
-		Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %players%");
         Skript.registerEffect(WazeEffectScoreBoard.class, "[waze] (create|make) score[board] %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
 		Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) score[board] %string% (of|for) %players%");
 		/*Skript.registerEffect(WazeEffectChangeScore.class, "[waze] (change|modify) score[board] (at|for) [display]slot %string% to [score] %string% (at|for) line %integer% (for|to) %players%");
@@ -72,6 +78,46 @@ public class Register {
 		Skript.registerEffect(WazeEffectParticles.class, "[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %locations% (and|with) offset %float%, %float%, %float% (and|with|at) speed %float%");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
 		Skript.registerEvent("Swim Event", SimpleEvent.class, PlayerSwimEvent.class, "[waze] swim[ing]");
+		Skript.registerEvent("Horse Jump Event", SimpleEvent.class, HorseJumpEvent.class, "[waze] horse jump[ing]");
+		if(version.equals("v1_13_R1")) {
+			Skript.registerEvent("Advancement Done Event", SimpleEvent.class, PlayerAdvancementDoneEvent.class, "[waze] advancement [(done|obtained|won)]");
+			 EventValues.registerEventValue(PlayerAdvancementDoneEvent.class, Player.class, new Getter<Player, PlayerAdvancementDoneEvent>() {
+		            @Override
+		            public Player get(PlayerAdvancementDoneEvent playerAdvancementDoneEvent) {
+		                return playerAdvancementDoneEvent.getPlayer();
+		            }
+		        }, 0);
+		        EventValues.registerEventValue(PlayerAdvancementDoneEvent.class, Advancement.class, new Getter<Advancement, PlayerAdvancementDoneEvent>() {
+		            @Override
+		            public Advancement get(PlayerAdvancementDoneEvent playerAdvancementDoneEvent) {
+		                return playerAdvancementDoneEvent.getAdvancement();
+		            }
+		        }, 0);
+		        Classes.registerClass(new ClassInfo<Advancement>(Advancement.class, "advancement").user("bossbar").name("Advancement").parser(new Parser<Advancement>() {
+
+		    		@Override
+		    		public String getVariableNamePattern() {
+		    			return ".+";
+		    		}
+
+		    		@Override
+		    		@Nullable
+		    		public Advancement parse(String arg0, ParseContext arg1) {
+		    			return null;
+		    		}
+
+		    		@Override
+		    		public String toString(Advancement arg0, int arg1) {
+		    			return arg0.toString();
+		    		}
+
+		    		@Override
+		    		public String toVariableNameString(Advancement arg0) {
+		    			return arg0.toString();
+		    		}
+		    	   
+		    	}));
+		}
         EventValues.registerEventValue(PlayerJumpEvent.class, Player.class, new Getter<Player, PlayerJumpEvent>() {
             @Override
             public Player get(PlayerJumpEvent playerJumpEvent) {
@@ -84,61 +130,40 @@ public class Register {
                 return playerSwimEvent.getPlayer();
             }
         }, 0);
-        if(Bukkit.getServer().getPluginManager().isPluginEnabled("Socket4MC")) {
+        if(Bukkit.getServer().getPluginManager().getPlugin("Socket4MC") != null) {
         	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
     		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
     		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
-			Bukkit.getLogger().info("Socket4MC setup was successful!");
+			main.getLogger().info("Socket4MC setup was successful!");
 		}else {
-			Bukkit.getLogger().severe("Failed to setup Socket4MC!");
+			main.getLogger().severe("Failed to setup Socket4MC!");
 		}
-		if(Bukkit.getServer().getPluginManager().isPluginEnabled("Citizens") && Bukkit.getServer().getPluginManager().isPluginEnabled("Builder")) {
-			Skript.registerEffect(WazeEffectBuilder.class, "[waze] (make|let) citizen with id %number% build schem[atic] %string% at [location] %location% (with|at) speed %number% (for|to) %player%");
-			Bukkit.getLogger().info("Citizens and Builder setup was successful!");
+		if(Bukkit.getServer().getPluginManager().getPlugin("Citizens") != null && Bukkit.getServer().getPluginManager().getPlugin("Builder") != null) {
+			Skript.registerEffect(WazeEffectBuilder.class, "[waze] (make|let) citizen[s] with id %number% build schem[atic] %string% at [location] %location% (with|at) speed %number% (for|to) %player%");
+			main.getLogger().info("Citizens and Builder setup was successful!");
 		}else {
-			Bukkit.getLogger().severe("Failed to setup Citizens and Builder! do you have both installed?");
+			main.getLogger().severe("Failed to setup Citizens and Builder! do you have both installed?");
 		}
-		if(Bukkit.getServer().getPluginManager().isPluginEnabled("BossBarAPI")) {
+		if(Bukkit.getServer().getPluginManager().getPlugin("BossBarAPI") != null) {
 			Skript.registerEffect(WazeEffectBossBarCreateOld.class, "[waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (to|for) %players%");
 			Skript.registerEffect(WazeEffectBossBarTimerOld.class, "[waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (for|and) %integer% second[s] (to|for) %players%");
 			Skript.registerEffect(WazeEffectBossBarRemoveOld.class, "[waze] 1.8 (remove|delete|clear) [boss]bar (of|for) %players%");
-			Bukkit.getLogger().info("BossBarAPI setup was successful!");
+			main.getLogger().info("BossBarAPI setup was successful! 1.8 BossBar activated!");
 		}else {
-			Bukkit.getLogger().severe("Failed to setup BossBarAPI!");
+			Skript.registerEffect(WazeEffectBossBarCreate.class, "[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (to|for) %players%");
+			Skript.registerEffect(WazeEffectBossBarTimer.class, "[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (for|and) %integer% second[s] (to|for) %players%");
+			Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %players%");
+			main.getLogger().severe("Failed to setup BossBarAPI! activating 1.9 Weefle BossBar API!");
 		}
-		if(Bukkit.getServer().getPluginManager().isPluginEnabled("Discord-ProgramBot-API")) {
+		if(Bukkit.getServer().getPluginManager().getPlugin("Discord-ProgramBot-API") != null) {
 			discord = new DiscordRegister(main);
 			bot = new Bot("NDYxNTk3MzYyODcyMTIzMzkz.DhVocQ.px7FnBq7Z8XJw9vW97H0hriGenI", "[Wazea]");
 			discord.initialiseBot(bot);
 			//bot.addCommand(new PingCommand());
-			Bukkit.getLogger().info("Discord-ProgramBot-API setup was successful!");
+			main.getLogger().info("Discord-ProgramBot-API setup was successful!");
 		}else {
-			Bukkit.getLogger().severe("Failed to setup Discord-ProgramBot-API!");
+			main.getLogger().severe("Failed to setup Discord-ProgramBot-API!");
 		}
-        /*Classes.registerClass(new ClassInfo<BossBarNew>(BossBarNew.class, "bossbar").user("bossbar").name("bossbar").parser(new Parser<BossBarNew>() {
-
-		@Override
-		public String getVariableNamePattern() {
-			return ".+";
-		}
-
-		@Override
-		@Nullable
-		public BossBarNew parse(String arg0, ParseContext arg1) {
-			return null;
-		}
-
-		@Override
-		public String toString(BossBarNew arg0, int arg1) {
-			return null;
-		}
-
-		@Override
-		public String toVariableNameString(BossBarNew arg0) {
-			return null;
-		}
-	   
-	}));*/
 	}
 	public Waze getMain() {
 		return main;

@@ -9,11 +9,15 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Waze extends JavaPlugin {
+	
+	public static Waze instance;
 
 	@Override
 	public void onEnable() {
+		instance = this;
 		getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		new Register(this);
+		NMS nms = new NMS(this);
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
 		try {
@@ -24,7 +28,7 @@ public class Waze extends JavaPlugin {
 			getLogger().severe("Verify the resource's link!");
 			e.printStackTrace();
 		}
-		if (new NMS(this).isSet()) {
+		if (nms.isSet()) {
 
 			getLogger().info("NMS setup was successful!");
 			getLogger().info("The plugin setup process is complete!");
@@ -37,5 +41,9 @@ public class Waze extends JavaPlugin {
 			Bukkit.getPluginManager().disablePlugin(this);
 		}
         }
+
+	public static Waze getInstance() {
+		return instance;
+	}
 
 }

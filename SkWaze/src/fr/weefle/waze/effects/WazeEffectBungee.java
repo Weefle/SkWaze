@@ -13,11 +13,6 @@ import ch.njol.util.Kleenean;
 
 public class WazeEffectBungee extends Effect {
 	
-	private Waze main;
-	public WazeEffectBungee(Waze main) {
-		this.main = main;
-	}
-	
 	private Expression<Player> player;
 	private Expression<String> srv;
 
@@ -41,7 +36,7 @@ public void connect(Player p, String srv)
     out.writeUTF(srv);
   }
   catch (IOException localIOException) {}
-  p.sendPluginMessage(main, "BungeeCord", b.toByteArray());
+  p.sendPluginMessage(Waze.getInstance(), "BungeeCord", b.toByteArray());
 }
 
 public String toString(Event event, boolean bool)
