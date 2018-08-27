@@ -2,7 +2,7 @@ package fr.weefle.waze.effects;
 
 import java.lang.reflect.InvocationTargetException;
 import javax.annotation.Nullable;
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -50,7 +50,7 @@ public class WazeEffectParticles extends Effect {
         	for(Player p : player.getAll(arg0)){
         		for(Location loc : location.getAll(arg0)){
             		//Waze.getInstance().getParticles().sendParticles(p, particles.getSingle(arg0), true, (float) (loc.getBlockX() + 0.5), loc.getBlockY(), (float) (loc.getBlockZ() + 0.5), xoff.getSingle(arg0), yoff.getSingle(arg0), zoff.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0), null);
-        			Waze.getInstance().getParticles().sendParticles(p, particles.getSingle(arg0), loc, xoff.getSingle(arg0), yoff.getSingle(arg0), zoff.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0));
+        			NMS.getInstance().getParticles().sendParticles(p, particles.getSingle(arg0), loc, xoff.getSingle(arg0), yoff.getSingle(arg0), zoff.getSingle(arg0), data.getSingle(arg0), number.getSingle(arg0));
             	}
         	}
 		} catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException

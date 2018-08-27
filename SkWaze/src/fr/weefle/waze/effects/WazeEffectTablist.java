@@ -1,7 +1,6 @@
 package fr.weefle.waze.effects;
 
 import java.lang.reflect.InvocationTargetException;
-
 import javax.annotation.Nullable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -9,7 +8,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 
 public class WazeEffectTablist extends Effect {
 	
@@ -37,7 +36,7 @@ public class WazeEffectTablist extends Effect {
 	protected void execute(Event arg0) {
         	for(Player p : player.getAll(arg0)){
         		try {
-					Waze.getInstance().getTablist().setTablist(header.getSingle(arg0), footer.getSingle(arg0), p);
+        			NMS.getInstance().getTablist().setTablist(header.getSingle(arg0), footer.getSingle(arg0), p);
 				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException
 						| NoSuchMethodException | SecurityException | InstantiationException | NoSuchFieldException e) {
 					e.printStackTrace();

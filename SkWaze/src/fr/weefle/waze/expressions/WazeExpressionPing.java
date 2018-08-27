@@ -1,9 +1,8 @@
 package fr.weefle.waze.expressions;
 
 import java.lang.reflect.InvocationTargetException;
-
 import javax.annotation.Nullable;
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Expression;
@@ -47,7 +46,7 @@ public class WazeExpressionPing extends SimpleExpression<Integer> {
 		// TODO Auto-generated method stub
 		try {
 			for(Player p : player.getAll(arg0)){
-				return new Integer[]{ Waze.getInstance().getPing().getPing(p) };
+				return new Integer[]{ NMS.getInstance().getPing().getPing(p) };
         	}
 		} catch (SecurityException | NoSuchMethodException | NoSuchFieldException | IllegalArgumentException
 				| IllegalAccessException | InvocationTargetException e) {

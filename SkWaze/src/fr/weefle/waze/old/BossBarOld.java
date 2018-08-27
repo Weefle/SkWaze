@@ -3,6 +3,7 @@ package fr.weefle.waze.old;
 import org.bukkit.entity.Player;
 import fr.weefle.waze.nms.BossBarAPI;
 
+@SuppressWarnings("deprecation")
 public class BossBarOld implements BossBarAPI {
 
 	@Override

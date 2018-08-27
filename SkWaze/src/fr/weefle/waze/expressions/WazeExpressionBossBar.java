@@ -7,7 +7,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 
 public class WazeExpressionBossBar extends SimpleExpression<String> {
 	
@@ -43,7 +43,7 @@ public class WazeExpressionBossBar extends SimpleExpression<String> {
 	@Nullable
 	protected String[] get(Event arg0) {
 			for(Player p : player.getAll(arg0)){
-				return new String[]{ Waze.getInstance().getBossBar().getBossBar(p) };
+				return new String[]{ NMS.getInstance().getBossBar().getBossBar(p) };
         	}
 			return null;
 

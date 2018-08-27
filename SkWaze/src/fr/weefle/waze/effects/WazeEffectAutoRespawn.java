@@ -7,7 +7,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 
 public class WazeEffectAutoRespawn extends Effect {
 	
@@ -34,7 +34,7 @@ public class WazeEffectAutoRespawn extends Effect {
 	protected void execute(Event arg0) {
 		
 		for(Player p : player.getAll(arg0)){
-			Waze.getInstance().getAutoRespawn().respawn(p);
+			NMS.getInstance().getAutoRespawn().respawn(p);
     	}
 		
 	}

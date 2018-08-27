@@ -1,7 +1,7 @@
 package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
@@ -33,7 +33,7 @@ public class WazeEffectRemoveScoreBoard extends Effect {
     protected void execute(Event arg0) {
         // TODO Auto-generated method stub
     	for(Player p : player.getAll(arg0)){
-    		Waze.getInstance().getScoreBoard().removeScoreBoard(p, name.getSingle(arg0));
+    		NMS.getInstance().getScoreBoard().removeScoreBoard(p, name.getSingle(arg0));
     	}
     }
 

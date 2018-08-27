@@ -1,9 +1,8 @@
 package fr.weefle.waze.effects;
 
 import java.lang.reflect.InvocationTargetException;
-
 import javax.annotation.Nullable;
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
@@ -40,7 +39,7 @@ public class WazeEffectTitle extends Effect {
 		// TODO Auto-generated method stub
         try {
         	for(Player p : player.getAll(arg0)){
-        		Waze.getInstance().getTitle().sendTitle(p, title.getSingle(arg0), subtitle.getSingle(arg0), time.getSingle(arg0));
+        		NMS.getInstance().getTitle().sendTitle(p, title.getSingle(arg0), subtitle.getSingle(arg0), time.getSingle(arg0));
         	}
 		} catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException
 				| IllegalAccessException | IllegalArgumentException | InvocationTargetException

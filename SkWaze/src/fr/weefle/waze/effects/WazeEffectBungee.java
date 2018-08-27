@@ -3,7 +3,6 @@ package fr.weefle.waze.effects;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-
 import fr.weefle.waze.Waze;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -11,7 +10,13 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
+
 public class WazeEffectBungee extends Effect {
+	
+	private Waze main;
+	public WazeEffectBungee(Waze main) {
+		this.main = main;
+	}
 	
 	private Expression<Player> player;
 	private Expression<String> srv;
@@ -26,7 +31,7 @@ protected void execute(Event event)
 	}
 }
 
-public static void connect(Player p, String srv)
+public void connect(Player p, String srv)
 {
   ByteArrayOutputStream b = new ByteArrayOutputStream();
   DataOutputStream out = new DataOutputStream(b);
@@ -36,7 +41,7 @@ public static void connect(Player p, String srv)
     out.writeUTF(srv);
   }
   catch (IOException localIOException) {}
-  p.sendPluginMessage(Waze.getInstance(), "BungeeCord", b.toByteArray());
+  p.sendPluginMessage(main, "BungeeCord", b.toByteArray());
 }
 
 public String toString(Event event, boolean bool)

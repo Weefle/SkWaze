@@ -7,7 +7,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 
 public class WazeEffectNametag extends Effect {
 	
@@ -32,7 +32,7 @@ public class WazeEffectNametag extends Effect {
 	@Override
 	protected void execute(Event arg0) {
         	for(Player p : player.getAll(arg0)){
-						Waze.getInstance().getNametag().changeName(name.getSingle(arg0), p);
+        		NMS.getInstance().getNametag().changeName(name.getSingle(arg0), p);
 
 
         	}

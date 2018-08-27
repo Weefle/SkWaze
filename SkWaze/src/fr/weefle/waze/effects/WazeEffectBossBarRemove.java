@@ -1,8 +1,7 @@
 package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
-
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
@@ -33,7 +32,7 @@ public class WazeEffectBossBarRemove extends Effect {
     @Override
     protected void execute(Event arg0) {
     	for(Player p : player.getAll(arg0)){
-    		Waze.getInstance().getBossBar().removeBossBar(p, id.getSingle(arg0));
+    		NMS.getInstance().getBossBar().removeBossBar(p, id.getSingle(arg0));
     	}
     		//Waze.getInstance().getBossBar().removeBossBar(player.getSingle(arg0), id.getSingle(arg0));
     }

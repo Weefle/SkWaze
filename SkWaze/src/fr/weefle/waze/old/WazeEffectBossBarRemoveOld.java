@@ -7,7 +7,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
+import fr.weefle.waze.utils.NMS;
 
 public class WazeEffectBossBarRemoveOld extends Effect {
 	
@@ -30,7 +30,7 @@ public class WazeEffectBossBarRemoveOld extends Effect {
     @Override
     protected void execute(Event arg0) {
     	for(Player p : player.getAll(arg0)){
-    		Waze.getInstance().getBossBar().removeBossBar(p, null);
+    		NMS.getInstance().getBossBar().removeBossBar(p, null);
     	}
     		//Waze.getInstance().getBossBar().removeBossBar(player.getSingle(arg0), id.getSingle(arg0));
     }
