@@ -26,3 +26,7 @@ Expressions:
 Events:
 [waze] jump[ing]
 [waze] swim[ing]
+[waze] horse jump[ing]
+[waze] advancement [(done|obtained|won)]
+Types:
+advancement

@@ -11,13 +11,13 @@
 - particles ✔
 - sql ✘
 - gui ✘
-- worldedit (schematics, copy/paste) ✘
+- worldedit (schematics, citizens/builder, copy/paste) ⌛
 - worldguard regions ✘
 - discord support ⌛
 - web requests ✘
 - work on jump and swim event ✔
-- swim event ✔
 - effects support all players ✔
+- advancement features ⌛
 - more reflection ✔
 - disguise ✘
 - npc ✘
@@ -27,7 +27,7 @@
 - bossbar rework ✔
 - bossbar 1.8 ✔
 - supply crate ✘
-- more expressions and more events ⌛
+- more expressions and more events ✔
 - actionbar < 1.12 compatibility ✔
 - servers manager wrapper for bungee ✔
 - your ideas ⌛
