@@ -2,7 +2,6 @@ package fr.weefle.waze;
 
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.NMS;
-import fr.weefle.waze.utils.Register;
 import fr.weefle.waze.utils.Updater;
 import java.io.IOException;
 import org.bukkit.Bukkit;
@@ -16,7 +15,6 @@ public class Waze extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 		getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-		new Register(this);
 		NMS nms = new NMS(this);
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
