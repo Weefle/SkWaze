@@ -38,7 +38,7 @@ public class WazeEffectBuilder extends Effect {
 
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
-		return "send actionbar to player";
+		return "build schematic with citizen for player";
 	}
 
 	@Override

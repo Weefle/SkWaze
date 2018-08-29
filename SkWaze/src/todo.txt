@@ -19,7 +19,7 @@
 - effects support all players ✔
 - advancement features ⌛
 - more reflection ✔
-- disguise ✘
+- disguise ✔
 - npc ✘
 - yml ✘
 - minigame support ✘

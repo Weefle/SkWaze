@@ -26,6 +26,9 @@ import fr.weefle.waze.effects.WazeEffectBossBarTimer;
 import fr.weefle.waze.effects.WazeEffectBuilder;
 import fr.weefle.waze.effects.WazeEffectBungee;
 import fr.weefle.waze.effects.WazeEffectClearRecipes;
+import fr.weefle.waze.effects.WazeEffectDisguiseMisc;
+import fr.weefle.waze.effects.WazeEffectDisguiseMob;
+import fr.weefle.waze.effects.WazeEffectDisguisePlayer;
 import fr.weefle.waze.effects.WazeEffectNametag;
 import fr.weefle.waze.effects.WazeEffectParticles;
 import fr.weefle.waze.effects.WazeEffectRecipe;
@@ -203,6 +206,14 @@ public class NMS {
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
+		main.getLogger().info("Socket4MC setup was successful!");
+	}else {
+		main.getLogger().severe("Failed to setup Socket4MC!");
+	}
+    if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib") != null && Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises") != null) {
+    	Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) player %player% as player %string%");
+		Skript.registerEffect(WazeEffectDisguiseMob.class, "[waze] (disguise|transform|morph) player %player% as mob %string%");
+		Skript.registerEffect(WazeEffectDisguiseMisc.class, "[waze] (disguise|transform|morph) player %player% as misc %string%");
 		main.getLogger().info("Socket4MC setup was successful!");
 	}else {
 		main.getLogger().severe("Failed to setup Socket4MC!");
