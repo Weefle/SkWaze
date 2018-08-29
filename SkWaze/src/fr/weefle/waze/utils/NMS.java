@@ -214,9 +214,9 @@ public class NMS {
     	Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) player %player% as player %string%");
 		Skript.registerEffect(WazeEffectDisguiseMob.class, "[waze] (disguise|transform|morph) player %player% as mob %string%");
 		Skript.registerEffect(WazeEffectDisguiseMisc.class, "[waze] (disguise|transform|morph) player %player% as misc %string%");
-		main.getLogger().info("Socket4MC setup was successful!");
+		main.getLogger().info("ProtocolLib and LibsDisguises setup was successful!");
 	}else {
-		main.getLogger().severe("Failed to setup Socket4MC!");
+		main.getLogger().severe("Failed to setup ProtocolLib and LibsDisguises! do you have both installed?");
 	}
 	if(Bukkit.getServer().getPluginManager().getPlugin("Citizens") != null && Bukkit.getServer().getPluginManager().getPlugin("Builder") != null) {
 		Skript.registerEffect(WazeEffectBuilder.class, "[waze] (make|let) citizen[s] with id %number% build schem[atic] %string% at [location] %location% (with|at) speed %number% (for|to) %player%");
