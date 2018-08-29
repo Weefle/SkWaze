@@ -36,9 +36,11 @@ import fr.weefle.waze.effects.WazeEffectRemoveScoreBoard;
 import fr.weefle.waze.effects.WazeEffectScoreBoard;
 import fr.weefle.waze.effects.WazeEffectTablist;
 import fr.weefle.waze.effects.WazeEffectTitle;
+import fr.weefle.waze.effects.WazeEffectUnDisguise;
 import fr.weefle.waze.events.PlayerJumpEvent;
 import fr.weefle.waze.events.PlayerSwimEvent;
 import fr.weefle.waze.expressions.WazeExpressionBossBar;
+import fr.weefle.waze.expressions.WazeExpressionDisguise;
 import fr.weefle.waze.expressions.WazeExpressionPing;
 import fr.weefle.waze.nms.ActionBarAPI;
 import fr.weefle.waze.nms.ActionBarNew;
@@ -214,6 +216,8 @@ public class NMS {
     	Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) player %player% as player %string%");
 		Skript.registerEffect(WazeEffectDisguiseMob.class, "[waze] (disguise|transform|morph) player %player% as mob %string%");
 		Skript.registerEffect(WazeEffectDisguiseMisc.class, "[waze] (disguise|transform|morph) player %player% as misc %string%");
+		Skript.registerEffect(WazeEffectUnDisguise.class, "[waze] (undisguise|untransform|unmorph) player");
+		Skript.registerExpression(WazeExpressionDisguise.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] disguise", "[waze] disguise of %players%");
 		main.getLogger().info("ProtocolLib and LibsDisguises setup was successful!");
 	}else {
 		main.getLogger().severe("Failed to setup ProtocolLib and LibsDisguises! do you have both installed?");

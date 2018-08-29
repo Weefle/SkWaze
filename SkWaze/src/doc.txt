@@ -23,9 +23,11 @@ Effects:
 [waze] (disguise|transform|morph) player %player% as player %string%
 [waze] (disguise|transform|morph) player %player% as mob %string%
 [waze] (disguise|transform|morph) player %player% as misc %string%
+[waze] (undisguise|untransform|unmorph) player
 Expressions:
 [waze] %players%['s] ping, [waze] ping of %players%
 [waze] %players%['s] [boss]bar [list]", "[waze] [boss]bar [list] of %players%
+[waze] %players%['s] disguise", "[waze] disguise of %players%
 Events:
 [waze] jump[ing]
 [waze] swim[ing]
