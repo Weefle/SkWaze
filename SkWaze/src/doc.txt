@@ -20,10 +20,10 @@ Effects:
 [waze] (add|create) [[a] new] server named %string% (from|with) template %string%
 [waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%
 [waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%
-[waze] (disguise|transform|morph) player %player% as player %string%
-[waze] (disguise|transform|morph) player %player% as mob %string%
-[waze] (disguise|transform|morph) player %player% as misc %string%
-[waze] (undisguise|untransform|unmorph) player %players%
+[waze] (disguise|transform|morph) player[s] %players% as player %string%
+[waze] (disguise|transform|morph) player[s] %players% as mob %string%
+[waze] (disguise|transform|morph) player[s] %players% as misc %string%
+[waze] (undisguise|untransform|unmorph) player[s] %players%
 Expressions:
 [waze] %players%['s] ping, [waze] ping of %players%
 [waze] %players%['s] [boss]bar [list]", "[waze] [boss]bar [list] of %players%
