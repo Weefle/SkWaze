@@ -28,7 +28,7 @@ public class WazeEffectUnDisguise extends Effect {
 	@Override
 	protected void execute(Event arg0) {
         	for(Player p : player.getAll(arg0)){
-        		DisguiseAPI.undisguiseToAll(p);
+        		DisguiseAPI.getDisguise(p).removeDisguise();
         	}
 
 }}
