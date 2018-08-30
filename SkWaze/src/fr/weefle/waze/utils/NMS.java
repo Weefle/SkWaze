@@ -213,10 +213,10 @@ public class NMS {
 		main.getLogger().severe("Failed to setup Socket4MC!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib") != null && Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises") != null) {
-    	Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) player[s] %players% as player %string%");
-		Skript.registerEffect(WazeEffectDisguiseMob.class, "[waze] (disguise|transform|morph) player[s] %players% as mob %string%");
-		Skript.registerEffect(WazeEffectDisguiseMisc.class, "[waze] (disguise|transform|morph) player[s] %players% as misc %string%");
-		Skript.registerEffect(WazeEffectUnDisguise.class, "[waze] (undisguise|untransform|unmorph) player[s] %players%");
+    	Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) %players% (as|into) player %string% view[itself] %boolean%");
+		Skript.registerEffect(WazeEffectDisguiseMob.class, "[waze] (disguise|transform|morph) %players% (as|into) mob %string% view[itself] %boolean%");
+		Skript.registerEffect(WazeEffectDisguiseMisc.class, "[waze] (disguise|transform|morph) %players% (as|into) misc %string% view[itself] %boolean%");
+		Skript.registerEffect(WazeEffectUnDisguise.class, "[waze] (undisguise|untransform|unmorph) %players%");
 		Skript.registerExpression(WazeExpressionDisguise.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] disguise", "[waze] disguise of %players%");
 		main.getLogger().info("ProtocolLib and LibsDisguises setup was successful!");
 	}else {

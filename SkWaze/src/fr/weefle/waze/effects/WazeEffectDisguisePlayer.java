@@ -14,12 +14,14 @@ public class WazeEffectDisguisePlayer extends Effect {
 	
 	private Expression<Player> player;
 	private Expression<String> message;
+	private Expression<Boolean> viewitself;
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
 		player = (Expression<Player>) arg0[0];
 		message = (Expression<String>) arg0[1];
+		viewitself = (Expression<Boolean>) arg0[2];
 		return true;
 	}
 
@@ -33,7 +35,5 @@ public class WazeEffectDisguisePlayer extends Effect {
         	for(Player p : player.getAll(arg0)){
         		PlayerDisguise dis = new PlayerDisguise(message.getSingle(arg0));
         		DisguiseAPI.disguiseEntity(p, dis);
-
-    }
-
-}}
+        			dis.setViewSelfDisguise(viewitself.getSingle(arg0));
+}}}
