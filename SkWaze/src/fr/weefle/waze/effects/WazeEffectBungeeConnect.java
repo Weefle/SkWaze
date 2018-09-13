@@ -11,7 +11,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 
-public class WazeEffectBungee extends Effect {
+public class WazeEffectBungeeConnect extends Effect {
 	
 	private Expression<Player> player;
 	private Expression<String> srv;

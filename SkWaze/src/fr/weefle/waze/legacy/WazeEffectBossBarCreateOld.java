@@ -1,4 +1,4 @@
-package fr.weefle.waze.old;
+package fr.weefle.waze.legacy;
 
 import javax.annotation.Nullable;
 import org.bukkit.entity.Player;

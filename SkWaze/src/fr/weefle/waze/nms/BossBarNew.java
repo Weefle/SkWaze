@@ -39,7 +39,7 @@ public class BossBarNew implements BossBarAPI {
 		bar.get(p).get(id).setProgress((float) percent / 100);
 		bar.get(p).get(id).addPlayer(p);
 		}}else {
-			//envoie à tous les joueurs?
+			//envoie Ã  tous les joueurs?
 			 /* for(Player i : Bukkit.getOnlinePlayers()){
 				  bar.put(id, Bukkit.createBossBar(message, BarColor.valueOf(color), BarStyle.SOLID));
 					bar.get(id).setProgress(percent);

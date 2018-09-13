@@ -1,5 +1,7 @@
 package fr.weefle.waze;
 
+import fr.weefle.waze.skwrapper.GetFromBungeeCord;
+import fr.weefle.waze.skwrapper.PluginChannelListener;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.NMS;
 import fr.weefle.waze.utils.Updater;
@@ -10,11 +12,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Waze extends JavaPlugin {
 	
 	public static Waze instance;
+	public static PluginChannelListener pcl;
 
 	@Override
 	public void onEnable() {
 		instance = this;
-		getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        // allow to send to BungeeCord
+        Bukkit.getMessenger().registerIncomingPluginChannel(this, "Return", pcl = new PluginChannelListener());
+        // gets a Message from Bungee
+ 
+        getCommand("get").setExecutor(new GetFromBungeeCord());
 		NMS nms = new NMS(this);
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");

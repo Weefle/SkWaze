@@ -1,11 +1,8 @@
 package fr.weefle.waze.skwrapper;
 
-import fr.rhaz.sockets.socket4mc.Socket4Bukkit;
-import fr.rhaz.sockets.utils.JSONMap;
-
 public class SkWrapper {
 	
-	public static void createServer(String name, String template) {
+public static void createServer(String name, String template) {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(name);

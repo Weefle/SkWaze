@@ -24,7 +24,7 @@ import fr.weefle.waze.effects.WazeEffectBossBarCreate;
 import fr.weefle.waze.effects.WazeEffectBossBarRemove;
 import fr.weefle.waze.effects.WazeEffectBossBarTimer;
 import fr.weefle.waze.effects.WazeEffectBuilder;
-import fr.weefle.waze.effects.WazeEffectBungee;
+import fr.weefle.waze.effects.WazeEffectBungeeConnect;
 import fr.weefle.waze.effects.WazeEffectClearRecipes;
 import fr.weefle.waze.effects.WazeEffectDisguiseMisc;
 import fr.weefle.waze.effects.WazeEffectDisguiseMob;
@@ -42,6 +42,13 @@ import fr.weefle.waze.events.PlayerSwimEvent;
 import fr.weefle.waze.expressions.WazeExpressionBossBar;
 import fr.weefle.waze.expressions.WazeExpressionDisguise;
 import fr.weefle.waze.expressions.WazeExpressionPing;
+import fr.weefle.waze.legacy.ActionBarOld;
+import fr.weefle.waze.legacy.AutoRespawnOld;
+import fr.weefle.waze.legacy.BossBarOld;
+import fr.weefle.waze.legacy.ParticleOld;
+import fr.weefle.waze.legacy.WazeEffectBossBarCreateOld;
+import fr.weefle.waze.legacy.WazeEffectBossBarRemoveOld;
+import fr.weefle.waze.legacy.WazeEffectBossBarTimerOld;
 import fr.weefle.waze.nms.ActionBarAPI;
 import fr.weefle.waze.nms.ActionBarNew;
 import fr.weefle.waze.nms.AutoRespawnAPI;
@@ -55,15 +62,6 @@ import fr.weefle.waze.nms.Ping;
 import fr.weefle.waze.nms.ScoreBoard;
 import fr.weefle.waze.nms.Tablist;
 import fr.weefle.waze.nms.Title;
-import fr.weefle.waze.old.ActionBarOld;
-import fr.weefle.waze.old.AutoRespawnOld;
-import fr.weefle.waze.old.BossBarOld;
-import fr.weefle.waze.old.ParticleOld;
-import fr.weefle.waze.old.WazeEffectBossBarCreateOld;
-import fr.weefle.waze.old.WazeEffectBossBarRemoveOld;
-import fr.weefle.waze.old.WazeEffectBossBarTimerOld;
-import fr.weefle.waze.skwrapper.SkWrapperReceiver;
-import fr.weefle.waze.skwrapper.SkWrapperSender;
 import fr.weefle.waze.skwrapper.WazeEffectCreateServer;
 import fr.weefle.waze.skwrapper.WazeEffectStartServer;
 import fr.weefle.waze.skwrapper.WazeEffectStopServer;
@@ -169,13 +167,13 @@ public class NMS {
 }
 	PlayerJumpEvent.register(main);
 	PlayerSwimEvent.register(main);
-	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), main);
-	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), main);
+	/*Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), main);
+	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), main);*/
 	Bukkit.getServer().getPluginManager().registerEvents(new UpdaterListener(), main);
 	Skript.registerAddon(main);
     Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]");
 	Skript.registerEffect(WazeEffectActionBar.class, "[waze] (send|create) action[bar] %string% (to|for) %players%");
-	Skript.registerEffect(WazeEffectBungee.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
+	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
 	Skript.registerExpression(WazeExpressionPing.class, Integer.class, ExpressionType.PROPERTY, "[waze] %players%['s] ping", "[waze] ping of %players%");
 	Skript.registerExpression(WazeExpressionBossBar.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] [boss]bar [list]", "[waze] [boss]bar [list] of %players%");
 	//Skript.registerExpression(WazeExpressionServersList.class, String.class, ExpressionType.PROPERTY, "[waze] [skwrapper] servers list from [template] %string%", "[waze] list of [skwrapper] servers from [template] %string%", "[waze] [skwrapper] servers list from %string%['s] [template]", "[waze] list of [skwrapper] servers from %string%['s] [template]");
@@ -208,9 +206,9 @@ public class NMS {
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
-		main.getLogger().info("Socket4MC setup was successful!");
+		main.getLogger().info("Socket4MC setup was successful, your data is safe across your network!");
 	}else {
-		main.getLogger().severe("Failed to setup Socket4MC!");
+		main.getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib") != null && Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises") != null) {
     	Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) %players% (as|in[to]) player %string% view[itself] %boolean%");
