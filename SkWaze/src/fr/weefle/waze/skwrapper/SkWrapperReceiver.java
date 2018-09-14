@@ -1,12 +1,10 @@
 package fr.weefle.waze.skwrapper;
 
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import fr.rhaz.sockets.socket4mc.Socket4Bukkit.Client.ClientSocketJSONEvent;
 
 public class SkWrapperReceiver implements Listener {
 	
-	private static String message;
+	/*private static String message;
 
 	@EventHandler
     public void onSocketMessage(ClientSocketJSONEvent e) {
@@ -22,6 +20,6 @@ public class SkWrapperReceiver implements Listener {
 		
 		return message;
 		
-	}
+	}*/
 
 }
