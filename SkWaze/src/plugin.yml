@@ -5,3 +5,7 @@ description: The coolest addon of Skript
 depends: [Skript]
 softdepends: [BossBarAPI, Socket4MC, Discord-ProgramBot-API, Citizens, Builder, ProtocolLib, LibsDisguises]
 main: fr.weefle.waze.Waze
+commands:
+   get:
+      description: Test
+      usage: /get

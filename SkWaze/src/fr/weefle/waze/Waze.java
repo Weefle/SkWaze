@@ -22,7 +22,7 @@ public class Waze extends JavaPlugin {
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "Return", pcl = new PluginChannelListener());
         // gets a Message from Bungee
  
-        getCommand("get").setExecutor(new GetFromBungeeCord());
+        this.getCommand("get").setExecutor(new GetFromBungeeCord());
 		NMS nms = new NMS(this);
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
