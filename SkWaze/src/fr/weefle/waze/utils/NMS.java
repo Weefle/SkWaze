@@ -215,8 +215,8 @@ public class NMS {
 		main.getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
-    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %location% (to|for) %player%");
-    	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) [all] hologram[s] (from|to) %player%");
+    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %location% (to|for) %players%");
+    	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) [all] hologram[s] (from|to) %players%");
 		main.getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
 	}else {
 		main.getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
