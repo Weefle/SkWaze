@@ -40,7 +40,8 @@ public class WazeExpressionServersList extends SimpleExpression<String> {
 	@Override
 	@Nullable
 	protected String[] get(Event arg0) {
-				return new String[]{ SkWrapper.getServers(template.getSingle(arg0)) };
+				//return new String[]{ SkWrapper.getServers(template.getSingle(arg0)) };
+		return null;
 
 }
 }

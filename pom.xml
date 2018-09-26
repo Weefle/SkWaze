@@ -5,6 +5,10 @@
   <version>2.1.7</version>
   <repositories>
   <repository>
+    <id>filoghost-repo</id>
+    <url>https://ci.filoghost.me/plugin/repository/everything/</url>
+</repository>
+  <repository>
     <id>dmulloy2-repo</id>
     <url>http://repo.dmulloy2.net/nexus/repository/public/</url>
   </repository>
@@ -28,6 +32,18 @@
   </repository>
         </repositories>
         <dependencies>
+        <dependency>
+            <groupId>fr.rhaz</groupId>
+            <artifactId>socket4mc</artifactId>
+            <version>3.2.8</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+    <groupId>com.gmail.filoghost.holographicdisplays</groupId>
+    <artifactId>holographicdisplays-api</artifactId>
+    <version>2.3.0</version>
+    <scope>provided</scope>
+</dependency>
         <dependency>
     <groupId>com.comphenix.protocol</groupId>
     <artifactId>ProtocolLib-API</artifactId>

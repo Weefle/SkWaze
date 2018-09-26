@@ -6,7 +6,7 @@ import org.bukkit.advancement.Advancement;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.HorseJumpEvent;
 import org.bukkit.event.player.PlayerAdvancementDoneEvent;
-import com.tjplaysnow.discord.object.Bot;
+
 import ch.njol.skript.Skript;
 import ch.njol.skript.classes.ClassInfo;
 import ch.njol.skript.classes.Parser;
@@ -17,7 +17,6 @@ import ch.njol.skript.registrations.Classes;
 import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
 import fr.weefle.waze.Waze;
-import fr.weefle.waze.discord.DiscordRegister;
 import fr.weefle.waze.effects.WazeEffectActionBar;
 import fr.weefle.waze.effects.WazeEffectAutoRespawn;
 import fr.weefle.waze.effects.WazeEffectBossBarCreate;
@@ -26,12 +25,14 @@ import fr.weefle.waze.effects.WazeEffectBossBarTimer;
 import fr.weefle.waze.effects.WazeEffectBuilder;
 import fr.weefle.waze.effects.WazeEffectBungeeConnect;
 import fr.weefle.waze.effects.WazeEffectClearRecipes;
+import fr.weefle.waze.effects.WazeEffectCreateHologram;
 import fr.weefle.waze.effects.WazeEffectDisguiseMisc;
 import fr.weefle.waze.effects.WazeEffectDisguiseMob;
 import fr.weefle.waze.effects.WazeEffectDisguisePlayer;
 import fr.weefle.waze.effects.WazeEffectNametag;
 import fr.weefle.waze.effects.WazeEffectParticles;
 import fr.weefle.waze.effects.WazeEffectRecipe;
+import fr.weefle.waze.effects.WazeEffectRemoveHologram;
 import fr.weefle.waze.effects.WazeEffectRemoveScoreBoard;
 import fr.weefle.waze.effects.WazeEffectScoreBoard;
 import fr.weefle.waze.effects.WazeEffectTablist;
@@ -55,6 +56,7 @@ import fr.weefle.waze.nms.AutoRespawnAPI;
 import fr.weefle.waze.nms.AutoRespawnNew;
 import fr.weefle.waze.nms.BossBarAPI;
 import fr.weefle.waze.nms.BossBarNew;
+import fr.weefle.waze.nms.HologramAPI;
 import fr.weefle.waze.nms.Nametag;
 import fr.weefle.waze.nms.ParticleAPI;
 import fr.weefle.waze.nms.ParticleNew;
@@ -62,6 +64,7 @@ import fr.weefle.waze.nms.Ping;
 import fr.weefle.waze.nms.ScoreBoard;
 import fr.weefle.waze.nms.Tablist;
 import fr.weefle.waze.nms.Title;
+import fr.weefle.waze.skwrapper.SkWrapperSender;
 import fr.weefle.waze.skwrapper.WazeEffectCreateServer;
 import fr.weefle.waze.skwrapper.WazeEffectStartServer;
 import fr.weefle.waze.skwrapper.WazeEffectStopServer;
@@ -83,8 +86,9 @@ public class NMS {
 	private Nametag nametag;
 	private ScoreBoard scoreboard;
 	private AutoRespawnAPI autorespawn;
-	private DiscordRegister discord;
-	private Bot bot;
+	private HologramAPI holograms;
+	//private DiscordRegister discord;
+	//private Bot bot;
 	
 	public boolean isSet() {
 		instance = this;
@@ -167,8 +171,8 @@ public class NMS {
 }
 	PlayerJumpEvent.register(main);
 	PlayerSwimEvent.register(main);
-	/*Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), main);
-	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), main);*/
+	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), main);
+	//Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), main);
 	Bukkit.getServer().getPluginManager().registerEvents(new UpdaterListener(), main);
 	Skript.registerAddon(main);
     Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]");
@@ -210,6 +214,13 @@ public class NMS {
 	}else {
 		main.getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
 	}
+    if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
+    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %location% (to|for) %player%");
+    	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) [all] hologram[s] (from|to) %player%");
+		main.getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
+	}else {
+		main.getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
+	}
     if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib") != null && Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises") != null) {
     	Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) %players% (as|in[to]) player %string% view[itself] %boolean%");
 		Skript.registerEffect(WazeEffectDisguiseMob.class, "[waze] (disguise|transform|morph) %players% (as|in[to]) mob %string% view[itself] %boolean%");
@@ -237,7 +248,7 @@ public class NMS {
 		Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %players%");
 		main.getLogger().severe("Failed to setup BossBarAPI! activating 1.9 Weefle BossBar API!");
 	}
-	if(Bukkit.getServer().getPluginManager().getPlugin("Discord-ProgramBot-API") != null) {
+	/*if(Bukkit.getServer().getPluginManager().getPlugin("Discord-ProgramBot-API") != null) {
 		discord = new DiscordRegister(main);
 		bot = new Bot("NDYxNTk3MzYyODcyMTIzMzkz.DhVocQ.px7FnBq7Z8XJw9vW97H0hriGenI", "[Wazea]");
 		discord.initialiseBot(bot);
@@ -245,7 +256,7 @@ public class NMS {
 		main.getLogger().info("Discord-ProgramBot-API setup was successful!");
 	}else {
 		main.getLogger().severe("Failed to setup Discord-ProgramBot-API!");
-	}
+	}*/
 	return true;
 }
 	
@@ -279,6 +290,10 @@ public Tablist getTablist(){
 
 public ParticleAPI getParticles(){
     return particle;
+}
+
+public HologramAPI getHolograms(){
+    return holograms;
 }
 
 public static NMS getInstance() {
