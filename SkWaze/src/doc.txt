@@ -24,7 +24,7 @@ Effects:
 [waze] (disguise|transform|morph) %players% (as|in[to]) mob %string% view[itself] %boolean%
 [waze] (disguise|transform|morph) %players% (as|in[to]) misc %string% view[itself] %boolean%
 [waze] (undisguise|untransform|unmorph) player[s] %players%
-[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %location% (to|for) %players%
+[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (to|for) %players% follow[ing] %boolean%
 [waze] (delete|remove|clear) [all] hologram[s] (from|to) %players%
 Expressions:
 [waze] %players%['s] ping, [waze] ping of %players%

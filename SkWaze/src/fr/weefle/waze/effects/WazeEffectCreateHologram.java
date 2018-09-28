@@ -17,6 +17,7 @@ public class WazeEffectCreateHologram extends Effect {
 	private Expression<String> message;
 	private Expression<Location> location;
 	private Expression<Player> player;
+	private Expression<Boolean> bool;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -24,6 +25,7 @@ public class WazeEffectCreateHologram extends Effect {
 		message = (Expression<String>) arg0[0];
 		location = (Expression<Location>) arg0[1];
 		player = (Expression<Player>) arg0[2];
+		bool = (Expression<Boolean>) arg0[3];
 		return true;
 	}
 
@@ -37,7 +39,7 @@ public class WazeEffectCreateHologram extends Effect {
 	protected void execute(Event arg0) {
 		for(Player p : player.getAll(arg0)){
 	        	for(Location l : location.getAll(arg0)){
-	        		NMS.getInstance().getHolograms().createHolo(l, message.getSingle(arg0), p);
+	        		NMS.getInstance().getHolograms().createHolo(l, message.getSingle(arg0), p, bool.getSingle(arg0));
 	        	}
 		}
 		

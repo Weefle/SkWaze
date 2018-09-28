@@ -12,19 +12,31 @@ import fr.weefle.waze.Waze;
 
 public class HologramAPI {
 
-	private HashMap<Player, ArrayList<Hologram>> holos = new HashMap<>();
-	private ArrayList<Hologram> holo1 = new ArrayList<>();
+	public ArrayList<Player> players = new ArrayList<>();
+	public HashMap<Player, ArrayList<Hologram>> holos = new HashMap<>();
+	public ArrayList<Hologram> holostatic = new ArrayList<>();
+	public ArrayList<Hologram> holofollow = new ArrayList<>();
 	
-	public void createHolo(Location loc, String msg, Player player) {
-		Hologram holo = HologramsAPI.createHologram(Waze.getInstance(), loc);
-		holo.appendTextLine(msg);
-		holo1.add(holo);
-		holos.put(player, holo1);
+	public void createHolo(Location loc, String msg, Player player, boolean bool) {
+		if(bool == true) {
+			Hologram holo = HologramsAPI.createHologram(Waze.getInstance(), loc);
+			holo.appendTextLine(msg);
+			holofollow.add(holo);
+			players.add(player);
+			holos.put(player, holofollow);
+		}else {
+			Hologram holo = HologramsAPI.createHologram(Waze.getInstance(), loc);
+			holo.appendTextLine(msg);
+			holostatic.add(holo);
+			players.add(player);
+			holos.put(player, holostatic);
+		}
 	}
 	
 	public void removeHolo(Player player) {
 		for(Hologram h : holos.get(player))
-		holos.get(player).remove(h);
+			holos.get(player).remove(h);
+		players.remove(player);
 	}
 
 }
