@@ -171,7 +171,6 @@ public class NMS {
 }
 	PlayerJumpEvent.register(main);
 	PlayerSwimEvent.register(main);
-	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), main);
 	//Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), main);
 	Bukkit.getServer().getPluginManager().registerEvents(new UpdaterListener(), main);
 	Skript.registerAddon(main);
@@ -207,6 +206,7 @@ public class NMS {
         }
     }, 0);
     if(Bukkit.getServer().getPluginManager().getPlugin("Socket4MC") != null) {
+    	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), main);
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
@@ -215,6 +215,7 @@ public class NMS {
 		main.getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
+    	new HologramTracker();
     	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (to|for) %players% follow[ing] %boolean%");
     	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) [all] hologram[s] (from|to) %players%");
 		main.getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
