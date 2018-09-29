@@ -1,6 +1,5 @@
 package fr.weefle.waze.utils;
 
-import java.util.Arrays;
 import org.bukkit.scheduler.BukkitRunnable;
 import fr.weefle.waze.Waze;
 
@@ -15,10 +14,15 @@ public class HologramTracker {
 				
 				if(NMS.getInstance().getHolograms().holos != null) {
 						if(NMS.getInstance().getHolograms().players != null) {
-						for(int p : Arrays.asList(NMS.getInstance().getHolograms().players.size())) {
-							if(NMS.getInstance().getHolograms().holofollow != null) {					
-						NMS.getInstance().getHolograms().holofollow.values().iterator().next().teleport(NMS.getInstance().getHolograms().players.get(p).getLocation());
-						}}}
+						for(int p=0;p<NMS.getInstance().getHolograms().players.size();p++) {
+						//	NMS.getInstance().getHolograms().players.get(p).sendMessage("oui");
+						//	NMS.getInstance().getHolograms().players.get(p).sendMessage(NMS.getInstance().getHolograms().holosf.toString());
+							if(NMS.getInstance().getHolograms().holosf != null) {
+								for(String h : NMS.getInstance().getHolograms().holosf) {
+									//NMS.getInstance().getHolograms().players.get(p).sendMessage("yeah");
+									//NMS.getInstance().getHolograms().players.get(p).sendMessage(NMS.getInstance().getHolograms().holofollow.get(h).toString());
+									NMS.getInstance().getHolograms().holofollow.get(h).teleport(NMS.getInstance().getHolograms().players.get(p).getLocation());
+								}}}}
 			}
 			}
 			
