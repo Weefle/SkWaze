@@ -18,7 +18,7 @@ public class HologramAPI {
 	private HashMap<Player, Map<String, Hologram>> holos = new HashMap<>();
 	private HashMap<String, Hologram> holostatic = new HashMap<>();
 	private HashMap<String, Hologram> holofollow = new HashMap<>();
-	private ArrayList<String> holosf = new ArrayList<>();
+//	private ArrayList<String> holosf = new ArrayList<>();
 	private ArrayList<Player> players = new ArrayList<>();
 
 	public void createHologram(Player p, String message, Location loc, String id, boolean bool) {
@@ -28,7 +28,7 @@ public class HologramAPI {
 		}else{
 			if(bool==true){
 				players.add(p);
-				holosf.add(id);
+				//holosf.add(id);
 				holofollow.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
 		holos.put(p, holofollow);
 		holos.get(p).get(id).appendTextLine(message);
@@ -49,7 +49,7 @@ public class HologramAPI {
 	public void removeHologram(Player p, String id) {
 		if(holos.containsKey(p)) {
 		if(holos.get(p).containsKey(id)) {
-			holosf.remove(id);
+		//	holosf.remove(id);
 			holos.get(p).get(id).delete();
 			holos.get(p).remove(id);
 			players.remove(p);
@@ -76,12 +76,15 @@ public void holoTrack() {
 						for(int p=0;p<players.size();p++) {
 						//	NMS.getInstance().getHolograms().players.get(p).sendMessage("oui");
 						//	NMS.getInstance().getHolograms().players.get(p).sendMessage(NMS.getInstance().getHolograms().holosf.toString());
-							if(holosf != null) {
-								for(String h : holosf) {
+							//if(holosf != null) {
+								//for(String h : holosf) {
 									//NMS.getInstance().getHolograms().players.get(p).sendMessage("yeah");
 									//NMS.getInstance().getHolograms().players.get(p).sendMessage(NMS.getInstance().getHolograms().holofollow.get(h).toString());
-									holofollow.get(h).teleport(players.get(p).getLocation());
-								}}}}
+									//holofollow.get(h).teleport(players.get(p).getLocation());
+							holofollow.get(holofollow.entrySet().iterator().next().getKey()).teleport(players.get(p).getLocation());
+								//}
+							//}
+							}}
 			}
 			}
 			

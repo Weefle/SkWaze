@@ -46,7 +46,6 @@ public class BossBarNew implements BossBarAPI {
             bar.get(p).get(id).setStyle(BarStyle.valueOf(type));
 			bar.get(p).get(id).setColor(BarColor.valueOf(color));
 			bar.get(p).get(id).setProgress((float) percent / 100);
-            //players.add(p);
     		Object[] arr = players.toArray();
     		for (Object idd : arr) {
     			task = Bukkit.getScheduler().scheduleSyncDelayedTask(Waze.getInstance(), () -> {
