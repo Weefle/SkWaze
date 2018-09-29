@@ -1,15 +1,8 @@
 package fr.weefle.waze.skwrapper;
 
-import javax.annotation.Nullable;
-import org.bukkit.event.Event;
-import ch.njol.skript.lang.Expression;
-import ch.njol.skript.lang.SkriptParser.ParseResult;
-import ch.njol.skript.lang.util.SimpleExpression;
-import ch.njol.util.Kleenean;
-
-public class WazeExpressionServersList extends SimpleExpression<String> {
+public class WazeExpressionServersList /*extends SimpleExpression<String>*/ {
 	
-	private Expression<String> template;
+	/*private Expression<String> template;
 
 	@Override
 	public Class<? extends String> getReturnType() {
@@ -43,5 +36,5 @@ public class WazeExpressionServersList extends SimpleExpression<String> {
 				//return new String[]{ SkWrapper.getServers(template.getSingle(arg0)) };
 		return null;
 
-}
+}*/
 }
