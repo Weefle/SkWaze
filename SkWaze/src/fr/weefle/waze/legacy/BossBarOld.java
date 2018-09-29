@@ -31,7 +31,7 @@ public class BossBarOld implements BossBarAPI {
         }
 
 	@Override
-	public String getBossBar(Player p) {
+	public String getBossBars(Player p) {
 		//return BarAPI.getMessage(p);
 		return org.inventivetalent.bossbar.BossBarAPI.getMessage(p);
 	}

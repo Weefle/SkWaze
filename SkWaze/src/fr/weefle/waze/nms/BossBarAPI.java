@@ -10,6 +10,6 @@ public interface BossBarAPI {
 	
 	public void sendBossBarTimer(Player p, String message, int percent, String color, int time, String id, String type);
 	
-	public String getBossBar(Player p);
+	public String getBossBars(Player p);
 
 }

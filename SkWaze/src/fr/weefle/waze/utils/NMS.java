@@ -211,7 +211,6 @@ public class NMS {
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
-    	holograms.holoTrack();
     	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players% follow[ing] %boolean%");
     	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string% (from|of) %players%");
     	Waze.getInstance().getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
