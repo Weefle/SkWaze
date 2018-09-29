@@ -10,13 +10,8 @@ public class AutoRespawnOld implements AutoRespawnAPI {
 	
 	Reflection reflection = new Reflection();
 	
-	private Waze main;
-	public AutoRespawnOld(Waze main) {
-		this.main = main;
-	}
-	
 	public void respawn(Player p) {
-		main.getServer().getScheduler().scheduleSyncDelayedTask(main, new Runnable() {
+		Waze.getInstance().getServer().getScheduler().scheduleSyncDelayedTask(Waze.getInstance(), new Runnable() {
 			
 			@Override
 			public void run() {

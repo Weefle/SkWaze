@@ -13,13 +13,15 @@ import fr.weefle.waze.utils.NMS;
 
 public class WazeEffectRemoveHologram extends Effect {
 	
+	private Expression<String> id;
 	private Expression<Player> player;
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
 
-		player = (Expression<Player>) arg0[0];
+		id = (Expression<String>) arg0[0];
+		player = (Expression<Player>) arg0[1];
 		return true;
 	}
 
@@ -32,7 +34,7 @@ public class WazeEffectRemoveHologram extends Effect {
 	@Override
 	protected void execute(Event arg0) {
 		for(Player p : player.getAll(arg0)){
-	        		NMS.getInstance().getHolograms().removeHolo(p);
+	        		NMS.getInstance().getHolograms().removeHologram(p, id.getSingle(arg0));
 		}
 		
 		

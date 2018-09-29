@@ -71,11 +71,6 @@ import fr.weefle.waze.skwrapper.WazeEffectStopServer;
 
 public class NMS {
 	
-	private Waze main;
-	public NMS(Waze main) {
-		this.main = main;
-	}
-	
 	private static NMS instance;
 	private ActionBarAPI actionbar;
 	private Title title;
@@ -112,18 +107,18 @@ public class NMS {
 	if (version.equals("v1_8_R3") || version.equals("v1_8_R2") || version.equals("v1_8_R1")) {
     	particle = new ParticleOld();
     	title = new Title();
-		autorespawn = new AutoRespawnOld(main);
+		autorespawn = new AutoRespawnOld();
 		bossbar = new BossBarOld();
 		actionbar = new ActionBarOld();
     }else if (version.equals("v1_7_R4") || version.equals("v1_7_R3") || version.equals("v1_7_R2") || version.equals("v1_7_R1")){
     	particle = new ParticleOld();
-		autorespawn = new AutoRespawnOld(main);
+		autorespawn = new AutoRespawnOld();
 		bossbar = new BossBarOld();
     }else if(version.equals("v1_9_R1") || version.equals("v1_9_R2")) {
     	title = new Title();
     	particle = new ParticleNew();
     	autorespawn = new AutoRespawnNew();
-		bossbar = new BossBarNew(main);
+		bossbar = new BossBarNew();
 		actionbar = new ActionBarOld();
 }else {
 	Skript.registerEvent("Advancement Done Event", SimpleEvent.class, PlayerAdvancementDoneEvent.class, "[waze] advancement [(done|obtained|won)]");
@@ -166,14 +161,14 @@ public class NMS {
 	title = new Title();
 	particle = new ParticleNew();
 	autorespawn = new AutoRespawnNew();
-	bossbar = new BossBarNew(main);
+	bossbar = new BossBarNew();
 	actionbar = new ActionBarNew();
 }
-	PlayerJumpEvent.register(main);
-	PlayerSwimEvent.register(main);
+	PlayerJumpEvent.register(Waze.getInstance());
+	PlayerSwimEvent.register(Waze.getInstance());
 	//Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), main);
-	Bukkit.getServer().getPluginManager().registerEvents(new UpdaterListener(), main);
-	Skript.registerAddon(main);
+	Bukkit.getServer().getPluginManager().registerEvents(new UpdaterListener(), Waze.getInstance());
+	Skript.registerAddon(Waze.getInstance());
     Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]");
 	Skript.registerEffect(WazeEffectActionBar.class, "[waze] (send|create) action[bar] %string% (to|for) %players%");
 	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
@@ -206,22 +201,23 @@ public class NMS {
         }
     }, 0);
     if(Bukkit.getServer().getPluginManager().getPlugin("Socket4MC") != null) {
-    	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), main);
+    	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), Waze.getInstance());
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
-		main.getLogger().info("Socket4MC setup was successful, your data is safe across your network!");
+		Waze.getInstance().getLogger().info("Socket4MC setup was successful, your data is safe across your network!");
 	}else {
-		main.getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
+		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
-    	new HologramTracker();
-    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (to|for) %players% follow[ing] %boolean%");
-    	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) [all] hologram[s] (from|to) %players%");
-		main.getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
+    	HologramTracker track = new HologramTracker();
+    	track.holoTrack();
+    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players% follow[ing] %boolean%");
+    	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string% (from|of) %players%");
+    	Waze.getInstance().getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
 	}else {
-		main.getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
+		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib") != null && Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises") != null) {
     	Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) %players% (as|in[to]) player %string% view[itself] %boolean%");
@@ -229,26 +225,26 @@ public class NMS {
 		Skript.registerEffect(WazeEffectDisguiseMisc.class, "[waze] (disguise|transform|morph) %players% (as|in[to]) misc %string% view[itself] %boolean%");
 		Skript.registerEffect(WazeEffectUnDisguise.class, "[waze] (undisguise|untransform|unmorph) %players%");
 		Skript.registerExpression(WazeExpressionDisguise.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] disguise", "[waze] disguise of %players%");
-		main.getLogger().info("ProtocolLib and LibsDisguises setup was successful!");
+		Waze.getInstance().getLogger().info("ProtocolLib and LibsDisguises setup was successful!");
 	}else {
-		main.getLogger().severe("Failed to setup ProtocolLib and LibsDisguises! do you have both installed?");
+		Waze.getInstance().getLogger().severe("Failed to setup ProtocolLib and LibsDisguises! do you have both installed?");
 	}
 	if(Bukkit.getServer().getPluginManager().getPlugin("Citizens") != null && Bukkit.getServer().getPluginManager().getPlugin("Builder") != null) {
 		Skript.registerEffect(WazeEffectBuilder.class, "[waze] (make|let) citizen[s] with id %number% build schem[atic] %string% at [location] %location% (with|at) speed %number% (for|to) %player%");
-		main.getLogger().info("Citizens and Builder setup was successful!");
+		Waze.getInstance().getLogger().info("Citizens and Builder setup was successful!");
 	}else {
-		main.getLogger().severe("Failed to setup Citizens and Builder! do you have both installed?");
+		Waze.getInstance().getLogger().severe("Failed to setup Citizens and Builder! do you have both installed?");
 	}
 	if(Bukkit.getServer().getPluginManager().getPlugin("BossBarAPI") != null) {
 		Skript.registerEffect(WazeEffectBossBarCreateOld.class, "[waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (to|for) %players%");
 		Skript.registerEffect(WazeEffectBossBarTimerOld.class, "[waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (for|and) %integer% second[s] (to|for) %players%");
 		Skript.registerEffect(WazeEffectBossBarRemoveOld.class, "[waze] 1.8 (remove|delete|clear) [boss]bar (of|for) %players%");
-		main.getLogger().info("BossBarAPI setup was successful! 1.8 BossBar activated!");
+		Waze.getInstance().getLogger().info("BossBarAPI setup was successful! 1.8 BossBar activated!");
 	}else {
 		Skript.registerEffect(WazeEffectBossBarCreate.class, "[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (to|for) %players%");
 		Skript.registerEffect(WazeEffectBossBarTimer.class, "[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (for|and) %integer% second[s] (to|for) %players%");
 		Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %players%");
-		main.getLogger().severe("Failed to setup BossBarAPI! activating 1.9 Weefle BossBar API!");
+		Waze.getInstance().getLogger().severe("Failed to setup BossBarAPI! activating 1.9 Weefle BossBar API!");
 	}
 	/*if(Bukkit.getServer().getPluginManager().getPlugin("Discord-ProgramBot-API") != null) {
 		discord = new DiscordRegister(main);
