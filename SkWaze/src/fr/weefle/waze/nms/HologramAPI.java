@@ -19,7 +19,12 @@ public class HologramAPI {
 		holo.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
 		holos.put(p, holo);
 		holos.get(p).get(id).appendTextLine(message);
+		}else {
+			if(holos.get(p).containsKey(id)) {
+				holos.get(p).get(id).appendTextLine(message);
+			}
 		}
+		
 	}
 	
 	public void teleportHologram(Player p, String id, Location loc) {
