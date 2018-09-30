@@ -2,8 +2,8 @@
 ✔: Already featured
 ⌛: Working on
 
-- holograms ✘
-- more scoreboard features ⌛
+- holograms ✔
+- more scoreboard features ✔
 - tablist ✔
 - autorespawn ✔
 - more bungee features (sockets/messages) ✘

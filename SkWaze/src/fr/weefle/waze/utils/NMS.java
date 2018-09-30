@@ -213,7 +213,7 @@ public class NMS {
     	holograms = new HologramAPI();
     	Skript.registerEffect(WazeEffectAddHologram.class, "[waze] (add|append) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players%");
     	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string% (from|of) %players%");
-    	Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %location% (for|to) %players%");
+    	Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %locations% (for|to) %players%");
     	Skript.registerEffect(WazeEffectSetLineHologram.class, "[waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) %string% (for|to) %players%");
     	Skript.registerEffect(WazeEffectRemoveLinesHologram.class, "[waze] (clear|remove|delete) [all] line[s] (at|from) hologram with id %string% (for|to) %players%");
     	Skript.registerExpression(WazeExpressionHologram.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] hologram [list]", "[waze] hologram [list] of %players%");

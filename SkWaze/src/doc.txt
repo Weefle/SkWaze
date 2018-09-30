@@ -29,7 +29,7 @@ Effects:
 [waze] (undisguise|untransform|unmorph) player[s] %players%
 [waze] (add|append) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players%
 [waze] (delete|remove|clear) hologram with id %string% (from|of) %players%
-[waze] (teleport|move) hologram with id %string% (to|at) %location% (for|to) %players%
+[waze] (teleport|move) hologram with id %string% (to|at) %locations% (for|to) %players%
 [waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) %string% (for|to) %players%
 [waze] (clear|remove|delete) [all] line[s] (at|from) hologram with id %string% (for|to) %players%
 
