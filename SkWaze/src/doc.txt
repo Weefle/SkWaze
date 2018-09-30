@@ -12,7 +12,7 @@ Effects:
 [waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (to|for) %players%
 [waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (for|and) %integer% second[s] (to|for) %players%
 [waze] 1.8 (remove|delete|clear) [boss]bar (of|for) %players%
-[waze] (change|set|create|make) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%
+[waze] (change|set) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%
 [waze] (clear|remove|delete) sidebar (of|for) %players%
 [waze] (clear|remove|delete) line %integer% (of|from) sidebar (of|for) %players%
 [waze] (make|let) citizen with id %number% build schem[atic] %string% at [location] %location% (with|at) speed %number% (for|to) %player%
@@ -27,7 +27,7 @@ Effects:
 [waze] (disguise|transform|morph) %players% (as|in[to]) mob %string% view[itself] %boolean%
 [waze] (disguise|transform|morph) %players% (as|in[to]) misc %string% view[itself] %boolean%
 [waze] (undisguise|untransform|unmorph) player[s] %players%
-[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players%
+[waze] (add|append) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players%
 [waze] (delete|remove|clear) hologram with id %string% (from|of) %players%
 [waze] (teleport|move) hologram with id %string% (to|at) %location% (for|to) %players%
 [waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) %string% (for|to) %players%

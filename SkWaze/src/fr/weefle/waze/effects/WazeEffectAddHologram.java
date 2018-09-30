@@ -12,7 +12,7 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 import fr.weefle.waze.utils.NMS;
 
-public class WazeEffectCreateHologram extends Effect {
+public class WazeEffectAddHologram extends Effect {
 	
 	private Expression<String> message;
 	private Expression<Location> location;
@@ -39,7 +39,8 @@ public class WazeEffectCreateHologram extends Effect {
 	protected void execute(Event arg0) {
 		for(Player p : player.getAll(arg0)){
 	        	for(Location l : location.getAll(arg0)){
-	        		NMS.getInstance().getHolograms().createHologram(p, message.getSingle(arg0), l, id.getSingle(arg0));
+	        		l.setY(l.getY()+2);
+	        		NMS.getInstance().getHolograms().addHologram(p, message.getSingle(arg0), l, id.getSingle(arg0));
 	        	}
 		}
 		

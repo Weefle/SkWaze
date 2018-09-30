@@ -9,7 +9,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 
-public class WazeEffectSideBar extends Effect {
+public class WazeEffectSetSideBar extends Effect {
 
     private Expression<String> name;
     private Expression<String> score;

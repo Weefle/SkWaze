@@ -25,7 +25,7 @@ import fr.weefle.waze.effects.WazeEffectBossBarTimer;
 import fr.weefle.waze.effects.WazeEffectBuilder;
 import fr.weefle.waze.effects.WazeEffectBungeeConnect;
 import fr.weefle.waze.effects.WazeEffectClearRecipes;
-import fr.weefle.waze.effects.WazeEffectCreateHologram;
+import fr.weefle.waze.effects.WazeEffectAddHologram;
 import fr.weefle.waze.effects.WazeEffectDisguiseMisc;
 import fr.weefle.waze.effects.WazeEffectDisguiseMob;
 import fr.weefle.waze.effects.WazeEffectDisguisePlayer;
@@ -36,7 +36,7 @@ import fr.weefle.waze.effects.WazeEffectRemoveHologram;
 import fr.weefle.waze.effects.WazeEffectRemoveLineSideBar;
 import fr.weefle.waze.effects.WazeEffectRemoveLinesHologram;
 import fr.weefle.waze.effects.WazeEffectRemoveSideBar;
-import fr.weefle.waze.effects.WazeEffectSideBar;
+import fr.weefle.waze.effects.WazeEffectSetSideBar;
 import fr.weefle.waze.effects.WazeEffectSetLineHologram;
 import fr.weefle.waze.effects.WazeEffectTablist;
 import fr.weefle.waze.effects.WazeEffectTeleportHologram;
@@ -211,7 +211,7 @@ public class NMS {
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
-    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players%");
+    	Skript.registerEffect(WazeEffectAddHologram.class, "[waze] (add|append) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players%");
     	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string% (from|of) %players%");
     	Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %location% (for|to) %players%");
     	Skript.registerEffect(WazeEffectSetLineHologram.class, "[waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) %string% (for|to) %players%");
@@ -223,7 +223,7 @@ public class NMS {
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("Netherboard") != null) {
     	sidebar = new SideBar();
-    	Skript.registerEffect(WazeEffectSideBar.class, "[waze] (change|set|create|make) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
+    	Skript.registerEffect(WazeEffectSetSideBar.class, "[waze] (change|set) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
     	Skript.registerEffect(WazeEffectRemoveSideBar.class, "[waze] (clear|remove|delete) sidebar (of|for) %players%");
     	Skript.registerEffect(WazeEffectRemoveLineSideBar.class, "[waze] (clear|remove|delete) line %integer% (of|from) sidebar (of|for) %players%");
     	Waze.getInstance().getLogger().info("Netherboard setup was successful, you can now create scoreboards!");
