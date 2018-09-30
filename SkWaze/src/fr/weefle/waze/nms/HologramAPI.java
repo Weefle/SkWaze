@@ -45,6 +45,7 @@ public class HologramAPI {
 			if(holos.get(p).containsKey(id)) {
 			holos.get(p).get(id).delete();
 			holos.get(p).remove(id);
+			holos.remove(p);
 }}}
 
 	public String getHolograms(Player p) {
