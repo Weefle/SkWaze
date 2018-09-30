@@ -23,7 +23,7 @@ public class SideBar {
     
     public void removeLineSideBar(Player p, int line) {
     	BPlayerBoard board = Netherboard.instance().getBoard(p);
-    	board.remove(5);
+    	board.remove(line);
     }
 
     public void removeSideBar(Player p) {
