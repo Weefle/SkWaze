@@ -12,8 +12,9 @@ Effects:
 [waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (to|for) %players%
 [waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (for|and) %integer% second[s] (to|for) %players%
 [waze] 1.8 (remove|delete|clear) [boss]bar (of|for) %players%
-[waze] (create|make) scoreboard %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%
-[waze] (clear|remove) scoreboard %string% (of|for) %players%
+[waze] (change|set|create|make) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%
+[waze] (clear|remove|delete) sidebar (of|for) %players%
+[waze] (clear|remove|delete) line %integer% (of|from) sidebar (of|for) %players%
 [waze] (make|let) citizen with id %number% build schem[atic] %string% at [location] %location% (with|at) speed %number% (for|to) %player%
 [waze] (set|show) tab[list] (with|from) [head[er]] %string% (and|with) [foot[er]] %string% (to|for) %players%
 [waze] (set|show) name[tag] %string% (to|for) %players%

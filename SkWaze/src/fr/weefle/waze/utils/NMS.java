@@ -33,9 +33,10 @@ import fr.weefle.waze.effects.WazeEffectNametag;
 import fr.weefle.waze.effects.WazeEffectParticles;
 import fr.weefle.waze.effects.WazeEffectRecipe;
 import fr.weefle.waze.effects.WazeEffectRemoveHologram;
+import fr.weefle.waze.effects.WazeEffectRemoveLineSideBar;
 import fr.weefle.waze.effects.WazeEffectRemoveLinesHologram;
-import fr.weefle.waze.effects.WazeEffectRemoveScoreBoard;
-import fr.weefle.waze.effects.WazeEffectScoreBoard;
+import fr.weefle.waze.effects.WazeEffectRemoveSideBar;
+import fr.weefle.waze.effects.WazeEffectSideBar;
 import fr.weefle.waze.effects.WazeEffectSetLineHologram;
 import fr.weefle.waze.effects.WazeEffectTablist;
 import fr.weefle.waze.effects.WazeEffectTeleportHologram;
@@ -65,7 +66,7 @@ import fr.weefle.waze.nms.Nametag;
 import fr.weefle.waze.nms.ParticleAPI;
 import fr.weefle.waze.nms.ParticleNew;
 import fr.weefle.waze.nms.Ping;
-import fr.weefle.waze.nms.ScoreBoard;
+import fr.weefle.waze.nms.SideBar;
 import fr.weefle.waze.nms.Tablist;
 import fr.weefle.waze.nms.Title;
 import fr.weefle.waze.skwrapper.SkWrapperSender;
@@ -83,7 +84,7 @@ public class NMS {
 	private Tablist tablist;
 	private ParticleAPI particle;
 	private Nametag nametag;
-	private ScoreBoard scoreboard;
+	private SideBar sidebar;
 	private AutoRespawnAPI autorespawn;
 	private HologramAPI holograms;
 	//private DiscordRegister discord;
@@ -103,7 +104,6 @@ public class NMS {
 
 	Bukkit.getLogger().info("Your server is running version " + version);
 	
-	scoreboard = new ScoreBoard();
 	ping = new Ping();
 	nametag = new Nametag();
 	tablist = new Tablist();
@@ -181,10 +181,6 @@ public class NMS {
 	//Skript.registerExpression(WazeExpressionServersList.class, String.class, ExpressionType.PROPERTY, "[waze] [skwrapper] servers list from [template] %string%", "[waze] list of [skwrapper] servers from [template] %string%", "[waze] [skwrapper] servers list from %string%['s] [template]", "[waze] list of [skwrapper] servers from %string%['s] [template]");
 	Skript.registerEffect(WazeEffectRecipe.class, "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%");
 	Skript.registerEffect(WazeEffectClearRecipes.class, "[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]");
-    Skript.registerEffect(WazeEffectScoreBoard.class, "[waze] (create|make) score[board] %string% of type %string% to [display]slot %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
-	Skript.registerEffect(WazeEffectRemoveScoreBoard.class, "[waze] (clear|remove) score[board] %string% (of|for) %players%");
-	/*Skript.registerEffect(WazeEffectChangeScore.class, "[waze] (change|modify) score[board] (at|for) [display]slot %string% to [score] %string% (at|for) line %integer% (for|to) %players%");
-	Skript.registerEffect(WazeEffectRemoveScore.class, "[waze] (remove|clear) score[board] score named %string% (for|to) %players%");*/
 	Skript.registerEffect(WazeEffectTablist.class, "[waze] (set|show) tab[list] (with|from) [head[er]] %string% (and|with) [foot[er]] %string% (to|for) %players%");
 	Skript.registerEffect(WazeEffectNametag.class, "[waze] (set|show) name[tag] %string% (to|for) %players%");
 	Skript.registerEffect(WazeEffectAutoRespawn.class, "[waze] [auto]respawn %players%");
@@ -222,6 +218,15 @@ public class NMS {
     	Skript.registerEffect(WazeEffectRemoveLinesHologram.class, "[waze] (clear|remove|delete) [all] line[s] (at|from) hologram with id %string% (for|to) %players%");
     	Skript.registerExpression(WazeExpressionHologram.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] hologram [list]", "[waze] hologram [list] of %players%");
     	Waze.getInstance().getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
+	}else {
+		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
+	}
+    if(Bukkit.getServer().getPluginManager().getPlugin("Netherboard") != null) {
+    	sidebar = new SideBar();
+    	Skript.registerEffect(WazeEffectSideBar.class, "[waze] (change|set|create|make) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
+    	Skript.registerEffect(WazeEffectRemoveSideBar.class, "[waze] (clear|remove|delete) sidebar (of|for) %players%");
+    	Skript.registerEffect(WazeEffectRemoveLineSideBar.class, "[waze] (clear|remove|delete) line %integer% (of|from) sidebar (of|for) %players%");
+    	Waze.getInstance().getLogger().info("Netherboard setup was successful, you can now create scoreboards!");
 	}else {
 		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
 	}
@@ -276,8 +281,8 @@ public BossBarAPI getBossBar(){
 public Ping getPing(){
     return ping;
 }
-public ScoreBoard getScoreBoard(){
-    return scoreboard;
+public SideBar getSideBar(){
+    return sidebar;
 }
 
 public AutoRespawnAPI getAutoRespawn(){
