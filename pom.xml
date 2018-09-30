@@ -44,6 +44,11 @@
     <version>2.3.0</version>
     <scope>provided</scope>
 </dependency>
+<dependency>
+  <groupId>fr.minuskube</groupId>
+  <artifactId>netherboard-bukkit</artifactId>
+  <version>1.0.6</version>
+</dependency>
         <dependency>
     <groupId>com.comphenix.protocol</groupId>
     <artifactId>ProtocolLib-API</artifactId>

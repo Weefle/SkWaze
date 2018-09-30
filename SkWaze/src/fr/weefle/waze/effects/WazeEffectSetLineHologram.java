@@ -2,7 +2,6 @@ package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
 
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -12,19 +11,19 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 import fr.weefle.waze.utils.NMS;
 
-public class WazeEffectCreateHologram extends Effect {
+public class WazeEffectSetLineHologram extends Effect {
 	
-	private Expression<String> message;
-	private Expression<Location> location;
 	private Expression<Player> player;
+	private Expression<Integer> line;
 	private Expression<String> id;
+	private Expression<String> msg;
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
-		message = (Expression<String>) arg0[0];
-		location = (Expression<Location>) arg0[1];
-		id = (Expression<String>) arg0[2];
+		line = (Expression<Integer>) arg0[0];
+		id = (Expression<String>) arg0[1];
+		msg = (Expression<String>) arg0[2];
 		player = (Expression<Player>) arg0[3];
 		return true;
 	}
@@ -32,15 +31,13 @@ public class WazeEffectCreateHologram extends Effect {
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
 		// TODO Auto-generated method stub
-		return "display hologram at location for player";
+		return "set line with text at hologram for player";
 	}
 
 	@Override
 	protected void execute(Event arg0) {
 		for(Player p : player.getAll(arg0)){
-	        	for(Location l : location.getAll(arg0)){
-	        		NMS.getInstance().getHolograms().createHologram(p, message.getSingle(arg0), l, id.getSingle(arg0));
-	        	}
+	        		NMS.getInstance().getHolograms().setLineHologram(p, id.getSingle(arg0), line.getSingle(arg0), msg.getSingle(arg0));
 		}
 		
 		

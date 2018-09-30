@@ -33,15 +33,19 @@ import fr.weefle.waze.effects.WazeEffectNametag;
 import fr.weefle.waze.effects.WazeEffectParticles;
 import fr.weefle.waze.effects.WazeEffectRecipe;
 import fr.weefle.waze.effects.WazeEffectRemoveHologram;
+import fr.weefle.waze.effects.WazeEffectRemoveLinesHologram;
 import fr.weefle.waze.effects.WazeEffectRemoveScoreBoard;
 import fr.weefle.waze.effects.WazeEffectScoreBoard;
+import fr.weefle.waze.effects.WazeEffectSetLineHologram;
 import fr.weefle.waze.effects.WazeEffectTablist;
+import fr.weefle.waze.effects.WazeEffectTeleportHologram;
 import fr.weefle.waze.effects.WazeEffectTitle;
 import fr.weefle.waze.effects.WazeEffectUnDisguise;
 import fr.weefle.waze.events.PlayerJumpEvent;
 import fr.weefle.waze.events.PlayerSwimEvent;
 import fr.weefle.waze.expressions.WazeExpressionBossBar;
 import fr.weefle.waze.expressions.WazeExpressionDisguise;
+import fr.weefle.waze.expressions.WazeExpressionHologram;
 import fr.weefle.waze.expressions.WazeExpressionPing;
 import fr.weefle.waze.legacy.ActionBarOld;
 import fr.weefle.waze.legacy.AutoRespawnOld;
@@ -172,7 +176,7 @@ public class NMS {
     Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]");
 	Skript.registerEffect(WazeEffectActionBar.class, "[waze] (send|create) action[bar] %string% (to|for) %players%");
 	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
-	Skript.registerExpression(WazeExpressionPing.class, Integer.class, ExpressionType.PROPERTY, "[waze] %players%['s] ping", "[waze] ping of %players%");
+	Skript.registerExpression(WazeExpressionPing.class, Integer.class, ExpressionType.PROPERTY, "[waze] %players%['s] ping [list]", "[waze] ping [list] of %players%");
 	Skript.registerExpression(WazeExpressionBossBar.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] [boss]bar [list]", "[waze] [boss]bar [list] of %players%");
 	//Skript.registerExpression(WazeExpressionServersList.class, String.class, ExpressionType.PROPERTY, "[waze] [skwrapper] servers list from [template] %string%", "[waze] list of [skwrapper] servers from [template] %string%", "[waze] [skwrapper] servers list from %string%['s] [template]", "[waze] list of [skwrapper] servers from %string%['s] [template]");
 	Skript.registerEffect(WazeEffectRecipe.class, "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%");
@@ -211,8 +215,12 @@ public class NMS {
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
-    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players% follow[ing] %boolean%");
+    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players%");
     	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string% (from|of) %players%");
+    	Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %location% (for|to) %players%");
+    	Skript.registerEffect(WazeEffectSetLineHologram.class, "[waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) %string% (for|to) %players%");
+    	Skript.registerEffect(WazeEffectRemoveLinesHologram.class, "[waze] (clear|remove|delete) [all] line[s] (at|from) hologram with id %string% (for|to) %players%");
+    	Skript.registerExpression(WazeExpressionHologram.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] hologram [list]", "[waze] hologram [list] of %players%");
     	Waze.getInstance().getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
 	}else {
 		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
@@ -222,7 +230,7 @@ public class NMS {
 		Skript.registerEffect(WazeEffectDisguiseMob.class, "[waze] (disguise|transform|morph) %players% (as|in[to]) mob %string% view[itself] %boolean%");
 		Skript.registerEffect(WazeEffectDisguiseMisc.class, "[waze] (disguise|transform|morph) %players% (as|in[to]) misc %string% view[itself] %boolean%");
 		Skript.registerEffect(WazeEffectUnDisguise.class, "[waze] (undisguise|untransform|unmorph) %players%");
-		Skript.registerExpression(WazeExpressionDisguise.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] disguise", "[waze] disguise of %players%");
+		Skript.registerExpression(WazeExpressionDisguise.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] disguise [list]", "[waze] disguise [list] of %players%");
 		Waze.getInstance().getLogger().info("ProtocolLib and LibsDisguises setup was successful!");
 	}else {
 		Waze.getInstance().getLogger().severe("Failed to setup ProtocolLib and LibsDisguises! do you have both installed?");

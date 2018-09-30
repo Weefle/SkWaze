@@ -12,9 +12,8 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 import fr.weefle.waze.utils.NMS;
 
-public class WazeEffectCreateHologram extends Effect {
+public class WazeEffectTeleportHologram extends Effect {
 	
-	private Expression<String> message;
 	private Expression<Location> location;
 	private Expression<Player> player;
 	private Expression<String> id;
@@ -22,24 +21,23 @@ public class WazeEffectCreateHologram extends Effect {
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
-		message = (Expression<String>) arg0[0];
+		id = (Expression<String>) arg0[0];
 		location = (Expression<Location>) arg0[1];
-		id = (Expression<String>) arg0[2];
-		player = (Expression<Player>) arg0[3];
+		player = (Expression<Player>) arg0[2];
 		return true;
 	}
 
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
 		// TODO Auto-generated method stub
-		return "display hologram at location for player";
+		return "teleport hologram at location for player";
 	}
 
 	@Override
 	protected void execute(Event arg0) {
 		for(Player p : player.getAll(arg0)){
 	        	for(Location l : location.getAll(arg0)){
-	        		NMS.getInstance().getHolograms().createHologram(p, message.getSingle(arg0), l, id.getSingle(arg0));
+	        		NMS.getInstance().getHolograms().teleportHologram(p, id.getSingle(arg0), l);
 	        	}
 		}
 		

@@ -1,4 +1,6 @@
+
 Effects:
+
 [waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]
 [waze] (send|create) action[bar] %string% (to|for) %players%
 [waze] (send|teleport) %players% to [bungee[cord]] server %string%
@@ -24,16 +26,26 @@ Effects:
 [waze] (disguise|transform|morph) %players% (as|in[to]) mob %string% view[itself] %boolean%
 [waze] (disguise|transform|morph) %players% (as|in[to]) misc %string% view[itself] %boolean%
 [waze] (undisguise|untransform|unmorph) player[s] %players%
-[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players% follow[ing] %boolean%
+[waze] (add|create) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players%
 [waze] (delete|remove|clear) hologram with id %string% (from|of) %players%
+[waze] (teleport|move) hologram with id %string% (to|at) %location% (for|to) %players%
+[waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) %string% (for|to) %players%
+[waze] (clear|remove|delete) [all] line[s] (at|from) hologram with id %string% (for|to) %players%
+
 Expressions:
-[waze] %players%['s] ping, [waze] ping of %players%
+
+[waze] %players%['s] ping [list], [waze] ping [list] of %players%
 [waze] %players%['s] [boss]bar [list]", "[waze] [boss]bar [list] of %players%
-[waze] %players%['s] disguise", "[waze] disguise of %players%
+[waze] %players%['s] disguise [list]", "[waze] disguise [list] of %players%
+[waze] %players%['s] hologram [list]", "[waze] hologram [list] of %players%
+
 Events:
+
 [waze] jump[ing]
 [waze] swim[ing]
 [waze] horse jump[ing]
 [waze] advancement [(done|obtained|won)]
+
 Types:
+
 advancement

@@ -12,28 +12,15 @@ import fr.weefle.waze.Waze;
 public class HologramAPI {
 	
 	private HashMap<Player, Map<String, Hologram>> holos = new HashMap<>();
-	private HashMap<String, Hologram> holostatic = new HashMap<>();
-	private HashMap<String, Hologram> holofollow = new HashMap<>();
+	private HashMap<String, Hologram> holo = new HashMap<>();
 
-	public void createHologram(Player p, String message, Location loc, String id, boolean bool) {
-		if(holos.containsKey(p)) {
-		if(holos.get(p).containsKey(id)) {
-			return;
-		}else{
-			if(bool==true){
-				holofollow.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
-		holos.put(p, holofollow);
-		holos.get(p).get(id).appendTextLine(message);
-			}
-			else {holostatic.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
-		holos.put(p, holostatic);
-		holos.get(p).get(id).appendTextLine(message);
-		}
-		}}else {
-			holostatic.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
-			holos.put(p, holostatic);
+	public void createHologram(Player p, String message, Location loc, String id) {
+		if(!holos.containsKey(p)) {
+		if(!holos.get(p).containsKey(id)) {
+			holo.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
+			holos.put(p, holo);
 			holos.get(p).get(id).appendTextLine(message);
-		}
+		}}
 	}
 	
 	public void teleportHologram(Player p, String id, Location loc) {
@@ -44,7 +31,7 @@ public class HologramAPI {
 		holos.get(p).get(id).insertTextLine(line, msg);
 	}
 	
-	public void removeLineHologram(Player p, String id, int line, String msg) {
+	public void removeLinesHologram(Player p, String id) {
 		holos.get(p).get(id).clearLines();
 	}
 
