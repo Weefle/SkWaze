@@ -24,8 +24,9 @@ public class HologramAPI {
 	
 	public void teleportHologram(Player p, String id, Location loc) {
 		if(holos.containsKey(p)) {
+			if(holos.get(p).containsKey(id)) {
 		holos.get(p).get(id).teleport(loc);
-	}}
+	}}}
 	
 	public void setLineHologram(Player p, String id, int line, String msg) {
 		if(holos.containsKey(p)) {
@@ -35,14 +36,16 @@ public class HologramAPI {
 	
 	public void removeLinesHologram(Player p, String id) {
 		if(holos.containsKey(p)) {
+			if(holos.get(p).containsKey(id)) {
 		holos.get(p).get(id).clearLines();
-	}}
+	}}}
 
 	public void removeHologram(Player p, String id) {
 		if(holos.containsKey(p)) {
+			if(holos.get(p).containsKey(id)) {
 			holos.get(p).get(id).delete();
 			holos.get(p).remove(id);
-}}
+}}}
 
 	public String getHolograms(Player p) {
 		if(holos.containsKey(p)) {
