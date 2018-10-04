@@ -20,4 +20,16 @@ public class ParticleNew implements ParticleAPI {
         sendPacket.invoke (reflection.getConnection ( player ), packet );*/
     	player.getWorld().spawnParticle(Particle.valueOf(particles), location, number, xoff, yoff, zoff, data);
     }
+    
+    public void createHelix(Player player, String particles, Location location, float xoff, float yoff, float zoff, float data, int number) {
+        int radius = 2;
+        for(double y = 0; y <= 50; y+=0.05) {
+            double x = radius * Math.cos(y);
+            double z = radius * Math.sin(y);
+            location.setX(location.getX()+x);
+            location.setY(location.getY()+y);
+            location.setZ(location.getZ()+z);
+            player.getWorld().spawnParticle(Particle.valueOf(particles), location, number, xoff, yoff, zoff, data);
+        }
+    }
     }
