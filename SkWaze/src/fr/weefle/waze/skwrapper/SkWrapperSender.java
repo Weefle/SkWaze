@@ -1,16 +1,17 @@
 package fr.weefle.waze.skwrapper;
 
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-import fr.rhaz.sockets.socket4mc.Socket4Bukkit;
-import fr.rhaz.sockets.socket4mc.Socket4Bukkit.Client.ClientSocketHandshakeEvent;
-import fr.rhaz.sockets.utils.JSONMap;
+import me.dommi2212.BungeeBridge.packets.PacketCustom;
 
 public class SkWrapperSender implements Listener {
 	
 	public void sendPing() {
-	    JSONMap map = new JSONMap(
+		String request = "Successfully connected to the server!"; //1  
+		PacketCustom packet = new PacketCustom("SkWrapper-msg", (Object) request); //2  
+		String answer = (String) packet.send(); //3  
+		System.out.println(answer); //4  
+	   /* JSONMap map = new JSONMap(
 	        "message", "Successfully connected to the server!"
 	    );
 
@@ -18,7 +19,7 @@ public class SkWrapperSender implements Listener {
 	}
 		@EventHandler
 		public void onHandshake(ClientSocketHandshakeEvent e){
-		    sendPing();
+		    sendPing();*/
 		}
 
 }

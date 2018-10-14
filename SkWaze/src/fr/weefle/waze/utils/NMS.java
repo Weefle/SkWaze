@@ -200,7 +200,7 @@ public class NMS {
             return playerSwimEvent.getPlayer();
         }
     }, 0);
-    if(Bukkit.getServer().getPluginManager().getPlugin("Socket4MC") != null) {
+    /*if(Bukkit.getServer().getPluginManager().getPlugin("Socket4MC") != null) {
     	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), Waze.getInstance());
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
@@ -208,6 +208,15 @@ public class NMS {
 		Waze.getInstance().getLogger().info("Socket4MC setup was successful, your data is safe across your network!");
 	}else {
 		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
+	}*/
+    if(Bukkit.getServer().getPluginManager().getPlugin("BungeeBridgeC") != null) {
+    	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), Waze.getInstance());
+    	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
+		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
+		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
+		Waze.getInstance().getLogger().info("BungeeBridge setup was successful, your data is safe across your network!");
+	}else {
+		Waze.getInstance().getLogger().severe("Failed to setup BungeeBridge, you need it installed to protect your data across your network!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
