@@ -1,15 +1,13 @@
 package fr.weefle.waze.skwrapper;
 
-import me.dommi2212.BungeeBridge.packets.PacketCustom;
-
 public class SkWrapperSender{
 	
-	public static void sendPing() {
-		String request = "Successfully connected to the server!"; //1  
-		PacketCustom packet = new PacketCustom("SkWrapper-msg", (Object) request); //2  
-		String answer = (String) packet.send(); //3  
-		System.out.println(answer); //4  
-	   /* JSONMap map = new JSONMap(
+	/*public static void sendPing() {
+		String request = "Successfully connected to the server!"; 
+		PacketCustom packet = new PacketCustom("SkWrapper-msg", (Object) request);  
+		String answer = (String) packet.send(); 
+		System.out.println(answer);   
+	    JSONMap map = new JSONMap(
 	        "message", "Successfully connected to the server!"
 	    );
 
@@ -17,7 +15,7 @@ public class SkWrapperSender{
 	}
 		@EventHandler
 		public void onHandshake(ClientSocketHandshakeEvent e){
-		    sendPing();*/
-		}
+		    sendPing();
+		}*/
 
 }

@@ -69,7 +69,6 @@ import fr.weefle.waze.nms.Ping;
 import fr.weefle.waze.nms.SideBar;
 import fr.weefle.waze.nms.Tablist;
 import fr.weefle.waze.nms.Title;
-import fr.weefle.waze.skwrapper.SkWrapperSender;
 import fr.weefle.waze.skwrapper.WazeEffectCreateServer;
 import fr.weefle.waze.skwrapper.WazeEffectStartServer;
 import fr.weefle.waze.skwrapper.WazeEffectStopServer;
@@ -210,7 +209,6 @@ public class NMS {
 		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
 	}*/
     if(Bukkit.getServer().getPluginManager().getPlugin("BungeeBridgeC") != null) {
-    	SkWrapperSender.sendPing();
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
@@ -228,7 +226,7 @@ public class NMS {
     	Skript.registerExpression(WazeExpressionHologram.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] hologram [list]", "[waze] hologram [list] of %players%");
     	Waze.getInstance().getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
 	}else {
-		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
+		Waze.getInstance().getLogger().severe("Failed to setup HolographicDisplays, you need it installed to protect your data across your network!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("Netherboard") != null) {
     	sidebar = new SideBar();
@@ -237,7 +235,7 @@ public class NMS {
     	Skript.registerEffect(WazeEffectRemoveLineSideBar.class, "[waze] (clear|remove|delete) line %integer% (of|from) sidebar (of|for) %players%");
     	Waze.getInstance().getLogger().info("Netherboard setup was successful, you can now create scoreboards!");
 	}else {
-		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
+		Waze.getInstance().getLogger().severe("Failed to setup Netherboard, you need it installed to protect your data across your network!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib") != null && Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises") != null) {
     	Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) %players% (as|in[to]) player %string% view[itself] %boolean%");
