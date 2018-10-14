@@ -36,6 +36,11 @@
   </repository>
         </repositories>
         <dependencies>
+        <dependency>
+  <groupId>me.dommi2212.bungeebridge</groupId>
+  <artifactId>bungeebridgeclient</artifactId>
+  <version>1.6.3</version>
+</dependency>
          <dependency>
             <groupId>nl.sandergielisse</groupId>
             <artifactId>bannerboard</artifactId>
