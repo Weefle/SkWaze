@@ -16,8 +16,8 @@ public static void createServer(String name, String template) {
 	sb.append(name);
 	sb.append(" ");
 	sb.append(template);
-	new PacketCustom("SkWrapper-create", (Object) sb);
-		
+	PacketCustom packet = new PacketCustom("SkWrapper-create", (Object) sb);
+	packet.send();
 	}
 	
 	public static void startServer(String name, String template) {
@@ -25,7 +25,8 @@ public static void createServer(String name, String template) {
 		sb.append(name);
 		sb.append(" ");
 		sb.append(template);
-		new PacketCustom("SkWrapper-start", (Object) sb);
+		PacketCustom packet = new PacketCustom("SkWrapper-start", (Object) sb);
+		packet.send();
 		/*StringBuilder sb = new StringBuilder();
 		sb.append(name);
 		sb.append(" ");
@@ -41,7 +42,8 @@ public static void stopServer(String name, String template) {
 	sb.append(name);
 	sb.append(" ");
 	sb.append(template);
-	new PacketCustom("SkWrapper-stop", (Object) sb);
+	PacketCustom packet = new PacketCustom("SkWrapper-stop", (Object) sb);
+	packet.send();
 	/*StringBuilder sb = new StringBuilder();
 		sb.append(name);
 		sb.append(" ");
