@@ -1,12 +1,10 @@
 package fr.weefle.waze.skwrapper;
 
-import org.bukkit.event.Listener;
-
 import me.dommi2212.BungeeBridge.packets.PacketCustom;
 
-public class SkWrapperSender implements Listener {
+public class SkWrapperSender{
 	
-	public void sendPing() {
+	public static void sendPing() {
 		String request = "Successfully connected to the server!"; //1  
 		PacketCustom packet = new PacketCustom("SkWrapper-msg", (Object) request); //2  
 		String answer = (String) packet.send(); //3  

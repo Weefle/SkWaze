@@ -210,7 +210,7 @@ public class NMS {
 		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
 	}*/
     if(Bukkit.getServer().getPluginManager().getPlugin("BungeeBridgeC") != null) {
-    	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), Waze.getInstance());
+    	SkWrapperSender.sendPing();
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
