@@ -16,7 +16,8 @@ public static void createServer(String name, String template) {
 	sb.append(name);
 	sb.append(" ");
 	sb.append(template);
-	PacketCustom packet = new PacketCustom("SkWrapper-create", (Object) sb);
+	String str = sb.toString();
+	PacketCustom packet = new PacketCustom("SkWrapper-create", (Object) str);
 	packet.send();
 	}
 	
@@ -25,7 +26,8 @@ public static void createServer(String name, String template) {
 		sb.append(name);
 		sb.append(" ");
 		sb.append(template);
-		PacketCustom packet = new PacketCustom("SkWrapper-start", (Object) sb);
+		String str = sb.toString();
+		PacketCustom packet = new PacketCustom("SkWrapper-start", (Object) str);
 		packet.send();
 		/*StringBuilder sb = new StringBuilder();
 		sb.append(name);
@@ -42,7 +44,8 @@ public static void stopServer(String name, String template) {
 	sb.append(name);
 	sb.append(" ");
 	sb.append(template);
-	PacketCustom packet = new PacketCustom("SkWrapper-stop", (Object) sb);
+	String str = sb.toString();
+	PacketCustom packet = new PacketCustom("SkWrapper-stop", (Object) str);
 	packet.send();
 	/*StringBuilder sb = new StringBuilder();
 		sb.append(name);
