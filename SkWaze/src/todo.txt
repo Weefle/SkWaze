@@ -6,18 +6,18 @@
 - more scoreboard features ✔
 - tablist ✔
 - autorespawn ✔
-- more bungee features (sockets/messages) ✘
+- more bungee features (sockets/messages) ✔
 - nametag ✔
 - particles ✔
 - sql ✘
 - gui ✘
 - worldedit (schematics, citizens/builder, copy/paste) ⌛
 - worldguard regions ✘
-- discord support ⌛
+- discord support ✘
 - web requests ✘
 - work on jump and swim event ✔
 - effects support all players ✔
-- advancement features ⌛
+- advancement features ✔
 - more reflection ✔
 - disguise ✔
 - npc ✘

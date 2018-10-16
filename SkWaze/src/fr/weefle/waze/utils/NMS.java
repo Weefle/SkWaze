@@ -86,8 +86,6 @@ public class NMS {
 	private SideBar sidebar;
 	private AutoRespawnAPI autorespawn;
 	private HologramAPI holograms;
-	//private DiscordRegister discord;
-	//private Bot bot;
 	
 	public boolean isSet() {
 		instance = this;
@@ -169,15 +167,12 @@ public class NMS {
 }
 	PlayerJumpEvent.register(Waze.getInstance());
 	PlayerSwimEvent.register(Waze.getInstance());
-	//Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperReceiver(), main);
 	Bukkit.getServer().getPluginManager().registerEvents(new UpdaterListener(), Waze.getInstance());
 	Skript.registerAddon(Waze.getInstance());
     Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]");
 	Skript.registerEffect(WazeEffectActionBar.class, "[waze] (send|create) action[bar] %string% (to|for) %players%");
-	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
 	Skript.registerExpression(WazeExpressionPing.class, Integer.class, ExpressionType.PROPERTY, "[waze] %players%['s] ping [list]", "[waze] ping [list] of %players%");
 	Skript.registerExpression(WazeExpressionBossBar.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] [boss]bar [list]", "[waze] [boss]bar [list] of %players%");
-	//Skript.registerExpression(WazeExpressionServersList.class, String.class, ExpressionType.PROPERTY, "[waze] [skwrapper] servers list from [template] %string%", "[waze] list of [skwrapper] servers from [template] %string%", "[waze] [skwrapper] servers list from %string%['s] [template]", "[waze] list of [skwrapper] servers from %string%['s] [template]");
 	Skript.registerEffect(WazeEffectRecipe.class, "[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%");
 	Skript.registerEffect(WazeEffectClearRecipes.class, "[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]");
 	Skript.registerEffect(WazeEffectTablist.class, "[waze] (set|show) tab[list] (with|from) [head[er]] %string% (and|with) [foot[er]] %string% (to|for) %players%");
@@ -199,19 +194,12 @@ public class NMS {
             return playerSwimEvent.getPlayer();
         }
     }, 0);
-    /*if(Bukkit.getServer().getPluginManager().getPlugin("Socket4MC") != null) {
-    	Bukkit.getServer().getPluginManager().registerEvents(new SkWrapperSender(), Waze.getInstance());
-    	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
-		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
-		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
-		Waze.getInstance().getLogger().info("Socket4MC setup was successful, your data is safe across your network!");
-	}else {
-		Waze.getInstance().getLogger().severe("Failed to setup Socket4MC, you need it installed to protect your data across your network!");
-	}*/
     if(Bukkit.getServer().getPluginManager().getPlugin("BungeeBridgeC") != null) {
+    	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
+		//Skript.registerExpression(WazeExpressionServersList.class, String.class, ExpressionType.PROPERTY, "[waze] [skwrapper] servers list from [template] %string%", "[waze] list of [skwrapper] servers from [template] %string%", "[waze] [skwrapper] servers list from %string%['s] [template]", "[waze] list of [skwrapper] servers from %string%['s] [template]");
 		Waze.getInstance().getLogger().info("BungeeBridge setup was successful, your data is safe across your network!");
 	}else {
 		Waze.getInstance().getLogger().severe("Failed to setup BungeeBridge, you need it installed to protect your data across your network!");

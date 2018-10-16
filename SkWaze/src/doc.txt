@@ -20,7 +20,7 @@ Effects:
 [waze] (set|show) name[tag] %string% (to|for) %players%
 [waze] (spawn|create|summon) [a number of] %int% [of] %string%['s] particle[s] (to|for) %players% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with|at) speed %float%
 [waze] [auto]respawn %players%
-[waze] (add|create) [[a] new] server named %string% (from|with) template %string%
+[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%
 [waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%
 [waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%
 [waze] (disguise|transform|morph) %players% (as|in[to]) player %string% view[itself] %boolean%

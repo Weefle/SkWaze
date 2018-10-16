@@ -1,9 +1,6 @@
 package fr.weefle.waze.effects;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import fr.weefle.waze.Waze;
+import me.dommi2212.BungeeBridge.packets.PacketConnectPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
@@ -28,7 +25,14 @@ protected void execute(Event event)
 
 public void connect(Player p, String srv)
 {
-  ByteArrayOutputStream b = new ByteArrayOutputStream();
+	PacketConnectPlayer packet = new PacketConnectPlayer(p.getUniqueId(), srv);
+	/*Object obj = */packet.send();
+	/*ConnectResult connected = (ConnectResult) obj;
+
+	if(connected == ConnectResult.CONNECT) {
+	  System.out.println("Successfully connected to: " + srv);
+	}*/
+  /*ByteArrayOutputStream b = new ByteArrayOutputStream();
   DataOutputStream out = new DataOutputStream(b);
   try
   {
@@ -36,7 +40,7 @@ public void connect(Player p, String srv)
     out.writeUTF(srv);
   }
   catch (IOException localIOException) {}
-  p.sendPluginMessage(Waze.getInstance(), "BungeeCord", b.toByteArray());
+  p.sendPluginMessage(Waze.getInstance(), "BungeeCord", b.toByteArray());*/
 }
 
 public String toString(Event event, boolean bool)
