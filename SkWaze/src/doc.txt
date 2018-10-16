@@ -35,6 +35,7 @@ Effects:
 
 Expressions:
 
+[waze] [number of] online player[s] on bungee[cord]
 [waze] %players%['s] ping [list], [waze] ping [list] of %players%
 [waze] %players%['s] [boss]bar [list]", "[waze] [boss]bar [list] of %players%
 [waze] %players%['s] disguise [list]", "[waze] disguise [list] of %players%
