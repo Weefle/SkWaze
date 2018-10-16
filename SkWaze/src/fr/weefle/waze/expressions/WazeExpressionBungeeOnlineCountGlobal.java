@@ -2,7 +2,6 @@ package fr.weefle.waze.expressions;
 
 import javax.annotation.Nullable;
 
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
 import ch.njol.skript.lang.Expression;
@@ -11,14 +10,12 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import fr.weefle.waze.utils.NMS;
 
-public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<String> {
-		
-		private Expression<Player> player;
+public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<Integer> {
 
 		@Override
-		public Class<? extends String> getReturnType() {
+		public Class<? extends Integer> getReturnType() {
 			// TODO Auto-generated method stub
-			return String.class;
+			return Integer.class;
 		}
 
 		@Override
@@ -27,11 +24,8 @@ public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<Stri
 			return false;
 		}
 
-		@SuppressWarnings("unchecked")
 		@Override
 		public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
-			// TODO Auto-generated method stub
-			player = (Expression<Player>) arg0[0];
 			return true;
 		}
 
@@ -43,13 +37,7 @@ public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<Stri
 
 		@Override
 		@Nullable
-		protected String[] get(Event arg0) {
-				for(Player p : player.getAll(arg0)){
-					return new String[]{ };
-	        	}
-				return null;
-
-		
-		
-
-	}}
+		protected Integer[] get(Event arg0) {
+					return new Integer[]{ NMS.getInstance().getBungee().onlineGlobal };
+	}
+		}

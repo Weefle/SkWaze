@@ -45,6 +45,7 @@ import fr.weefle.waze.effects.WazeEffectUnDisguise;
 import fr.weefle.waze.events.PlayerJumpEvent;
 import fr.weefle.waze.events.PlayerSwimEvent;
 import fr.weefle.waze.expressions.WazeExpressionBossBar;
+import fr.weefle.waze.expressions.WazeExpressionBungeeOnlineCountGlobal;
 import fr.weefle.waze.expressions.WazeExpressionDisguise;
 import fr.weefle.waze.expressions.WazeExpressionHologram;
 import fr.weefle.waze.expressions.WazeExpressionPing;
@@ -86,6 +87,7 @@ public class NMS {
 	private SideBar sidebar;
 	private AutoRespawnAPI autorespawn;
 	private HologramAPI holograms;
+	private BungeeCache bungee;
 	
 	public boolean isSet() {
 		instance = this;
@@ -195,6 +197,8 @@ public class NMS {
         }
     }, 0);
     if(Bukkit.getServer().getPluginManager().getPlugin("BungeeBridgeC") != null) {
+    	bungee = new BungeeCache(Waze.getInstance());
+    	Skript.registerExpression(WazeExpressionBungeeOnlineCountGlobal.class, Integer.class, ExpressionType.PROPERTY, "[waze] [number of] online player[s] on bungee[cord]");
     	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
@@ -254,7 +258,7 @@ public class NMS {
 	}
 	/*if(Bukkit.getServer().getPluginManager().getPlugin("Discord-ProgramBot-API") != null) {
 		discord = new DiscordRegister(main);
-		bot = new Bot("NDYxNTk3MzYyODcyMTIzMzkz.DhVocQ.px7FnBq7Z8XJw9vW97H0hriGenI", "[Wazea]");
+		bot = new Bot("idofthebothere", "[Wazea]");
 		discord.initialiseBot(bot);
 		//bot.addCommand(new PingCommand());
 		main.getLogger().info("Discord-ProgramBot-API setup was successful!");
@@ -303,5 +307,10 @@ public HologramAPI getHolograms(){
 public static NMS getInstance() {
 	return instance;
 }
+
+public BungeeCache getBungee() {
+	return bungee;
+}
+
 }
 

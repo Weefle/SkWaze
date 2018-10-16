@@ -25,5 +25,9 @@ public class BungeeCache {
 		}, 10L, 10L);
 		
 	}
+	
+	public int getOnlineCountGlobal() {
+		return onlineGlobal;
+	}
 
 }
