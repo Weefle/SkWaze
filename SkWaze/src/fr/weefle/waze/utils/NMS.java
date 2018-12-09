@@ -6,6 +6,10 @@ import org.bukkit.advancement.Advancement;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.HorseJumpEvent;
 import org.bukkit.event.player.PlayerAdvancementDoneEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import com.sainttx.holograms.HologramPlugin;
+import com.sainttx.holograms.api.HologramManager;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.classes.ClassInfo;
@@ -18,6 +22,7 @@ import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
 import fr.weefle.waze.Waze;
 import fr.weefle.waze.effects.WazeEffectActionBar;
+import fr.weefle.waze.effects.WazeEffectAddItemLineHologram;
 import fr.weefle.waze.effects.WazeEffectAutoRespawn;
 import fr.weefle.waze.effects.WazeEffectBossBarCreate;
 import fr.weefle.waze.effects.WazeEffectBossBarRemove;
@@ -25,7 +30,7 @@ import fr.weefle.waze.effects.WazeEffectBossBarTimer;
 import fr.weefle.waze.effects.WazeEffectBuilder;
 import fr.weefle.waze.effects.WazeEffectBungeeConnect;
 import fr.weefle.waze.effects.WazeEffectClearRecipes;
-import fr.weefle.waze.effects.WazeEffectAddHologram;
+import fr.weefle.waze.effects.WazeEffectCreateHologram;
 import fr.weefle.waze.effects.WazeEffectDisguiseMisc;
 import fr.weefle.waze.effects.WazeEffectDisguiseMob;
 import fr.weefle.waze.effects.WazeEffectDisguisePlayer;
@@ -34,10 +39,10 @@ import fr.weefle.waze.effects.WazeEffectParticles;
 import fr.weefle.waze.effects.WazeEffectRecipe;
 import fr.weefle.waze.effects.WazeEffectRemoveHologram;
 import fr.weefle.waze.effects.WazeEffectRemoveLineSideBar;
-import fr.weefle.waze.effects.WazeEffectRemoveLinesHologram;
+import fr.weefle.waze.effects.WazeEffectRemoveLineHologram;
 import fr.weefle.waze.effects.WazeEffectRemoveSideBar;
 import fr.weefle.waze.effects.WazeEffectSetSideBar;
-import fr.weefle.waze.effects.WazeEffectSetLineHologram;
+import fr.weefle.waze.effects.WazeEffectAddLineHologram;
 import fr.weefle.waze.effects.WazeEffectTablist;
 import fr.weefle.waze.effects.WazeEffectTeleportHologram;
 import fr.weefle.waze.effects.WazeEffectTitle;
@@ -88,6 +93,7 @@ public class NMS {
 	private AutoRespawnAPI autorespawn;
 	private HologramAPI holograms;
 	private BungeeCache bungee;
+	private HologramManager hologramManager;
 	
 	public boolean isSet() {
 		instance = this;
@@ -208,17 +214,19 @@ public class NMS {
 	}else {
 		Waze.getInstance().getLogger().severe("Failed to setup BungeeBridge, you need it installed to protect your data across your network!");
 	}
-    if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
+    if(Bukkit.getServer().getPluginManager().getPlugin("Holograms") != null) {
+    	hologramManager = JavaPlugin.getPlugin(HologramPlugin.class).getHologramManager();
     	holograms = new HologramAPI();
-    	Skript.registerEffect(WazeEffectAddHologram.class, "[waze] (add|append) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% (to|for) %players%");
-    	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string% (from|of) %players%");
-    	Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %locations% (for|to) %players%");
-    	Skript.registerEffect(WazeEffectSetLineHologram.class, "[waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) %string% (for|to) %players%");
-    	Skript.registerEffect(WazeEffectRemoveLinesHologram.class, "[waze] (clear|remove|delete) [all] line[s] (at|from) hologram with id %string% (for|to) %players%");
-    	Skript.registerExpression(WazeExpressionHologram.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] hologram [list]", "[waze] hologram [list] of %players%");
+    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (create|spawn) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string%");
+    	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string%");
+    	Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %locations%");
+    	Skript.registerEffect(WazeEffectAddLineHologram.class, "[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) %string%");
+    	Skript.registerEffect(WazeEffectAddItemLineHologram.class, "[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) item %string%");
+    	Skript.registerEffect(WazeEffectRemoveLineHologram.class, "[waze] (clear|remove|delete) line %integer% (at|from) hologram with id %string%");
+    	Skript.registerExpression(WazeExpressionHologram.class, String.class, ExpressionType.PROPERTY, "[waze] hologram['s] list", "[waze] list of hologram");
     	Waze.getInstance().getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
 	}else {
-		Waze.getInstance().getLogger().severe("Failed to setup HolographicDisplays, you need it installed to protect your data across your network!");
+		Waze.getInstance().getLogger().severe("Failed to setup Holograms, you need it installed to protect your data across your network!");
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("Netherboard") != null) {
     	sidebar = new SideBar();
@@ -310,6 +318,10 @@ public static NMS getInstance() {
 
 public BungeeCache getBungee() {
 	return bungee;
+}
+
+public HologramManager getHologramManager() {
+	return hologramManager;
 }
 
 }
