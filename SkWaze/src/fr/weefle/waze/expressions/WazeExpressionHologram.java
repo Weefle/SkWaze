@@ -31,13 +31,13 @@ public class WazeExpressionHologram extends SimpleExpression<String> {
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
 		// TODO Auto-generated method stub
-		return "hologram's list";
+		return "hologram's list of player";
 	}
 
 	@Override
 	@Nullable
 	protected String[] get(Event arg0) {
-				return new String[]{ NMS.getInstance().getHologramManager().getActiveHolograms().values().toString() };
+				return new String[]{ NMS.getInstance().getHolograms().toString() };
 
 	
 	

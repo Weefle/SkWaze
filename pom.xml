@@ -20,6 +20,10 @@
           <id>elmakers-repo</id>
           <url>http://maven.elmakers.com/repository/</url>
         </repository>
+          <repository>
+    <id>filoghost-repo</id>
+    <url>https://ci.filoghost.me/plugin/repository/everything/</url>
+</repository>
         <repository>
     <id>Weefle-weefle</id>
     <url>https://packagecloud.io/Weefle/weefle/maven2</url>
@@ -58,10 +62,11 @@
     <artifactId>ProtocolLib-API</artifactId>
     <version>4.3.0</version>
   </dependency>
-  <dependency>
-  <groupId>com.sainttx.holograms</groupId>
-  <artifactId>holograms-api</artifactId>
-  <version>2.5.0</version>
+          <dependency>
+    <groupId>com.gmail.filoghost.holographicdisplays</groupId>
+    <artifactId>holographicdisplays-api</artifactId>
+    <version>2.3.0</version>
+    <scope>provided</scope>
 </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>

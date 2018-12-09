@@ -3,6 +3,7 @@ package fr.weefle.waze.effects;
 import javax.annotation.Nullable;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.inventory.ItemStack;
 
@@ -17,6 +18,7 @@ public class WazeEffectAddItemLineHologram extends Effect {
 	private Expression<Integer> line;
 	private Expression<String> id;
 	private Expression<String> item;
+	private Expression<Player> player;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -24,6 +26,7 @@ public class WazeEffectAddItemLineHologram extends Effect {
 		line = (Expression<Integer>) arg0[0];
 		id = (Expression<String>) arg0[1];
 		item = (Expression<String>) arg0[2];
+		player = (Expression<Player>) arg0[3];
 		return true;
 	}
 
@@ -35,11 +38,12 @@ public class WazeEffectAddItemLineHologram extends Effect {
 
 	@Override
 	protected void execute(Event arg0) {
+		for(Player p : player.getAll(arg0)){
 		ItemStack i = new ItemStack(Material.valueOf(item.getSingle(arg0)));
-	        		NMS.getInstance().getHolograms().addItemLineHologram(id.getSingle(arg0), i, line.getSingle(arg0));
+	        		NMS.getInstance().getHolograms().addItemLineHologram(id.getSingle(arg0), i, line.getSingle(arg0), p);
 		
 		
-		
+		}
 	}
 
 }

@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Waze extends JavaPlugin {
 	
 	public static Waze instance;
-
+	
 	@Override
 	public void onEnable() {
 		instance = this;
