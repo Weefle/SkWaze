@@ -224,7 +224,7 @@ public class NMS {
     	Skript.registerEffect(WazeEffectAddItemLineHologram.class, "[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) item %string%");
     	Skript.registerEffect(WazeEffectRemoveLineHologram.class, "[waze] (clear|remove|delete) line %integer% (at|from) hologram with id %string%");
     	Skript.registerExpression(WazeExpressionHologram.class, String.class, ExpressionType.PROPERTY, "[waze] hologram['s] list", "[waze] list of hologram");
-    	Waze.getInstance().getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
+    	Waze.getInstance().getLogger().info("Holograms setup was successful, you can now create holograms!");
 	}else {
 		Waze.getInstance().getLogger().severe("Failed to setup Holograms, you need it installed to protect your data across your network!");
 	}
