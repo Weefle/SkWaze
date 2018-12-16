@@ -13,7 +13,7 @@ public class HologramAPI {
 	private HashMap<String, Hologram> holo = new HashMap<>();
 	
 	public void createHologram(String message, Location loc, String id) {
-		if(!holo.isEmpty()) {
+		if(holo.isEmpty()) {
 			loc.setY(loc.getY()+2.5);
 		holo.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
 		holo.get(id).appendTextLine(message);
