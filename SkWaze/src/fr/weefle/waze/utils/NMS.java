@@ -212,13 +212,13 @@ public class NMS {
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
-    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (create|spawn) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% for %players%");
-    	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string% for %players%");
-    	Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %locations% for %players%");
-    	Skript.registerEffect(WazeEffectAddLineHologram.class, "[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) %string% for %players%");
-    	Skript.registerEffect(WazeEffectAddItemLineHologram.class, "[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) item %string% for %players%");
-    	Skript.registerEffect(WazeEffectRemoveLineHologram.class, "[waze] (clear|remove|delete) line %integer% (at|from) hologram with id %string% for %players%");
-    	Skript.registerExpression(WazeExpressionHologram.class, String.class, ExpressionType.PROPERTY, "[waze] %players%['s] hologram['s] list", "[waze] hologram['s] list of %players%");
+    	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (create|spawn) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string%");
+    	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string%");
+    	Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %locations%");
+    	Skript.registerEffect(WazeEffectAddLineHologram.class, "[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) %string%");
+    	Skript.registerEffect(WazeEffectAddItemLineHologram.class, "[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) item %string%");
+    	Skript.registerEffect(WazeEffectRemoveLineHologram.class, "[waze] (clear|remove|delete) line %integer% (at|from) hologram with id %string%");
+    	Skript.registerExpression(WazeExpressionHologram.class, String.class, ExpressionType.PROPERTY, "[waze] hologram['s] list", "[waze] list of hologram");
     	Waze.getInstance().getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
 	}else {
 		Waze.getInstance().getLogger().severe("Failed to setup HolographicDisplays, you need it installed to use holograms features!");

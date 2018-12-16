@@ -27,12 +27,12 @@ Effects:
 [waze] (disguise|transform|morph) %players% (as|in[to]) mob %string% view[itself] %boolean%
 [waze] (disguise|transform|morph) %players% (as|in[to]) misc %string% view[itself] %boolean%
 [waze] (undisguise|untransform|unmorph) player[s] %players%
-[waze] (create|spawn) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string% for %players%
-[waze] (delete|remove|clear) hologram with id %string% for %players%
-[waze] (teleport|move) hologram with id %string% (to|at) %locations% for %players%
-[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) %string% for %players%
-[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) item %string% for %players%
-[waze] (clear|remove|delete) line %integer% (at|from) hologram with id %string% for %players%
+[waze] (create|spawn) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string%
+[waze] (delete|remove|clear) hologram with id %string%
+[waze] (teleport|move) hologram with id %string% (to|at) %locations%
+[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) %string%
+[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) item %string%
+[waze] (clear|remove|delete) line %integer% (at|from) hologram with id %string%
 
 Expressions:
 
@@ -40,7 +40,7 @@ Expressions:
 [waze] %players%['s] ping [list], [waze] ping [list] of %players%
 [waze] %players%['s] [boss]bar [list]", "[waze] [boss]bar [list] of %players%
 [waze] %players%['s] disguise [list]", "[waze] disguise [list] of %players%
-[waze] %players%['s] hologram['s] list", "[waze] hologram['s] list of %players%
+[waze] hologram['s] list", "[waze] list of hologram
 
 Events:
 

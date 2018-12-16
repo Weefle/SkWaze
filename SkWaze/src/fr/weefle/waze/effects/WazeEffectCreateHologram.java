@@ -3,7 +3,6 @@ package fr.weefle.waze.effects;
 import javax.annotation.Nullable;
 
 import org.bukkit.Location;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
 import ch.njol.skript.lang.Effect;
@@ -17,7 +16,6 @@ public class WazeEffectCreateHologram extends Effect {
 	private Expression<String> message;
 	private Expression<Location> location;
 	private Expression<String> id;
-	private Expression<Player> player;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -25,23 +23,22 @@ public class WazeEffectCreateHologram extends Effect {
 		message = (Expression<String>) arg0[0];
 		location = (Expression<Location>) arg0[1];
 		id = (Expression<String>) arg0[2];
-		player = (Expression<Player>) arg0[3];
 		return true;
 	}
 
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
 		// TODO Auto-generated method stub
-		return "display hologram at location for player";
+		return "display hologram at location";
 	}
 
 	@Override
 	protected void execute(Event arg0) {
 	        	for(Location l : location.getAll(arg0)) {
-	        		for(Player p : player.getAll(arg0)){
-	        		NMS.getInstance().getHolograms().createHologram(message.getSingle(arg0), l, id.getSingle(arg0), p);
+	        				NMS.getInstance().getHolograms().createHologram(message.getSingle(arg0), l, id.getSingle(arg0));
+	        			
 	        	
-		}}
+		}
 		
 		
 	}

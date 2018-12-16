@@ -1,10 +1,7 @@
 package fr.weefle.waze.nms;
 
 import java.util.HashMap;
-import java.util.Map;
-
 import org.bukkit.Location;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import com.gmail.filoghost.holographicdisplays.api.Hologram;
@@ -13,99 +10,72 @@ import fr.weefle.waze.Waze;
 
 public class HologramAPI {
 
-	private HashMap<Player, Map<String, Hologram>> holos = new HashMap<>();
 	private HashMap<String, Hologram> holo = new HashMap<>();
 	
-	public void createHologram(String message, Location loc, String id, Player p) {
-		if(!holos.containsKey(p)) {
+	public void createHologram(String message, Location loc, String id) {
+		if(!holo.isEmpty()) {
 			loc.setY(loc.getY()+2.5);
 		holo.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
-		holos.put(p, holo);
-		holos.get(p).get(id).appendTextLine(message);
+		holo.get(id).appendTextLine(message);
 		}else {
-			holos.get(p).get(id).appendTextLine(message);
+			holo.get(id).appendTextLine(message);
 			loc.setY(loc.getY()+2.5);
-			holos.get(p).get(id).teleport(loc);
+			holo.get(id).teleport(loc);
 		}
-		/*if(Waze.hologramManager.getActiveHolograms()==null) {
-			//loc.setY(loc.getY()+2);
-			Hologram hologram = new Hologram(id, loc);
-		    Waze.hologramManager.addActiveHologram(hologram);
-		    HologramLine line = new TextLine(Waze.hologramManager.getHologram(id), message);
-		    Waze.hologramManager.getHologram(id).addLine(line);*/
 		
 	}
 	
-	public void teleportHologram(String id, Location loc, Player p) {
-		if(holos.containsKey(p)) {
-			if(holos.get(p).containsKey(id)) {
+	public void teleportHologram(String id, Location loc) {
+		if(!holo.isEmpty()) {
+			if(holo.containsKey(id)) {
 				loc.setY(loc.getY()+2.5);
-		holos.get(p).get(id).teleport(loc);
-		/*if(Waze.hologramManager.getHologram(id)==null) {
-		//loc.setY(loc.getY()+2);
-	Waze.hologramManager.getHologram(id).teleport(loc);
-}*/
+		holo.get(id).teleport(loc);
+
 }}}
 	
-	public void addLineHologram(String id, String msg, int index, Player p) {
-		if(holos.containsKey(p)) {
-			if(holos.get(p).containsKey(id)) {
-		//holos.get(p).get(id).insertTextLine(index, msg);
+	public void addLineHologram(String id, String msg, int index) {
+		if(!holo.isEmpty()) {
+			if(holo.containsKey(id)) {
 				if(index!=0) {
-		holos.get(p).get(id).getLine(index-1).getParent().insertTextLine(index-1, msg);
-		holos.get(p).get(id).removeLine(index);
+		holo.get(id).getLine(index-1).getParent().insertTextLine(index-1, msg);
+		holo.get(id).removeLine(index);
 				}
-		/*if(Waze.hologramManager.getHologram(id)==null) {
-				HologramLine line = new TextLine(Waze.hologramManager.getHologram(id), msg);
-			    Waze.hologramManager.getHologram(id).addLine(line, index);
-	}*/}}}
+		}}}
 	
-	public void addItemLineHologram(String id, ItemStack itemstack, int index, Player p) {
-		if(holos.containsKey(p)) {
-			if(holos.get(p).containsKey(id)) {
-		//holos.get(p).get(id).insertItemLine(index, itemstack);
+	public void addItemLineHologram(String id, ItemStack itemstack, int index) {
+		if(!holo.isEmpty()) {
+			if(holo.containsKey(id)) {
 				if(index!=0) {
-		holos.get(p).get(id).getLine(index-1).getParent().insertItemLine(index-1, itemstack);
-		holos.get(p).get(id).removeLine(index);
+		holo.get(id).getLine(index-1).getParent().insertItemLine(index-1, itemstack);
+		holo.get(id).removeLine(index);
 				}
-		/*if(Waze.hologramManager.getHologram(id)==null) {
-	    HologramLine line = new ItemLine(Waze.hologramManager.getHologram(id), itemstack);
-	    Waze.hologramManager.getHologram(id).addLine(line, index);
-	}*/}}}
+
+	}}}
 	
-	public void removeLineHologram(String id, int index, Player p) {
-		if(holos.containsKey(p)) {
-			if(holos.get(p).containsKey(id)) {
-		//holos.get(p).get(id).clearLines();
+	public void removeLineHologram(String id, int index) {
+		if(!holo.isEmpty()) {
+			if(holo.containsKey(id)) {
 				if(index!=0) {
-			holos.get(p).get(id).removeLine(index-1);
+			holo.get(id).removeLine(index-1);
 			}
-		/*if(Waze.hologramManager.getHologram(id)==null) {
-		Waze.hologramManager.getHologram(id).removeLine(Waze.hologramManager.getHologram(id).getLine(index));
-		
-	}*/}}}
+	
+	}}}
 
-	public void removeHologram(String id, Player p) {
-		if(holos.containsKey(p)) {
-			if(holos.get(p).containsKey(id)) {
-				holos.get(p).get(id).clearLines();
-			holos.get(p).get(id).delete();
-			holos.get(p).remove(id);
-			holos.remove(p);
-			holos.clear();
-	/*	if(Waze.hologramManager.getHologram(id)==null) {
-		Waze.hologramManager.removeActiveHologram(Waze.hologramManager.getHologram(id));
-}*/}}}
+	public void removeHologram(String id) {
+		if(!holo.isEmpty()) {
+			if(holo.containsKey(id)) {
+				holo.get(id).clearLines();
+			holo.get(id).delete();
+			holo.remove(id);
+			holo.remove(id);
+			holo.clear();
+}}}
 
-	public String[] getHolograms(Player p) {
-		if(holos.containsKey(p)) {
-			//return holos.get(p).values().toString();
-			return holos.keySet().toArray(new String[holos.keySet().size()]);
+	public String[] getHolograms() {
+		if(!holo.isEmpty()) {
+			return holo.keySet().toArray(new String[holo.keySet().size()]);
 	}else {
-		/*if(Waze.hologramManager.getActiveHolograms()!=null) {
-				return Waze.hologramManager.getActiveHolograms().values().toString();
-		
-	}*/
+
 		return null;
 		}
 

@@ -2,7 +2,6 @@ package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
 
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
 import ch.njol.skript.lang.Effect;
@@ -14,29 +13,26 @@ import fr.weefle.waze.utils.NMS;
 public class WazeEffectRemoveHologram extends Effect {
 	
 	private Expression<String> id;
-	private Expression<Player> player;
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
 
 		id = (Expression<String>) arg0[0];
-		player = (Expression<Player>) arg0[1];
 		return true;
 	}
 
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
 		// TODO Auto-generated method stub
-		return "remove hologram from player";
+		return "remove hologram";
 	}
 
 	@Override
 	protected void execute(Event arg0) {
-		for(Player p : player.getAll(arg0)){
-	        		NMS.getInstance().getHolograms().removeHologram(id.getSingle(arg0), p);
+	        		NMS.getInstance().getHolograms().removeHologram(id.getSingle(arg0));
 		
-		}
+		
 		
 	}
 
