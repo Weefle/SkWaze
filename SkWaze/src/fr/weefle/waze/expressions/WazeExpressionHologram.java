@@ -37,7 +37,7 @@ public class WazeExpressionHologram extends SimpleExpression<String> {
 	@Override
 	@Nullable
 	protected String[] get(Event arg0) {
-				return new String[]{ NMS.getInstance().getHolograms().toString() };
+				return (String[]) NMS.getInstance().getHolograms().getHolograms();
 
 	
 	

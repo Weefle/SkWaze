@@ -94,9 +94,9 @@ public class BossBarNew implements BossBarAPI {
 }}}
 
 	@Override
-	public String getBossBars(Player p) {
+	public String[] getBossBars(Player p) {
 		if(bar.containsKey(p)) {
-				return bar.get(p).values().toString();
+				return bar.get(p).keySet().toArray(new String[bar.get(p).keySet().size()]);
 				//bar.get(p).keySet().iterator().next();
 		}
 		return null;

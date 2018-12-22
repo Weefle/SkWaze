@@ -3,14 +3,13 @@ package fr.weefle.waze.nms;
 import java.util.HashMap;
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
-
 import com.gmail.filoghost.holographicdisplays.api.Hologram;
 import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
 import fr.weefle.waze.Waze;
 
 public class HologramAPI {
 
-	private HashMap<String, Hologram> holo = new HashMap<>();
+	public HashMap<String, Hologram> holo = new HashMap<>();
 	
 	public void createHologram(String message, Location loc, String id) {
 		if(holo.isEmpty()) {
@@ -18,9 +17,18 @@ public class HologramAPI {
 		holo.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
 		holo.get(id).appendTextLine(message);
 		}else {
+			if(holo.containsKey(id)) {
+				
+			
 			holo.get(id).appendTextLine(message);
 			loc.setY(loc.getY()+2.5);
 			holo.get(id).teleport(loc);
+			
+		}else {
+			loc.setY(loc.getY()+2.5);
+			holo.put(id, HologramsAPI.createHologram(Waze.getInstance(), loc));
+			holo.get(id).appendTextLine(message);
+		}
 		}
 		
 	}
@@ -67,8 +75,6 @@ public class HologramAPI {
 				holo.get(id).clearLines();
 			holo.get(id).delete();
 			holo.remove(id);
-			holo.remove(id);
-			holo.clear();
 }}}
 
 	public String[] getHolograms() {

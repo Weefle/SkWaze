@@ -18,6 +18,7 @@ import ch.njol.skript.registrations.Classes;
 import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
 import fr.weefle.waze.Waze;
+import fr.weefle.waze.conditions.WazeConditionHologram;
 import fr.weefle.waze.effects.WazeEffectActionBar;
 import fr.weefle.waze.effects.WazeEffectAddItemLineHologram;
 import fr.weefle.waze.effects.WazeEffectAddLineHologram;
@@ -212,6 +213,7 @@ public class NMS {
 	}
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
+    	Skript.registerCondition(WazeConditionHologram.class, "holo id %string% exist[s]");
     	Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (create|spawn) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string%");
     	Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string%");
     	Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %locations%");

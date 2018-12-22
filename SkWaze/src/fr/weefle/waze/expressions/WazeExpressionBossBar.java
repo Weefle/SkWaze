@@ -43,7 +43,7 @@ public class WazeExpressionBossBar extends SimpleExpression<String> {
 	@Nullable
 	protected String[] get(Event arg0) {
 			for(Player p : player.getAll(arg0)){
-				return new String[]{ NMS.getInstance().getBossBar().getBossBars(p) };
+				return (String[]) NMS.getInstance().getBossBar().getBossBars(p);
         	}
 			return null;
 

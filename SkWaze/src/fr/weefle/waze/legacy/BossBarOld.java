@@ -1,5 +1,7 @@
 package fr.weefle.waze.legacy;
 
+import java.util.ArrayList;
+
 import org.bukkit.entity.Player;
 import fr.weefle.waze.nms.BossBarAPI;
 
@@ -31,9 +33,11 @@ public class BossBarOld implements BossBarAPI {
         }
 
 	@Override
-	public String getBossBars(Player p) {
+	public String[] getBossBars(Player p) {
 		//return BarAPI.getMessage(p);
-		return org.inventivetalent.bossbar.BossBarAPI.getMessage(p);
+		ArrayList<String> bar = new ArrayList<>();
+		bar.add(org.inventivetalent.bossbar.BossBarAPI.getMessage(p));
+		return bar.toArray(new String[bar.size()]);
 	}
 	
 }

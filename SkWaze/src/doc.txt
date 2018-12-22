@@ -49,6 +49,10 @@ Events:
 [waze] horse jump[ing]
 [waze] advancement [(done|obtained|won)]
 
+Conditions:
+
+holo id %string% exist[s]
+
 Types:
 
 advancement
