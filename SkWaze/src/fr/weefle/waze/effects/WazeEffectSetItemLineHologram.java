@@ -12,14 +12,16 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 import fr.weefle.waze.utils.NMS;
 
-public class WazeEffectAddItemLineHologram extends Effect {
+public class WazeEffectSetItemLineHologram extends Effect {
 	
+	private Expression<Integer> line;
 	private Expression<String> id;
 	private Expression<String> item;
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
+		line = (Expression<Integer>) arg0[0];
 		id = (Expression<String>) arg0[1];
 		item = (Expression<String>) arg0[2];
 		return true;
@@ -34,7 +36,7 @@ public class WazeEffectAddItemLineHologram extends Effect {
 	@Override
 	protected void execute(Event arg0) {
 		ItemStack i = new ItemStack(Material.valueOf(item.getSingle(arg0)));
-	        		NMS.getInstance().getHolograms().addItemLineHologram(id.getSingle(arg0), i);
+	        		NMS.getInstance().getHolograms().setItemLineHologram(id.getSingle(arg0), i, line.getSingle(arg0));
 		
 		
 		

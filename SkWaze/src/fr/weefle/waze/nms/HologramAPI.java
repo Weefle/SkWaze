@@ -41,23 +41,35 @@ public class HologramAPI {
 
 }}}
 	
-	public void addLineHologram(String id, String msg, int index) {
+	public void setLineHologram(String id, String msg, int index) {
 		if(!holo.isEmpty()) {
 			if(holo.containsKey(id)) {
-				if(index!=0) {
-		holo.get(id).getLine(index-1).getParent().insertTextLine(index-1, msg);
-		holo.get(id).removeLine(index);
+				if(index!=0 && holo.get(id).size()-1 < index) {
+					holo.get(id).insertTextLine(index-1, msg);
+					holo.get(id).removeLine(index);
 				}
 		}}}
-	
-	public void addItemLineHologram(String id, ItemStack itemstack, int index) {
+	public void addLineHologram(String id, String msg) {
 		if(!holo.isEmpty()) {
 			if(holo.containsKey(id)) {
-				if(index!=0) {
-		holo.get(id).getLine(index-1).getParent().insertItemLine(index-1, itemstack);
-		holo.get(id).removeLine(index);
+					holo.get(id).appendTextLine(msg);
+		}}}
+	
+	public void setItemLineHologram(String id, ItemStack itemstack, int index) {
+		if(!holo.isEmpty()) {
+			if(holo.containsKey(id)) {
+				if(index!=0 && holo.get(id).size()-1 < index) {
+					
+					holo.get(id).insertItemLine(index-1, itemstack);
+					holo.get(id).removeLine(index);
 				}
 
+	}}}
+	
+	public void addItemLineHologram(String id, ItemStack itemstack) {
+		if(!holo.isEmpty()) {
+			if(holo.containsKey(id)) {
+					holo.get(id).appendItemLine(itemstack);
 	}}}
 	
 	public void removeLineHologram(String id, int index) {

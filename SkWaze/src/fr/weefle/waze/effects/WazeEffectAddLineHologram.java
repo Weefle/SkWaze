@@ -12,16 +12,14 @@ import fr.weefle.waze.utils.NMS;
 
 public class WazeEffectAddLineHologram extends Effect {
 	
-	private Expression<Integer> line;
 	private Expression<String> id;
 	private Expression<String> msg;
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
-		line = (Expression<Integer>) arg0[0];
-		id = (Expression<String>) arg0[1];
-		msg = (Expression<String>) arg0[2];
+		id = (Expression<String>) arg0[0];
+		msg = (Expression<String>) arg0[1];
 		return true;
 	}
 
@@ -33,7 +31,7 @@ public class WazeEffectAddLineHologram extends Effect {
 
 	@Override
 	protected void execute(Event arg0) {
-	        		NMS.getInstance().getHolograms().addLineHologram(id.getSingle(arg0), msg.getSingle(arg0), line.getSingle(arg0));
+	        		NMS.getInstance().getHolograms().addLineHologram(id.getSingle(arg0), msg.getSingle(arg0));
 		
 		
 		

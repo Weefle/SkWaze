@@ -30,8 +30,10 @@ Effects:
 [waze] (create|spawn) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string%
 [waze] (delete|remove|clear) hologram with id %string%
 [waze] (teleport|move) hologram with id %string% (to|at) %locations%
-[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) %string%
-[waze] (add|set|change) line %integer% (at|from) hologram with id %string% (to|with) item %string%
+[waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) %string%
+[waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) item %string%
+[waze] (add|append) [a] new line (at|from) hologram with id %string% (to|with) %string%
+[waze] (add|append) [a] new line (at|from) hologram with id %string% (to|with) item %string%
 [waze] (clear|remove|delete) line %integer% (at|from) hologram with id %string%
 
 Expressions:
