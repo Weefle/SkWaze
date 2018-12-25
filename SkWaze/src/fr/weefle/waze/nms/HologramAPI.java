@@ -1,6 +1,7 @@
 package fr.weefle.waze.nms;
 
 import java.util.HashMap;
+
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 import com.gmail.filoghost.holographicdisplays.api.Hologram;
@@ -18,11 +19,9 @@ public class HologramAPI {
 		holo.get(id).appendTextLine(message);
 		}else {
 			if(holo.containsKey(id)) {
-				
-			
-			holo.get(id).appendTextLine(message);
+			/*holo.get(id).appendTextLine(message);
 			loc.setY(loc.getY()+2.5);
-			holo.get(id).teleport(loc);
+			holo.get(id).teleport(loc);*/
 			
 		}else {
 			loc.setY(loc.getY()+2.5);
@@ -44,10 +43,19 @@ public class HologramAPI {
 	public void setLineHologram(String id, String msg, int index) {
 		if(!holo.isEmpty()) {
 			if(holo.containsKey(id)) {
-				if(index!=0 && holo.get(id).size()-1 < index) {
+				if(index!=0) {
+					if(holo.get(id).size()-1 < index-2) {
+					holo.get(id).insertTextLine(index-1, msg);
+					holo.get(id).removeLine(index);
+				}else {
+					int line = index - holo.get(id).size()-1;
+					for(int i=0;i<=line;i++) {
+						holo.get(id).appendTextLine("");
+					}
 					holo.get(id).insertTextLine(index-1, msg);
 					holo.get(id).removeLine(index);
 				}
+			}
 		}}}
 	public void addLineHologram(String id, String msg) {
 		if(!holo.isEmpty()) {
@@ -58,11 +66,20 @@ public class HologramAPI {
 	public void setItemLineHologram(String id, ItemStack itemstack, int index) {
 		if(!holo.isEmpty()) {
 			if(holo.containsKey(id)) {
-				if(index!=0 && holo.get(id).size()-1 < index) {
+				if(index!=0) {
+					if(holo.get(id).size()-1 < index-2) {
 					
 					holo.get(id).insertItemLine(index-1, itemstack);
 					holo.get(id).removeLine(index);
+				}else {
+					int line = index - holo.get(id).size()-1;
+					for(int i=0;i<=line;i++) {
+						holo.get(id).appendTextLine("");
+					}
+					holo.get(id).insertItemLine(index-1, itemstack);
+					holo.get(id).removeLine(index);
 				}
+			}
 
 	}}}
 	
