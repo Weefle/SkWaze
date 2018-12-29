@@ -43,6 +43,7 @@ import fr.weefle.waze.effects.WazeEffectRemoveSideBar;
 import fr.weefle.waze.effects.WazeEffectSetItemLineHologram;
 import fr.weefle.waze.effects.WazeEffectSetLineHologram;
 import fr.weefle.waze.effects.WazeEffectSetSideBar;
+import fr.weefle.waze.effects.WazeEffectStopProxy;
 import fr.weefle.waze.effects.WazeEffectTablist;
 import fr.weefle.waze.effects.WazeEffectTeleportHologram;
 import fr.weefle.waze.effects.WazeEffectTitle;
@@ -208,6 +209,7 @@ public class NMS {
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
+		Skript.registerEffect(WazeEffectStopProxy.class, "[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]");
 		//Skript.registerExpression(WazeExpressionServersList.class, String.class, ExpressionType.PROPERTY, "[waze] [skwrapper] servers list from [template] %string%", "[waze] list of [skwrapper] servers from [template] %string%", "[waze] [skwrapper] servers list from %string%['s] [template]", "[waze] list of [skwrapper] servers from %string%['s] [template]");
 		Waze.getInstance().getLogger().info("BungeeBridge setup was successful, your data is safe across your network!");
 	}else {

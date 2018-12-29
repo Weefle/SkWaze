@@ -23,6 +23,7 @@ Effects:
 [waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%
 [waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%
 [waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%
+[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]
 [waze] (disguise|transform|morph) %players% (as|in[to]) player %string% view[itself] %boolean%
 [waze] (disguise|transform|morph) %players% (as|in[to]) mob %string% view[itself] %boolean%
 [waze] (disguise|transform|morph) %players% (as|in[to]) misc %string% view[itself] %boolean%
