@@ -24,7 +24,7 @@ public class WazeEffectRemoveSideBar extends Effect {
     @Override
     public String toString(@Nullable Event arg0, boolean arg1) {
         // TODO Auto-generated method stub
-        return "remove scoreboard from player";
+        return "remove sidebar from player";
     }
 
     @Override

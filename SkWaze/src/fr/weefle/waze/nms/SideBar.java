@@ -1,13 +1,12 @@
 package fr.weefle.waze.nms;
 
-import java.util.ArrayList;
 import org.bukkit.entity.Player;
 import fr.minuskube.netherboard.Netherboard;
 import fr.minuskube.netherboard.bukkit.BPlayerBoard;
 
 public class SideBar {
 	
-	ArrayList<BPlayerBoard> boards = new ArrayList<>();
+	//ArrayList<BPlayerBoard> boards = new ArrayList<>();
 	
 
     public void setSideBar(String name, Player p, String score, int line) {

@@ -13,10 +13,6 @@
     <url>http://repo.dmulloy2.net/nexus/repository/public/</url>
   </repository>
   <repository>
-            <id>BannerBoardAPI</id>
-            <url>http://sandergielisse.nl/maven/</url>
-        </repository>
-  <repository>
     <id>md5</id>
     <url>http://repo.md-5.net/content/groups/public</url>
 </repository>
@@ -40,7 +36,7 @@
   </repository>
         </repositories>
         <dependencies>
-        <dependency>
+         <dependency>
   <groupId>me.dommi2212.bungeebridge</groupId>
   <artifactId>bungeebridgeclient</artifactId>
   <version>1.6.3</version>
@@ -50,17 +46,6 @@
             <artifactId>bungeecord-api</artifactId>
             <version>1.12-SNAPSHOT</version>
             <type>jar</type>
-            <scope>provided</scope>
-        </dependency>
-         <dependency>
-            <groupId>nl.sandergielisse</groupId>
-            <artifactId>bannerboard</artifactId>
-            <version>1.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fr.rhaz</groupId>
-            <artifactId>socket4mc</artifactId>
-            <version>3.2.8</version>
             <scope>provided</scope>
         </dependency>
 <dependency>

@@ -30,7 +30,7 @@ public class WazeEffectSetSideBar extends Effect {
     @Override
     public String toString(@Nullable Event arg0, boolean arg1) {
         // TODO Auto-generated method stub
-        return "set sidebar for player";
+        return "set line sidebar for player";
     }
 
     @Override

@@ -14,7 +14,7 @@ public class Waze extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
-		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+		//Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		NMS nms = new NMS();
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");

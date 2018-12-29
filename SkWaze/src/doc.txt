@@ -18,7 +18,7 @@ Effects:
 [waze] (make|let) citizen with id %number% build schem[atic] %string% at [location] %location% (with|at) speed %number% (for|to) %player%
 [waze] (set|show) tab[list] (with|from) [head[er]] %string% (and|with) [foot[er]] %string% (to|for) %players%
 [waze] (set|show) name[tag] %string% (to|for) %players%
-[waze] (spawn|create|summon) [a number of] %int% [of] %string%['s] particle[s] (to|for) %players% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with|at) speed %float%
+[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with|at) speed %float%
 [waze] [auto]respawn %players%
 [waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%
 [waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%
