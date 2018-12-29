@@ -38,6 +38,18 @@ public static void stopServer(String name, String template) {
 		
 	}
 
+public static void deleteServer(String name, String template) {
+	
+	StringBuilder sb = new StringBuilder();
+	sb.append(name);
+	sb.append(" ");
+	sb.append(template);
+	String str = sb.toString();
+	PacketCustom packet = new PacketCustom("SkWrapper-delete", (Object) str);
+	packet.send();
+		
+	}
+
 /*public static String getServers(String template) {
     	return SkWrapperReceiver.getServers();
     

@@ -77,6 +77,7 @@ import fr.weefle.waze.nms.SideBar;
 import fr.weefle.waze.nms.Tablist;
 import fr.weefle.waze.nms.Title;
 import fr.weefle.waze.skwrapper.WazeEffectCreateServer;
+import fr.weefle.waze.skwrapper.WazeEffectDeleteServer;
 import fr.weefle.waze.skwrapper.WazeEffectStartServer;
 import fr.weefle.waze.skwrapper.WazeEffectStopServer;
 
@@ -207,6 +208,7 @@ public class NMS {
     	Skript.registerExpression(WazeExpressionBungeeOnlineCountGlobal.class, Integer.class, ExpressionType.PROPERTY, "[waze] [number of] online player[s] on bungee[cord]");
     	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
+    	Skript.registerEffect(WazeEffectDeleteServer.class, "[waze] (remove|delete) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopProxy.class, "[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]");

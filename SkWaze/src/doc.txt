@@ -4,6 +4,7 @@ Effects:
 [waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]
 [waze] (send|create) action[bar] %string% (to|for) %players%
 [waze] (send|teleport) %players% to [bungee[cord]] server %string%
+[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]
 [waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%
 [waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]
 [waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (to|for) %players%
@@ -23,7 +24,6 @@ Effects:
 [waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%
 [waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%
 [waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%
-[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]
 [waze] (disguise|transform|morph) %players% (as|in[to]) player %string% view[itself] %boolean%
 [waze] (disguise|transform|morph) %players% (as|in[to]) mob %string% view[itself] %boolean%
 [waze] (disguise|transform|morph) %players% (as|in[to]) misc %string% view[itself] %boolean%
