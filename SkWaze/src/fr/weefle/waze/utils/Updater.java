@@ -45,7 +45,7 @@ public class Updater
     m = plugin;
     this.id = resourceID;
     this.log = log;
-    this.url = new URL("https://api.inventivetalent.org/spigot/resource-simple/" + resourceID);
+    this.url = new URL("https://api.spiget.org/v2/resources/" + resourceID + "/versions/latest");
     
     File configDir = new File(plugin.getDataFolder().getParentFile(), "SkWaze");
     File config = new File(configDir, "config.yml");
@@ -113,9 +113,9 @@ public class Updater
       }
       catch (ParseException e) {}
       String currentVersion = null;
-      if ((json != null) && (json.containsKey("version")))
+      if ((json != null) && (json.containsKey("name")))
       {
-        String version = (String)json.get("version");
+        String version = (String)json.get("name");
         if ((version != null) && (!version.isEmpty())) {
           currentVersion = version;
         }
