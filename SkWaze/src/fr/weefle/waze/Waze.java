@@ -1,5 +1,6 @@
 package fr.weefle.waze;
 
+import fr.weefle.waze.discord.DiscordRegister;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.NMS;
 import fr.weefle.waze.utils.Updater;
@@ -14,6 +15,7 @@ public class Waze extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
+		new DiscordRegister();
 		//Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		NMS nms = new NMS();
 			new Metrics(this);

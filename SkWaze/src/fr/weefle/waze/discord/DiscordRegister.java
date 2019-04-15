@@ -1,22 +1,25 @@
 package fr.weefle.waze.discord;
 
-import com.tjplaysnow.discord.object.Bot;
-import com.tjplaysnow.discord.object.CommandSpigotManager;
-import com.tjplaysnow.discord.object.ThreadSpigot;
-import fr.weefle.waze.Waze;
+import javax.security.auth.login.LoginException;
+
+import net.dv8tion.jda.core.JDA;
+import net.dv8tion.jda.core.JDABuilder;
 
 public class DiscordRegister {
 	
-	private Waze main;
-	public DiscordRegister(Waze main) {
-		this.main = main;
+	public DiscordRegister() {
+
+			JDA api = null;
+			try {
+				api = new JDABuilder("token").build();
+			} catch (LoginException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			api.addEventListener(new PingCommand());
+
 	}
 	
-	public void initialiseBot(Bot bot){
-		
-		bot.setBotThread(new ThreadSpigot(main));
-		bot.setConsoleCommandManager(new CommandSpigotManager());
-		
 	}
-
-}
+	
+	
