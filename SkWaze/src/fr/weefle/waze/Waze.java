@@ -1,12 +1,14 @@
 package fr.weefle.waze;
 
-import fr.weefle.waze.discord.DiscordRegister;
+import java.io.IOException;
+
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.NMS;
 import fr.weefle.waze.utils.Updater;
-import java.io.IOException;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.java.JavaPlugin;
+import me.dommi2212.BungeeBridge.BungeeBridgeC;
 
 public class Waze extends JavaPlugin {
 	
@@ -15,8 +17,9 @@ public class Waze extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
-		new DiscordRegister();
-		//Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+		//new DiscordRegister();
+		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+		new BungeeBridgeC();
 		NMS nms = new NMS();
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
