@@ -48,13 +48,6 @@
   <type>jar</type>
     <scope>provided</scope>
 </dependency>
-        <dependency>
-    <groupId>com.github.d0kg.SpaciousLib</groupId>
-    <artifactId>SpaciousLibSpigot</artifactId>
-    <version>1.9.0</version>
-    <type>jar</type>
-    <scope>provided</scope>
-</dependency>
 <dependency>
   <groupId>fr.minuskube</groupId>
   <artifactId>netherboard-bukkit</artifactId>

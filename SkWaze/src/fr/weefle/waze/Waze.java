@@ -17,7 +17,7 @@ public class Waze extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 		//new DiscordRegister();
-		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+		//Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		NMS nms = new NMS();
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
