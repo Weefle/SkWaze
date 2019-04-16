@@ -8,7 +8,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.NMS;
 import fr.weefle.waze.utils.Updater;
-import me.dommi2212.BungeeBridge.BungeeBridgeC;
 
 public class Waze extends JavaPlugin {
 	
@@ -19,7 +18,6 @@ public class Waze extends JavaPlugin {
 		instance = this;
 		//new DiscordRegister();
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-		new BungeeBridgeC();
 		NMS nms = new NMS();
 			new Metrics(this);
 			getLogger().info("Metrics setup was successful!");
