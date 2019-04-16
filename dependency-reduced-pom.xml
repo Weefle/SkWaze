@@ -78,12 +78,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.github.d0kg.SpaciousLib</groupId>
-      <artifactId>SpaciousLibSpigot</artifactId>
-      <version>1.9.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>fr.minuskube</groupId>
       <artifactId>netherboard-bukkit</artifactId>
       <version>1.0.6</version>
