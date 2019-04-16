@@ -1,6 +1,0 @@
-name: SkWaze
-author: Weefle
-version: 2.2.2
-description: The coolest Skript's addon
-depends: [BungeeBridgeS]
-main: fr.weefle.waze.bungee.WazeBungee
