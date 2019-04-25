@@ -52,6 +52,7 @@ import fr.weefle.waze.events.PlayerJumpEvent;
 import fr.weefle.waze.events.PlayerSwimEvent;
 import fr.weefle.waze.expressions.WazeExpressionBossBar;
 import fr.weefle.waze.expressions.WazeExpressionBungeeOnlineCountGlobal;
+import fr.weefle.waze.expressions.WazeExpressionBungeeServerList;
 import fr.weefle.waze.expressions.WazeExpressionDisguise;
 import fr.weefle.waze.expressions.WazeExpressionHologram;
 import fr.weefle.waze.expressions.WazeExpressionPing;
@@ -212,7 +213,7 @@ public class NMS {
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopProxy.class, "[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]");
-		//Skript.registerExpression(WazeExpressionServersList.class, String.class, ExpressionType.PROPERTY, "[waze] [skwrapper] servers list from [template] %string%", "[waze] list of [skwrapper] servers from [template] %string%", "[waze] [skwrapper] servers list from %string%['s] [template]", "[waze] list of [skwrapper] servers from %string%['s] [template]");
+		Skript.registerExpression(WazeExpressionBungeeServerList.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] server[s] list", "[waze] [bungee[cord]] list of server[s]");
 		Waze.getInstance().getLogger().info("BungeeBridge setup was successful, your data is safe across your network!");
 	}else {
 		Waze.getInstance().getLogger().severe("Failed to setup BungeeBridge, you need it installed to protect your data across your network!");

@@ -7,11 +7,11 @@ import net.dv8tion.jda.core.JDABuilder;
 
 public class DiscordRegister {
 	
-	public DiscordRegister() {
+	public DiscordRegister(String token) {
 
 			JDA api = null;
 			try {
-				api = new JDABuilder("token").build();
+				api = new JDABuilder(token).build();
 			} catch (LoginException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
