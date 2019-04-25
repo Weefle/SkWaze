@@ -139,9 +139,6 @@
     <resources>
       <resource>
         <directory>SkWaze/src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
       </resource>
     </resources>
     <plugins>
