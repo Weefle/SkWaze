@@ -5,3 +5,4 @@ description: The coolest Skript's addon
 depends: [Skript]
 softdepends: [BossBarAPI, Citizens, Builder, ProtocolLib, LibsDisguises, HolographicDisplays, Netherboard, BungeeBridgeC]
 main: fr.weefle.waze.Waze
+api-version: 1.13

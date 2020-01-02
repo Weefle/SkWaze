@@ -25,7 +25,7 @@ public class PlayerSwimEvent extends Event implements Cancellable{
     	public void onSwim(PlayerMoveEvent e) {
     		Location location = e.getPlayer().getLocation();
     		location.setY(location.getBlockY() + 1);
-    		if(e.getTo().getBlock().isLiquid() && location.getBlock().getType() != Material.AIR && e.getTo().getBlock().getType() == Material.STATIONARY_WATER || e.getTo().getBlock().getType() == Material.WATER) {
+    		if(e.getTo().getBlock().isLiquid() && location.getBlock().getType() != Material.AIR && e.getTo().getBlock().getType() == Material.LEGACY_STATIONARY_WATER || e.getTo().getBlock().getType() == Material.WATER) {
     			
     			Bukkit.getPluginManager().callEvent(new PlayerSwimEvent(e.getPlayer()));
     			
