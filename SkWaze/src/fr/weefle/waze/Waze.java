@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.weefle.waze.data.ComApiBukkitHandler;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.NMS;
 import fr.weefle.waze.utils.Updater;
@@ -12,10 +13,12 @@ import fr.weefle.waze.utils.Updater;
 public class Waze extends JavaPlugin {
 	
 	public static Waze instance;
+	private ComApiBukkitHandler handler;
 	
 	@Override
 	public void onEnable() {
 		instance = this;
+		handler = new ComApiBukkitHandler(instance, "SkWrapper");
 		//new DiscordRegister();
 		//Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		NMS nms = new NMS();
@@ -42,6 +45,11 @@ public class Waze extends JavaPlugin {
 			Bukkit.getPluginManager().disablePlugin(this);
 		}
         }
+	
+	public static ComApiBukkitHandler getComApi() {
+		return instance.handler;
+		
+	}
 
 	public static Waze getInstance() {
 		return instance;
