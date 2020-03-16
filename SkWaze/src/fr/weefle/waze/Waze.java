@@ -18,7 +18,7 @@ public class Waze extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
-		handler = new ComApiBukkitHandler(instance, "SkWrapper");
+		handler = new ComApiBukkitHandler(instance, "bungeecord:skwrapper");
 		//new DiscordRegister();
 		//Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		NMS nms = new NMS();
