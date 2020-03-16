@@ -204,7 +204,6 @@ public class NMS {
             return playerSwimEvent.getPlayer();
         }
     }, 0);
-    if(Bukkit.getServer().getPluginManager().getPlugin("BungeeBridgeC") != null) {
     	bungee = new BungeeCache(Waze.getInstance());
     	Skript.registerExpression(WazeExpressionBungeeOnlineCountGlobal.class, Integer.class, ExpressionType.PROPERTY, "[waze] [number of] online player[s] on bungee[cord]");
     	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
@@ -214,10 +213,7 @@ public class NMS {
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopProxy.class, "[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]");
 		Skript.registerExpression(WazeExpressionBungeeServerList.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] server[s] list", "[waze] [bungee[cord]] list of server[s]");
-		Waze.getInstance().getLogger().info("BungeeBridge setup was successful, your data is safe across your network!");
-	}else {
-		Waze.getInstance().getLogger().severe("Failed to setup BungeeBridge, you need it installed to protect your data across your network!");
-	}
+		Waze.getInstance().getLogger().info("BungeeCord setup was successful, your data is safe across your network!");
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
     	Skript.registerCondition(WazeConditionHologram.class, "holo id %string% exist[s]");
