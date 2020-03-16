@@ -7,7 +7,8 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import me.dommi2212.BungeeBridge.packets.PacketConnectPlayer;
+import fr.weefle.waze.Waze;
+import fr.weefle.waze.data.PluginMessage;
 
 public class WazeEffectBungeeConnect extends Effect {
 	
@@ -26,8 +27,13 @@ protected void execute(Event event)
 
 public void connect(Player p, String srv)
 {
-	PacketConnectPlayer packet = new PacketConnectPlayer(p.getUniqueId(), srv);
-	packet.send();
+	
+	PluginMessage pm = new PluginMessage("SkWrapper-connect");
+	pm.setData("player", p.getName());
+	pm.setData("server", srv);
+	Waze.getComApi().sendMessage(pm);
+	/*PacketConnectPlayer packet = new PacketConnectPlayer(p.getUniqueId(), srv);
+	packet.send();*/
 	
   /*ByteArrayOutputStream b = new ByteArrayOutputStream();
   DataOutputStream out = new DataOutputStream(b);

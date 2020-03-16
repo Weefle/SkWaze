@@ -1,13 +1,14 @@
 package fr.weefle.waze.effects;
 
 import javax.annotation.Nullable;
-import me.dommi2212.BungeeBridge.packets.PacketStopProxy;
 
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
+import fr.weefle.waze.Waze;
+import fr.weefle.waze.data.PluginMessage;
 
 public class WazeEffectStopProxy extends Effect {
 
@@ -23,9 +24,12 @@ public class WazeEffectStopProxy extends Effect {
 
 	@Override
 	protected void execute(Event arg0) {
+		
+		PluginMessage pm = new PluginMessage("SkWrapper-stop-proxy");
+		Waze.getComApi().sendMessage(pm);
 
-        		PacketStopProxy packet = new PacketStopProxy();
-        		packet.send();
+        		/*PacketStopProxy packet = new PacketStopProxy();
+        		packet.send();*/
      
 	}
 

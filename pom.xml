@@ -41,13 +41,6 @@
   </repository>
         </repositories>
         <dependencies>
-         <dependency>
-  <groupId>me.dommi2212.bungeebridge</groupId>
-  <artifactId>bungeebridgeclient</artifactId>
-  <version>1.6.3</version>
-  <type>jar</type>
-    <scope>provided</scope>
-</dependency>
 <dependency>
   <groupId>fr.minuskube</groupId>
   <artifactId>netherboard-bukkit</artifactId>

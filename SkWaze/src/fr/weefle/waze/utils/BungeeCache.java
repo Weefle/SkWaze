@@ -3,8 +3,8 @@ package fr.weefle.waze.utils;
 import org.bukkit.Bukkit;
 
 import fr.weefle.waze.Waze;
-import me.dommi2212.BungeeBridge.packets.PacketGetOnlineCountGlobal;
-import me.dommi2212.BungeeBridge.packets.PacketGetServers;
+import fr.weefle.waze.data.PluginMessage;
+import fr.weefle.waze.data.PluginMessageRequest;
 
 public class BungeeCache {
 	
@@ -18,13 +18,37 @@ public class BungeeCache {
 			@Override
 			public void run() {
 				
-				PacketGetOnlineCountGlobal onlineCount = new PacketGetOnlineCountGlobal();
+				PluginMessageRequest pmr = new PluginMessageRequest("SkWrapper-online-count-global") {
+					
+					@Override
+					public void onAnswer(PluginMessage response) {
+						
+						onlineGlobal = response.getDataAsInt("global-count");
+						
+					}
+				};
+				Waze.getComApi().sendRequest(pmr);
+				
+				PluginMessageRequest pmr1 = new PluginMessageRequest("SkWrapper-get-servers") {
+					
+					@Override
+					public void onAnswer(PluginMessage response) {
+						
+						serverList = response.getData("server-list");
+						
+					}
+				};
+				Waze.getComApi().sendRequest(pmr1);
+				
+				
+				
+				/*PacketGetOnlineCountGlobal onlineCount = new PacketGetOnlineCountGlobal();
 				Object obj = onlineCount.send();
 				onlineGlobal = (int) obj;
 				
 				PacketGetServers serverGlobal = new PacketGetServers();
 				Object obj1 = serverGlobal.send();
-				serverList = (String) obj1;
+				serverList = (String) obj1;*/
 				
 				
 			}

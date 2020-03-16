@@ -69,12 +69,6 @@
   </repositories>
   <dependencies>
     <dependency>
-      <groupId>me.dommi2212.bungeebridge</groupId>
-      <artifactId>bungeebridgeclient</artifactId>
-      <version>1.6.3</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>fr.minuskube</groupId>
       <artifactId>netherboard-bukkit</artifactId>
       <version>1.0.6</version>
@@ -114,31 +108,9 @@
     </dependency>
     <dependency>
       <groupId>org.spigotmc</groupId>
-      <artifactId>spigot-api</artifactId>
-      <version>1.15.1-R0.1-SNAPSHOT</version>
+      <artifactId>spigot</artifactId>
+      <version>1.15</version>
       <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>commons-lang</artifactId>
-          <groupId>commons-lang</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>guava</artifactId>
-          <groupId>com.google.guava</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>gson</artifactId>
-          <groupId>com.google.code.gson</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>bungeecord-chat</artifactId>
-          <groupId>net.md-5</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>snakeyaml</artifactId>
-          <groupId>org.yaml</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.inventivetalent</groupId>
@@ -153,7 +125,7 @@
       <scope>provided</scope>
       <exclusions>
         <exclusion>
-          <artifactId>spigot</artifactId>
+          <artifactId>spigot-api</artifactId>
           <groupId>org.spigotmc</groupId>
         </exclusion>
       </exclusions>
