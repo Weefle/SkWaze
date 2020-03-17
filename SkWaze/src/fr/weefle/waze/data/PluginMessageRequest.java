@@ -13,6 +13,7 @@ public abstract class PluginMessageRequest extends ComData {
 		setData("require_response", Boolean.TRUE.toString());
 		try {
 			setData("sender", Bukkit.getServerName());
+			//Bukkit.getLogger().warning(Bukkit.getServerName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
