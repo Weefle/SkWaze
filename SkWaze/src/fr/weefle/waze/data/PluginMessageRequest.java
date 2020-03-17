@@ -12,7 +12,7 @@ public abstract class PluginMessageRequest extends ComData {
 		setData("uuid", UUID.randomUUID().toString());
 		setData("require_response", Boolean.TRUE.toString());
 		try {
-			setData("sender", Bukkit.getServer().getName());
+			setData("sender", Bukkit.getServerName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
