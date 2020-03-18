@@ -28,7 +28,7 @@ public class WazeEffectDeleteServer extends Effect {
 	@Override
 	protected void execute(Event arg0) {
 		
-		SkWrapper.createServer(server.getSingle(arg0), template.getSingle(arg0));
+		SkWrapper.deleteServer(server.getSingle(arg0), template.getSingle(arg0));
 		
 	}
 	
