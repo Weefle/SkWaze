@@ -24,6 +24,7 @@ public abstract class PluginMessageRequest extends ComData {
 		
 	}
 	
+	public abstract Object[] onAnswerObj(PluginMessage response);
 	public abstract void onAnswer(PluginMessage response);
 		
 	public String getType() {

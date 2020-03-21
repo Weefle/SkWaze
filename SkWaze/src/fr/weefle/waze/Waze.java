@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.weefle.waze.data.ComApiBukkitHandler;
+import fr.weefle.waze.utils.BungeeReceiver;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.NMS;
 import fr.weefle.waze.utils.Updater;
@@ -44,6 +45,7 @@ public class Waze extends JavaPlugin {
 
 			Bukkit.getPluginManager().disablePlugin(this);
 		}
+		new BungeeReceiver();
         }
 	
 	public static ComApiBukkitHandler getComApi() {

@@ -26,6 +26,12 @@ public class BungeeCache {
 						onlineGlobal = response.getDataAsInt("global-count");
 						
 					}
+
+					@Override
+					public Object[] onAnswerObj(PluginMessage response) {
+						// TODO Auto-generated method stub
+						return null;
+					}
 				};
 				Waze.getComApi().sendRequest(pmr);
 				
@@ -36,6 +42,12 @@ public class BungeeCache {
 						
 						serverList = response.getData("server-list");
 						
+					}
+
+					@Override
+					public Object[] onAnswerObj(PluginMessage response) {
+						// TODO Auto-generated method stub
+						return null;
 					}
 				};
 				Waze.getComApi().sendRequest(pmr1);

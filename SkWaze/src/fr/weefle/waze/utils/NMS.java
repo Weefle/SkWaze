@@ -55,6 +55,7 @@ import fr.weefle.waze.expressions.WazeExpressionBungeeOnlineCountGlobal;
 import fr.weefle.waze.expressions.WazeExpressionBungeeServerList;
 import fr.weefle.waze.expressions.WazeExpressionDisguise;
 import fr.weefle.waze.expressions.WazeExpressionHologram;
+import fr.weefle.waze.expressions.WazeExpressionNetworkVariable;
 import fr.weefle.waze.expressions.WazeExpressionPing;
 import fr.weefle.waze.legacy.ActionBarOld;
 import fr.weefle.waze.legacy.AutoRespawnOld;
@@ -213,7 +214,9 @@ public class NMS {
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopProxy.class, "[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]");
 		Skript.registerExpression(WazeExpressionBungeeServerList.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] server[s] list", "[waze] [bungee[cord]] list of server[s]");
+		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[the] [skellett[ ][(cord|proxy)]] (global|network) [var[iable]] [(from|of)] %object%");
 		Waze.getInstance().getLogger().info("BungeeCord setup was successful, your data is safe across your network!");
+		
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
     	Skript.registerCondition(WazeConditionHologram.class, "holo id %string% exist[s]");
