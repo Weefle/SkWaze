@@ -2,6 +2,7 @@ package fr.weefle.waze.utils;
 
 import java.io.IOException;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,9 +18,9 @@ public class BungeeReceiver implements Listener {
 		PluginMessage pm = e.getMessage();
 if(pm.getType().equalsIgnoreCase("SkWrapper-update-variables")) { 
         	String ID = pm.getData("ID");
-        	String value = pm.getData("value");
-        	Object obj = (Object) value;
-        	Variables.setVariable(ID, value, (Event)null, false); 	
+        	Object value = pm.getData("value");
+        	//Bukkit.getLogger().warning(ID + " : " + value);
+        	Variables.setVariable(ID, value, (Event)null, false);
 	         }
 	        else {
 	        	return;

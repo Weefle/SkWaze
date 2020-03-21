@@ -6,8 +6,11 @@ import fr.weefle.waze.data.PluginMessage;
 import fr.weefle.waze.data.PluginMessageRequest;
 import ch.njol.skript.classes.Changer;
 import javax.annotation.Nullable;
+
+import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import ch.njol.skript.util.StringMode;
+import ch.njol.skript.variables.Variables;
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
@@ -47,33 +50,14 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
     }
     
     public String toString(@Nullable final Event e, final boolean arg1) {
-        return "[the] [skellett[ ][(cord|proxy)]] (global|network) [var[iable]] [(from|of)] %object%";
+        return "[skwrapper] (global|network) variable [(from|of)] %object%";
     }
     
     @Nullable
     protected Object[] get(final Event e) {
         final String ID = this.variableString.toString(e);
-        PluginMessageRequest pmr = new PluginMessageRequest("SkWrapper-network-variable") {
-			
-			@Override
-			public Object[] onAnswerObj(PluginMessage response) {
-				
-				Object var = response.getDataAsInt("value");
-		            return new Object[] { var };
-
-			}
-
-			@Override
-			public void onAnswer(PluginMessage response) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		};
-		pmr.setData("ID", ID);
-		Waze.getComApi().sendRequest(pmr);
-        //final Object var = Sockets.send(new SkellettPacket(true, ID, SkellettPacketType.NETWORKVARIABLE));
-		return null;
+        
+        return new Object[] {Variables.getVariable(ID, (Event)null, false)};
     }
     
     public void change(final Event e, final Object[] delta, final Changer.ChangeMode mode) {

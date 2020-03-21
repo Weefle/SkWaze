@@ -19,12 +19,17 @@ public class PluginMessageRequestReceiveEvent extends Event {
 		this.pm = pm;
 	}
 
-	@Override
 	public HandlerList getHandlers() {
 		
 		return handlers;
 		
 	}
+	
+	 public static HandlerList getHandlerList(){
+
+	        return handlers;
+
+	    }
 	
 	public Waze getInstance() {
 		return instance;

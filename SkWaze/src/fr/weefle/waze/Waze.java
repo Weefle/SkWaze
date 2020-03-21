@@ -45,7 +45,6 @@ public class Waze extends JavaPlugin {
 
 			Bukkit.getPluginManager().disablePlugin(this);
 		}
-		new BungeeReceiver();
         }
 	
 	public static ComApiBukkitHandler getComApi() {
