@@ -57,6 +57,21 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
     protected Object[] get(final Event e) {
         final String ID = this.variableString.toString(e);
         
+        /*PluginMessageRequest pmr = new PluginMessageRequest("SkWrapper-network-variable") {
+
+
+			@Override
+			public void onAnswer(PluginMessage response) {
+				
+				Object var = response.getDataAsInt("value");
+		            return new Object[] { var };
+
+			}
+
+		};
+		pmr.setData("ID", ID);
+		Waze.getComApi().sendRequest(pmr);*/
+        
         return new Object[] {Variables.getVariable(ID, (Event)null, false)};
     }
     
