@@ -3,50 +3,66 @@ package fr.weefle.waze.skwrapper;
 import ch.njol.util.coll.CollectionUtils;
 import fr.weefle.waze.Waze;
 import fr.weefle.waze.data.PluginMessage;
-import fr.weefle.waze.data.PluginMessageRequest;
+import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
 import javax.annotation.Nullable;
 
-import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import ch.njol.skript.util.StringMode;
 import ch.njol.skript.variables.Variables;
-import ch.njol.skript.Skript;
 import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.UnparsedLiteral;
+import ch.njol.skript.lang.Variable;
 import ch.njol.util.Kleenean;
 import ch.njol.skript.lang.Expression;
+import ch.njol.skript.lang.Literal;
 import ch.njol.skript.lang.VariableString;
-import ch.njol.skript.lang.Variable;
-import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.util.SimpleExpression;
 
 public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
 {
-    private Variable variable;
+    private Variable<?> variable;
     private VariableString variableString;
-    private Object var;
     
     public Class<?> getReturnType() {
         return Object.class;
     }
     
     public boolean isSingle() {
+
         return !this.variable.isList();
+
+    }
+    
+    private <T> Expression<T> getExpression(final Expression<?> expr) {
+        if (expr instanceof UnparsedLiteral) {
+            final Literal<?> parsedLiteral = (Literal<?>)((UnparsedLiteral)expr).getConvertedExpression(new Class[] { Object.class });
+            return (Expression<T>)((parsedLiteral == null) ? expr : parsedLiteral);
+        }
+        return (Expression<T>)expr;
     }
     
     public boolean init(final Expression<?>[] e, final int matchedPattern, final Kleenean isDelayed, final SkriptParser.ParseResult parser) {
-        if (!(e[0] instanceof Variable)) {
-            Skript.error("Network Variables must be a variable!");
+    	if (e[0] instanceof Variable) {
+            this.variable = (Variable<?>)e[0];
+        }
+        else {
+            final Expression<?> expression = this.getExpression(e[0]);
+            if (expression instanceof Variable) {
+                this.variable = (Variable<?>)expression;
+            }
+        }
+        if (this.variable == null) {
+            Skript.error("Network Variables must be in a variable format!");
             return false;
         }
-        if (!((Variable)e[0]).isList()) {
-            this.variable = (Variable)e[0];
-            final String var = this.variable.toString().substring(1, this.variable.toString().length() - 1);
-            this.variableString = VariableString.newInstance(var, StringMode.VARIABLE_NAME);
-            return true;
+        if (this.variable.isLocal()) {
+            Skript.error("Network Variables can not be a local variable.");
+            return false;
         }
-        Skript.error("Network Variables can't be lists at the moment!");
-        return false;
+        final String var = this.variable.toString().substring(1, this.variable.toString().length() - 1);
+        this.variableString = VariableString.newInstance(var, StringMode.VARIABLE_NAME);
+        return true;
     }
     
     public String toString(@Nullable final Event e, final boolean arg1) {
@@ -55,24 +71,11 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
     
     @Nullable
     protected Object[] get(final Event e) {
+    	
         final String ID = this.variableString.toString(e);
         
-        /*PluginMessageRequest pmr = new PluginMessageRequest("SkWrapper-network-variable") {
-
-
-			@Override
-			public void onAnswer(PluginMessage response) {
-				
-				Object var = response.getDataAsInt("value");
-		            return new Object[] { var };
-
-			}
-
-		};
-		pmr.setData("ID", ID);
-		Waze.getComApi().sendRequest(pmr);*/
-        
         return new Object[] {Variables.getVariable(ID, (Event)null, false)};
+        
     }
     
     public void change(final Event e, final Object[] delta, final Changer.ChangeMode mode) {
@@ -84,16 +87,34 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
             Waze.getComApi().sendMessage(pm);
         }
         else if (mode == Changer.ChangeMode.RESET || mode == Changer.ChangeMode.DELETE) {
+        	PluginMessage pm = new PluginMessage("SkWrapper-network-variable-reset");
+            pm.setData("ID", ID);
+            Waze.getComApi().sendMessage(pm); 
+        }
+        else if (mode == Changer.ChangeMode.ADD) {
+        	PluginMessage pm = new PluginMessage("SkWrapper-network-variable-add");
+            pm.setData("ID", ID);
+            pm.setData("value", delta[0].toString());
+            Waze.getComApi().sendMessage(pm); 
+        }
+        else if (mode == Changer.ChangeMode.REMOVE) {
         	PluginMessage pm = new PluginMessage("SkWrapper-network-variable-remove");
+            pm.setData("ID", ID);
+            pm.setData("value", delta[0].toString());
+            Waze.getComApi().sendMessage(pm); 
+        }
+        else if (mode == Changer.ChangeMode.REMOVE_ALL) {
+        	PluginMessage pm = new PluginMessage("SkWrapper-network-variable-remove-all");
             pm.setData("ID", ID);
             Waze.getComApi().sendMessage(pm); 
         }
     }
     
     public Class<?>[] acceptChange(final Changer.ChangeMode mode) {
-        if (mode == Changer.ChangeMode.SET || mode == Changer.ChangeMode.RESET || mode == Changer.ChangeMode.REMOVE) {
-            return (Class<?>[])CollectionUtils.array((Object[])new Class[] { Object.class });
+        if (mode == Changer.ChangeMode.SET || mode == Changer.ChangeMode.RESET || mode == Changer.ChangeMode.REMOVE || mode == Changer.ChangeMode.ADD || mode == Changer.ChangeMode.REMOVE_ALL || mode == Changer.ChangeMode.DELETE) {
+            return (Class<?>[])CollectionUtils.array((Object[])new Class[] { (Class)(this.isSingle() ? Object.class : Object[].class) });
         }
         return null;
     }
+
 }

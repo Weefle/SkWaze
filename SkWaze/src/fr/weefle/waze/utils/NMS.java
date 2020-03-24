@@ -223,7 +223,7 @@ public class NMS {
 		Skript.registerEffect(WazeEffectStopServer.class, "[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStopProxy.class, "[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]");
 		Skript.registerExpression(WazeExpressionBungeeServerList.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] server[s] list", "[waze] [bungee[cord]] list of server[s]");
-		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[skwrapper] (global|network) variable [(from|of)] %object%");
+		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[skwrapper] (global|network) variable [(from|of)] %objects%");
 		Waze.getInstance().getLogger().info("BungeeCord setup was successful, your data is safe across your network!");
 		
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
