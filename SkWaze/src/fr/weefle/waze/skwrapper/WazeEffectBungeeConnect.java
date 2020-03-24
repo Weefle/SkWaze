@@ -1,4 +1,4 @@
-package fr.weefle.waze.effects;
+package fr.weefle.waze.skwrapper;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
