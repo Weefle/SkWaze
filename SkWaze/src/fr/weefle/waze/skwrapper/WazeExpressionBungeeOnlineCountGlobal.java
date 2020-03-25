@@ -8,6 +8,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
+import fr.weefle.waze.utils.BungeeReceiver;
 import fr.weefle.waze.utils.NMS;
 
 public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<Integer> {
@@ -38,6 +39,6 @@ public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<Inte
 		@Override
 		@Nullable
 		protected Integer[] get(Event arg0) {
-					return new Integer[]{ NMS.getInstance().getBungee().onlineGlobal };
+					return new Integer[]{ BungeeReceiver.onlineCount };
 	}
 		}

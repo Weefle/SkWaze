@@ -8,6 +8,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
+import fr.weefle.waze.utils.BungeeReceiver;
 import fr.weefle.waze.utils.NMS;
 
 public class WazeExpressionBungeeServerList extends SimpleExpression<String> {
@@ -38,6 +39,6 @@ public class WazeExpressionBungeeServerList extends SimpleExpression<String> {
 		@Override
 		@Nullable
 		protected String[] get(Event arg0) {
-					return new String[]{ NMS.getInstance().getBungee().serverList };
+					return new String[]{ BungeeReceiver.serverList };
 	}
 		}

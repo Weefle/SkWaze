@@ -16,6 +16,8 @@ import fr.weefle.waze.data.events.PluginMessageReceiveEvent;
 public class BungeeReceiver implements Listener {
 	
 	public static HashMap<Player, String> servers = new HashMap<>();
+	public static Integer onlineCount = 0;
+	public static String serverList = "";
 	
 	@EventHandler
 	public void onReceive(PluginMessageReceiveEvent e) throws IOException {
@@ -36,13 +38,22 @@ public class BungeeReceiver implements Listener {
 	
 	
      }
-		else if(pm.getType().equalsIgnoreCase("SkWrapper-player-server-disconnect")) { 
+		/*else if(pm.getType().equalsIgnoreCase("SkWrapper-player-server-disconnect")) { 
 			String player = pm.getData("player");
 			
 			Player p = Bukkit.getPlayer(player);
 			
 			servers.remove(p);
 			
+			
+		     }*/
+		
+		else if(pm.getType().equalsIgnoreCase("SkWrapper-online-count-global")) { 
+			 onlineCount = pm.getDataAsInt("global-count");
+			
+		     }
+		else if(pm.getType().equalsIgnoreCase("SkWrapper-get-servers")) { 
+			 serverList = pm.getData("server-list");
 			
 		     }
 	        else {

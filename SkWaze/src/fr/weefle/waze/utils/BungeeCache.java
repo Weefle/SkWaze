@@ -8,8 +8,8 @@ import fr.weefle.waze.data.PluginMessageRequest;
 
 public class BungeeCache {
 	
-	public int onlineGlobal;
-	public String serverList;
+	public int onlineGlobal = 0;
+	public String serverList = "";
 	
 	public BungeeCache(Waze main) {
 		
