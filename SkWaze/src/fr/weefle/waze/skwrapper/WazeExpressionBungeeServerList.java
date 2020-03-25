@@ -1,4 +1,4 @@
-package fr.weefle.waze.expressions;
+package fr.weefle.waze.skwrapper;
 
 import javax.annotation.Nullable;
 
@@ -10,12 +10,12 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import fr.weefle.waze.utils.NMS;
 
-public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<Integer> {
+public class WazeExpressionBungeeServerList extends SimpleExpression<String> {
 
 		@Override
-		public Class<? extends Integer> getReturnType() {
+		public Class<? extends String> getReturnType() {
 			// TODO Auto-generated method stub
-			return Integer.class;
+			return String.class;
 		}
 
 		@Override
@@ -32,12 +32,12 @@ public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<Inte
 		@Override
 		public String toString(@Nullable Event arg0, boolean arg1) {
 			// TODO Auto-generated method stub
-			return "global bungee online count";
+			return "bungee server list";
 		}
 
 		@Override
 		@Nullable
-		protected Integer[] get(Event arg0) {
-					return new Integer[]{ NMS.getInstance().getBungee().onlineGlobal };
+		protected String[] get(Event arg0) {
+					return new String[]{ NMS.getInstance().getBungee().serverList };
 	}
 		}

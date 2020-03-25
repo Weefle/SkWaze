@@ -84,14 +84,14 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
             Waze.getComApi().sendMessage(pm);
         }
         else if (mode == Changer.ChangeMode.RESET || mode == Changer.ChangeMode.DELETE) {
-        	PluginMessage pm = new PluginMessage("SkWrapper-network-variable-remove");
+        	PluginMessage pm = new PluginMessage("SkWrapper-network-variable-reset");
             pm.setData("ID", ID);
             Waze.getComApi().sendMessage(pm); 
         }
     }
     
     public Class<?>[] acceptChange(final Changer.ChangeMode mode) {
-        if (mode == Changer.ChangeMode.SET || mode == Changer.ChangeMode.RESET || mode == Changer.ChangeMode.REMOVE) {
+        if (mode == Changer.ChangeMode.SET || mode == Changer.ChangeMode.RESET || mode == Changer.ChangeMode.DELETE) {
             return (Class<?>[])CollectionUtils.array((Object[])new Class[] { Object.class });
         }
         return null;
