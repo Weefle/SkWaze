@@ -1,4 +1,4 @@
-package fr.weefle.waze.skwrapper;
+package fr.weefle.waze.skwrapper.effects;
 
 import javax.annotation.Nullable;
 import org.bukkit.event.Event;
@@ -6,8 +6,9 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
+import fr.weefle.waze.skwrapper.SkWrapper;
 
-public class WazeEffectStartServer extends Effect{
+public class WazeEffectCreateServer extends Effect {
 	
 	private Expression<String> server;
 	private Expression<String> template;
@@ -22,14 +23,16 @@ public class WazeEffectStartServer extends Effect{
 
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
-		return "start a server with SkWrapper";
+		return "create a server with SkWrapper";
 	}
 
 	@Override
 	protected void execute(Event arg0) {
 		
-		SkWrapper.startServer(server.getSingle(arg0), template.getSingle(arg0));
+		SkWrapper.createServer(server.getSingle(arg0), template.getSingle(arg0));
 		
 	}
+	
+	
 
 }

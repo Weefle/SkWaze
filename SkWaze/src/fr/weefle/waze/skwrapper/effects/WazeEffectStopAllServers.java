@@ -1,4 +1,4 @@
-package fr.weefle.waze.skwrapper;
+package fr.weefle.waze.skwrapper.effects;
 
 import javax.annotation.Nullable;
 import org.bukkit.event.Event;
@@ -6,32 +6,27 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
+import fr.weefle.waze.Waze;
+import fr.weefle.waze.data.PluginMessage;
 
-public class WazeEffectCreateServer extends Effect {
-	
-	private Expression<String> server;
-	private Expression<String> template;
+public class WazeEffectStopAllServers extends Effect{
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public boolean init(Expression<?>[] arg0, int arg1, Kleenean arg2, ParseResult arg3) {
-		server = (Expression<String>) arg0[0];
-		template = (Expression<String>) arg0[1];
 		return true;
 	}
 
 	@Override
 	public String toString(@Nullable Event arg0, boolean arg1) {
-		return "create a server with SkWrapper";
+		return "stop all servers with SkWrapper";
 	}
 
 	@Override
 	protected void execute(Event arg0) {
 		
-		SkWrapper.createServer(server.getSingle(arg0), template.getSingle(arg0));
+		PluginMessage pm = new PluginMessage("SkWrapper-stop-all");
+		Waze.getComApi().sendMessage(pm);
 		
 	}
-	
-	
 
 }

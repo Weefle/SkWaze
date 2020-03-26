@@ -1,4 +1,4 @@
-package fr.weefle.waze.utils;
+package fr.weefle.waze.skwrapper;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -19,7 +19,6 @@ import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
 import fr.weefle.waze.Waze;
 import fr.weefle.waze.conditions.WazeConditionHologram;
-import fr.weefle.waze.conditions.WazeConditionIsServerOnline;
 import fr.weefle.waze.effects.WazeEffectActionBar;
 import fr.weefle.waze.effects.WazeEffectAddItemLineHologram;
 import fr.weefle.waze.effects.WazeEffectAddLineHologram;
@@ -74,20 +73,23 @@ import fr.weefle.waze.nms.Ping;
 import fr.weefle.waze.nms.SideBar;
 import fr.weefle.waze.nms.Tablist;
 import fr.weefle.waze.nms.Title;
-import fr.weefle.waze.skwrapper.WazeEffectBungeeConnect;
-import fr.weefle.waze.skwrapper.WazeEffectCreateServer;
-import fr.weefle.waze.skwrapper.WazeEffectDeleteServer;
-import fr.weefle.waze.skwrapper.WazeEffectStartAllServers;
-import fr.weefle.waze.skwrapper.WazeEffectStartAllServersFrom;
-import fr.weefle.waze.skwrapper.WazeEffectStartServer;
-import fr.weefle.waze.skwrapper.WazeEffectStopAllServers;
-import fr.weefle.waze.skwrapper.WazeEffectStopAllServersFrom;
-import fr.weefle.waze.skwrapper.WazeEffectStopProxy;
-import fr.weefle.waze.skwrapper.WazeEffectStopServer;
-import fr.weefle.waze.skwrapper.WazeExpressionBungeeOnlineCountGlobal;
-import fr.weefle.waze.skwrapper.WazeExpressionBungeeServerList;
-import fr.weefle.waze.skwrapper.WazeExpressionNetworkVariable;
-import fr.weefle.waze.skwrapper.WazeExpressionPlayerServer;
+import fr.weefle.waze.skwrapper.BungeeReceiver;
+import fr.weefle.waze.skwrapper.conditions.WazeConditionIsServerOnline;
+import fr.weefle.waze.skwrapper.effects.WazeEffectBungeeConnect;
+import fr.weefle.waze.skwrapper.effects.WazeEffectCreateServer;
+import fr.weefle.waze.skwrapper.effects.WazeEffectDeleteServer;
+import fr.weefle.waze.skwrapper.effects.WazeEffectRefreshTemplates;
+import fr.weefle.waze.skwrapper.effects.WazeEffectStartAllServers;
+import fr.weefle.waze.skwrapper.effects.WazeEffectStartAllServersFrom;
+import fr.weefle.waze.skwrapper.effects.WazeEffectStartServer;
+import fr.weefle.waze.skwrapper.effects.WazeEffectStopAllServers;
+import fr.weefle.waze.skwrapper.effects.WazeEffectStopAllServersFrom;
+import fr.weefle.waze.skwrapper.effects.WazeEffectStopProxy;
+import fr.weefle.waze.skwrapper.effects.WazeEffectStopServer;
+import fr.weefle.waze.skwrapper.expressions.WazeExpressionBungeeOnlineCountGlobal;
+import fr.weefle.waze.skwrapper.expressions.WazeExpressionBungeeServerList;
+import fr.weefle.waze.skwrapper.expressions.WazeExpressionNetworkVariable;
+import fr.weefle.waze.skwrapper.expressions.WazeExpressionPlayerServer;
 
 public class NMS {
 	
@@ -215,6 +217,7 @@ public class NMS {
     	//bungee = new BungeeCache(Waze.getInstance());
     	Skript.registerExpression(WazeExpressionBungeeOnlineCountGlobal.class, Integer.class, ExpressionType.PROPERTY, "[waze] [number of] online player[s] on bungee[cord]");
     	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
+    	Skript.registerEffect(WazeEffectRefreshTemplates.class, "[waze] refresh [all] [skwrapper] server templates");
     	Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
     	Skript.registerEffect(WazeEffectDeleteServer.class, "[waze] (remove|delete) [skwrapper] server named %string% (from|with) template %string%");
 		Skript.registerEffect(WazeEffectStartServer.class, "[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%");
@@ -227,7 +230,7 @@ public class NMS {
 		Skript.registerExpression(WazeExpressionBungeeServerList.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] server[s] list", "[waze] [bungee[cord]] list of server[s]");
 		Skript.registerExpression(WazeExpressionPlayerServer.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] %player% server", "[waze] [bungee[cord]] server of %player%");
 		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[skwrapper] (global|network) variable [(from|of)] %object%");
-		Skript.registerCondition(WazeConditionIsServerOnline.class, "server %string% is online");
+		Skript.registerCondition(WazeConditionIsServerOnline.class, "[skwrapper] server %string% is online");
 		Waze.getInstance().getLogger().info("BungeeCord setup was successful, your data is safe across your network!");
 		
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {

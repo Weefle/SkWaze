@@ -1,4 +1,4 @@
-package fr.weefle.waze.utils;
+package fr.weefle.waze.skwrapper;
 
 import org.bukkit.Bukkit;
 

@@ -1,4 +1,4 @@
-package fr.weefle.waze.conditions;
+package fr.weefle.waze.skwrapper.conditions;
 
 import javax.annotation.Nullable;
 import org.bukkit.event.Event;
@@ -6,7 +6,7 @@ import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.utils.BungeeReceiver;
+import fr.weefle.waze.skwrapper.BungeeReceiver;
 
 public class WazeConditionIsServerOnline extends Condition{
 	

@@ -1,4 +1,4 @@
-package fr.weefle.waze.skwrapper;
+package fr.weefle.waze.skwrapper.expressions;
 
 import ch.njol.util.coll.CollectionUtils;
 import fr.weefle.waze.Waze;

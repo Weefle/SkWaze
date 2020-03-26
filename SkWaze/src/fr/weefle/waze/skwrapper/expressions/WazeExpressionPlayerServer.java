@@ -1,4 +1,4 @@
-package fr.weefle.waze.skwrapper;
+package fr.weefle.waze.skwrapper.expressions;
 
 import javax.annotation.Nullable;
 
@@ -12,7 +12,7 @@ import ch.njol.util.Kleenean;
 import fr.weefle.waze.Waze;
 import fr.weefle.waze.data.PluginMessage;
 import fr.weefle.waze.data.PluginMessageRequest;
-import fr.weefle.waze.utils.BungeeReceiver;
+import fr.weefle.waze.skwrapper.BungeeReceiver;
 
 public class WazeExpressionPlayerServer extends SimpleExpression<String> {
 	
