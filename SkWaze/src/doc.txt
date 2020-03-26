@@ -36,6 +36,11 @@ Effects:
 [waze] (add|append) [a] new line (at|from) hologram with id %string% (to|with) %string%
 [waze] (add|append) [a] new line (at|from) hologram with id %string% (to|with) item %string%
 [waze] (clear|remove|delete) line %integer% (at|from) hologram with id %string%
+[waze] refresh [all] [skwrapper] server templates
+[waze] (start|begin) all [skwrapper] servers
+[waze] (start|begin) all [skwrapper] servers from template %string%
+[waze] (stop|end) all [skwrapper] servers
+[waze] (stop|end) all [skwrapper] servers from template %string%
 
 Expressions:
 
@@ -45,6 +50,8 @@ Expressions:
 [waze] %players%['s] disguise [list], [waze] disguise [list] of %players%
 [waze] hologram['s] list, [waze] list of hologram
 [waze] [bungee[cord]] server[s] list, [waze] [bungee[cord]] list of server[s]
+[waze] [bungee[cord]] %player% server", "[waze] [bungee[cord]] server of %player%
+[skwrapper] (global|network) variable [(from|of)] %object%
 
 Events:
 
@@ -56,6 +63,7 @@ Events:
 Conditions:
 
 holo id %string% exist[s]
+[skwrapper] server %string% is online
 
 Types:
 

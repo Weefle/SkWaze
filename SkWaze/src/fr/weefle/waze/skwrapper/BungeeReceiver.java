@@ -61,14 +61,16 @@ public class BungeeReceiver implements Listener {
 		else if(pm.getType().equalsIgnoreCase("SkWrapper-add-started")) { 
 			String server = pm.getData("server");
 			 
+			if(!serverson.contains(server)) {
 			serverson.add(server);
-			
+			}
 		     }
 		else if(pm.getType().equalsIgnoreCase("SkWrapper-remove-started")) { 
 			String server = pm.getData("server");
 			 
+			if(serverson.contains(server)) {
 			serverson.remove(server);
-			
+			}
 		     }
 	        else {
 	        	return;
