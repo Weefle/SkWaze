@@ -1,6 +1,7 @@
 package fr.weefle.waze.utils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
@@ -18,6 +19,7 @@ public class BungeeReceiver implements Listener {
 	public static HashMap<Player, String> servers = new HashMap<>();
 	public static Integer onlineCount = 0;
 	public static String serverList = "";
+	public static ArrayList<String> serverson = new ArrayList<>();
 	
 	@EventHandler
 	public void onReceive(PluginMessageReceiveEvent e) throws IOException {
@@ -54,6 +56,18 @@ public class BungeeReceiver implements Listener {
 		     }
 		else if(pm.getType().equalsIgnoreCase("SkWrapper-get-servers")) { 
 			 serverList = pm.getData("server-list");
+			
+		     }
+		else if(pm.getType().equalsIgnoreCase("SkWrapper-add-started")) { 
+			String server = pm.getData("server");
+			 
+			serverson.add(server);
+			
+		     }
+		else if(pm.getType().equalsIgnoreCase("SkWrapper-remove-started")) { 
+			String server = pm.getData("server");
+			 
+			serverson.remove(server);
 			
 		     }
 	        else {

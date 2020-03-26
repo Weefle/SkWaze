@@ -19,6 +19,7 @@ import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
 import fr.weefle.waze.Waze;
 import fr.weefle.waze.conditions.WazeConditionHologram;
+import fr.weefle.waze.conditions.WazeConditionIsServerOnline;
 import fr.weefle.waze.effects.WazeEffectActionBar;
 import fr.weefle.waze.effects.WazeEffectAddItemLineHologram;
 import fr.weefle.waze.effects.WazeEffectAddLineHologram;
@@ -226,6 +227,7 @@ public class NMS {
 		Skript.registerExpression(WazeExpressionBungeeServerList.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] server[s] list", "[waze] [bungee[cord]] list of server[s]");
 		Skript.registerExpression(WazeExpressionPlayerServer.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] %player% server", "[waze] [bungee[cord]] server of %player%");
 		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[skwrapper] (global|network) variable [(from|of)] %object%");
+		Skript.registerCondition(WazeConditionIsServerOnline.class, "server %string% is online");
 		Waze.getInstance().getLogger().info("BungeeCord setup was successful, your data is safe across your network!");
 		
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
