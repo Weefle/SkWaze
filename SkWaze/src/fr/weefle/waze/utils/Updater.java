@@ -59,8 +59,10 @@ public class Updater
       yamlConfig.options().header("Configuration for the SkWazeUpdater system\nit will inform you about new versions of all plugins which use this updater\n'enabled' specifies whether the system is enabled (affects all plugins)");
       
       yamlConfig.options().copyDefaults(true);
+      yamlConfig.options().indent();
       yamlConfig.addDefault("enabled", Boolean.valueOf(true));
-      yamlConfig.addDefault("enabledingame", Boolean.valueOf(true));
+      yamlConfig.options().indent();
+      yamlConfig.addDefault("enabled-in-game", Boolean.valueOf(true));
       yamlConfig.save(config);
     }
     try
@@ -73,7 +75,7 @@ public class Updater
       return;
     }
     this.enabled = yamlConfig.getBoolean("enabled");
-    enabledingame = yamlConfig.getBoolean("enabledingame");
+    enabledingame = yamlConfig.getBoolean("enabled-in-game");
     
     super.start();
   }

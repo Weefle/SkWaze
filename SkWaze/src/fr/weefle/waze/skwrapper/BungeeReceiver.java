@@ -40,15 +40,6 @@ public class BungeeReceiver implements Listener {
 	
 	
      }
-		/*else if(pm.getType().equalsIgnoreCase("SkWrapper-player-server-disconnect")) { 
-			String player = pm.getData("player");
-			
-			Player p = Bukkit.getPlayer(player);
-			
-			servers.remove(p);
-			
-			
-		     }*/
 		
 		else if(pm.getType().equalsIgnoreCase("SkWrapper-online-count-global")) { 
 			 onlineCount = pm.getDataAsInt("global-count");

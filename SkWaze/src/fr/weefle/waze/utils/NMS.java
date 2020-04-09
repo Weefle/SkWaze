@@ -215,6 +215,7 @@ public class NMS {
         }
     }, 0);
     	//bungee = new BungeeCache(Waze.getInstance());
+    
     	Skript.registerExpression(WazeExpressionBungeeOnlineCountGlobal.class, Integer.class, ExpressionType.PROPERTY, "[waze] [number of] online player[s] on bungee[cord]");
     	Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
     	Skript.registerEffect(WazeEffectRefreshTemplates.class, "[waze] refresh [all] [skwrapper] server templates");
@@ -231,7 +232,8 @@ public class NMS {
 		Skript.registerExpression(WazeExpressionPlayerServer.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] %player% server", "[waze] [bungee[cord]] server of %player%");
 		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[skwrapper] (global|network) variable [(from|of)] %object%");
 		Skript.registerCondition(WazeConditionIsServerOnline.class, "[skwrapper] server %string% is online");
-		Waze.getInstance().getLogger().info("BungeeCord setup was successful, your data is safe across your network!");
+		Waze.getInstance().getLogger().info("BungeeCord setup was successful, your data will be sent across the network!");
+
 		
     if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
     	holograms = new HologramAPI();
