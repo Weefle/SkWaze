@@ -3,6 +3,6 @@ author: Weefle
 version: 2.2.7
 description: The coolest Skript's addon
 depends: [Skript]
-softdepends: [BossBarAPI, Citizens, Builder, ProtocolLib, LibsDisguises, HolographicDisplays, Netherboard]
+softdepends: [BossBarAPI, Citizens, Builder, Constructor, ProtocolLib, LibsDisguises, HolographicDisplays, Netherboard]
 main: fr.weefle.waze.Waze
 api-version: 1.13
