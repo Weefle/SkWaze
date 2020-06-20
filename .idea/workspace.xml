@@ -101,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592682361878</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed project">
+      <created>1592682643810</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592682643810</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,7 +128,8 @@
     <MESSAGE value="Fixed all warnings" />
     <MESSAGE value="Updated SkWaze to support IntelliJ IDEA" />
     <MESSAGE value="Added Constructor support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Constructor support" />
+    <MESSAGE value="Fixed project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed project" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1592590184358">
