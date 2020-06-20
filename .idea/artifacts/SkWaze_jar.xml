@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SkWaze:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/SkWaze_jar</output-path>
+    <root id="archive" name="SkWaze.jar">
+      <element id="module-output" name="SkWaze" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/JDA-4.1.1_101.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
