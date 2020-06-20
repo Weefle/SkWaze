@@ -24,14 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Updated SkWaze to support IntelliJ IDEA">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SkWaze_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkWaze.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/effects/WazeEffectConstructorSchematic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/effects/WazeEffectConstructorStructure.java" afterDir="false" />
-    </list>
+    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Added Constructor support" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592511270578</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added Constructor support">
+      <created>1592682361878</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592682361878</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,7 +120,8 @@
     <MESSAGE value="Fixed 1.15 errors" />
     <MESSAGE value="Fixed all warnings" />
     <MESSAGE value="Updated SkWaze to support IntelliJ IDEA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated SkWaze to support IntelliJ IDEA" />
+    <MESSAGE value="Added Constructor support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Constructor support" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1592590184358">
@@ -139,10 +140,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="786" y="141" key="SettingsEditor/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1592599931002" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592511277399">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592682364336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1592511277399" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1592682364336" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1592591560114">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -1,0 +1,71 @@
+
+Effects:
+
+[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]
+[waze] (send|create) action[bar] %string% (to|for) %players%
+[waze] (send|teleport) %players% to [bungee[cord]] server %string%
+[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]
+[waze] (create|register) [new] recipe[s] [for] %itemtype% with %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%, %itemtype%
+[waze] (remove|clear|delete) [all] [craft[ing]] recipe[s]
+[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (to|for) %players%
+[waze] (create|send) [boss]bar %string% (with|at) %integer% percent[s] (and|with) color %string% (and|with) style %string% with id %string% (for|and) %integer% second[s] (to|for) %players%
+[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %players%
+[waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (to|for) %players%
+[waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (for|and) %integer% second[s] (to|for) %players%
+[waze] 1.8 (remove|delete|clear) [boss]bar (of|for) %players%
+[waze] (change|set) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%
+[waze] (clear|remove|delete) sidebar (of|for) %players%
+[waze] (clear|remove|delete) line %integer% (of|from) sidebar (of|for) %players%
+[waze] (make|let) citizen with id %number% build schem[atic] %string% (form|at) %location% (with|at) speed %number% (for|to) %players%
+[waze] (make|let) citizen[s] with id %number% build (nbt|structure) %string% (from|at) %location% (with|at) speed %number% (for|to) %players%
+[waze] (set|show) tab[list] (with|from) [head[er]] %string% (and|with) [foot[er]] %string% (to|for) %players%
+[waze] (set|show) name[tag] %string% (to|for) %players%
+[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %location% (and|with) offset %float%, %float%, %float% (and|with|at) speed %float%
+[waze] [auto]respawn %players%
+[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%
+[waze] (start|begin) [skwrapper] server named %string% (from|with) template %string%
+[waze] (stop|end) [skwrapper] server named %string% (from|with) template %string%
+[waze] (disguise|transform|morph) %players% (as|in[to]) player %string% view[itself] %boolean%
+[waze] (disguise|transform|morph) %players% (as|in[to]) mob %string% view[itself] %boolean%
+[waze] (disguise|transform|morph) %players% (as|in[to]) misc %string% view[itself] %boolean%
+[waze] (undisguise|untransform|unmorph) player[s] %players%
+[waze] (create|spawn) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string%
+[waze] (delete|remove|clear) hologram with id %string%
+[waze] (teleport|move) hologram with id %string% (to|at) %locations%
+[waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) %string%
+[waze] (set|change) line %integer% (at|from) hologram with id %string% (to|with) item %string%
+[waze] (add|append) [a] new line (at|from) hologram with id %string% (to|with) %string%
+[waze] (add|append) [a] new line (at|from) hologram with id %string% (to|with) item %string%
+[waze] (clear|remove|delete) line %integer% (at|from) hologram with id %string%
+[waze] refresh [all] [skwrapper] server templates
+[waze] (start|begin) all [skwrapper] servers
+[waze] (start|begin) all [skwrapper] servers from template %string%
+[waze] (stop|end) all [skwrapper] servers
+[waze] (stop|end) all [skwrapper] servers from template %string%
+
+Expressions:
+
+[waze] [number of] online player[s] on bungee[cord]
+[waze] %players%['s] ping [list], [waze] ping [list] of %players%
+[waze] %players%['s] [boss]bar [list], [waze] [boss]bar [list] of %players%
+[waze] %players%['s] disguise [list], [waze] disguise [list] of %players%
+[waze] hologram['s] list, [waze] list of hologram
+[waze] [bungee[cord]] server[s] list, [waze] [bungee[cord]] list of server[s]
+[waze] [bungee[cord]] %player% server", "[waze] [bungee[cord]] server of %player%
+[skwrapper] (global|network) variable [(from|of)] %object%
+
+Events:
+
+[waze] jump[ing]
+[waze] swim[ing]
+[waze] horse jump[ing]
+[waze] advancement [(done|obtained|won)]
+
+Conditions:
+
+holo id %string% exist[s]
+[skwrapper] server %string% is online
+
+Types:
+
+advancement
