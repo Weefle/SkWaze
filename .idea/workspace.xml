@@ -24,7 +24,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Updated version" />
+    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Added Constructor to softdepends">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592682816114</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Constructor to softdepends">
+      <created>1592682948432</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592682948437</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,7 +146,8 @@
     <MESSAGE value="Added Constructor support" />
     <MESSAGE value="Fixed project" />
     <MESSAGE value="Updated version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated version" />
+    <MESSAGE value="Added Constructor to softdepends" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Constructor to softdepends" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1592590184358">
@@ -156,10 +166,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="786" y="141" key="SettingsEditor/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1592599931002" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592682817348">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1592682949817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1592682817348" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1592682949817" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1592591560114">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

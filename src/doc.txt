@@ -16,7 +16,7 @@ Effects:
 [waze] (change|set) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%
 [waze] (clear|remove|delete) sidebar (of|for) %players%
 [waze] (clear|remove|delete) line %integer% (of|from) sidebar (of|for) %players%
-[waze] (make|let) citizen with id %number% build schem[atic] %string% (form|at) %location% (with|at) speed %number% (for|to) %players%
+[waze] (make|let) citizen[s] with id %number% build schem[atic] %string% (form|at) %location% (with|at) speed %number% (for|to) %players%
 [waze] (make|let) citizen[s] with id %number% build (nbt|structure) %string% (from|at) %location% (with|at) speed %number% (for|to) %players%
 [waze] (set|show) tab[list] (with|from) [head[er]] %string% (and|with) [foot[er]] %string% (to|for) %players%
 [waze] (set|show) name[tag] %string% (to|for) %players%
