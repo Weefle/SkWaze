@@ -22,13 +22,11 @@ public class ComApiBukkitHandler implements PluginMessageListener{
 	
 	private Waze instance;
 	private List<String> uuids;
-	private HashMap<String, PluginMessageRequest> pendingRequests;
 	private String channel;
 	
 	public ComApiBukkitHandler(Waze instance, String channel) {
 		this.instance = instance;
 		this.channel = channel;
-		this.pendingRequests = new HashMap<>();
 		this.uuids = new ArrayList<>();
 		
 		Bukkit.getServer().getMessenger().registerOutgoingPluginChannel(instance, channel);
@@ -38,13 +36,6 @@ public class ComApiBukkitHandler implements PluginMessageListener{
 	public void sendMessage(PluginMessage pm) {
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeUTF(pm.encodeData());
-		Bukkit.getServer().sendPluginMessage(instance, channel, out.toByteArray());
-	}
-	
-	public void sendRequest(PluginMessageRequest pmr) {
-		pendingRequests.put(pmr.getUUID(), pmr);
-		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		out.writeUTF(pmr.encodeData());
 		Bukkit.getServer().sendPluginMessage(instance, channel, out.toByteArray());
 	}
 
@@ -84,9 +75,6 @@ public class ComApiBukkitHandler implements PluginMessageListener{
 				}
 				sendMessage(event.getResponse());
 				
-			}else if(pendingRequests.containsKey(pm.getUUID())){
-				pendingRequests.get(pm.getUUID()).onAnswer(pm);
-				pendingRequests.remove(pm.getUUID());
 			}else {
 			Bukkit.getPluginManager().callEvent(new PluginMessageReceiveEvent(instance, pm));
 			}

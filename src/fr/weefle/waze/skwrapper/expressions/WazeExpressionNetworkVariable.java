@@ -3,11 +3,9 @@ package fr.weefle.waze.skwrapper.expressions;
 import ch.njol.util.coll.CollectionUtils;
 import fr.weefle.waze.Waze;
 import fr.weefle.waze.data.PluginMessage;
-import fr.weefle.waze.data.PluginMessageRequest;
 import ch.njol.skript.classes.Changer;
 import javax.annotation.Nullable;
 
-import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import ch.njol.skript.util.StringMode;
 import ch.njol.skript.variables.Variables;
@@ -17,7 +15,6 @@ import ch.njol.util.Kleenean;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.VariableString;
 import ch.njol.skript.lang.Variable;
-import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.util.SimpleExpression;
 
 public class WazeExpressionNetworkVariable extends SimpleExpression<Object>

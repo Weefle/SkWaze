@@ -9,9 +9,6 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
-import fr.weefle.waze.data.PluginMessage;
-import fr.weefle.waze.data.PluginMessageRequest;
 import fr.weefle.waze.skwrapper.BungeeReceiver;
 
 public class WazeExpressionPlayerServer extends SimpleExpression<String> {
