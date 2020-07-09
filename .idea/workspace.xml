@@ -24,14 +24,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkWaze.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SkWaze.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/ComApiBukkitHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/data/ComApiBukkitHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/PluginMessageRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/BungeeCache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionPlayerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionPlayerServer.java" afterDir="false" />
+    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fixed useless code">
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594280951902</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed useless code">
+      <created>1594306050808</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1594306050808</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,7 +170,8 @@
     <MESSAGE value="Added Constructor to softdepends" />
     <MESSAGE value="Fixed error" />
     <MESSAGE value="Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
+    <MESSAGE value="Fixed useless code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed useless code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1592590184358">
@@ -192,10 +194,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="786" y="141" key="SettingsEditor/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1594301646848" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1594280957637">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1594306052099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1594280957637" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1594306052099" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1592591560114">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
