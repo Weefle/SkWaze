@@ -22,7 +22,7 @@ public class WazeExpressionBungeeServerList extends SimpleExpression<String> {
 		@Override
 		public boolean isSingle() {
 			// TODO Auto-generated method stub
-			return false;
+			return true;
 		}
 
 		@Override

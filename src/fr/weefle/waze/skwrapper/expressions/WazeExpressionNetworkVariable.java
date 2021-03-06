@@ -6,6 +6,7 @@ import fr.weefle.waze.data.PluginMessage;
 import ch.njol.skript.classes.Changer;
 import javax.annotation.Nullable;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import ch.njol.skript.util.StringMode;
 import ch.njol.skript.variables.Variables;
@@ -39,6 +40,7 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
         if (!((Variable)e[0]).isList()) {
             this.variable = (Variable)e[0];
             final String var = this.variable.toString().substring(1, this.variable.toString().length() - 1);
+            //Bukkit.getLogger().warning(var);
             this.variableString = VariableString.newInstance(var, StringMode.VARIABLE_NAME);
             return true;
         }
@@ -62,7 +64,8 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
         if (mode == Changer.ChangeMode.SET) {
             PluginMessage pm = new PluginMessage("SkWrapper-network-variable-set");
             pm.setData("ID", ID);
-            pm.setData("value", delta[0].toString());
+            //Bukkit.getLogger().warning(Waze.getInstance().getSerializableManager().serialize(delta[0]));
+            pm.setData("value", Waze.getInstance().getSerializableManager().serialize(delta[0]));
             Waze.getComApi().sendMessage(pm);
         }
         else if (mode == Changer.ChangeMode.RESET || mode == Changer.ChangeMode.DELETE) {

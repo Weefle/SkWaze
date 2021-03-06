@@ -2,6 +2,7 @@ package fr.weefle.waze;
 
 import java.io.IOException;
 
+import fr.weefle.waze.data.SerializableManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,10 +15,12 @@ public class Waze extends JavaPlugin {
 	
 	public static Waze instance;
 	private ComApiBukkitHandler handler;
+	private SerializableManager serializableManager;
 	
 	@Override
 	public void onEnable() {
 		instance = this;
+		this.serializableManager = new SerializableManager();
 		handler = new ComApiBukkitHandler(instance, "bungeecord:skwrapper");
 		//new DiscordRegister("token");
 		//Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
@@ -49,6 +52,10 @@ public class Waze extends JavaPlugin {
 	public static ComApiBukkitHandler getComApi() {
 		return instance.handler;
 		
+	}
+
+	public SerializableManager getSerializableManager(){
+		return this.serializableManager;
 	}
 
 	public static Waze getInstance() {

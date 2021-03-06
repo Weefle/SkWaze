@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import fr.weefle.waze.Waze;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -26,7 +27,7 @@ public class BungeeReceiver implements Listener {
 		PluginMessage pm = e.getMessage();
 		if(pm.getType().equalsIgnoreCase("SkWrapper-update-variables")) { 
         	String ID = pm.getData("ID");
-        	Object value = pm.getData("value");
+        	Object value = Waze.getInstance().getSerializableManager().deserialize(pm.getData("value"));
         	//Bukkit.getLogger().warning(ID + " : " + value);
         	Variables.setVariable(ID, value, (Event)null, false);
 	         }
@@ -63,9 +64,7 @@ public class BungeeReceiver implements Listener {
 			serverson.remove(server);
 			}
 		     }
-	        else {
-	        	return;
-	        }
+
 	        }
 	
 	}

@@ -22,7 +22,7 @@ public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<Inte
 		@Override
 		public boolean isSingle() {
 			// TODO Auto-generated method stub
-			return false;
+			return true;
 		}
 
 		@Override
