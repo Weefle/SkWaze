@@ -24,17 +24,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fixed useless code">
-      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/data/SerializableManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SkWaze_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SkWaze_jar.xml" afterDir="false" />
+    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fixes">
+      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/data/PluginMessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/BungeeCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkWaze.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SkWaze.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/BungeeReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/BungeeReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeOnlineCountGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeOnlineCountGlobal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeServerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeServerList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionPlayerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionPlayerServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/ComApiBukkitHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/data/ComApiBukkitHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +96,15 @@
       <workItem from="1614977893742" duration="5000" />
       <workItem from="1614983547734" duration="1809000" />
       <workItem from="1614985741465" duration="651000" />
-      <workItem from="1614986834646" duration="2779000" />
+      <workItem from="1614986834646" duration="2831000" />
+      <workItem from="1615032428177" duration="1051000" />
+      <workItem from="1615058656324" duration="2000" />
+      <workItem from="1615215704628" duration="3747000" />
+      <workItem from="1615328122411" duration="1076000" />
+      <workItem from="1615330049451" duration="62000" />
+      <workItem from="1615330338721" duration="78000" />
+      <workItem from="1615330647874" duration="118000" />
+      <workItem from="1615330937349" duration="466000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed 1.15 errors">
       <created>1592425240537</created>
@@ -174,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594306050808</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixes">
+      <created>1614989858353</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1614989858353</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +212,7 @@
     <MESSAGE value="Fixed error" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Fixed useless code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed useless code" />
+    <MESSAGE value="Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
   </component>
 </project>
