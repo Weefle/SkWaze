@@ -25,10 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fixes">
-      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/data/PluginMessageRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/BungeeCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/ComApiBukkitHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/data/ComApiBukkitHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +68,23 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="fr.weefle.waze.skwrapper.events" />
       <recent name="fr.weefle.waze.utils" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -105,6 +119,7 @@
       <workItem from="1615330338721" duration="78000" />
       <workItem from="1615330647874" duration="118000" />
       <workItem from="1615330937349" duration="466000" />
+      <workItem from="1615506195566" duration="663000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed 1.15 errors">
       <created>1592425240537</created>
