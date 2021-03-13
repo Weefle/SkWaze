@@ -24,9 +24,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fixes">
-      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" afterDir="false" />
+    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Added Player Join SkWrapper Server Event, Toggle Swim Event">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/BungeeReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/BungeeReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/BungeeCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/BungeeCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,20 +74,6 @@
       <recent name="fr.weefle.waze.utils" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -119,7 +107,12 @@
       <workItem from="1615330338721" duration="78000" />
       <workItem from="1615330647874" duration="118000" />
       <workItem from="1615330937349" duration="466000" />
-      <workItem from="1615506195566" duration="663000" />
+      <workItem from="1615506195566" duration="1030000" />
+      <workItem from="1615550961446" duration="175000" />
+      <workItem from="1615573578743" duration="889000" />
+      <workItem from="1615578558956" duration="391000" />
+      <workItem from="1615579795590" duration="2833000" />
+      <workItem from="1615583017934" duration="2023000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed 1.15 errors">
       <created>1592425240537</created>
@@ -198,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614989858353</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added Player Join SkWrapper Server Event, Toggle Swim Event">
+      <created>1615507236862</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1615507236862</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +228,7 @@
     <MESSAGE value="Fix" />
     <MESSAGE value="Fixed useless code" />
     <MESSAGE value="Fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
+    <MESSAGE value="Added Player Join SkWrapper Server Event, Toggle Swim Event" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Player Join SkWrapper Server Event, Toggle Swim Event" />
   </component>
 </project>

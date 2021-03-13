@@ -2,18 +2,13 @@ package fr.weefle.waze.skwrapper.events;
 
 import fr.weefle.waze.data.PluginMessage;
 import fr.weefle.waze.data.events.PluginMessageReceiveEvent;
-import java.util.HashMap;
-import java.util.Map;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Cancellable;
-import org.bukkit.event.Event;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.HandlerList;
-import org.bukkit.event.Listener;
+import org.bukkit.event.*;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.HashMap;
 
 public class PlayerJoinServerEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
@@ -36,7 +31,7 @@ public class PlayerJoinServerEvent extends Event implements Cancellable {
     }
 
     public String getServer() {
-        return (String)((Map.Entry)this.servers.entrySet().iterator().next()).getValue();
+        return this.servers.entrySet().iterator().next().getValue();
     }
 
     private static class PlayerJoinServerEventListener implements Listener {
@@ -49,6 +44,7 @@ public class PlayerJoinServerEvent extends Event implements Cancellable {
                 String player = pm.getData("player");
                 String server = pm.getData("server");
                 Player p = Bukkit.getPlayer(player);
+                //Bukkit.getLogger().warning("Connect Event: " + p + "->" + server);
                 this.servers.put(p, server);
                 Bukkit.getPluginManager().callEvent(new PlayerJoinServerEvent(p, this.servers));
             }

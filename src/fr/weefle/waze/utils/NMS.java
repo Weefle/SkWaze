@@ -51,7 +51,7 @@ public class NMS {
 	private SideBar sidebar;
 	private AutoRespawnAPI autorespawn;
 	private HologramAPI holograms;
-	//private BungeeCache bungee;
+	private BungeeCache bungee;
 
 	public boolean isSet() {
 		instance = this;
@@ -307,8 +307,7 @@ public class NMS {
 		return instance;
 	}
 
-/*public BungeeCache getBungee() {
+public BungeeCache getBungee() {
 	return bungee;
-}*/
-
+}
 }
