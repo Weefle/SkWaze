@@ -11,6 +11,7 @@ import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
 import fr.weefle.waze.Waze;
 import fr.weefle.waze.conditions.WazeConditionHologram;
+import fr.weefle.waze.discord.MessageListener;
 import fr.weefle.waze.effects.*;
 import fr.weefle.waze.events.PlayerJumpEvent;
 import fr.weefle.waze.events.PlayerSwimEvent;
@@ -28,6 +29,7 @@ import fr.weefle.waze.skwrapper.expressions.WazeExpressionBungeeOnlineCountGloba
 import fr.weefle.waze.skwrapper.expressions.WazeExpressionBungeeServerList;
 import fr.weefle.waze.skwrapper.expressions.WazeExpressionNetworkVariable;
 import fr.weefle.waze.skwrapper.expressions.WazeExpressionPlayerServer;
+import net.dv8tion.jda.api.JDABuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.advancement.Advancement;
 import org.bukkit.entity.AbstractHorse;
@@ -242,7 +244,7 @@ public class NMS {
 			Waze.getInstance().getLogger().info("Citizens and Constructor setup was successful!");
 		}
 		else {
-			Waze.getInstance().getLogger().severe("Failed to setup Citizens and Builder! do you have both installed?");
+			Waze.getInstance().getLogger().severe("Failed to setup Citizens and Builder/Constructor! do you have both installed?");
 		}
 		if(Bukkit.getServer().getPluginManager().getPlugin("BossBarAPI") != null) {
 			Skript.registerEffect(WazeEffectBossBarCreateOld.class, "[waze] 1.8 (create|send) [boss]bar %string% (with|at) %integer% percent[s] (to|for) %players%");
@@ -255,15 +257,10 @@ public class NMS {
 			Skript.registerEffect(WazeEffectBossBarRemove.class, "[waze] (remove|delete|clear) [boss]bar with id %string% (of|for) %players%");
 			Waze.getInstance().getLogger().severe("Failed to setup BossBarAPI! activating 1.9 Weefle BossBar API!");
 		}
-	/*if(Bukkit.getServer().getPluginManager().getPlugin("Discord-ProgramBot-API") != null) {
-		discord = new DiscordRegister(main);
-		bot = new Bot("idofthebothere", "[Wazea]");
-		discord.initialiseBot(bot);
-		//bot.addCommand(new PingCommand());
-		main.getLogger().info("Discord-ProgramBot-API setup was successful!");
-	}else {
-		main.getLogger().severe("Failed to setup Discord-ProgramBot-API!");
-	}*/
+
+		//TODO discord support
+		//new MessageListener();
+
 		return true;
 	}
 
