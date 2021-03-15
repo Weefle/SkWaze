@@ -64,7 +64,7 @@ public class Waze extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		ConsolePrinter.print("Starting Waze... Keep in mind you always have to use the same version of BungeeBridgeS(Bungeecord) and Waze(Spigot)!");
+		ConsolePrinter.print("Starting Socket System... Keep in mind you always have to use the same version of SkWrapper(Bungeecord) and SkWaze(Spigot)!");
 		instance = this;
 		enable();
 		this.getCommand("packetmanager").setExecutor(new CommandPacketManager());

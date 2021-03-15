@@ -24,14 +24,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Updated to use packet">
-      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/discord/MessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SkWaze_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SkWaze_jar.xml" afterDir="false" />
+    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fix + discord support">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkWaze.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SkWaze.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/discord/DiscordRegister.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/discord/PingCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/ConsolePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/ConsolePrinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +126,7 @@
       <workItem from="1615812218915" duration="1894000" />
       <workItem from="1615818050462" duration="1833000" />
       <workItem from="1615820011664" duration="471000" />
+      <workItem from="1615820677152" duration="862000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed 1.15 errors">
       <created>1592425240537</created>
@@ -237,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615812266038</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fix + discord support">
+      <created>1615820766039</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1615820766039</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +273,7 @@
     <MESSAGE value="Added Player Join SkWrapper Server Event, Toggle Swim Event" />
     <MESSAGE value="Fixed version" />
     <MESSAGE value="Updated to use packet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated to use packet" />
+    <MESSAGE value="Fix + discord support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix + discord support" />
   </component>
 </project>

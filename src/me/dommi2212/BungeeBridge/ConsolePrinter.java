@@ -11,7 +11,7 @@ import org.bukkit.Bukkit;
 public class ConsolePrinter {
 	
 	/** Specifies the prefix. */
-	private static final String prefix = "[BungeeBridgeC] ";
+	private static final String prefix = "[SkWaze] ";
 	
 	/** Logger used to send messages to the console. */
 	private static Logger logger = Bukkit.getLogger();
