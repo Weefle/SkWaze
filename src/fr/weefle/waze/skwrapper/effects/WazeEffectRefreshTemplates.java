@@ -1,20 +1,18 @@
 package fr.weefle.waze.skwrapper.effects;
 
-import org.bukkit.event.Event;
-
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
-import fr.weefle.waze.data.PluginMessage;
+import me.dommi2212.BungeeBridge.packets.PacketCustom;
+import org.bukkit.event.Event;
 
 public class WazeEffectRefreshTemplates extends Effect {
 
 protected void execute(Event event)
 {
-	PluginMessage pm = new PluginMessage("SkWrapper-refresh");
-	Waze.getComApi().sendMessage(pm);
+    PacketCustom packet = new PacketCustom("SkWrapper-refresh", null);
+    packet.send();
 }
 
 public String toString(Event event, boolean bool)

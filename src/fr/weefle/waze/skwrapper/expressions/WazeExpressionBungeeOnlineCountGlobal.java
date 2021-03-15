@@ -2,6 +2,7 @@ package fr.weefle.waze.skwrapper.expressions;
 
 import javax.annotation.Nullable;
 
+import me.dommi2212.BungeeBridge.packets.PacketGetOnlineCountGlobal;
 import org.bukkit.event.Event;
 
 import ch.njol.skript.lang.Expression;
@@ -39,6 +40,6 @@ public class WazeExpressionBungeeOnlineCountGlobal extends SimpleExpression<Inte
 		@Override
 		@Nullable
 		protected Integer[] get(Event arg0) {
-					return new Integer[]{ BungeeReceiver.onlineCount };
+					return new Integer[]{(Integer)new PacketGetOnlineCountGlobal().send()};
 	}
 		}

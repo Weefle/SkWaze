@@ -1,6 +1,8 @@
 package fr.weefle.waze.skwrapper.conditions;
 
 import javax.annotation.Nullable;
+
+import me.dommi2212.BungeeBridge.packets.PacketIsServerOnline;
 import org.bukkit.event.Event;
 import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
@@ -27,11 +29,7 @@ public class WazeConditionIsServerOnline extends Condition{
 
 	@Override
 	public boolean check(Event arg0) {
-		if(BungeeReceiver.serverson.contains(server.getSingle(arg0))) {
-			return true;
-		}else {
-		return false;
-		}
+		return (Boolean) new PacketIsServerOnline(server.getSingle(arg0)).send();
 	}
 
 }

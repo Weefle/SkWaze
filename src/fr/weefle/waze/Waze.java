@@ -3,7 +3,7 @@ package fr.weefle.waze;
 import java.io.File;
 import java.io.IOException;
 
-import fr.weefle.waze.data.SerializableManager;
+import fr.weefle.waze.utils.SerializableManager;
 import me.dommi2212.BungeeBridge.*;
 import me.dommi2212.BungeeBridge.events.listeners.ListenerChat;
 import me.dommi2212.BungeeBridge.events.listeners.ListenerCommand;
@@ -14,8 +14,6 @@ import me.dommi2212.BungeeBridge.util.ServerRunningResult;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import fr.weefle.waze.data.ComApiBukkitHandler;
 import fr.weefle.waze.utils.Metrics;
 import fr.weefle.waze.utils.NMS;
 import fr.weefle.waze.utils.Updater;
@@ -23,8 +21,7 @@ import fr.weefle.waze.utils.Updater;
 public class Waze extends JavaPlugin {
 	
 	public static Waze instance;
-	private ComApiBukkitHandler handler;
-	private SerializableManager serializableManager;
+	public SerializableManager serializableManager;
 
 	/** The unique bungeename of this server. Obtained by sending PacketServerRunning. */
 	public static String bungeename = "";
@@ -66,6 +63,7 @@ public class Waze extends JavaPlugin {
 	public void onEnable() {
 		ConsolePrinter.print("Starting Socket System... Keep in mind you always have to use the same version of SkWrapper(Bungeecord) and SkWaze(Spigot)!");
 		instance = this;
+		serializableManager = new SerializableManager();
 		enable();
 		this.getCommand("packetmanager").setExecutor(new CommandPacketManager());
 		registerListeners();
@@ -92,8 +90,6 @@ public class Waze extends JavaPlugin {
 		} else {
 			handleServerRunningError(result.getErrorCode());
 		}
-		this.serializableManager = new SerializableManager();
-		handler = new ComApiBukkitHandler(instance, "bungeecord:skwrapper");
 		//new DiscordRegister("token");
 		//Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		NMS nms = new NMS();
@@ -126,11 +122,6 @@ public class Waze extends JavaPlugin {
 		PacketServerStopping stoppacket = new PacketServerStopping(bungeename);
 		stoppacket.send();
 		instance = null;
-	}
-
-	public static ComApiBukkitHandler getComApi() {
-		return instance.handler;
-		
 	}
 
 	private void enable() {
@@ -254,19 +245,8 @@ public class Waze extends JavaPlugin {
 	 * Gets the interval in seconds to send PacketKeepAlives automatically.
 	 *
 	 * @return The updateinterval in seconds.
-	 * @deprecated as of version 1.6.0! Reason: Misspelled method-name. Use {@link BungeeBridgeC#getUpdateinterval()} instead.
 	 */
-	@Deprecated
-	public static int getUpdateintervall() {
-		return updateinterval;
-	}
-
-	/**
-	 * Gets the interval in seconds to send PacketKeepAlives automatically.
-	 *
-	 * @return The updateinterval in seconds.
-	 */
-	public static int getUpdateinterval() {
+	public static int getUpdateInterval() {
 		return updateinterval;
 	}
 
@@ -279,12 +259,12 @@ public class Waze extends JavaPlugin {
 		return loggerenabled;
 	}
 
-	public SerializableManager getSerializableManager(){
-		return this.serializableManager;
-	}
-
 	public static Waze getInstance() {
 		return instance;
+	}
+
+	public SerializableManager getSerializableManager(){
+		return this.serializableManager;
 	}
 
 }

@@ -1,4 +1,4 @@
-package fr.weefle.waze.data;
+package fr.weefle.waze.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -24,9 +24,33 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fix + discord support">
+    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fixed name">
+      <change afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/SerializableManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/ConsolePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/ConsolePrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/ComApiBukkitHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/ComData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/PluginMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/PluginMessageRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/SerializableManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/events/PluginMessageReceiveEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/data/events/PluginMessageRequestReceiveEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/BungeeReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/BungeeReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/SkWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/SkWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/conditions/WazeConditionIsServerOnline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/conditions/WazeConditionIsServerOnline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectBungeeConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectBungeeConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectRefreshTemplates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectRefreshTemplates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStartAllServers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStartAllServers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStartAllServersFrom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStartAllServersFrom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStopAllServers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStopAllServers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStopAllServersFrom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStopAllServersFrom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStopProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/effects/WazeEffectStopProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeOnlineCountGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeOnlineCountGlobal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeServerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeServerList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionPlayerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionPlayerServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +151,24 @@
       <workItem from="1615818050462" duration="1833000" />
       <workItem from="1615820011664" duration="471000" />
       <workItem from="1615820677152" duration="862000" />
+      <workItem from="1615822172926" duration="77000" />
+      <workItem from="1615822349083" duration="45000" />
+      <workItem from="1615839422261" duration="94000" />
+      <workItem from="1615839812520" duration="119000" />
+      <workItem from="1615839950941" duration="634000" />
+      <workItem from="1615841236365" duration="560000" />
+      <workItem from="1615841818316" duration="78000" />
+      <workItem from="1615841924094" duration="93000" />
+      <workItem from="1615842185998" duration="48000" />
+      <workItem from="1615842308171" duration="30000" />
+      <workItem from="1615842341142" duration="3000" />
+      <workItem from="1615842782141" duration="283000" />
+      <workItem from="1615843082598" duration="258000" />
+      <workItem from="1615843346074" duration="3000" />
+      <workItem from="1615843398965" duration="168000" />
+      <workItem from="1615843849453" duration="1485000" />
+      <workItem from="1615845484734" duration="211000" />
+      <workItem from="1615845731872" duration="176000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed 1.15 errors">
       <created>1592425240537</created>
@@ -240,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615820766039</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fixed name">
+      <created>1615822241919</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1615822241919</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +323,7 @@
     <MESSAGE value="Fixed version" />
     <MESSAGE value="Updated to use packet" />
     <MESSAGE value="Fix + discord support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix + discord support" />
+    <MESSAGE value="Fixed name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed name" />
   </component>
 </project>

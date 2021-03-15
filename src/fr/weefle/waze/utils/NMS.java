@@ -53,7 +53,6 @@ public class NMS {
 	private SideBar sidebar;
 	private AutoRespawnAPI autorespawn;
 	private HologramAPI holograms;
-	private BungeeCache bungee;
 
 	public boolean isSet() {
 		instance = this;
@@ -137,7 +136,6 @@ public class NMS {
 		PlayerSwimEvent.register(Waze.getInstance());
 		PlayerJoinServerEvent.register(Waze.getInstance());
 		Bukkit.getServer().getPluginManager().registerEvents(new UpdaterListener(), Waze.getInstance());
-		Bukkit.getServer().getPluginManager().registerEvents(new BungeeReceiver(), Waze.getInstance());
 		Skript.registerAddon(Waze.getInstance());
 		Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]");
 		Skript.registerEffect(WazeEffectActionBar.class, "[waze] (send|create) action[bar] %string% (to|for) %players%");
@@ -179,7 +177,6 @@ public class NMS {
 				return horseJumpEvent.getEntity();
 			}
 		},  0);
-		//bungee = new BungeeCache(Waze.getInstance());
 
 		Skript.registerExpression(WazeExpressionBungeeOnlineCountGlobal.class, Integer.class, ExpressionType.PROPERTY, "[waze] [number of] online player[s] on bungee[cord]");
 		Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
@@ -303,8 +300,4 @@ public class NMS {
 	public static NMS getInstance() {
 		return instance;
 	}
-
-public BungeeCache getBungee() {
-	return bungee;
-}
 }

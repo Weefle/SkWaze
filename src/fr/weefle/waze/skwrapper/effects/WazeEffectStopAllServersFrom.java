@@ -1,13 +1,13 @@
 package fr.weefle.waze.skwrapper.effects;
 
-import javax.annotation.Nullable;
-import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
-import fr.weefle.waze.data.PluginMessage;
+import me.dommi2212.BungeeBridge.packets.PacketCustom;
+import org.bukkit.event.Event;
+
+import javax.annotation.Nullable;
 
 public class WazeEffectStopAllServersFrom extends Effect{
 	
@@ -27,10 +27,12 @@ public class WazeEffectStopAllServersFrom extends Effect{
 
 	@Override
 	protected void execute(Event arg0) {
-		
-		PluginMessage pm = new PluginMessage("SkWrapper-stop-all-from");
-		pm.setData("template", template.getSingle(arg0));
-		Waze.getComApi().sendMessage(pm);
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(template.getSingle(arg0));
+		String str = sb.toString();
+		PacketCustom packet = new PacketCustom("SkWrapper-stop-all-from", (Object) str);
+		packet.send();
 		
 	}
 

@@ -2,6 +2,8 @@ package fr.weefle.waze.skwrapper.expressions;
 
 import javax.annotation.Nullable;
 
+import me.dommi2212.BungeeBridge.packets.PacketGetOnlineCountGlobal;
+import me.dommi2212.BungeeBridge.packets.PacketGetServerByPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -10,6 +12,8 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import fr.weefle.waze.skwrapper.BungeeReceiver;
+
+import java.util.Objects;
 
 public class WazeExpressionPlayerServer extends SimpleExpression<String> {
 	
@@ -43,7 +47,7 @@ public class WazeExpressionPlayerServer extends SimpleExpression<String> {
 		@Nullable
 		protected String[] get(Event arg0) {	
 	
-						return new String[]{ BungeeReceiver.servers.get(player.getSingle(arg0)) };
+						return new String[]{(String)new PacketGetServerByPlayer(Objects.requireNonNull(player.getSingle(arg0)).getUniqueId()).send() };
 
 	}
 		}

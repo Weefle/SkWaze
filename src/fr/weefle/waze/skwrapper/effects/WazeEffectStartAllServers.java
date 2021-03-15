@@ -1,13 +1,13 @@
 package fr.weefle.waze.skwrapper.effects;
 
-import javax.annotation.Nullable;
-import org.bukkit.event.Event;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
-import fr.weefle.waze.data.PluginMessage;
+import me.dommi2212.BungeeBridge.packets.PacketCustom;
+import org.bukkit.event.Event;
+
+import javax.annotation.Nullable;
 
 public class WazeEffectStartAllServers extends Effect{
 
@@ -23,9 +23,9 @@ public class WazeEffectStartAllServers extends Effect{
 
 	@Override
 	protected void execute(Event arg0) {
-		
-		PluginMessage pm = new PluginMessage("SkWrapper-start-all");
-		Waze.getComApi().sendMessage(pm);
+
+		PacketCustom packet = new PacketCustom("SkWrapper-start-all", null);
+		packet.send();
 		
 	}
 

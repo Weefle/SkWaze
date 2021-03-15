@@ -1,10 +1,11 @@
 package fr.weefle.waze.skwrapper.events;
 
-import fr.weefle.waze.data.PluginMessage;
-import fr.weefle.waze.data.events.PluginMessageReceiveEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.*;
+import org.bukkit.event.Cancellable;
+import org.bukkit.event.Event;
+import org.bukkit.event.HandlerList;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -37,7 +38,7 @@ public class PlayerJoinServerEvent extends Event implements Cancellable {
     private static class PlayerJoinServerEventListener implements Listener {
         private final HashMap<Player, String> servers = new HashMap<>();
 
-        @EventHandler(priority = EventPriority.MONITOR)
+        /*@EventHandler(priority = EventPriority.MONITOR)
         public void onPlayerJoinServer(PluginMessageReceiveEvent e) {
             PluginMessage pm = e.getMessage();
             if (pm.getType().equalsIgnoreCase("SkWrapper-player-server-connect")) {
@@ -48,7 +49,7 @@ public class PlayerJoinServerEvent extends Event implements Cancellable {
                 this.servers.put(p, server);
                 Bukkit.getPluginManager().callEvent(new PlayerJoinServerEvent(p, this.servers));
             }
-        }
+        }*/
 
         private PlayerJoinServerEventListener() {}
     }

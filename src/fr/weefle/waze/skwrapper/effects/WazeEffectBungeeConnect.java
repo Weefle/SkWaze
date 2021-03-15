@@ -1,14 +1,12 @@
 package fr.weefle.waze.skwrapper.effects;
 
-import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.Waze;
-import fr.weefle.waze.data.PluginMessage;
+import me.dommi2212.BungeeBridge.packets.PacketConnectPlayer;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 
 public class WazeEffectBungeeConnect extends Effect {
 	
@@ -27,23 +25,8 @@ protected void execute(Event event)
 
 public void connect(Player p, String srv)
 {
-	
-	PluginMessage pm = new PluginMessage("SkWrapper-connect");
-	pm.setData("player", p.getName());
-	pm.setData("server", srv);
-	Waze.getComApi().sendMessage(pm);
-	/*PacketConnectPlayer packet = new PacketConnectPlayer(p.getUniqueId(), srv);
-	packet.send();*/
-	
-  /*ByteArrayOutputStream b = new ByteArrayOutputStream();
-  DataOutputStream out = new DataOutputStream(b);
-  try
-  {
-    out.writeUTF("Connect");
-    out.writeUTF(srv);
-  }
-  catch (IOException localIOException) {}
-  p.sendPluginMessage(Waze.getInstance(), "BungeeCord", b.toByteArray());*/
+	PacketConnectPlayer packet = new PacketConnectPlayer(p.getUniqueId(), srv);
+	packet.send();
 }
 
 public String toString(Event event, boolean bool)

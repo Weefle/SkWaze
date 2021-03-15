@@ -1,22 +1,21 @@
 package fr.weefle.waze.skwrapper.expressions;
 
-import ch.njol.util.coll.CollectionUtils;
-import fr.weefle.waze.Waze;
-import fr.weefle.waze.data.PluginMessage;
+import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
-import javax.annotation.Nullable;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.Event;
+import ch.njol.skript.lang.Expression;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.Variable;
+import ch.njol.skript.lang.VariableString;
+import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.skript.util.StringMode;
 import ch.njol.skript.variables.Variables;
-import ch.njol.skript.Skript;
-import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import ch.njol.skript.lang.Expression;
-import ch.njol.skript.lang.VariableString;
-import ch.njol.skript.lang.Variable;
-import ch.njol.skript.lang.util.SimpleExpression;
+import ch.njol.util.coll.CollectionUtils;
+import fr.weefle.waze.Waze;
+import me.dommi2212.BungeeBridge.packets.PacketCustom;
+import org.bukkit.event.Event;
+
+import javax.annotation.Nullable;
 
 public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
 {
@@ -62,16 +61,20 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
     public void change(final Event e, final Object[] delta, final Changer.ChangeMode mode) {
         final String ID = this.variableString.toString(e);
         if (mode == Changer.ChangeMode.SET) {
-            PluginMessage pm = new PluginMessage("SkWrapper-network-variable-set");
-            pm.setData("ID", ID);
-            //Bukkit.getLogger().warning(Waze.getInstance().getSerializableManager().serialize(delta[0]));
-            pm.setData("value", Waze.getInstance().getSerializableManager().serialize(delta[0]));
-            Waze.getComApi().sendMessage(pm);
+            StringBuilder sb = new StringBuilder();
+            sb.append(ID);
+            sb.append(" ");
+            sb.append(delta[0]);
+            String str = sb.toString();
+            PacketCustom packet = new PacketCustom("SkWrapper-network-variable-set", str);
+            Variables.setVariable(ID, packet.send(), null, false);
         }
         else if (mode == Changer.ChangeMode.RESET || mode == Changer.ChangeMode.DELETE) {
-        	PluginMessage pm = new PluginMessage("SkWrapper-network-variable-reset");
-            pm.setData("ID", ID);
-            Waze.getComApi().sendMessage(pm); 
+            StringBuilder sb = new StringBuilder();
+            sb.append(ID);
+            String str = sb.toString();
+            PacketCustom packet = new PacketCustom("SkWrapper-network-variable-reset", str);
+            Variables.setVariable(ID, packet.send(), null, false);
         }
     }
     
