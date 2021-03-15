@@ -100,7 +100,7 @@ public class PacketSubscriptionManager {
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
 		
 		for(CommandSender cs : subMap.get(type)) {
-			cs.sendMessage("§7[§6BungeeBridgeC§7] " + format.format(date) + " | Sent packet: §6" + type + " (" + type.getId() + ")");
+			cs.sendMessage("[SkWrapper] " + format.format(date) + " | Sent packet: " + type + " (" + type.getId() + ")");
 		}
 	}
 	

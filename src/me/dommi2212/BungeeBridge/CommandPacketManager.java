@@ -16,44 +16,44 @@ public class CommandPacketManager implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender cs, Command cmd, String label, String[] args) {
 		if(!cs.hasPermission("bungeebridge.packetmanager")) {
-			cs.sendMessage("�cYou don't have the permission to use this command!");
+			cs.sendMessage("You don't have the permission to use this command!");
 			return false;
 		}
 		if(!Waze.isLoggerEnabled()) {
-			cs.sendMessage("�cThe packetlogger/packetmanager is disabled! Change this setting in your config.yml and try again!");
+			cs.sendMessage("The packetlogger/packetmanager is disabled! Change this setting in your config.yml and try again!");
 			return false;
 		}
 		if(args.length == 0) {
-			cs.sendMessage("�cSyntax: /PacketMan List|Notify [args...]");
+			cs.sendMessage("Syntax: /PacketMan List|Notify [args...]");
 		} else if(args.length == 1) {
 			if(args[0].equalsIgnoreCase("list")) {
-				cs.sendMessage("�7Packets sent since last restart/reload:");
+				cs.sendMessage("Packets sent since last restart/reload:");
 				for(BungeePacketType type : BungeePacketType.values()) {
 					TypeCountEntry entry = TypeCountEntry.getByType(type);
 					if(entry.getCount() > 0) {
-						cs.sendMessage("�7" + type + " �7(�6" + entry.getCount() + "�7)");
+						cs.sendMessage(type + " (" + entry.getCount() + ")");
 					}
 				}
-			} else if(args[0].equalsIgnoreCase("notify")) cs.sendMessage("�cSyntax: /PacketMan Notify <IDs>");
-			else cs.sendMessage("�cSyntax: /PacketMan List|Notify [args...]");
+			} else if(args[0].equalsIgnoreCase("notify")) cs.sendMessage("Syntax: /PacketMan Notify <IDs>");
+			else cs.sendMessage("Syntax: /PacketMan List|Notify [args...]");
 		} else if(args.length == 2) {
 			if(args[0].equalsIgnoreCase("notify")) {			
 				try {
 					List<BungeePacketType> types = PacketSubscriptionManager.getPacketsByString(args[1]);
-					if(types.isEmpty()) cs.sendMessage("�cPlease provide atleast one id!");
+					if(types.isEmpty()) cs.sendMessage("Please provide atleast one id!");
 					PacketSubscriptionManager.setSubscriptions(cs, types);
 				} catch (InvalidFormatException e) {
 					if(e.getMessage().equalsIgnoreCase("Invalid Format!")) {
-						cs.sendMessage("�cFormat: �4ID �cOR �4ID,ID,ID,... �cOR �4ID-ID �cOR �4ID,ID,ID-ID,ID-ID,...");
+						cs.sendMessage("Format: ID OR ID,ID,ID,... OR ID-ID OR ID,ID,ID-ID,ID-ID,...");
 					} else if(e.getMessage().equalsIgnoreCase("Unknown packet!")) {
-						cs.sendMessage("�cThere is no packet by this id!");
+						cs.sendMessage("There is no packet by this id!");
 					} else if(e.getMessage().equalsIgnoreCase("Invalid character(s)!")) {
-						cs.sendMessage("�cOnly numeric characters allowed!");
+						cs.sendMessage("Only numeric characters allowed!");
 					} else throw new IllegalArgumentException();
 				}
-			} else if(args[0].equalsIgnoreCase("list")) cs.sendMessage("�cSyntax: /PacketMan List");
-			else cs.sendMessage("�cSyntax: /PacketMan List|Notify [args...]");
-		} else cs.sendMessage("�cSyntax: /PacketMan List|Notify [args...]");
+			} else if(args[0].equalsIgnoreCase("list")) cs.sendMessage("Syntax: /PacketMan List");
+			else cs.sendMessage("Syntax: /PacketMan List|Notify [args...]");
+		} else cs.sendMessage("Syntax: /PacketMan List|Notify [args...]");
 		
 		return true;
 	}
