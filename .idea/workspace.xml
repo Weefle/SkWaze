@@ -24,8 +24,66 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Added Player Join SkWrapper Server Event, Toggle Swim Event">
+    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fixed version">
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/BungeePacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/BungeePacketType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/CommandPacketManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/ConfigManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/ConfigUpdater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/ConsolePrinter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/InvalidFormatException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/PackedTitle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/PacketFailSendException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/PacketSubscriptionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/SecurityMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/TitleMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/TypeCountEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/UnknownPacketException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/WrappedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/events/listeners/ListenerChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/events/listeners/ListenerCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/events/wrapped/WrappedAsyncPlayerChatEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/events/wrapped/WrappedPlayerCommandPreprocessEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketConnectPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketCustom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketFireEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetMOTDServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetOnlineCountGlobal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetOnlineCountServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetPlayerIP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetPlayerName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetPlayerUUID.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetPlayersGlobal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetPlayersServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetServerByPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetServerIP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetServers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketGetSlotsServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketIsPlayerOnline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketIsServerOnline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketKeepAlive.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketKickAllPlayers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketKickPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketMessageAllPlayers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketMessagePlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketRunCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketSendActionbar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketSendAllTitle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketSendTitle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketServerRunning.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketServerStopping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketStopProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketTellraw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketWriteConsole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/util/ConnectResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/util/EncryptionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/util/IsOnlineResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/util/SerializationUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/util/ServerRunningResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +117,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/JDA-4.2.0_168.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -68,6 +126,9 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="fr.weefle.waze.skwrapper.events" />
       <recent name="fr.weefle.waze.utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\weefl\IdeaProjects\SkWaze\src" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -109,7 +170,16 @@
       <workItem from="1615578558956" duration="391000" />
       <workItem from="1615579795590" duration="2833000" />
       <workItem from="1615583017934" duration="2023000" />
-      <workItem from="1615637431067" duration="1314000" />
+      <workItem from="1615637431067" duration="1845000" />
+      <workItem from="1615760684735" duration="2231000" />
+      <workItem from="1615806916761" duration="674000" />
+      <workItem from="1615809482481" duration="20000" />
+      <workItem from="1615809849818" duration="16000" />
+      <workItem from="1615809961549" duration="95000" />
+      <workItem from="1615810686569" duration="323000" />
+      <workItem from="1615811230369" duration="339000" />
+      <workItem from="1615811963001" duration="43000" />
+      <workItem from="1615812034873" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed 1.15 errors">
       <created>1592425240537</created>
@@ -202,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615637496611</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed version">
+      <created>1615641738349</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1615641738349</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +310,7 @@
     <MESSAGE value="Fixed useless code" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="Added Player Join SkWrapper Server Event, Toggle Swim Event" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Player Join SkWrapper Server Event, Toggle Swim Event" />
+    <MESSAGE value="Fixed version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed version" />
   </component>
 </project>
