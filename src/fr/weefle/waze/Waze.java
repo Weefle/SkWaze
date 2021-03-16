@@ -1,9 +1,9 @@
 package fr.weefle.waze;
 
-import java.io.File;
-import java.io.IOException;
-
+import fr.weefle.waze.utils.Metrics;
+import fr.weefle.waze.utils.NMS;
 import fr.weefle.waze.utils.SerializableManager;
+import fr.weefle.waze.utils.Updater;
 import me.dommi2212.BungeeBridge.*;
 import me.dommi2212.BungeeBridge.events.listeners.ListenerChat;
 import me.dommi2212.BungeeBridge.events.listeners.ListenerCommand;
@@ -14,9 +14,9 @@ import me.dommi2212.BungeeBridge.util.ServerRunningResult;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import fr.weefle.waze.utils.Metrics;
-import fr.weefle.waze.utils.NMS;
-import fr.weefle.waze.utils.Updater;
+
+import java.io.File;
+import java.io.IOException;
 
 public class Waze extends JavaPlugin {
 	

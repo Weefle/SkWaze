@@ -1,14 +1,13 @@
 package fr.weefle.waze.skwrapper.conditions;
 
-import javax.annotation.Nullable;
-
-import me.dommi2212.BungeeBridge.packets.PacketIsServerOnline;
-import org.bukkit.event.Event;
 import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.skwrapper.BungeeReceiver;
+import me.dommi2212.BungeeBridge.packets.PacketIsServerOnline;
+import org.bukkit.event.Event;
+
+import javax.annotation.Nullable;
 
 public class WazeConditionIsServerOnline extends Condition{
 	

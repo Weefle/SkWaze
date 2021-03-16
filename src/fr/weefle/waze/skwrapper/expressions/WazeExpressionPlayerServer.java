@@ -1,18 +1,14 @@
 package fr.weefle.waze.skwrapper.expressions;
 
-import javax.annotation.Nullable;
-
-import me.dommi2212.BungeeBridge.packets.PacketGetOnlineCountGlobal;
-import me.dommi2212.BungeeBridge.packets.PacketGetServerByPlayer;
-import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import fr.weefle.waze.skwrapper.BungeeReceiver;
+import me.dommi2212.BungeeBridge.packets.PacketGetServerByPlayer;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 
+import javax.annotation.Nullable;
 import java.util.Objects;
 
 public class WazeExpressionPlayerServer extends SimpleExpression<String> {

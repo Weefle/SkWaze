@@ -2,14 +2,12 @@ package fr.weefle.waze.skwrapper.events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Cancellable;
-import org.bukkit.event.Event;
-import org.bukkit.event.HandlerList;
-import org.bukkit.event.Listener;
+import org.bukkit.event.*;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
+import java.util.StringTokenizer;
 
 public class PlayerJoinServerEvent extends Event implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
@@ -38,12 +36,13 @@ public class PlayerJoinServerEvent extends Event implements Cancellable {
     private static class PlayerJoinServerEventListener implements Listener {
         private final HashMap<Player, String> servers = new HashMap<>();
 
-        /*@EventHandler(priority = EventPriority.MONITOR)
-        public void onPlayerJoinServer(PluginMessageReceiveEvent e) {
-            PluginMessage pm = e.getMessage();
-            if (pm.getType().equalsIgnoreCase("SkWrapper-player-server-connect")) {
-                String player = pm.getData("player");
-                String server = pm.getData("server");
+        /*@EventHandler
+        public void onReceive(CustomPacketReceiveEvent e) {
+            String msg = (String) e.getSubject();
+            if(e.getChannel().equalsIgnoreCase("SkWrapper-player-server-connect")) {
+                StringTokenizer stk = new StringTokenizer(msg);
+                String player = stk.nextToken();
+                String server = stk.nextToken();
                 Player p = Bukkit.getPlayer(player);
                 //Bukkit.getLogger().warning("Connect Event: " + p + "->" + server);
                 this.servers.put(p, server);

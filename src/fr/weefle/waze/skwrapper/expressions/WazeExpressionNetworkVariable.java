@@ -11,7 +11,6 @@ import ch.njol.skript.util.StringMode;
 import ch.njol.skript.variables.Variables;
 import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
-import fr.weefle.waze.Waze;
 import me.dommi2212.BungeeBridge.packets.PacketCustom;
 import org.bukkit.event.Event;
 
