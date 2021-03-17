@@ -26,16 +26,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/BungeeReceiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/conditions/WazeConditionIsServerOnline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/conditions/WazeConditionIsServerOnline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeOnlineCountGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeOnlineCountGlobal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeServerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionBungeeServerList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionPlayerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionPlayerServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/BungeeCache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +41,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="fix" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KotlinMultiplatform">
@@ -57,6 +53,7 @@
   </component>
   <component name="ProjectId" id="1dSYqfuUl9PLjt58xJYP9LsmY3G" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
