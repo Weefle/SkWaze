@@ -19,53 +19,62 @@ import fr.weefle.waze.data.events.PluginMessageReceiveEvent;
 import fr.weefle.waze.data.events.PluginMessageRequestReceiveEvent;
 
 public class ComApiBukkitHandler implements PluginMessageListener{
-	
+
 	private Waze instance;
 	private List<String> uuids;
+	private HashMap<String, PluginMessageRequest> pendingRequests;
 	private String channel;
-	
+
 	public ComApiBukkitHandler(Waze instance, String channel) {
 		this.instance = instance;
 		this.channel = channel;
+		this.pendingRequests = new HashMap<>();
 		this.uuids = new ArrayList<>();
-		
+
 		Bukkit.getServer().getMessenger().registerOutgoingPluginChannel(instance, channel);
 		Bukkit.getServer().getMessenger().registerIncomingPluginChannel(instance, channel, this);
 	}
-	
+
 	public void sendMessage(PluginMessage pm) {
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeUTF(pm.encodeData());
 		Bukkit.getServer().sendPluginMessage(instance, channel, out.toByteArray());
 	}
 
+	public void sendRequest(PluginMessageRequest pmr) {
+		pendingRequests.put(pmr.getUUID(), pmr);
+		ByteArrayDataOutput out = ByteStreams.newDataOutput();
+		out.writeUTF(pmr.encodeData());
+		Bukkit.getServer().sendPluginMessage(instance, channel, out.toByteArray());
+	}
+
 	@Override
 	public void onPluginMessageReceived(String channel, Player player, byte[] content) {
-		
+
 		if(!channel.equalsIgnoreCase(channel)) {
 			return;
-			
+
 		}
 		try {
 			DataInputStream in = new DataInputStream(new ByteArrayInputStream(content));
 			PluginMessage pm = new PluginMessage();
 			pm.decodeData(in.readUTF());
-			
+
 			if(uuids.contains(pm.getUUID())) {
 				return;
 			}
 			uuids.add(pm.getUUID());
-			
+
 			new BukkitRunnable() {
-				
+
 				@Override
 				public void run() {
-					
+
 					uuids.remove(pm.getUUID());
-					
+
 				}
 			}.runTaskLater(instance, 60);
-			
+
 			if(pm.requireResponse()) {
 				PluginMessageRequestReceiveEvent event = new PluginMessageRequestReceiveEvent(instance, pm);
 				Bukkit.getPluginManager().callEvent(event);
@@ -74,18 +83,21 @@ public class ComApiBukkitHandler implements PluginMessageListener{
 					return;
 				}
 				sendMessage(event.getResponse());
-				
+
+			}else if(pendingRequests.containsKey(pm.getUUID())){
+				pendingRequests.get(pm.getUUID()).onAnswer(pm);
+				pendingRequests.remove(pm.getUUID());
 			}else {
-			Bukkit.getPluginManager().callEvent(new PluginMessageReceiveEvent(instance, pm));
+				Bukkit.getPluginManager().callEvent(new PluginMessageReceiveEvent(instance, pm));
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			Bukkit.getLogger().warning("Failed to handle plugin message !");
 		}
-		
+
 	}
-	
-	
+
+
 
 }

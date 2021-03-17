@@ -1,19 +1,17 @@
 package fr.weefle.waze.skwrapper;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-
+import ch.njol.skript.variables.Variables;
 import fr.weefle.waze.Waze;
+import fr.weefle.waze.data.PluginMessage;
+import fr.weefle.waze.data.events.PluginMessageReceiveEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-import ch.njol.skript.variables.Variables;
-import fr.weefle.waze.data.PluginMessage;
-import fr.weefle.waze.data.events.PluginMessageReceiveEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BungeeReceiver implements Listener {
 	
@@ -23,7 +21,7 @@ public class BungeeReceiver implements Listener {
 	public static ArrayList<String> serverson = new ArrayList<>();
 	
 	@EventHandler
-	public void onReceive(PluginMessageReceiveEvent e) throws IOException {
+	public void onReceive(PluginMessageReceiveEvent e) {
 		PluginMessage pm = e.getMessage();
 		if(pm.getType().equalsIgnoreCase("SkWrapper-update-variables")) { 
         	String ID = pm.getData("ID");
@@ -36,7 +34,7 @@ public class BungeeReceiver implements Listener {
 	String server = pm.getData("server");
 	
 	Player p = Bukkit.getPlayer(player);
-	
+	//Bukkit.getLogger().warning("Player Server: " + p + "->" + server);
 	servers.put(p, server);
 	
 	
