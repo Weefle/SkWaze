@@ -25,8 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Added Player Join SkWrapper Server Event, Toggle Swim Event">
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/BungeeCache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/NMS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/events/PlayerJoinServerEvent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
