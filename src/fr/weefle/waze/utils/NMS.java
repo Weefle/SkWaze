@@ -51,7 +51,6 @@ public class NMS {
 	private SideBar sidebar;
 	private AutoRespawnAPI autorespawn;
 	private HologramAPI holograms;
-	private BungeeCache bungee;
 
 	public boolean isSet() {
 		instance = this;
@@ -177,7 +176,6 @@ public class NMS {
 				return horseJumpEvent.getEntity();
 			}
 		},  0);
-		//bungee = new BungeeCache(Waze.getInstance());
 
 		Skript.registerExpression(WazeExpressionBungeeOnlineCountGlobal.class, Integer.class, ExpressionType.PROPERTY, "[waze] [number of] online player[s] on bungee[cord]");
 		Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
@@ -306,8 +304,4 @@ public class NMS {
 	public static NMS getInstance() {
 		return instance;
 	}
-
-public BungeeCache getBungee() {
-	return bungee;
-}
 }
