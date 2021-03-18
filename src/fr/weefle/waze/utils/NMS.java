@@ -22,7 +22,6 @@ import fr.weefle.waze.legacy.*;
 import fr.weefle.waze.nms.*;
 import fr.weefle.waze.skwrapper.conditions.WazeConditionIsServerOnline;
 import fr.weefle.waze.skwrapper.effects.*;
-import fr.weefle.waze.skwrapper.events.PlayerJoinServerEvent;
 import fr.weefle.waze.skwrapper.expressions.WazeExpressionBungeeOnlineCountGlobal;
 import fr.weefle.waze.skwrapper.expressions.WazeExpressionBungeeServerList;
 import fr.weefle.waze.skwrapper.expressions.WazeExpressionNetworkVariable;
@@ -181,7 +180,7 @@ public class NMS {
 		Skript.registerEffect(WazeEffectSendAllTitle.class, "[waze] send network title %string% [with] subtitle %string% (to|for) proxy players (for|to) %integer% second[s]");
 		Skript.registerEffect(WazeEffectSendTitle.class, "[waze] send network title %string% [with] subtitle %string% (to|for) %players% (for|to) %integer% second[s]");
 		Skript.registerEffect(WazeEffectRunProxyCommand.class, "[waze] run proxy command %string%");
-		Skript.registerEffect(WazeEffectSendActionBar.class, "[waze] send network actionbar %string% to proxy players");
+		Skript.registerEffect(WazeEffectSendAllActionBar.class, "[waze] send network actionbar %string% to proxy players");
 		Skript.registerEffect(WazeEffectSendActionBar.class, "[waze] send network actionbar %string% to %players%");
 		Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
 		Skript.registerEffect(WazeEffectRefreshTemplates.class, "[waze] refresh [all] [skwrapper] server templates");
