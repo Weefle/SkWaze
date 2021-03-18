@@ -42,6 +42,13 @@ Effects:
 [waze] (start|begin) all [skwrapper] servers from template %string%
 [waze] (stop|end) all [skwrapper] servers
 [waze] (stop|end) all [skwrapper] servers from template %string%
+[waze] send network message %string% to proxy players
+[waze] send network message %string% to %players%
+[waze] send network title %string% [with] subtitle %string% (to|for) proxy players (for|to) %integer% second[s]
+[waze] send network title %string% [with] subtitle %string% (to|for) %players% (for|to) %integer% second[s]
+[waze] run proxy command %string%
+[waze] send network actionbar %string% to proxy players
+[waze] send network actionbar %string% to %players%
 
 Expressions:
 
@@ -52,7 +59,7 @@ Expressions:
 [waze] hologram['s] list, [waze] list of hologram
 [waze] [bungee[cord]] server[s] list, [waze] [bungee[cord]] list of server[s]
 [waze] [bungee[cord]] %player% server", "[waze] [bungee[cord]] server of %player%
-[skwrapper] (global|network) variable [(from|of)] %object%
+[waze] (global|network) variable [(from|of)] %object%
 
 Events:
 
@@ -63,9 +70,9 @@ Events:
 
 Conditions:
 
-holo id %string% exist[s]
-[skwrapper] server %string% is online
+[waze] holo id %string% exist[s]
+[waze] server %string% is online
 
 Types:
 
-advancement
+[waze] advancement

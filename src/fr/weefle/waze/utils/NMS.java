@@ -98,7 +98,7 @@ public class NMS {
 					return playerAdvancementDoneEvent.getAdvancement();
 				}
 			}, 0);
-			Classes.registerClass(new ClassInfo<Advancement>(Advancement.class, "advancement").user("advancement(s)?").name("Advancement").parser(new Parser<Advancement>() {
+			Classes.registerClass(new ClassInfo<Advancement>(Advancement.class, "[waze] advancement").user("advancement(s)?").name("Advancement").parser(new Parser<Advancement>() {
 
 				@Override
 				public String getVariableNamePattern() {
