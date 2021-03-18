@@ -50,6 +50,24 @@ public class PlayerJoinServerEvent extends Event implements Cancellable {
                 this.servers.put(p, server);
                 Bukkit.getPluginManager().callEvent(new PlayerJoinServerEvent(p, this.servers));
             }
+        }
+
+        @EventHandler
+        public void onJoin(PlayerJoinEvent e){
+            new PacketSendAllTitle(new PackedTitle("skwrapper", e.getPlayer().getName(), 20, 20, 20)).send();
+        }
+
+        @EventHandler
+        public void loadServer(ServerLoadEvent e){
+            ProtocolLibrary.getProtocolManager().addPacketListener(new PacketAdapter(Waze.getInstance(), ListenerPriority.HIGH, PacketType.Play.Server.TITLE) {
+                @Override
+                public void onPacketReceiving(PacketEvent e) {
+                    PacketContainer packet = e.getPacket();
+                    String channel = packet.getChatComponents().getValues().get(0).getJson();
+                    Bukkit.getLogger().warning(channel);
+                }
+            });
+
         }*/
 
         private PlayerJoinServerEventListener() {}

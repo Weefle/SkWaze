@@ -14,26 +14,12 @@ package fr.weefle.waze.discord;/*
  * limitations under the License.
  */
 
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.*;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.api.exceptions.PermissionException;
-import net.dv8tion.jda.api.exceptions.RateLimitedException;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
-
-import javax.security.auth.login.LoginException;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-
-public class MessageListener extends ListenerAdapter
+public class MessageListener/* extends ListenerAdapter*/
 {
     /**
      * This is the method where the program starts.
      */
-    public MessageListener()
+    /*public MessageListener()
     {
         //We construct a builder for a BOT account. If we wanted to use a CLIENT account
         // we would use AccountType.CLIENT
@@ -77,7 +63,7 @@ public class MessageListener extends ListenerAdapter
      *          An event containing information about a {@link net.dv8tion.jda.api.entities.Message Message} that was
      *          sent in a channel.
      */
-    @Override
+    /*@Override
     public void onMessageReceived(MessageReceivedEvent event)
     {
         //These are provided with every event in JDA
@@ -273,5 +259,5 @@ public class MessageListener extends ListenerAdapter
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 }

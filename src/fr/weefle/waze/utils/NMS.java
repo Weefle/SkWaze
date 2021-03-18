@@ -131,7 +131,7 @@ public class NMS {
 		}
 		PlayerJumpEvent.register(Waze.getInstance());
 		PlayerSwimEvent.register(Waze.getInstance());
-		PlayerJoinServerEvent.register(Waze.getInstance());
+		//PlayerJoinServerEvent.register(Waze.getInstance());
 		Bukkit.getServer().getPluginManager().registerEvents(new UpdaterListener(), Waze.getInstance());
 		Skript.registerAddon(Waze.getInstance());
 		Skript.registerEffect(WazeEffectTitle.class, "[waze] (send|create) title %string% with [sub[title]] %string% (to|for) %players% (for|to) %integer% second[s]");
@@ -145,11 +145,11 @@ public class NMS {
 		Skript.registerEffect(WazeEffectAutoRespawn.class, "[waze] [auto]respawn %players%");
 		Skript.registerEffect(WazeEffectParticles.class, "[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %locations% (and|with) offset %float%, %float%, %float% (and|with|at) speed %float%");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
-		Skript.registerEvent("Join Server Event", SimpleEvent.class, PlayerJoinServerEvent.class, "[skwrapper] player join[ing]");
+		//Skript.registerEvent("Join Server Event", SimpleEvent.class, PlayerJoinServerEvent.class, "[skwrapper] player join[ing]");
 		Skript.registerEvent("Toggle Swim Event", SimpleEvent.class, EntityToggleSwimEvent.class, "[waze] toggle swim[ing]");
 		Skript.registerEvent("Swim Event", SimpleEvent.class, PlayerSwimEvent.class, "[waze] swim[ing]");
 		Skript.registerEvent("Horse Jump Event", SimpleEvent.class, HorseJumpEvent.class, "[waze] horse jump[ing]");
-		EventValues.registerEventValue(PlayerJoinServerEvent.class, Player.class, new Getter<Player, PlayerJoinServerEvent>() {
+		/*EventValues.registerEventValue(PlayerJoinServerEvent.class, Player.class, new Getter<Player, PlayerJoinServerEvent>() {
 			public Player get(PlayerJoinServerEvent playerJoinServerEvent) {
 				return playerJoinServerEvent.getPlayer();
 			}
@@ -158,7 +158,7 @@ public class NMS {
 			public String get(PlayerJoinServerEvent playerJoinServerEvent) {
 				return playerJoinServerEvent.getServer();
 			}
-		},  0);
+		},  0);*/
 		EventValues.registerEventValue(EntityToggleSwimEvent.class, Player.class, new Getter<Player, EntityToggleSwimEvent>() {
 			public Player get(EntityToggleSwimEvent entityToggleSwimEvent) {
 				return (Player)entityToggleSwimEvent.getEntity();
@@ -176,6 +176,13 @@ public class NMS {
 		},  0);
 
 		Skript.registerExpression(WazeExpressionBungeeOnlineCountGlobal.class, Integer.class, ExpressionType.PROPERTY, "[waze] [number of] online player[s] on bungee[cord]");
+		Skript.registerEffect(WazeEffectSendAllMessage.class, "[waze] send network message %string% to proxy players");
+		Skript.registerEffect(WazeEffectSendMessage.class, "[waze] send network message %string% to %players%");
+		Skript.registerEffect(WazeEffectSendAllTitle.class, "[waze] send network title %string% [with] subtitle %string% (to|for) proxy players (for|to) %integer% second[s]");
+		Skript.registerEffect(WazeEffectSendTitle.class, "[waze] send network title %string% [with] subtitle %string% (to|for) %players% (for|to) %integer% second[s]");
+		Skript.registerEffect(WazeEffectRunProxyCommand.class, "[waze] run proxy command %string%");
+		Skript.registerEffect(WazeEffectSendActionBar.class, "[waze] send network actionbar %string% to proxy players");
+		Skript.registerEffect(WazeEffectSendActionBar.class, "[waze] send network actionbar %string% to %players%");
 		Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
 		Skript.registerEffect(WazeEffectRefreshTemplates.class, "[waze] refresh [all] [skwrapper] server templates");
 		Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");
@@ -189,14 +196,14 @@ public class NMS {
 		Skript.registerEffect(WazeEffectStopProxy.class, "[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]");
 		Skript.registerExpression(WazeExpressionBungeeServerList.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] server[s] list", "[waze] [bungee[cord]] list of server[s]");
 		Skript.registerExpression(WazeExpressionPlayerServer.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] %player% server", "[waze] [bungee[cord]] server of %player%");
-		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[skwrapper] (global|network) variable [(from|of)] %object%");
-		Skript.registerCondition(WazeConditionIsServerOnline.class, "[skwrapper] server %string% is online");
+		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[waze] (global|network) variable [(from|of)] %object%");
+		Skript.registerCondition(WazeConditionIsServerOnline.class, "[waze] server %string% is online");
 		Waze.getInstance().getLogger().info("BungeeCord setup was successful, your data will be sent across the network!");
 
 
 		if(Bukkit.getServer().getPluginManager().getPlugin("HolographicDisplays") != null) {
 			holograms = new HologramAPI();
-			Skript.registerCondition(WazeConditionHologram.class, "holo id %string% exist[s]");
+			Skript.registerCondition(WazeConditionHologram.class, "[waze] holo id %string% exist[s]");
 			Skript.registerEffect(WazeEffectCreateHologram.class, "[waze] (create|spawn) [[a] new] hologram display[ing] %string% (at|from) %locations% (and|with) id %string%");
 			Skript.registerEffect(WazeEffectRemoveHologram.class, "[waze] (delete|remove|clear) hologram with id %string%");
 			Skript.registerEffect(WazeEffectTeleportHologram.class, "[waze] (teleport|move) hologram with id %string% (to|at) %locations%");
