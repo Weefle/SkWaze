@@ -40,6 +40,8 @@ public enum BungeePacketType {
 	STOPPROXY(24),
 	TELLRAW(31),
 	WRITECONSOLE(25),
+	VARIABLE(33),
+	VARIABLE_REMOVE(34),
 	UNKNOWN(-1);
 	
 	private int id;

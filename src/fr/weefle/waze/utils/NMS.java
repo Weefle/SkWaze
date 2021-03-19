@@ -98,7 +98,7 @@ public class NMS {
 					return playerAdvancementDoneEvent.getAdvancement();
 				}
 			}, 0);
-			Classes.registerClass(new ClassInfo<Advancement>(Advancement.class, "[waze] advancement").user("advancement(s)?").name("Advancement").parser(new Parser<Advancement>() {
+			Classes.registerClass(new ClassInfo<Advancement>(Advancement.class, "advancement").user("advancement(s)?").name("Advancement").parser(new Parser<Advancement>() {
 
 				@Override
 				public String getVariableNamePattern() {
@@ -195,7 +195,7 @@ public class NMS {
 		Skript.registerEffect(WazeEffectStopProxy.class, "[waze] (stop|end|shut[ ]down) [skwrapper] proxy [server]");
 		Skript.registerExpression(WazeExpressionBungeeServerList.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] server[s] list", "[waze] [bungee[cord]] list of server[s]");
 		Skript.registerExpression(WazeExpressionPlayerServer.class, String.class, ExpressionType.PROPERTY, "[waze] [bungee[cord]] %player% server", "[waze] [bungee[cord]] server of %player%");
-		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[waze] (global|network) variable [(from|of)] %object%");
+		Skript.registerExpression(WazeExpressionNetworkVariable.class, Object.class, ExpressionType.COMBINED, "[waze] (global|network) variable [(from|of)] %objects%");
 		Skript.registerCondition(WazeConditionIsServerOnline.class, "[waze] server %string% is online");
 		Waze.getInstance().getLogger().info("BungeeCord setup was successful, your data will be sent across the network!");
 
