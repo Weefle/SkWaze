@@ -42,6 +42,7 @@ public enum BungeePacketType {
 	WRITECONSOLE(25),
 	VARIABLE(33),
 	VARIABLE_REMOVE(34),
+	VARIABLE_GET(35),
 	UNKNOWN(-1);
 	
 	private int id;

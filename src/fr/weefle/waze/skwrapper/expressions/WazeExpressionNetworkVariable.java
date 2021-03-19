@@ -12,6 +12,7 @@ import ch.njol.skript.variables.Variables;
 import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 import me.dommi2212.BungeeBridge.packets.PacketVariable;
+import me.dommi2212.BungeeBridge.packets.PacketVariableGet;
 import me.dommi2212.BungeeBridge.packets.PacketVariableRemove;
 import org.bukkit.event.Event;
 
@@ -56,18 +57,16 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
     protected Object[] get(final Event e) {
         final String ID = this.variableString.toString(e);
         
-        return new Object[] {Variables.getVariable(ID, null, true)};
+        return new Object[] {new PacketVariableGet(ID).send()};
     }
     
     public void change(final Event e, final Object[] delta, final Changer.ChangeMode mode) {
         final String ID = this.variableString.toString(e);
         if (mode == Changer.ChangeMode.SET) {
-            PacketVariable packet = new PacketVariable(ID, delta[0]);
-            Variables.setVariable(ID, packet.send(), null, true);
+            new PacketVariable(ID, delta[0]).send();
         }
         else if (mode == Changer.ChangeMode.RESET || mode == Changer.ChangeMode.DELETE) {
             new PacketVariableRemove(ID).send();
-            Variables.setVariable(ID, null, null, true);
         }
     }
     

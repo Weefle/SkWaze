@@ -19,7 +19,7 @@ public class PacketVariable extends BungeePacket implements Serializable {
     }
 
     public PacketVariable(String ID, Object object) {
-        super(BungeePacketType.VARIABLE, true);
+        super(BungeePacketType.VARIABLE, false);
         this.ID = ID;
         this.object = object;
     }
