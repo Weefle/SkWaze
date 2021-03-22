@@ -2,10 +2,7 @@ package fr.weefle.waze.skwrapper.expressions;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
-import ch.njol.skript.lang.Expression;
-import ch.njol.skript.lang.SkriptParser;
-import ch.njol.skript.lang.Variable;
-import ch.njol.skript.lang.VariableString;
+import ch.njol.skript.lang.*;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.skript.util.StringMode;
 import ch.njol.skript.variables.Variables;
@@ -20,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
 {
-    private Variable variable;
+    private static Variable<?> variable;
     private VariableString variableString;
     
     public Class<?> getReturnType() {
@@ -30,25 +27,40 @@ public class WazeExpressionNetworkVariable extends SimpleExpression<Object>
     public boolean isSingle() {
         return !this.variable.isList();
     }
-    
-    public boolean init(final Expression<?>[] e, final int matchedPattern, final Kleenean isDelayed, final SkriptParser.ParseResult parser) {
-        /*if (!(e[0] instanceof Variable)) {
-            Skript.error("Network Variables must be a variable!");
-            return false;
+
+    @SuppressWarnings("unchecked")
+    private <T> Expression<T> getExpression(Expression<?> expr) {
+        if (expr instanceof UnparsedLiteral) {
+            Literal<?> parsedLiteral = ((UnparsedLiteral) expr).getConvertedExpression(Object.class);
+            return (Expression<T>) (parsedLiteral == null ? expr : parsedLiteral);
         }
-        if (!((Variable)e[0]).isList()) {*/
-        if((Variable)e[0]!=null){
-            this.variable = (Variable)e[0];
-            final String var = this.variable.toString().substring(1, this.variable.toString().length() - 1);
-            //Bukkit.getLogger().warning(var);
-            this.variableString = VariableString.newInstance(var, StringMode.VARIABLE_NAME);
-            return true;
-        }
-        //Skript.error("Network Variables can't be lists at the moment!");
-        Skript.error("Network Variables can't be null!");
-        return false;
+        return (Expression<T>) expr;
     }
     
+    public boolean init(final Expression<?>[] e, final int matchedPattern, final Kleenean isDelayed, final SkriptParser.ParseResult parser) {
+        if (e[0] instanceof Variable) {
+            variable = (Variable<?>) e[0];
+        } else {
+            Expression<?> expression = getExpression(e[0]);
+            if (expression instanceof Variable) {
+                variable = (Variable<?>) expression;
+            }
+        }
+        if (variable != null) {
+            if (variable.isLocal()) {
+                Skript.error("Network Variables can not be a local variable.");
+                return false;
+            }
+            //substring the variable ends { and } from the variable.
+            String var = variable.toString().substring(1, variable.toString().length() - 1);
+            //creates a new VariableString which is what Skript accepts to get Variables.
+            variableString = VariableString.newInstance(var, StringMode.VARIABLE_NAME);
+            return true;
+        }
+        Skript.error("Network Variables must be in a variable format!");
+        return false;
+    }
+
     public String toString(@Nullable final Event e, final boolean arg1) {
         return "[skwrapper] (global|network) variable [(from|of)] %objects%";
     }

@@ -24,12 +24,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Added packets for variables">
-      <change afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketVariableGet.java" afterDir="false" />
+    <list default="true" id="d774ea74-17b9-4550-b188-c1c30d0ca163" name="Default Changelist" comment="Added variable get">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/Waze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/skwrapper/expressions/WazeExpressionNetworkVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/BungeePacketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/BungeePacketType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/dommi2212/BungeeBridge/packets/PacketVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/weefle/waze/utils/Updater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/weefle/waze/utils/Updater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +183,10 @@
       <workItem from="1616152922738" duration="235000" />
       <workItem from="1616153419116" duration="1435000" />
       <workItem from="1616157693113" duration="8000" />
+      <workItem from="1616164194268" duration="417000" />
+      <workItem from="1616245803664" duration="1565000" />
+      <workItem from="1616423283910" duration="2621000" />
+      <workItem from="1616450828504" duration="4000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed 1.15 errors">
       <created>1592425240537</created>
@@ -352,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616153155122</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added variable get">
+      <created>1616164255739</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1616164255739</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,6 +403,7 @@
     <MESSAGE value="Fixed allactionbar" />
     <MESSAGE value="Fixed syntaxes" />
     <MESSAGE value="Added packets for variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added packets for variables" />
+    <MESSAGE value="Added variable get" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added variable get" />
   </component>
 </project>

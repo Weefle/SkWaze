@@ -61,40 +61,11 @@ public class Waze extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		ConsolePrinter.print("Starting Socket System... Keep in mind you always have to use the same version of SkWrapper(Bungeecord) and SkWaze(Spigot)!");
 		instance = this;
 		serializableManager = new SerializableManager();
-		enable();
-		this.getCommand("packetmanager").setExecutor(new CommandPacketManager());
-		registerListeners();
-
-		ConsolePrinter.print("Port: " + port);
-		ConsolePrinter.print("SecurityMode: " + secmode);
-
-		long sended = System.currentTimeMillis();
-		PacketServerRunning startpacket = new PacketServerRunning(Bukkit.getMotd(), Bukkit.getPort(), updateinterval, getVersion(), Bukkit.getMaxPlayers());
-		ServerRunningResult result = (ServerRunningResult) startpacket.send();
-
-		if(result.getErrorCode() == 0) {
-			bungeename = result.getBungeename();
-			ConsolePrinter.print("Connected! Server ---[" + (result.getTime() - sended) + "ms]---> Bungee ---[" + (System.currentTimeMillis() - result.getTime()) + "ms]---> Server");
-			Bukkit.getScheduler().runTaskTimerAsynchronously(this, new Runnable() {
-				@Override
-				public void run() {
-					int errorCode = (int) new PacketKeepAlive(bungeename, true, Bukkit.getMotd()).send();
-					if(errorCode != 0) {
-						fixKeepAlive(errorCode);
-					}
-				}
-			}, updateinterval * 20L, updateinterval * 20L);
-		} else {
-			handleServerRunningError(result.getErrorCode());
-		}
-		//new DiscordRegister("token");
-		//Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		NMS nms = new NMS();
-			new Metrics(this);
-			getLogger().info("Metrics setup was successful!");
+		new Metrics(this);
+		getLogger().info("Metrics setup was successful!");
 		try {
 			new Updater(this, 49195);
 			getLogger().info("Updater setup was successful!");
@@ -115,12 +86,44 @@ public class Waze extends JavaPlugin {
 
 			Bukkit.getPluginManager().disablePlugin(this);
 		}
+		if(Updater.useskwrapper) {
+			ConsolePrinter.print("Starting Socket System... Keep in mind you always have to use the same version of SkWrapper(Bungeecord) and SkWaze(Spigot)!");
+			enable();
+			this.getCommand("packetmanager").setExecutor(new CommandPacketManager());
+			registerListeners();
+
+			ConsolePrinter.print("Port: " + port);
+			ConsolePrinter.print("SecurityMode: " + secmode);
+
+			long sended = System.currentTimeMillis();
+			PacketServerRunning startpacket = new PacketServerRunning(Bukkit.getMotd(), Bukkit.getPort(), updateinterval, getVersion(), Bukkit.getMaxPlayers());
+			ServerRunningResult result = (ServerRunningResult) startpacket.send();
+
+			if (result.getErrorCode() == 0) {
+				bungeename = result.getBungeename();
+				ConsolePrinter.print("Connected! Server ---[" + (result.getTime() - sended) + "ms]---> Bungee ---[" + (System.currentTimeMillis() - result.getTime()) + "ms]---> Server");
+				Bukkit.getScheduler().runTaskTimerAsynchronously(this, new Runnable() {
+					@Override
+					public void run() {
+						int errorCode = (int) new PacketKeepAlive(bungeename, true, Bukkit.getMotd()).send();
+						if (errorCode != 0) {
+							fixKeepAlive(errorCode);
+						}
+					}
+				}, updateinterval * 20L, updateinterval * 20L);
+			} else {
+				handleServerRunningError(result.getErrorCode());
+			}
+		}
+		//new DiscordRegister("token");
         }
 
 	@Override
 	public void onDisable() {
-		PacketServerStopping stoppacket = new PacketServerStopping(bungeename);
-		stoppacket.send();
+		if(Updater.useskwrapper) {
+			PacketServerStopping stoppacket = new PacketServerStopping(bungeename);
+			stoppacket.send();
+		}
 		instance = null;
 	}
 

@@ -21,6 +21,7 @@ public class Updater
   private boolean log = false;
   private boolean enabled = true;
   public static boolean enabledingame = true;
+  public static boolean useskwrapper = false;
   private URL url;
   private Waze m;
   public Updater(Waze m) {
@@ -63,6 +64,8 @@ public class Updater
       yamlConfig.addDefault("enabled", Boolean.valueOf(true));
       yamlConfig.options().indent();
       yamlConfig.addDefault("enabled-in-game", Boolean.valueOf(true));
+      yamlConfig.options().indent();
+      yamlConfig.addDefault("use-skwrapper", Boolean.valueOf(false));
       yamlConfig.save(config);
     }
     try
@@ -76,6 +79,7 @@ public class Updater
     }
     this.enabled = yamlConfig.getBoolean("enabled");
     enabledingame = yamlConfig.getBoolean("enabled-in-game");
+    useskwrapper = yamlConfig.getBoolean("use-skwrapper");
     
     super.start();
   }
