@@ -196,8 +196,11 @@ public class Waze extends JavaPlugin {
 	 * @return The version of BungeeBridgeC.
 	 */
 	public static int getVersion() {
-		return Integer.valueOf(instance.getDescription().getVersion().replace(".", ""));
+		return 3;
 	}
+	/*public static int getVersion() {
+		return Integer.valueOf(instance.getDescription().getVersion().replace(".", ""));
+	}*/
 
 	/**
 	 * Gets the bungeename of this server.

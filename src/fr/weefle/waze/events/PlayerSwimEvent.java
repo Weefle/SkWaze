@@ -1,16 +1,15 @@
 package fr.weefle.waze.events;
 
+import fr.weefle.waze.utils.NMS;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Cancellable;
-import org.bukkit.event.Event;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.HandlerList;
-import org.bukkit.event.Listener;
+import org.bukkit.event.*;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public class PlayerSwimEvent extends Event implements Cancellable{
 	
@@ -25,7 +24,13 @@ public class PlayerSwimEvent extends Event implements Cancellable{
     	public void onSwim(PlayerMoveEvent e) {
     		Location location = e.getPlayer().getLocation();
     		location.setY(location.getBlockY() + 1);
-    		if(e.getTo().getBlock().isLiquid() && location.getBlock().getType() != Material.AIR && e.getTo().getBlock().getType() == Material.LEGACY_STATIONARY_WATER || e.getTo().getBlock().getType() == Material.WATER) {
+    		Material mat = null;
+			if(NMS.version.contains("v1_7") || NMS.version.contains("v1_8") || NMS.version.contains("v1_9") || NMS.version.contains("v1_10") || NMS.version.contains("v1_11")){
+				mat = Material.valueOf("STATIONARY_WATER");
+			}else{
+				mat = Material.LEGACY_STATIONARY_WATER;
+			}
+    		if(Objects.requireNonNull(e.getTo()).getBlock().isLiquid() && location.getBlock().getType() != Material.AIR && e.getTo().getBlock().getType() == mat || e.getTo().getBlock().getType() == Material.WATER) {
     			
     			Bukkit.getPluginManager().callEvent(new PlayerSwimEvent(e.getPlayer()));
     			

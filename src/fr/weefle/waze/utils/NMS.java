@@ -49,10 +49,10 @@ public class NMS {
 	private SideBar sidebar;
 	private AutoRespawnAPI autorespawn;
 	private HologramAPI holograms;
+	public static String version;
 
 	public boolean isSet() {
 		instance = this;
-		String version;
 
 		try {
 
@@ -84,6 +84,18 @@ public class NMS {
 			autorespawn = new AutoRespawnNew();
 			bossbar = new BossBarNew();
 			actionbar = new ActionBarOld();
+		}else if(version.contains("v1_13") || version.contains("v1_14") || version.contains("v1_15") || version.contains("v1_16")) {
+			Skript.registerEvent("Toggle Swim Event", SimpleEvent.class, EntityToggleSwimEvent.class, "[waze] toggle swim[ing]");
+			EventValues.registerEventValue(EntityToggleSwimEvent.class, Player.class, new Getter<Player, EntityToggleSwimEvent>() {
+				public Player get(EntityToggleSwimEvent entityToggleSwimEvent) {
+					return (Player)entityToggleSwimEvent.getEntity();
+				}
+			},  0);
+			EventValues.registerEventValue(HorseJumpEvent.class, AbstractHorse.class, new Getter<AbstractHorse, HorseJumpEvent>() {
+				public AbstractHorse get(HorseJumpEvent horseJumpEvent) {
+					return horseJumpEvent.getEntity();
+				}
+			},  0);
 		}else {
 			Skript.registerEvent("Advancement Done Event", SimpleEvent.class, PlayerAdvancementDoneEvent.class, "[waze] advancement [(done|obtained|won)]");
 			EventValues.registerEventValue(PlayerAdvancementDoneEvent.class, Player.class, new Getter<Player, PlayerAdvancementDoneEvent>() {
@@ -145,7 +157,6 @@ public class NMS {
 		Skript.registerEffect(WazeEffectParticles.class, "[waze] (spawn|create|summon) [a number of] %integer% [of] %string%['s] particle[s] (to|for) %players% (at|from) %locations% (and|with) offset %float%, %float%, %float% (and|with|at) speed %float%");
 		Skript.registerEvent("Jump Event", SimpleEvent.class, PlayerJumpEvent.class, "[waze] jump[ing]");
 		//Skript.registerEvent("Join Server Event", SimpleEvent.class, PlayerJoinServerEvent.class, "[skwrapper] player join[ing]");
-		Skript.registerEvent("Toggle Swim Event", SimpleEvent.class, EntityToggleSwimEvent.class, "[waze] toggle swim[ing]");
 		Skript.registerEvent("Swim Event", SimpleEvent.class, PlayerSwimEvent.class, "[waze] swim[ing]");
 		Skript.registerEvent("Horse Jump Event", SimpleEvent.class, HorseJumpEvent.class, "[waze] horse jump[ing]");
 		/*EventValues.registerEventValue(PlayerJoinServerEvent.class, Player.class, new Getter<Player, PlayerJoinServerEvent>() {
@@ -158,19 +169,9 @@ public class NMS {
 				return playerJoinServerEvent.getServer();
 			}
 		},  0);*/
-		EventValues.registerEventValue(EntityToggleSwimEvent.class, Player.class, new Getter<Player, EntityToggleSwimEvent>() {
-			public Player get(EntityToggleSwimEvent entityToggleSwimEvent) {
-				return (Player)entityToggleSwimEvent.getEntity();
-			}
-		},  0);
 		EventValues.registerEventValue(PlayerSwimEvent.class, Player.class, new Getter<Player, PlayerSwimEvent>() {
 			public Player get(PlayerSwimEvent playerSwimEvent) {
 				return playerSwimEvent.getPlayer();
-			}
-		},  0);
-		EventValues.registerEventValue(HorseJumpEvent.class, AbstractHorse.class, new Getter<AbstractHorse, HorseJumpEvent>() {
-			public AbstractHorse get(HorseJumpEvent horseJumpEvent) {
-				return horseJumpEvent.getEntity();
 			}
 		},  0);
 
