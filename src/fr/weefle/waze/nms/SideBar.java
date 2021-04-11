@@ -1,32 +1,42 @@
 package fr.weefle.waze.nms;
 
 import org.bukkit.entity.Player;
-import fr.minuskube.netherboard.Netherboard;
-import fr.minuskube.netherboard.bukkit.BPlayerBoard;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class SideBar {
-	
-	//ArrayList<BPlayerBoard> boards = new ArrayList<>();
+
+	private final Map<UUID, FastBoard> boards = new HashMap<>();
 	
 
     public void setSideBar(String name, Player p, String score, int line) {
-    	if(Netherboard.instance().getBoard(p) == null) {
-    		BPlayerBoard board = Netherboard.instance().createBoard(p, name);
-    		board.set(score, line);
-    }else{
-    	BPlayerBoard board = Netherboard.instance().getBoard(p);
-    	board.setName(name);
-    	board.set(score, line);
+
+    	if(boards.get(p.getUniqueId()) != null && !boards.get(p.getUniqueId()).isDeleted()){
+
+			boards.get(p.getUniqueId()).updateTitle(name);
+			boards.get(p.getUniqueId()).updateLine(line, score);
+		} else{
+			FastBoard board = new FastBoard(p);
+
+			board.updateTitle(name);
+			board.updateLine(line, score);
+
+			boards.put(p.getUniqueId(), board);
+
     	}
     }
     
     public void removeLineSideBar(Player p, int line) {
-    	BPlayerBoard board = Netherboard.instance().getBoard(p);
-    	board.remove(line);
+    	if(!boards.get(p.getUniqueId()).isDeleted()) {
+			boards.get(p.getUniqueId()).removeLine(line);
+		}
     }
 
     public void removeSideBar(Player p) {
-    	BPlayerBoard board = Netherboard.instance().getBoard(p);
-    	board.delete();
+		if(!boards.get(p.getUniqueId()).isDeleted()) {
+			boards.get(p.getUniqueId()).delete();
+		}
     }
 }

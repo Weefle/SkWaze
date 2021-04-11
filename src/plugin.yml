@@ -1,9 +1,9 @@
 name: SkWaze
 author: Weefle
-version: 3.0.4
+version: 3.0.5
 description: The coolest Skript's addon
 depends: [Skript]
-softdepends: [BossBarAPI, Citizens, Builder, Constructor, LibsDisguises, ProtocolLib, HolographicDisplays, Netherboard]
+softdepends: [BossBarAPI, Citizens, Builder, Constructor, LibsDisguises, ProtocolLib, HolographicDisplays]
 main: fr.weefle.waze.Waze
 api-version: 1.13
 commands:

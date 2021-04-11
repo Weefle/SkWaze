@@ -186,6 +186,12 @@ public class NMS {
 			}
 		},  0);
 
+		sidebar = new SideBar();
+		Skript.registerEffect(WazeEffectSetSideBar.class, "[waze] (change|set) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
+		Skript.registerEffect(WazeEffectRemoveSideBar.class, "[waze] (clear|remove|delete) sidebar (of|for) %players%");
+		Skript.registerEffect(WazeEffectRemoveLineSideBar.class, "[waze] (clear|remove|delete) line %integer% (of|from) sidebar (of|for) %players%");
+
+
 		Skript.registerExpression(WazeExpressionBungeeOnlineCountGlobal.class, Integer.class, ExpressionType.PROPERTY, "[waze] [number of] online player[s] on bungee[cord]");
 		Skript.registerEffect(WazeEffectSendAllMessage.class, "[waze] send network message %string% to proxy players");
 		Skript.registerEffect(WazeEffectSendMessage.class, "[waze] send network message %string% to %players%");
@@ -227,15 +233,6 @@ public class NMS {
 			Waze.getInstance().getLogger().info("HolographicDisplays setup was successful, you can now create holograms!");
 		}else {
 			Waze.getInstance().getLogger().severe("Failed to setup HolographicDisplays, you need it installed to use holograms features!");
-		}
-		if(Bukkit.getServer().getPluginManager().getPlugin("Netherboard") != null) {
-			sidebar = new SideBar();
-			Skript.registerEffect(WazeEffectSetSideBar.class, "[waze] (change|set) sidebar %string% (with|and) score %string% (at|for) line %integer% (to|for) %players%");
-			Skript.registerEffect(WazeEffectRemoveSideBar.class, "[waze] (clear|remove|delete) sidebar (of|for) %players%");
-			Skript.registerEffect(WazeEffectRemoveLineSideBar.class, "[waze] (clear|remove|delete) line %integer% (of|from) sidebar (of|for) %players%");
-			Waze.getInstance().getLogger().info("Netherboard setup was successful, you can now create scoreboards!");
-		}else {
-			Waze.getInstance().getLogger().severe("Failed to setup Netherboard, you need it installed to use scoreboards features!");
 		}
 		if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib") != null && Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises") != null) {
 			Skript.registerEffect(WazeEffectDisguisePlayer.class, "[waze] (disguise|transform|morph) %players% (as|in[to]) player %string% view[itself] %boolean%");
