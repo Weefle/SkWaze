@@ -17,7 +17,9 @@ public class SideBar {
 
 			boards.get(p.getUniqueId()).updateTitle(name);
 			boards.get(p.getUniqueId()).updateLine(line, score);
+
 		} else{
+
 			FastBoard board = new FastBoard(p);
 
 			board.updateTitle(name);
