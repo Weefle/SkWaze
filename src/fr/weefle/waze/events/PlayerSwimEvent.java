@@ -25,7 +25,7 @@ public class PlayerSwimEvent extends Event implements Cancellable{
     		Location location = e.getPlayer().getLocation();
     		location.setY(location.getBlockY() + 1);
     		Material mat = null;
-			if(NMS.version.contains("v1_7") || NMS.version.contains("v1_8") || NMS.version.contains("v1_9") || NMS.version.contains("v1_10") || NMS.version.contains("v1_11")){
+			if(NMS.ver < 13){
 				mat = Material.valueOf("STATIONARY_WATER");
 			}else{
 				mat = Material.LEGACY_STATIONARY_WATER;

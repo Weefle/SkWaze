@@ -49,7 +49,8 @@ public class NMS {
 	private SideBar sidebar;
 	private AutoRespawnAPI autorespawn;
 	private HologramAPI holograms;
-	public static String version;
+	private String version;
+	public static int ver;
 
 	public boolean isSet() {
 		instance = this;
@@ -64,82 +65,92 @@ public class NMS {
 
 		Bukkit.getLogger().info("Your server is running version " + version);
 
+		ver = Integer.parseInt(version.replace("_",  ",").split(",")[1]);
+
 		ping = new Ping();
 		nametag = new Nametag();
 		tablist = new Tablist();
 
-		if (version.equals("v1_8_R3") || version.equals("v1_8_R2") || version.equals("v1_8_R1")) {
+		if(ver < 10){
+			if(ver > 7){
+				title = new Title();
+				actionbar = new ActionBarOld();
+			}
+			if(ver == 9){
+				actionbar = new ActionBarOld();
+			}else{
+				actionbar = new ActionBarNew();
+			}
 			particle = new ParticleOld();
-			title = new Title();
 			autorespawn = new AutoRespawnOld();
 			bossbar = new BossBarOld();
-			actionbar = new ActionBarOld();
-		}else if (version.equals("v1_7_R4") || version.equals("v1_7_R3") || version.equals("v1_7_R2") || version.equals("v1_7_R1")){
-			particle = new ParticleOld();
-			autorespawn = new AutoRespawnOld();
-			bossbar = new BossBarOld();
-		}else if(version.equals("v1_9_R1") || version.equals("v1_9_R2")) {
-			title = new Title();
-			particle = new ParticleNew();
-			autorespawn = new AutoRespawnNew();
-			bossbar = new BossBarNew();
-			actionbar = new ActionBarOld();
-		}else if(version.contains("v1_13") || version.contains("v1_14") || version.contains("v1_15") || version.contains("v1_16")) {
-			Skript.registerEvent("Toggle Swim Event", SimpleEvent.class, EntityToggleSwimEvent.class, "[waze] toggle swim[ing]");
-			EventValues.registerEventValue(EntityToggleSwimEvent.class, Player.class, new Getter<Player, EntityToggleSwimEvent>() {
-				public Player get(EntityToggleSwimEvent entityToggleSwimEvent) {
-					return (Player)entityToggleSwimEvent.getEntity();
-				}
-			},  0);
-			EventValues.registerEventValue(HorseJumpEvent.class, AbstractHorse.class, new Getter<AbstractHorse, HorseJumpEvent>() {
-				public AbstractHorse get(HorseJumpEvent horseJumpEvent) {
-					return horseJumpEvent.getEntity();
-				}
-			},  0);
-		}else {
-			Skript.registerEvent("Advancement Done Event", SimpleEvent.class, PlayerAdvancementDoneEvent.class, "[waze] advancement [(done|obtained|won)]");
-			EventValues.registerEventValue(PlayerAdvancementDoneEvent.class, Player.class, new Getter<Player, PlayerAdvancementDoneEvent>() {
-				@Override
-				public Player get(PlayerAdvancementDoneEvent playerAdvancementDoneEvent) {
-					return playerAdvancementDoneEvent.getPlayer();
-				}
-			}, 0);
-			EventValues.registerEventValue(PlayerAdvancementDoneEvent.class, Advancement.class, new Getter<Advancement, PlayerAdvancementDoneEvent>() {
-				@Override
-				public Advancement get(PlayerAdvancementDoneEvent playerAdvancementDoneEvent) {
-					return playerAdvancementDoneEvent.getAdvancement();
-				}
-			}, 0);
-			Classes.registerClass(new ClassInfo<Advancement>(Advancement.class, "advancement").user("advancement(s)?").name("Advancement").parser(new Parser<Advancement>() {
+		} else {
+				title = new Title();
+				particle = new ParticleNew();
+				autorespawn = new AutoRespawnNew();
+				bossbar = new BossBarNew();
+				actionbar = new ActionBarNew();
 
-				@Override
-				public String getVariableNamePattern() {
-					return ".+";
-				}
+			if(ver > 12) {
+				Skript.registerEvent("Toggle Swim Event", SimpleEvent.class, EntityToggleSwimEvent.class, "[waze] toggle swim[ing]");
+				EventValues.registerEventValue(EntityToggleSwimEvent.class, Player.class, new Getter<Player, EntityToggleSwimEvent>() {
+					public Player get(EntityToggleSwimEvent entityToggleSwimEvent) {
+						return (Player) entityToggleSwimEvent.getEntity();
+					}
+				}, 0);
 
-				@Override
-				@Nullable
-				public Advancement parse(String arg0, ParseContext arg1) {
-					return null;
-				}
+			}
 
-				@Override
-				public String toString(Advancement arg0, int arg1) {
-					return arg0.toString();
-				}
+			if(ver > 11) {
+				Skript.registerEvent("Advancement Done Event", SimpleEvent.class, PlayerAdvancementDoneEvent.class, "[waze] advancement [(done|obtained|won)]");
+				EventValues.registerEventValue(PlayerAdvancementDoneEvent.class, Player.class, new Getter<Player, PlayerAdvancementDoneEvent>() {
+					@Override
+					public Player get(PlayerAdvancementDoneEvent playerAdvancementDoneEvent) {
+						return playerAdvancementDoneEvent.getPlayer();
+					}
+				}, 0);
+				EventValues.registerEventValue(PlayerAdvancementDoneEvent.class, Advancement.class, new Getter<Advancement, PlayerAdvancementDoneEvent>() {
+					@Override
+					public Advancement get(PlayerAdvancementDoneEvent playerAdvancementDoneEvent) {
+						return playerAdvancementDoneEvent.getAdvancement();
+					}
+				}, 0);
+				Classes.registerClass(new ClassInfo<>(Advancement.class, "advancement").user("advancement(s)?").name("Advancement").parser(new Parser<Advancement>() {
 
-				@Override
-				public String toVariableNameString(Advancement arg0) {
-					return arg0.toString();
-				}
+					@Override
+					public String getVariableNamePattern() {
+						return ".+";
+					}
 
-			}));
-			title = new Title();
-			particle = new ParticleNew();
-			autorespawn = new AutoRespawnNew();
-			bossbar = new BossBarNew();
-			actionbar = new ActionBarNew();
+					@Override
+					@Nullable
+					public Advancement parse(String arg0, ParseContext arg1) {
+						return null;
+					}
+
+					@Override
+					public String toString(Advancement arg0, int arg1) {
+						return arg0.getKey().getKey();
+					}
+
+					@Override
+					public String toVariableNameString(Advancement arg0) {
+						return arg0.toString();
+					}
+
+				}));
+			}
+
+			if(ver > 10) {
+				EventValues.registerEventValue(HorseJumpEvent.class, AbstractHorse.class, new Getter<AbstractHorse, HorseJumpEvent>() {
+					public AbstractHorse get(HorseJumpEvent horseJumpEvent) {
+						return horseJumpEvent.getEntity();
+					}
+				}, 0);
+			}
+
 		}
+
 		PlayerJumpEvent.register(Waze.getInstance());
 		PlayerSwimEvent.register(Waze.getInstance());
 		//PlayerJoinServerEvent.register(Waze.getInstance());
