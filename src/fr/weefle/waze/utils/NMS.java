@@ -200,6 +200,8 @@ public class NMS {
 		Skript.registerEffect(WazeEffectRunProxyCommand.class, "[waze] run proxy command %string%");
 		Skript.registerEffect(WazeEffectSendAllActionBar.class, "[waze] send network actionbar %string% to proxy players");
 		Skript.registerEffect(WazeEffectSendActionBar.class, "[waze] send network actionbar %string% to %players%");
+		Skript.registerEffect(WazeEffectSendAllKick.class, "[waze] kick all [player[s]] with [message] %string%");
+		Skript.registerEffect(WazeEffectSendKick.class, "[waze] kick [player] %players% with [message] %string%");
 		Skript.registerEffect(WazeEffectBungeeConnect.class, "[waze] (send|teleport) %players% to [bungee[cord]] server %string%");
 		Skript.registerEffect(WazeEffectRefreshTemplates.class, "[waze] refresh [all] [skwrapper] server templates");
 		Skript.registerEffect(WazeEffectCreateServer.class, "[waze] (add|create) [[a] new] [skwrapper] server named %string% (from|with) template %string%");

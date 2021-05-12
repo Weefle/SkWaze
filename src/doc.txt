@@ -49,6 +49,8 @@ Effects:
 [waze] run proxy command %string%
 [waze] send network actionbar %string% to proxy players
 [waze] send network actionbar %string% to %players%
+[waze] kick all [player[s]] with [message] %string%
+[waze] kick [player] %players% with [message] %string%
 
 Expressions:
 
